@@ -1,0 +1,5 @@
+---
+description: 在构建 React 组件时使用 Chakra UI 的颜色模式实现暗模式。
+globs: src/**/*.*
+---
+- 使用 Chakra UI 的颜色模式实现暗模式

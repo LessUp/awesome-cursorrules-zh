@@ -1,0 +1,16 @@
+---
+description: Next.js 服务器操作的特定指导原则，包括错误建模、验证和 next-safe-action 的使用。
+globs: app/**/*.{ts,js,jsx,tsx}
+---
+- 将预期错误建模为返回值：避免在服务器操作中对预期错误使用 try/catch。使用 useActionState 管理这些错误并将其返回给客户端。
+- 对意外错误使用错误边界：使用 error.tsx 和 global-error.tsx 文件实现错误边界，以处理意外错误并提供回退 UI。
+- 将 useActionState 与 react-hook-form 一起用于表单验证。
+- services/ 目录中的代码始终抛出用户友好的错误，tanStackQuery 可以捕获并向用户显示。
+- 对所有服务器操作使用 next-safe-action：
+  - 实现具有适当验证的类型安全服务器操作。
+  - 利用 next-safe-action 的 action 函数创建操作。
+  - 使用 Zod 定义输入模式以进行强大的类型检查和验证。
+  - 优雅地处理错误并返回适当的响应。
+  - 使用 import type { ActionResponse } from '@/types/actions'
+  - 确保所有服务器操作返回 ActionResponse 类型
+  - 使用 ActionResponse 实现一致的错误处理和成功响应

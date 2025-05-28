@@ -1,0 +1,8 @@
+---
+description: 性能优化规则，包括最小化客户端代码和优化图像。
+globs: **/*.{ts,tsx,js,jsx}
+---
+- 最小化 'use client'、'useEffect' 和 'setState'；优先使用 React 服务器组件 (RSC)。
+- 将客户端组件包装在带有回退的 Suspense 中。
+- 对非关键组件使用动态加载。
+- 优化图像：使用 WebP 格式，包含大小数据，实现延迟加载。

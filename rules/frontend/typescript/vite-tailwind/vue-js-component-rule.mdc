@@ -1,0 +1,9 @@
+---
+description: 定义 Vue.js 组件的风格和结构，包括命名约定、组合 API 使用和 UI 库偏好。
+globs: src/components/**/*.vue
+---
+- 对目录使用小写加破折号（例如，components/auth-wizard）。
+- 优先使用函数的命名导出。
+- 始终使用 Vue Composition API script setup 风格。
+- 使用 DaisyUI 和 Tailwind 进行组件和样式设计。
+- 使用 Tailwind CSS 实现响应式设计；使用移动优先方法。

@@ -1,0 +1,7 @@
+---
+description: 在 FastAPI 项目的 models 目录中定义 Pydantic 模型的指导原则，以确保数据验证和序列化。
+globs: app/models/*.py
+---
+- 使用 Pydantic 模型进行请求和响应模式
+- 使用 Pydantic 字段定义数据类型
+- 使用 Pydantic 验证器实现验证逻辑

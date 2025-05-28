@@ -1,0 +1,38 @@
+// Vue 3 Composition API .cursorrules
+
+// Vue 3 Composition API 最佳实践
+
+const vue3CompositionApiBestPractices = [
+  "使用 setup() 函数处理组件逻辑",
+  "利用 ref 和 reactive 管理响应式状态",
+  "使用 computed() 实现计算属性",
+  "使用 watch 和 watchEffect 处理副作用",
+  "使用 onMounted、onUpdated 等实现生命周期钩子",
+  "利用 provide/inject 进行依赖注入",
+];
+
+// 文件夹结构
+
+const folderStructure = `
+src/
+  components/
+  composables/
+  views/
+  router/
+  store/
+  assets/
+  App.vue
+  main.js
+`;
+
+// 额外说明
+
+const additionalInstructions = `
+1. 使用 TypeScript 确保类型安全
+2. 实现适当的 props 和 emits 定义
+3. 在需要时利用 Vue 3 的 Teleport 组件
+4. 对异步组件使用 Suspense
+5. 实现适当的错误处理
+6. 遵循 Vue 3 风格指南和命名约定
+7. 使用 Vite 进行快速开发和构建
+`;

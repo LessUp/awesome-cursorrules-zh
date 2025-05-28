@@ -1,0 +1,7 @@
+---
+description: 为生成具有特定说明的 React 组件提供示例提示模板。
+globs: packages/ui/src/components/**/*.tsx
+---
+- 示例提示模板：
+  "使用 TypeScript 和 Tailwind CSS 创建一个名为 {ComponentName} 的 React 组件。它应该 {功能描述}。Props 应该包括 {带类型的 props 列表}。组件应该 {任何特定的样式或行为注释}。请提供完整的组件代码。"
+- 记住将 <ui_package_path> 和 <app_package_alias> 等占位符替换为项目中使用的实际值。

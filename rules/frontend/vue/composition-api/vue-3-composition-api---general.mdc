@@ -1,0 +1,10 @@
+---
+description: 使用 Composition API 的 Vue 3 组件的一般指导原则。这包括组件结构和响应式状态管理的最佳实践和建议。
+globs: src/**/*.vue
+---
+- 使用 setup() 函数处理组件逻辑
+- 利用 ref 和 reactive 实现响应式状态
+- 使用 computed() 实现计算属性
+- 使用 watch 和 watchEffect 处理副作用
+- 使用 onMounted、onUpdated 等实现生命周期钩子
+- 利用 provide/inject 进行依赖注入

@@ -1,0 +1,9 @@
+---
+description: 强制执行 Chakra UI 最佳实践以保持一致性并利用框架的功能。
+globs: src/**/*.*
+---
+- 在应用程序根部使用 ChakraProvider
+- 利用 Chakra UI 组件实现一致的设计
+- 实现自定义主题以进行品牌特定的样式设计
+- 使用 Chakra UI 断点系统的响应式样式
+- 利用 Chakra UI hooks 增强功能

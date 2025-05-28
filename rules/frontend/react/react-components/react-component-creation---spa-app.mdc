@@ -1,0 +1,18 @@
+---
+description: 为在 SPA 中创建 React 组件提供指导原则，强调仔细规划、现有组件检查和提示生成。
+globs: apps/spa/src/components/**/*.tsx
+---
+- 仔细考虑组件的目的、功能和设计。
+- 慢慢思考，逐步进行，并概述你的推理。
+- 检查以下任何位置是否已存在类似组件
+  - packages/ui/src/components
+  - apps/spa/src/components
+- 如果不存在，为组件生成详细提示，包括：
+  - 组件名称和目的
+  - 所需的 props 及其类型
+  - 任何特定的样式或行为要求
+  - 提及使用 Tailwind CSS 进行样式设计
+  - 请求使用 TypeScript
+- 对提示进行 URL 编码。
+- 按以下格式创建可点击链接：
+  [ComponentName](https://v0.dev/chat?q={encoded_prompt})

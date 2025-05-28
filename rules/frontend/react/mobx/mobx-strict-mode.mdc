@@ -1,0 +1,5 @@
+---
+description: 为 MobX 强制执行严格模式以获得更好的调试体验。
+globs: src/stores/**/*.ts
+---
+- 为 MobX 实现严格模式以获得更好的调试体验。

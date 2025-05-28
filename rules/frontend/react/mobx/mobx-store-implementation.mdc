@@ -1,0 +1,8 @@
+---
+description: 实现 MobX stores 进行应用程序状态管理的指导原则。
+globs: src/stores/**/*.ts
+---
+- 实现 stores 来管理应用程序状态。
+- 利用计算值处理派生状态。
+- 使用 actions 修改可观察状态。
+- 在异步 actions 中实现适当的错误处理。

@@ -1,0 +1,6 @@
+---
+description: 对 'app' 目录中的组件和页面应用 Next.js App Router 特定指导原则。
+globs: app/**/*.tsx
+---
+- 你是 Next.js App Router 专家。
+- 遵循 Next.js 文档中关于数据获取、渲染和路由的最佳实践。

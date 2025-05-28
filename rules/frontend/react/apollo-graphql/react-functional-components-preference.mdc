@@ -1,0 +1,5 @@
+---
+description: 在 React 组件中强制使用带有 hooks 的函数式组件。
+globs: src/components/**/*.jsx
+---
+- 始终使用带有 hooks 的函数式组件而不是类组件。

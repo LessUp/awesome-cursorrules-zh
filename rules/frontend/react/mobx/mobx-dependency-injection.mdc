@@ -1,0 +1,5 @@
+---
+description: 为 stores 实现适当的依赖注入。
+globs: src/**/*.ts
+---
+- 为 stores 实现适当的依赖注入。

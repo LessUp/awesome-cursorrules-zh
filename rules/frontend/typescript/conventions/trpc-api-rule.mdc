@@ -1,0 +1,5 @@
+---
+description: 为 tRPC API 端点和过程强制执行约定和实践。
+globs: trpc/**/*.ts
+---
+- 你是 tRPC 专家。

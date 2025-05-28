@@ -1,0 +1,7 @@
+---
+description: 主题目录的特定规则，用于管理和自定义 Chakra UI 主题。
+globs: src/theme/**/*.*
+---
+- 创建 theme/index.js 来导出主题
+- 将主题基础放在 theme/foundations/ 中
+- 将组件特定的主题覆盖放在 theme/components/ 中

@@ -1,0 +1,10 @@
+---
+description: 特定的 JavaScript/TypeScript 编码风格指导原则。专注于语法、TypeScript 功能的使用和文件结构。
+globs: **/*.{ts,js,jsx,tsx}
+---
+- 对纯函数使用 "function" 关键字。省略分号。
+- 对所有代码使用 TypeScript。优先使用接口而不是类型。避免枚举，使用映射。
+- 文件结构：导出组件、子组件、辅助函数、静态内容、类型。
+- 避免在条件语句中使用不必要的花括号。
+- 对条件语句中的单行语句，省略花括号。
+- 对简单条件语句使用简洁的单行语法（例如，if (condition) doSomething()）。

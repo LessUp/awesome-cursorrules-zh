@@ -1,0 +1,15 @@
+---
+description: 维护 React 和 Chakra UI 项目的定义文件夹结构以确保代码组织有序。
+globs: src/**/*.*
+---
+- 遵循以下文件夹结构：
+
+src/
+  components/
+  pages/
+  theme/
+    index.js
+    foundations/
+    components/
+  hooks/
+  utils/

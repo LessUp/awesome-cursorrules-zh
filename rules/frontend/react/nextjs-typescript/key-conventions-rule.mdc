@@ -1,0 +1,10 @@
+---
+description: Next.js 项目的关键约定，如使用 'nuqs'、Web Vitals 优化和限制客户端组件。
+globs: **/*.{ts,tsx,js,jsx}
+---
+- 使用 'nuqs' 进行 URL 搜索参数状态管理。
+- 优化 Web Vitals（LCP、CLS、FID）。
+- 限制 'use client'：
+  - 优先使用服务器组件和 Next.js SSR。
+  - 仅在小组件中用于 Web API 访问。
+  - 避免用于数据获取或状态管理。

@@ -1,0 +1,9 @@
+---
+description: 指定前端技术栈，包括 React、TypeScript、Shadcn/UI、Tailwind CSS 和 Lucide React，适用于所有前端文件。
+globs: frontend/**/*.*
+---
+- 框架：Next.js (React)
+- 语言：TypeScript
+- UI 组件：shadcn/ui（基于 Radix UI 原语）
+- 样式：Tailwind CSS
+- 图标：Lucide React

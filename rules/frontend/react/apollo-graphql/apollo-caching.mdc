@@ -1,0 +1,5 @@
+---
+description: 利用 Apollo Client 的缓存功能来提高性能。
+globs: src/**/*.js
+---
+- 利用 Apollo Client 的缓存功能

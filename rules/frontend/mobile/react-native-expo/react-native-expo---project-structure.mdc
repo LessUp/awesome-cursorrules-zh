@@ -1,0 +1,14 @@
+---
+description: 在根级别强制执行 React Native Expo 项目的推荐文件夹结构，包括 assets、src、App.js 和 app.json。
+globs: *.*
+---
+- 确保存在以下文件夹结构：
+  - assets/
+  - src/
+    - components/
+    - screens/
+    - navigation/
+    - hooks/
+    - utils/
+  - App.js
+  - app.json

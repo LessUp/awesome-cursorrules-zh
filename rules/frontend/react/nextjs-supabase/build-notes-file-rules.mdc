@@ -1,0 +1,31 @@
+---
+description: 在 /ProjectDocs/Build_Notes/ 目录中创建和管理构建笔记文件的规则，包括命名约定、内容结构和更新频率。
+globs: **/ProjectDocs/Build_Notes/**/*
+---
+- **位置和命名：**
+   - 将所有笔记文件存储在 `/ProjectDocs/Build_Notes/` 中。
+   - 使用逻辑性、描述性的命名约定，例如 `build-title_phase-#_task-group-name.md`。
+   - 使用 `<build-title>` 描述构建任务。
+   - 使用 `<phase-#>` 为构建任务应用阶段编号。
+   - 使用 `<task-group-name>` 描述任务组名称。
+   - 示例：`supabase-schema-standardization_phase-1_preparation-and-code-analysis.md`
+     - `supabase-schema-standardization` 是构建标题
+     - `phase-1` 是阶段编号
+     - `preparation-and-code-analysis` 是任务组名称
+- **内容结构：**
+   - 以简要的 **任务目标** 开始，总结你要实现的目标。
+   - 提供 **当前状态评估**：简短描述与构建任务相关的项目当前状态。
+   - 提供 **未来状态目标**：简短描述与构建任务相关的项目未来状态。
+   - 接着是 **实施计划**：包含检查清单 **任务** 的编号 **步骤** 列表，以实现未来状态。
+   - 随着任务完成更新 **实施计划** 并划掉不适用的任务。永远不要从计划中删除任务。
+   - 如果计划改变或演进，添加新的 **步骤** 或 **任务**，而不是覆盖之前的内容。
+- **何时更新：**
+   - **任务开始时：** 创建或打开特定任务的笔记文件，在编码前记录初始计划。
+   - **任务执行期间：** 当计划改变、出现困难或产生新见解时添加更新。
+   - **任务完成时：** 附加所做工作的摘要并验证是否与原始目标一致。
+- **风格和语调：**
+   - 保持笔记简洁、切题，不包含无关评论。
+   - 维护逻辑顺序，使未来读者能够理解决策过程而不会混淆。
+- **构建笔记的完成：**
+   - 构建笔记完成后，将文件移动到 `/ProjectDocs/Build_Notes/completed/` 目录。
+   - 如果构建笔记已弃用且不再需要，将文件移动到 `/ProjectDocs/Build_Notes/archived/` 目录。

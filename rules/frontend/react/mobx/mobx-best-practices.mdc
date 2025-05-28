@@ -1,0 +1,5 @@
+---
+description: 遵循 MobX 最佳实践以实现可扩展的状态管理。
+globs: src/**/*.ts
+---
+- 遵循 MobX 可扩展状态管理的最佳实践。

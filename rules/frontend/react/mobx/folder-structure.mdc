@@ -1,0 +1,11 @@
+---
+description: 为 React 和 MobX 项目强制执行特定的目录结构。
+globs: src/**
+---
+- 维护以下文件夹结构：
+  src/
+    components/
+    stores/
+    hooks/
+    pages/
+    utils/

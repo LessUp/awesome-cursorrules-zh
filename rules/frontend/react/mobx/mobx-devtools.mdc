@@ -1,0 +1,5 @@
+---
+description: 利用 MobX DevTools 调试 MobX 应用程序。
+globs: src/**/*.ts
+---
+- 利用 MobX DevTools 进行调试。

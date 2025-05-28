@@ -1,0 +1,6 @@
+---
+description: 指定 LLM 集成规则，包括使用 Python 包装器和 API 端点，适用于所有 LLM 相关文件。
+globs: llm/**/*.*
+---
+- 用于 LLM 交互的 Python 包装器
+- 连接前端与 Python 后端的 API 端点

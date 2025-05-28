@@ -1,0 +1,5 @@
+---
+description: 一般 React 偏好，优先使用带有 hooks 的函数式组件。
+globs: src/**/*.tsx
+---
+- 优先使用带有 hooks 的函数式组件。

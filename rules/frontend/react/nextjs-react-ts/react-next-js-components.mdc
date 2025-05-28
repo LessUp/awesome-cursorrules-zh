@@ -1,0 +1,17 @@
+---
+description: React/Next.js 组件特定规则。包括使用函数式组件、JSX、样式设计和其他 React/Next.js 约定。
+globs: components/**/*.{ts,js,jsx,tsx}
+---
+- 使用函数式组件和 TypeScript 接口。
+- 使用声明式 JSX。
+- 对组件使用 function 而不是 const。
+- 使用 Shadcn UI、Radix 和 Tailwind Aria 进行组件和样式设计。
+- 使用 Tailwind CSS 实现响应式设计。
+- 对响应式设计使用移动优先方法。
+- 将静态内容和接口放在文件末尾。
+- 对渲染函数外的静态内容使用内容变量。
+- 最小化 'use client'、'useEffect' 和 'setState'。优先使用 RSC。
+- 使用 Zod 进行表单验证。
+- 将客户端组件包装在带有回退的 Suspense 中。
+- 对非关键组件使用动态加载。
+- 优化图像：WebP 格式、大小数据、懒加载。

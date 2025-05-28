@@ -1,0 +1,5 @@
+---
+description: 使用 Chakra UI 的 React 组件的一般偏好，包括使用带有 hooks 的函数式组件。
+globs: src/**/*.*
+---
+- 优先使用带有 hooks 的函数式组件

@@ -1,0 +1,5 @@
+---
+description: 遵循 Chakra UI 最佳实践来优化 React 组件的性能。
+globs: src/**/*.*
+---
+- 遵循 Chakra UI 性能优化的最佳实践

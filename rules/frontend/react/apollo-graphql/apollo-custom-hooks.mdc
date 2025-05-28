@@ -1,0 +1,5 @@
+---
+description: 指导为 Apollo 操作实现自定义 hooks。
+globs: src/hooks/**/*.js
+---
+- 为 Apollo 操作实现自定义 hooks

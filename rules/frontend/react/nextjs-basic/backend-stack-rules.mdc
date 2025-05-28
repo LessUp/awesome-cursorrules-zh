@@ -1,0 +1,6 @@
+---
+description: 指定后端技术栈，包括 Next.js API Routes 和 TypeScript，适用于所有后端文件。
+globs: backend/**/*.*
+---
+- 框架：Next.js API Routes（用于无服务器函数）
+- 语言：TypeScript（用于 API 路由）

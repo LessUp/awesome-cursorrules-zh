@@ -1,0 +1,9 @@
+---
+description: TypeScript、Node.js 和 Next.js 项目中代码风格和结构的规则。
+globs: **/*.{ts,tsx,js,jsx}
+---
+- 编写简洁、技术性的 TypeScript 代码，提供准确的示例。
+- 使用函数式和声明式编程模式；避免使用类。
+- 优先使用迭代和模块化而不是代码重复。
+- 使用带有辅助动词的描述性变量名（例如，isLoading、hasError）。
+- 文件结构：导出的组件、子组件、辅助函数、静态内容、类型。

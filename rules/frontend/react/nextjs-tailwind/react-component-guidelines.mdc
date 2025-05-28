@@ -1,0 +1,7 @@
+---
+description: 专注于 components 目录中可重用、响应式和可访问的 React 组件。
+globs: src/components/**/*.tsx
+---
+- 确保所有组件都是可重用的并遵循现有的设计模式。
+- 确保所有组件都是响应式和可访问的。
+- 使用 Tailwind CSS 进行样式设计，遵循定义的调色板。

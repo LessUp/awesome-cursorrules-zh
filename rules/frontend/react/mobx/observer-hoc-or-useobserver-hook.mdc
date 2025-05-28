@@ -1,0 +1,5 @@
+---
+description: 对响应式组件使用 Observer HOC 或 useObserver hook。
+globs: src/components/**/*.tsx
+---
+- 对响应式组件使用 observer HOC 或 useObserver hook。

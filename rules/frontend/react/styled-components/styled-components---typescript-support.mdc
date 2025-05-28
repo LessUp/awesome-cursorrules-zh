@@ -1,0 +1,5 @@
+---
+description: 确保为 styled-components 提供适当的 TypeScript 支持。
+globs: src/components/styled/**/*.tsx
+---
+- 为 styled-components 实现适当的 TypeScript 支持。

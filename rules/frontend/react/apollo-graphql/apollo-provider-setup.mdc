@@ -1,0 +1,5 @@
+---
+description: 要求在应用程序根部使用 Apollo Provider。
+globs: src/App.jsx
+---
+- 在应用程序根部使用 Apollo Provider

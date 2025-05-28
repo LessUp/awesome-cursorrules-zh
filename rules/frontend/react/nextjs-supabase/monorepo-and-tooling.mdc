@@ -1,0 +1,7 @@
+---
+description: 概述 monorepo 结构和工具约定，强调使用 Taskfile.yml 和正确处理环境变量。
+globs: **/packages/**/*, **/app/**/*
+---
+- 如果使用 monorepo 结构，将共享代码放在 `packages/` 目录中，将应用特定代码放在 `app/` 中。
+- 使用 `Taskfile.yml` 命令进行开发、测试和部署任务。
+- 将环境变量和敏感数据保存在代码之外，通过 `.env` 文件或类似配置访问它们。

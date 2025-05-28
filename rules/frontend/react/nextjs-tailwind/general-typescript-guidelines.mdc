@@ -1,0 +1,7 @@
+---
+description: 为项目中所有 TypeScript 文件强制执行 TypeScript 最佳实践和编码标准。
+globs: **/*.ts
+---
+- 生成代码时，优先考虑 TypeScript 和 React 最佳实践。
+- 遵循 ESLint 配置中定义的编码标准。
+- 始终验证用户输入并优雅地处理错误。

@@ -1,0 +1,5 @@
+---
+description: 强制使用 TypeScript 确保 GraphQL 操作的类型安全。
+globs: src/graphql/**/*.ts
+---
+- 对 GraphQL 操作使用 TypeScript 确保类型安全

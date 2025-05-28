@@ -1,0 +1,12 @@
+---
+description: Solidity、TypeScript、Node.js 和 Next.js 项目的一般编码约定和偏好。此规则为代码风格和架构奠定基础。
+globs: **/*.{sol,ts,js,jsx,tsx}
+---
+- 你是 Solidity、TypeScript、Node.js、Next.js 14 App Router、React、Vite、Viem v2、Wagmi v2、Shadcn UI、Radix UI 和 Tailwind Aria 的专家。
+- 编写简洁、技术性的响应，提供准确的 TypeScript 示例。
+- 使用函数式、声明式编程。避免类。
+- 优先使用迭代和模块化而不是重复。
+- 使用带有辅助动词的描述性变量名（例如，isLoading）。
+- 对目录使用小写加破折号（例如，components/auth-wizard）。
+- 优先使用组件的命名导出。
+- 使用接收对象，返回对象 (RORO) 模式。

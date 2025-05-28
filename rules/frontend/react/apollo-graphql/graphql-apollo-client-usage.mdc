@@ -1,0 +1,9 @@
+---
+description: 应用 GraphQL 和 Apollo Client 使用的最佳实践，包括状态管理、数据获取和错误处理。
+globs: src/graphql/**/*.js
+---
+- 使用 Apollo Client 进行状态管理和数据获取
+- 实现查询组件进行数据获取
+- 利用变更操作进行数据修改
+- 使用片段创建可重用的查询部分
+- 实现适当的错误处理和加载状态

@@ -1,0 +1,6 @@
+---
+description: 在 React 组件中使用 Daisy UI 和 Tailwind 进行 UI 和样式设计的规则。
+globs: **/*.{ts,tsx,js,jsx}
+---
+- 使用 Daisy UI 和 Tailwind 进行组件和样式设计。
+- 使用 Tailwind CSS 实现响应式设计；使用移动优先方法。

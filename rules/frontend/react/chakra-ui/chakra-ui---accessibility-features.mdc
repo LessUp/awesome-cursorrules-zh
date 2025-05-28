@@ -1,0 +1,5 @@
+---
+description: 使用 Chakra UI 构建的 React 组件的可访问性功能。
+globs: src/**/*.*
+---
+- 利用 Chakra UI 的内置可访问性功能

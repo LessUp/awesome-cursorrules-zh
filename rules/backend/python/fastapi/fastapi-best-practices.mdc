@@ -1,0 +1,10 @@
+---
+description: 为 'app' 目录中的应用程序代码强制执行 FastAPI 最佳实践，包括数据验证、依赖注入和异步操作。
+globs: app/**/*.*
+---
+- 使用 Pydantic 模型进行请求和响应模式
+- 为共享资源实现依赖注入
+- 对非阻塞操作使用 async/await
+- 使用路径操作装饰器（@app.get、@app.post 等）
+- 使用 HTTPException 实现适当的错误处理
+- 使用 FastAPI 内置的 OpenAPI 和 JSON Schema 支持

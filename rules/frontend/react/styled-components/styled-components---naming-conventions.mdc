@@ -1,0 +1,5 @@
+---
+description: 为 Styled Components 强制执行适当的命名约定。
+globs: src/components/styled/**/*.js
+---
+- 为样式化组件使用适当的命名约定（例如，StyledButton）。

@@ -1,0 +1,11 @@
+---
+description: 状态变化、Web Vitals 和客户端代码使用的关键 Next.js 约定。
+globs: **/*.{ts,js,jsx,tsx}
+---
+- 依赖 Next.js App Router 进行状态变化。
+- 优先考虑 Web Vitals（LCP、CLS、FID）。
+- 最小化 'use client' 使用：
+  - 优先使用服务器组件和 Next.js SSR 功能。
+  - 仅在小组件中用于 Web API 访问时使用 'use client'。
+  - 避免将 'use client' 用于数据获取或状态管理。
+  - 参考 Next.js 文档中关于数据获取、渲染和路由的最佳实践。

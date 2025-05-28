@@ -1,0 +1,5 @@
+---
+description: 如何在 MobX 中使用 TypeScript 的说明。
+globs: src/**/*.ts
+---
+- 对 MobX 使用 TypeScript 确保类型安全。

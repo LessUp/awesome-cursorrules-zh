@@ -1,0 +1,5 @@
+---
+description: 在使用 Chakra UI 的 React 组件时利用 TypeScript 确保类型安全。
+globs: src/**/*.tsx
+---
+- 对 Chakra UI 组件使用 TypeScript 确保类型安全

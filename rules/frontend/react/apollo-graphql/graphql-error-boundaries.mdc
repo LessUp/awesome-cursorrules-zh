@@ -1,0 +1,5 @@
+---
+description: 要求为 GraphQL 错误实现适当的错误边界。
+globs: src/**/*.jsx
+---
+- 为 GraphQL 错误实现适当的错误边界

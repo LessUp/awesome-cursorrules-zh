@@ -1,0 +1,5 @@
+---
+description: 确保使用 Chakra UI 组件以可组合的方式构建 React 组件。
+globs: src/components/**/*.*
+---
+- 使用 Chakra UI 实现适当的组件组合

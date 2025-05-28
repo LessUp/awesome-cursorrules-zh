@@ -1,0 +1,10 @@
+---
+description: 为 Next.js 15+ 项目设置约定，包括利用 App Router、React 服务器组件 (RSC)、SSR 功能和 Zustand 进行状态管理。
+globs: **/*.js, **/*.jsx, **/*.ts, **/*.tsx
+---
+- 针对 **Next.js 15+** 并利用 App Router、React 服务器组件 (RSC) 和 SSR 功能。
+- 在必要时在客户端组件中使用 Zustand 进行状态管理。
+- 使用 `npx shadcn@latest add` 为新组件维护适当的 Shadcn UI 管理。
+- 遵循移动优先方法和响应式设计模式。
+- 强调服务器端逻辑，最小化 `use client` 和其他仅客户端 API 的使用。
+- 将项目构建为渐进式 Web 应用 (PWA)，具有离线功能、类似应用的体验和跨设备可安装性。

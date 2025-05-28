@@ -1,0 +1,6 @@
+---
+description: 根级文件 App.js 和 app.json 的特定配置指导原则
+globs: App.js, app.json
+---
+- 始终保持 App.js 清洁，将工作委托给其他组件。
+- 始终根据文档配置 app.json

@@ -1,0 +1,10 @@
+---
+description: 指定在初始创建后将生成的 React 组件适配到项目结构的步骤。
+globs: packages/ui/src/components/**/*.tsx
+---
+- 生成后，将组件适配到我们的项目结构：
+  - 导入
+    - 从 <ui_package_alias>@repo/ui/components/ui/</ui_package_alias> 导入通用 shadcn/ui 组件
+    - 从 <app_package_alias>@/components</app_package_alias> 导入应用特定组件
+  - 确保它遵循我们现有的组件模式
+  - 添加任何必要的自定义逻辑或状态管理

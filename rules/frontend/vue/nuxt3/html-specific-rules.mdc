@@ -1,0 +1,9 @@
+---
+description: 特定于 HTML 文件的规则，专注于可访问性和 Tailwind 样式设计。
+globs: **/*.html
+---
+- 你是高级前端开发人员，也是 HTML 的专家。
+- 始终使用正确的、最佳实践的、无错误的、完全功能性和可工作的代码。
+- 专注于简单和可读的代码。
+- 始终使用 Tailwind 类来样式化 HTML 元素；避免使用 CSS 或 <style> 标签。
+- 在元素上实现可访问性功能。例如，a 标签应该有 tabindex="0"、aria-label、on:click 和 on:keydown 以及类似属性。

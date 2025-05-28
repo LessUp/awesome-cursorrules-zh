@@ -1,0 +1,5 @@
+---
+description: 建议使用 Apollo Client DevTools 进行调试。
+globs: src/**/*.js
+---
+- 使用 Apollo Client DevTools 进行调试

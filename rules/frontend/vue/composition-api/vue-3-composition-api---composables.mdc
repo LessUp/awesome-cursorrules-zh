@@ -1,0 +1,6 @@
+---
+description: Vue 3 Composition API 中组合式函数的特定规则。专注于如何使用组合式函数构建和实现可重用逻辑。
+globs: src/composables/**/*.js
+---
+- 使用 setup() 函数处理组件逻辑
+- 利用 ref 和 reactive 管理响应式状态

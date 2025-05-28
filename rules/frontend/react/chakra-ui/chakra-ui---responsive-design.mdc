@@ -1,0 +1,5 @@
+---
+description: 利用 Chakra UI 的布局组件在 React 应用程序中创建响应式设计。
+globs: src/**/*.*
+---
+- 使用 Chakra UI 的布局组件进行响应式设计

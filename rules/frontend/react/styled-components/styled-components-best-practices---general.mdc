@@ -1,0 +1,9 @@
+---
+description: 在 React 组件中应用 Styled Components 的最佳实践。
+globs: src/components/styled/**/*.js
+---
+- 使用 styled-components/macro 以获得更好的调试体验。
+- 使用 ThemeProvider 实现全局主题。
+- 创建可重用的样式化组件。
+- 使用 props 进行动态样式设计。
+- 在需要时利用 CSS 辅助函数，如 css``。
