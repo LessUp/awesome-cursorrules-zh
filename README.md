@@ -7,8 +7,11 @@
 让 AI 编程助手更懂中文开发者的需求
 
 [![GitHub stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh)
+[![GitHub forks](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh/network)
 [![翻译进度](https://img.shields.io/badge/翻译进度-35.46%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Cursor AI](https://img.shields.io/badge/Cursor-AI-purple?style=for-the-badge&logo=cursor)](https://cursor.sh)
+[![中文社区](https://img.shields.io/badge/中文-社区-red?style=for-the-badge)](https://github.com/LessUp/awesome-cursorrules-zh)
 
 [🚀 快速开始](#-快速开始) • [📚 技术栈](#-技术栈覆盖) • [🤝 参与贡献](#-参与贡献) • [📖 使用指南](#-使用指南)
 
@@ -55,7 +58,20 @@
 3. **在 Cursor 中使用**
    - 打开 Cursor AI 编辑器
    - 确保项目根目录包含 `.cursorrules` 文件
-   - 开始编码，享受智能提示！
+   - 开始编码，享受中文优化的 AI 编程助手智能提示！
+
+### 💡 使用示例
+
+```bash
+# React 项目使用示例
+cp rules/frontend/react/react-typescript/.cursorrules ./
+
+# Vue 项目使用示例
+cp rules/frontend/vue/vue3-composition-api/.cursorrules ./
+
+# Python 项目使用示例
+cp rules/backend/python/fastapi-best-practices/.cursorrules ./
+```
 
 ## 📚 技术栈覆盖
 
