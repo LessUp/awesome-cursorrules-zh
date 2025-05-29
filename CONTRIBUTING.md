@@ -52,29 +52,7 @@
 ### 阶段6：质量跟踪
 - 持续监控和改进
 
-## 🛠️ AI-Help 工具集使用
 
-项目提供了完整的自动化工具集，位于项目外部的 `ai-help/` 目录：
-
-### 核心脚本
-```powershell
-# 检查翻译状态
-powershell -ExecutionPolicy Bypass -File ai-help/scripts/update_progress.ps1
-
-# 批量翻译设置（演示）
-powershell -ExecutionPolicy Bypass -File ai-help/scripts/demo_translate.ps1 -RuleSetName "规则集名称"
-
-# Git 自动化操作
-powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Action status
-powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Action commit -RuleSetName "规则集名称" -Category "分类"
-powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Action push
-```
-
-### 重要文档
-- `ai-help/docs/translation_workflow.md` - 详细工作流程说明
-- `ai-help/templates/translation_checklist.md` - 质量检查清单
-- `ai-help/templates/translation_glossary.md` - 翻译术语表
-- `ai-help/docs/translation_plan.md` - 翻译计划和时间表
 
 ## 🤝 贡献方式
 
@@ -83,16 +61,10 @@ powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Act
 2. **创建翻译分支**：`git checkout -b translate/规则集名称`
 3. **选择目标规则集**：从优先级列表中选择
 4. **执行翻译流程**：
-   ```powershell
-   # 使用演示脚本设置翻译环境
-   powershell -ExecutionPolicy Bypass -File ai-help/scripts/demo_translate.ps1 -RuleSetName "目标规则集" -DryRun:$false
-
-   # 进行实际翻译工作
-   # 使用 ai-help/templates/translation_checklist.md 进行质量检查
-
-   # 提交更改
-   powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Action commit -RuleSetName "规则集名称" -Category "分类"
-   ```
+   - 复制原始规则集到对应的中文目录
+   - 按照翻译标准进行内容翻译
+   - 进行质量自检和验证
+   - 提交翻译成果
 5. **提交 Pull Request**
 
 ### 改进现有翻译
@@ -101,14 +73,14 @@ powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Act
 3. **提交 Pull Request**：遵循标准工作流程
 
 ### 参与项目管理
-1. **工具改进**：优化 ai-help 工具集
-2. **流程完善**：改进翻译工作流程
-3. **文档维护**：更新项目文档
+1. **流程完善**：改进翻译工作流程
+2. **文档维护**：更新项目文档
+3. **社区建设**：参与项目讨论和推广
 
 ## 📝 翻译质量标准
 
 ### 内容准确性
-- **术语一致性**：严格遵循 `ai-help/templates/translation_glossary.md` 中的术语表
+- **术语一致性**：保持技术术语翻译的一致性和准确性
 - **技术准确性**：确保技术概念翻译准确无误
 - **代码完整性**：保留所有代码示例和注释
 - **链接有效性**：验证外部链接可访问或进行本地化
@@ -135,11 +107,12 @@ powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Act
 ## 🔍 质量保证流程
 
 ### 自检阶段
-使用 `ai-help/templates/translation_checklist.md` 进行自检：
+翻译完成后请进行自检：
 - [ ] 术语一致性检查
 - [ ] 结构完整性检查
 - [ ] 内容准确性检查
 - [ ] 语言质量检查
+- [ ] 格式规范性检查
 
 ### 审核阶段
 所有 Pull Request 都会经过质量审核：
@@ -176,7 +149,7 @@ powershell -ExecutionPolicy Bypass -File ai-help/scripts/git_automation.ps1 -Act
 
 ## 🏷️ 提交规范
 
-使用约定式提交格式，支持自动化工具处理：
+使用约定式提交格式：
 
 ```bash
 # 翻译新规则集
@@ -188,8 +161,8 @@ fix(backend/java): improve spring boot terminology consistency
 docs(frontend/react): update react hooks translation
 
 # 项目管理
-refactor: optimize translation workflow tools
-ci: update automated progress tracking
+docs: update project documentation
+refactor: improve project structure
 ```
 
 ### 提交信息模板
@@ -213,15 +186,15 @@ ci: update automated progress tracking
 ### 贡献统计
 我们会在项目中记录和展示贡献者的工作成果，包括：
 - 翻译规则集数量和质量
-- 代码贡献和工具改进
-- 文档维护和社区建设
+- 文档维护和改进
+- 社区建设和推广
 
 ## 📞 获取帮助
 
 ### 常见问题
 1. **如何选择翻译目标？** 查看优先级列表，选择标记为高优先级的规则集
-2. **翻译质量如何保证？** 使用提供的检查清单和术语表
-3. **遇到技术问题怎么办？** 在 Issues 中提问或查看工具文档
+2. **翻译质量如何保证？** 遵循翻译质量标准和自检流程
+3. **遇到技术问题怎么办？** 在 Issues 中提问或参与项目讨论
 
 ### 联系方式
 - **GitHub Issues**：报告问题和建议
