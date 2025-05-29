@@ -1,0 +1,63 @@
+name: 质量检查
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: 验证文件格式
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 检查 Markdown 文件
+      uses: DavidAnson/markdownlint-cli2-action@v13
+      with:
+        globs: '**/*.md'
+        config: |
+          {
+            "MD013": false,
+            "MD033": false,
+            "MD041": false
+          }
+
+    - name: 验证 .cursorrules 文件格式
+      run: |
+        echo "检查 .cursorrules 文件..."
+        find . -name ".cursorrules" -type f | while read file; do
+          echo "验证文件: $file"
+          # 检查文件是否为空
+          if [ ! -s "$file" ]; then
+            echo "错误: $file 文件为空"
+            exit 1
+          fi
+          echo "✅ $file 格式正确"
+        done
+
+    - name: 检查目录结构
+      run: |
+        echo "验证项目目录结构..."
+        required_dirs=("rules" "docs" "examples" "templates")
+        for dir in "${required_dirs[@]}"; do
+          if [ ! -d "$dir" ]; then
+            echo "错误: 缺少必需目录 $dir"
+            exit 1
+          fi
+          echo "✅ 目录 $dir 存在"
+        done
+
+    - name: 统计翻译进度
+      run: |
+        echo "📊 翻译进度统计:"
+        total_rules=$(find rules -type d -mindepth 3 -maxdepth 3 | wc -l)
+        echo "总规则集数量: $total_rules"
+        
+        frontend_rules=$(find rules/frontend -type d -mindepth 2 -maxdepth 2 | wc -l)
+        backend_rules=$(find rules/backend -type d -mindepth 2 -maxdepth 2 | wc -l)
+        
+        echo "前端规则集: $frontend_rules"
+        echo "后端规则集: $backend_rules"
