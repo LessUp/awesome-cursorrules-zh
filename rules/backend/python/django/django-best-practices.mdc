@@ -1,0 +1,24 @@
+---
+description: 为 'project' 目录中的 Django 代码实施最佳实践，包括视图、模型、表单、ORM 使用及性能优化。
+globs: project/**/*.*
+---
+- 使用 Django 的类视图（CBV）处理复杂视图，简单逻辑可使用函数视图（FBV）
+- 数据库交互优先使用 ORM，除非出于性能需求避免编写原生 SQL
+- 采用 Django 内置 User 模型与认证框架管理用户
+- 使用 ModelForm / Form 处理表单与验证逻辑
+- 严格遵循 MVT（模型-视图-模板）模式，保持关注点分离
+- 合理使用 Middleware 处理跨切面需求，如认证、日志、缓存
+- 在视图层做异常捕获，并定制 404/500 等错误页面提升用户体验
+- 通过 Django Signals 解耦日志记录与错误处理
+- 使用 select_related / prefetch_related 优化关联查询性能
+- 利用缓存框架（Redis/Memcached）减少数据库压力
+- 使用 Celery 处理耗时后台任务，或编写异步视图应对 IO 密集型操作
+- 遵循 PEP 8 命名与代码风格，提高可读性与可维护性
+- 将业务逻辑拆分到独立 App，保持项目结构模块化
+- 使用 Django REST Framework Serializer 构建 JSON API
+- 在 urls.py 中定义清晰的 RESTful 路由
+- 启用 CSRF、防 SQL 注入、防 XSS 等安全机制，定期审计安全配置
+- 使用 unittest/pytest-django 编写单元与集成测试确保质量
+- 通过 WhiteNoise 或 CDN 优化静态文件服务
+- 为关键字段添加数据库索引，监控并优化慢查询
+- 遵循“约定优于配置”原则，减少样板代码并保持一致性

@@ -1,0 +1,27 @@
+---
+description: Java Spring Boot + JPA 项目最佳实践，涵盖分层架构、注解、事务、异常处理、安全与代码风格等。
+globs: src/**/*.*
+---
+- 所有请求与响应必须仅在 RestController 层处理
+- 所有数据库操作逻辑仅在 ServiceImpl 层实现，ServiceImpl 只能调用 Repository 提供的方法
+- RestController 不应直接注入 Repository，除非有特殊理由
+- ServiceImpl 不得直接操作数据库，只能通过 Repository 间接访问
+- RestController 与 ServiceImpl 之间仅用 DTO 传递数据，Entity 只作为数据库数据载体
+- Entity 类需加 @Entity 注解，主键加 @Id 和 @GeneratedValue(strategy=GenerationType.IDENTITY)
+- Entity 关系建议默认使用 FetchType.LAZY，属性应加 @Size、@NotEmpty、@Email 等校验注解
+- Repository 必须为接口，继承 JpaRepository<Entity, ID>，加 @Repository 注解
+- 多表关联查询使用 DTO 作为数据容器，@Query 建议用 JPQL，避免 N+1 问题时用 @EntityGraph
+- Service 层为接口，具体实现类加 @Service 注解，依赖用 @Autowired 注入
+- ServiceImpl 方法返回 DTO，不直接返回 Entity
+- 多步数据库操作需加 @Transactional 或使用 transactionTemplate
+- DTO 推荐使用 Java 17 record，构造器中校验参数合法性
+- Controller 类加 @RestController 注解，类级路由用 @RequestMapping
+- 方法级用 @PostMapping/@GetMapping 等，依赖用 @Autowired
+- Controller 方法返回 ResponseEntity<ApiResponse>，所有逻辑用 try...catch 包裹
+- 异常统一由 GlobalExceptionHandler 处理
+- 全局响应类 ApiResponse<T> 包含 result、message、data 字段
+- 遵循 SOLID、DRY、KISS、YAGNI 原则，遵守 OWASP 安全最佳实践
+- 代码风格统一，推荐使用 Lombok 简化代码
+- 技术栈建议：Spring Boot 3、Spring Web、Spring Data JPA、Thymeleaf、Lombok、PostgreSQL
+- 项目结构清晰分层，逻辑拆解细致，便于维护与扩展
+- 参考官方文档与 OWASP 指南，定期审计安全与性能
