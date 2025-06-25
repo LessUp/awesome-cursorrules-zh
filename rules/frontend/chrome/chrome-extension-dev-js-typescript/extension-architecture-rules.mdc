@@ -1,0 +1,7 @@
+---
+description: Chrome 扩展架构的结构规则，包括关注点分离和消息传递。
+globs: **/background_worker.js, **/content_script.js, **/popup.js, **/options.js
+---
+- 实现清晰的关注点分离，区分不同扩展组件
+- 使用消息传递实现不同部分间的通信
+- 使用 chrome.storage API 实现适当的状态管理

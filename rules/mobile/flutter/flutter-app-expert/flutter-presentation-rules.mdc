@@ -1,0 +1,12 @@
+---
+description: 专注于 Flutter 功能表现层的UI相关规则，包括 BLoC、页面和组件。
+globs: lib/features/**/presentation/**/*.*
+---
+- 在保持代码整洁原则的同时适应现有项目架构。
+- 使用 Flutter 3.x 特性和 Material 3 设计。
+- 遵循正确的组件组合。
+- 保持组件小巧且专注。
+- 使用 GoRouter 实现正确的路由。
+- 实现正确的表单验证。
+- 实现正确的错误边界。
+- 遵循正确的无障碍访问指南。

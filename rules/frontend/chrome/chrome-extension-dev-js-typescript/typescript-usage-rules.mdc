@@ -1,0 +1,7 @@
+---
+description: TypeScript 使用特定规则，包括接口、联合类型和类型守卫以增强类型安全。
+globs: **/*.ts
+---
+- 推荐使用 TypeScript 以获得类型安全和更好的开发体验
+- 使用接口定义消息结构和 API 响应
+- 利用 TypeScript 的联合类型和类型守卫进行运行时检查

@@ -1,0 +1,10 @@
+---
+description: 开发 Laravel 包的通用指南，包括 PHP 版本、约定和工具。
+globs: */src/**/*.*
+---
+- 适当使用 PHP 8.3+ 特性
+- 遵循 Laravel 约定和最佳实践
+- 使用 spatie/laravel-package-tools 样板作为起点
+- 实现默认的 Pint 配置用于代码风格
+- 尽可能使用辅助函数而非门面(Facades)
+- 专注于创建提供优秀开发者体验(DX)的代码，包括更好的自动完成、类型安全和全面的文档块

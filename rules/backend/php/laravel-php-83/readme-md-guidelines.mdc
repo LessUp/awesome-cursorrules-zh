@@ -1,0 +1,5 @@
+---
+description: README.md 文件的指南。
+globs: */README.md
+---
+- README.md 文件应包括使用示例和 API 参考

@@ -1,0 +1,9 @@
+---
+description: Laravel 包开发的特定编码标准和约定，涵盖命名约定。
+globs: */src/**/*.*
+---
+- 文件名：使用 kebab-case (例如 my-class-file.php)
+- 类和枚举名：使用 PascalCase (例如 MyClass)
+- 方法名：使用 camelCase (例如 myMethod)
+- 变量和属性名：使用 snake_case (例如 my_variable)
+- 常量和枚举值：使用 SCREAMING_SNAKE_CASE (例如 MY_CONSTANT)

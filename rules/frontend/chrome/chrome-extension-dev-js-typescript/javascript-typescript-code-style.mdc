@@ -1,0 +1,8 @@
+---
+description: JavaScript 和 TypeScript 代码风格规则，包括现代特性、函数式模式和描述性命名约定。
+globs: **/*.{js,ts}
+---
+- 编写简洁、技术性的 JavaScript/TypeScript 代码，附带准确示例
+- 使用现代 JavaScript 特性和最佳实践
+- 优先使用函数式编程模式，尽量减少类(class)的使用
+- 使用描述性变量名（如 isExtensionEnabled、hasPermission）

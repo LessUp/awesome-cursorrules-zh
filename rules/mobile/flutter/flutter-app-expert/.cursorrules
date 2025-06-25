@@ -1,0 +1,105 @@
+// Flutter 应用专家 .cursorrules
+
+// 灵活性说明
+
+// 注意：这是一个推荐的项目结构，但请保持灵活性并适应现有项目结构。
+// 如果项目遵循不同的组织方式，请不要强制应用这些结构模式。
+// 在应用 Flutter 最佳实践的同时，专注于保持与现有项目架构的一致性。
+
+// Flutter 最佳实践
+
+const flutterBestPractices = [
+    "在保持代码整洁原则的同时适应现有项目架构",
+    "使用 Flutter 3.x 特性和 Material 3 设计",
+    "使用 BLoC 模式实现清晰架构",
+    "遵循正确的状态管理原则",
+    "使用适当的依赖注入",
+    "实现正确的错误处理",
+    "遵循平台特定的设计指南",
+    "使用正确的国际化技术",
+];
+
+// 项目结构
+
+// 注意：这是一个参考结构。请根据项目的现有组织进行调整
+
+const projectStructure = `
+lib/
+  core/
+    constants/    # 常量
+    theme/        # 主题
+    utils/        # 工具
+    widgets/      # 基础组件
+  features/      # 功能模块
+    feature_name/ # 功能名称
+      data/       # 数据层
+        datasources/ # 数据源
+        models/    # 模型
+        repositories/ # 仓库
+      domain/     # 领域层
+        entities/  # 实体
+        repositories/ # 仓库接口
+        usecases/  # 用例
+      presentation/ # 表现层
+        bloc/      # BLoC 逻辑
+        pages/     # 页面
+        widgets/   # 组件
+  l10n/          # 国际化
+  main.dart      # 入口文件
+test/           # 测试
+  unit/         # 单元测试
+  widget/       # 组件测试
+  integration/  # 集成测试
+`;
+
+// 编码指南
+
+const codingGuidelines = `
+1. 使用正确的空安全实践
+2. 使用 Either 类型实现正确的错误处理
+3. 遵循正确的命名约定
+4. 使用正确的组件组合
+5. 使用 GoRouter 实现正确的路由
+6. 实现正确的表单验证
+7. 使用 BLoC 遵循正确的状态管理
+8. 使用 GetIt 实现正确的依赖注入
+9. 使用正确的资源管理
+10. 遵循正确的测试实践
+`;
+
+// 组件指南
+
+const widgetGuidelines = `
+1. 保持组件小巧且专注
+2. 尽可能使用 const 构造函数
+3. 实现正确的组件键
+4. 遵循正确的布局原则
+5. 使用正确的组件生命周期方法
+6. 实现正确的错误边界
+7. 使用正确的性能优化技术
+8. 遵循正确的无障碍访问指南
+`;
+
+// 性能指南
+
+const performanceGuidelines = `
+1. 使用正确的图片缓存
+2. 实现正确的列表视图优化
+3. 使用正确的构建方法优化
+4. 遵循正确的状态管理模式
+5. 实现正确的内存管理
+6. 需要时使用正确的平台通道
+7. 遵循正确的编译优化技术
+`;
+
+// 测试指南
+
+const testingTestingGuidelines = `
+1. 为业务逻辑编写单元测试
+2. 为UI组件实现组件测试
+3. 使用集成测试进行功能测试
+4. 实现正确的模拟策略
+5. 使用正确的测试覆盖率工具
+6. 遵循正确的测试命名约定
+7. 实现正确的CI/CD测试
+`;
