@@ -1,0 +1,12 @@
+---
+description: 在 Go 中实现 gRPC 服务的具体指南。
+globs: */grpc/**/*.go
+---
+在 Go 中使用 gRPC 服务时：
+- 定义你的 Protocol Buffer 消息和服务。
+- 使用 `protoc` 从 Proto 文件生成 Go 代码。
+- 在 Go 中实现 gRPC 服务器，处理请求和响应。
+- 使用 Go 的 `database/sql` 包或 ORM 连接到数据库。
+- 正确处理错误并实施适当的验证。
+- 考虑使用像 GORM 这样的 ORM 来处理更复杂的数据库交互。
+- 遵循安全最佳实践，例如使用预处理语句来防止 SQL 注入。

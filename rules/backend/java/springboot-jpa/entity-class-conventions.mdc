@@ -1,0 +1,9 @@
+---
+description: 为实体类设计设定标准，包括用于数据库交互的注解、ID 生成策略和关系配置。
+globs: **/src/main/java/com/example/entities/*.java
+---
+- 必须使用 @Entity 注解实体类。
+- 必须使用 @Data (来自 Lombok) 注解实体类，除非在提示中另有说明。
+- 必须使用 @Id 和 @GeneratedValue(strategy=GenerationType.IDENTITY) 注解实体 ID。
+- 必须对关系使用 FetchType.LAZY，除非在提示中另有说明。
+- 根据最佳实践正确注解实体属性，例如 @Size, @NotEmpty, @Email 等。

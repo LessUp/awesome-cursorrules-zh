@@ -1,0 +1,11 @@
+---
+description: 为 RestController 类指定标准，包括 API 路由映射、HTTP 方法注解、依赖注入以及使用 ApiResponse 和 GlobalExceptionHandler 进行错误处理。
+globs: **/src/main/java/com/example/controllers/*.java
+---
+- 必须使用 @RestController 注解控制器类。
+- 必须使用 @RequestMapping 指定类级别的 API 路由，例如 ("/api/user")。
+- 使用 @GetMapping 获取，@PostMapping 创建，@PutMapping 更新，@DeleteMapping 删除。保持路径基于资源（例如 '/users/{id}'），避免使用动词。
+- 类方法中的所有依赖必须使用 @Autowired（无构造函数），除非另有说明。
+- 方法的返回对象必须是 ApiResponse 类型的 ResponseEntity。
+- 所有类方法的逻辑必须在 try..catch 块中实现。
+- catch 块中捕获的错误必须由自定义的 GlobalExceptionHandler 类处理。

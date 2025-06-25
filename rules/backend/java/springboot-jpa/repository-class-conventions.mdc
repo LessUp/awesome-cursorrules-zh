@@ -1,0 +1,10 @@
+---
+description: 规定了仓库（Repository）类的结构和功能，强调使用 JpaRepository、JPQL 查询和 EntityGraph 来防止 N+1 问题。
+globs: **/src/main/java/com/example/repositories/*.java
+---
+- 必须使用 @Repository 注解仓库类。
+- 仓库类必须是接口类型。
+- 必须继承 JpaRepository，并将实体和实体 ID 作为参数，除非在提示中另有说明。
+- 所有 @Query 类型的方法必须使用 JPQL，除非在提示中另有说明。
+- 在关系查询中必须使用 @EntityGraph(attributePaths={"relatedEntity"}) 以避免 N+1 问题。
+- 对于使用 @Query 的多表连接查询，必须使用 DTO 作为数据容器。

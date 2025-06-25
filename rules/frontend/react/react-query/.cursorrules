@@ -1,0 +1,40 @@
+// React + React Query .cursorrules (React + React Query .cursorrules)
+
+// 偏好使用带有钩子的函数式组件 (Prefer functional components with hooks)
+
+const preferFunctionalComponents = true;
+
+// React Query 最佳实践 (React Query best practices)
+
+const reactQueryBestPractices = [
+  "在应用的根组件使用 QueryClient 和 QueryClientProvider", // Use QueryClient and QueryClientProvider at the root of your app
+  "为查询和变更实现自定义钩子", // Implement custom hooks for queries and mutations
+  "利用查询键 (query keys) 进行有效的缓存", // Utilize query keys for effective caching
+  "使用预取 (prefetching) 以提高性能", // Use prefetching for improved performance
+  "实现正确的错误和加载状态", // Implement proper error and loading states
+];
+
+// 文件夹结构 (Folder structure)
+
+const folderStructure = `
+src/
+  components/      // 组件
+  hooks/           // 自定义钩子
+    useQueries/    // 查询钩子
+    useMutations/  // 变更钩子
+  pages/           // 页面
+  utils/           // 工具函数
+  api/             // API 请求
+`;
+
+// 附加指令 (Additional instructions)
+
+const additionalInstructions = `
+1. 结合 TypeScript 使用 React Query 以确保类型安全 (Use TypeScript for type safety with React Query)
+2. 为查询错误实现正确的错误边界 (Implement proper error boundaries for query errors)
+3. 利用 React Query DevTools 进行调试 (Utilize React Query DevTools for debugging)
+4. 使用 stale-while-revalidate策略 保证数据新鲜度 (Use stale-while-revalidate strategy for data freshness)
+5. 为变更 (mutations) 实现乐观更新 (Implement optimistic updates for mutations)
+6. 使用查询失效 (query invalidation) 来重新获取数据 (Use query invalidation for data refetching)
+7. 遵循 React Query 的命名约定以保持一致性 (Follow React Query naming conventions for consistency)
+`;

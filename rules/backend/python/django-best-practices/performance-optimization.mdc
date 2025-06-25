@@ -1,0 +1,10 @@
+---
+description: 在项目的所有文件中专注于性能优化技术。
+globs: **/*.*
+---
+- 使用 Django ORM 的 `select_related` 和 `prefetch_related` 优化关联对象的查询性能。
+- 使用 Django 的缓存框架及后端支持（如 Redis 或 Memcached）来减少数据库负载。
+- 实现数据库索引和查询优化技术以获得更好的性能。
+- 对 I/O 密集型或长时间运行的操作使用异步视图和后台任务（通过 Celery）。
+- 使用 Django 的静态文件管理系统（如 WhiteNoise 或 CDN 集成）优化静态文件处理。
+- 在开发的每个阶段都优先考虑安全和性能优化。

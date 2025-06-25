@@ -1,0 +1,4 @@
+---
+description: GlobalExceptionHandler 类的结构。
+globs: **/src/main/java/com/example/GlobalExceptionHandler.java
+---

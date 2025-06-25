@@ -1,0 +1,4 @@
+---
+description: ApiResponse 类的结构。
+globs: **/src/main/java/com/example/ApiResponse.java
+---
