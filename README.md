@@ -8,7 +8,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh)
 [![GitHub forks](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh/network)
-[![翻译进度](https://img.shields.io/badge/翻译进度-62.41%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
+[![翻译进度](https://img.shields.io/badge/翻译进度-72.34%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Cursor AI](https://img.shields.io/badge/Cursor-AI-purple?style=for-the-badge&logo=cursor)](https://cursor.sh)
 [![中文社区](https://img.shields.io/badge/中文-社区-red?style=for-the-badge)](https://github.com/LessUp/awesome-cursorrules-zh)
@@ -34,7 +34,7 @@
 ```
 📦 awesome-cursorrules-zh
 ├── 总规则集: 141 个
-├── ✅ 已翻译: 88 个 (62.41%)
+├── ✅ 已翻译: 102 个 (72.34%)
 ├── 🔥 高优先级: 15 个
 └── 质量评级: A+ (90分以上)
 ```
@@ -79,7 +79,7 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 <tr>
 <td width="50%">
 
-### ✅ 已翻译 (88个)
+### ✅ 已翻译 (102个)
 
 **🎨 前端开发**
 - Angular 框架 (TypeScript)
@@ -107,7 +107,6 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - Python 数据科学与机器学习
 **🔗 区块链**
 - Solidity 智能合约
-
 **☁️ 分布式系统**
 - 云原生数据库
 - 分布式计算框架
@@ -115,13 +114,16 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - Kubernetes 全套生态
 - 服务网格 (Service Mesh)
 - 无服务器架构 (Serverless)
-
+- 中间件服务
+- 服务网格安全
 **🛠️ DevOps**
 - Kubernetes 文档规范
 - Docker 容器化
 - CI/CD 流水线
 - Prometheus/Grafana 监控
 - Terraform 基础设施即代码
+- 混沌工程实验
+- 全栈可观测体系
 **🛠️ 工具链**
 - Git 约定式提交
 - 代码质量规范
@@ -131,6 +133,8 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 **🧠 AI工程**
 - MLOps 全流程
 - 特征工程与管理
+- 知识图谱构建
+- 联邦学习系统
 **🌌 前沿技术**
 - 量子计算开发
 - 区块链扩展方案
@@ -151,18 +155,37 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - 策略即代码
 **🛠️ 开发平台**
 - 低代码可视化开发
+**🎮 游戏技术**
+- 云游戏串流
+- 元宇宙虚拟世界
+**🔄 仿真系统**
+- 数字孪生建模
+- 智能合约审计
+**🤖 自动化**
+- 无代码开发平台
+- RPA流程机器人
+**🔐 隐私安全**
+- 边缘AI推理
+- 多方安全计算
 
 </td>
 <td width="50%">
 
-### 🔥 待翻译 (53个)
+### 🔥 待翻译 (39个)
 
 **高优先级**
-- 知识图谱
-- 联邦学习
-- 边缘计算
-- 时空数据库
-- 🛠️ DevOps 工具链
+- 边缘AI
+- 隐私计算
+- 云原生中间件
+- 服务网格安全
+- 混沌工程
+- 全栈可观测性
+- 无代码平台
+- RPA自动化
+- 数字孪生
+- 智能合约安全
+- 云游戏开发
+- 元宇宙平台
 - 大数据处理框架
 - 实时流计算平台
 - 基础设施即代码 (IaC)
@@ -171,7 +194,6 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - 无服务器架构 (Serverless)
 - 数据仓库与湖仓一体
 - 生物信息学
-- 数字孪生系统
 - 嵌入式开发
 - 物联网平台
 - AI 工程化平台
@@ -183,6 +205,8 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - Web3.0 开发
 - 云原生安全
 - 低代码平台
+- 量子通信
+- 卫星互联网
 
 **中优先级**
 - ⚡ Svelte/SvelteKit
