@@ -8,7 +8,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh)
 [![GitHub forks](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh/network)
-[![翻译进度](https://img.shields.io/badge/翻译进度-38.30%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
+[![翻译进度](https://img.shields.io/badge/翻译进度-39.01%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Cursor AI](https://img.shields.io/badge/Cursor-AI-purple?style=for-the-badge&logo=cursor)](https://cursor.sh)
 [![中文社区](https://img.shields.io/badge/中文-社区-red?style=for-the-badge)](https://github.com/LessUp/awesome-cursorrules-zh)
@@ -34,7 +34,7 @@
 ```
 📦 awesome-cursorrules-zh
 ├── 🎯 总规则集: 141 个
-├── ✅ 已翻译: 54 个 (38.30%)
+├── ✅ 已翻译: 55 个 (39.01%)
 ├── 🔥 高优先级: 16 个
 └── 🌟 质量评级: A+ (90分以上)
 ```
@@ -79,9 +79,10 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 <tr>
 <td width="50%">
 
-### ✅ 已翻译 (54个)
+### ✅ 已翻译 (55个)
 
 **🎨 前端开发**
+- Angular 框架 (TypeScript)
 - React 生态系统 (Next.js, React Native, React Query)
 - Vue 生态系统 (Vue 3, Nuxt.js)
 - TypeScript 开发规范
@@ -106,10 +107,9 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 </td>
 <td width="50%">
 
-### 🔥 待翻译 (87个)
+### 🔥 待翻译 (86个)
 
 **高优先级**
-- 🅰️ Angular 框架
 - 📱 Flutter 移动开发
 - 🐘 Laravel PHP
 - 🌐 Chrome 扩展开发
