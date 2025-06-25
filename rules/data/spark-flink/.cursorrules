@@ -1,0 +1,16 @@
+# 大数据处理框架 .cursorrules 提示文件
+
+## 技术栈
+
+- Apache Spark
+- Apache Flink
+- Hadoop
+- Beam
+
+## 核心准则
+
+1. **资源管理**：合理配置Executor/Worker资源
+2. **数据分区**：优化数据分布和并行度
+3. **容错设计**：实现检查点和持久化策略
+4. **性能优化**：避免数据倾斜和GC问题
+5. **统一API**：使用DataFrame/DataSet抽象层

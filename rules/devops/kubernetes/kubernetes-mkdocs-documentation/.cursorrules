@@ -1,0 +1,21 @@
+# Kubernetes MkDocs 文档 .cursorrules 提示文件
+
+## 概述
+
+本提示文件专为使用 MkDocs 创建 Kubernetes 和云原生技术文档的开发者设计，提供全面的文档编写规范和最佳实践。
+
+## 技术栈
+
+- MkDocs
+- Material for MkDocs
+- Kubernetes
+- 云原生技术
+- Git 版本控制
+
+## 核心准则
+
+1. **技术准确性**：确保所有 Kubernetes 和云原生相关描述准确无误
+2. **清晰结构**：采用逻辑清晰的文档结构
+3. **实用示例**：提供可操作的配置示例和代码片段
+4. **版本控制**：明确标注适用的 Kubernetes 版本
+5. **SEO优化**：合理使用元数据提升文档可发现性

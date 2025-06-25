@@ -1,0 +1,8 @@
+---
+description: 云原生和 Kubernetes 专业知识的文档规则
+globs: **/docs/kubernetes/*.md
+---
+- 准确描述 Kubernetes 核心概念和组件
+- 明确标注适用的 Kubernetes 版本范围
+- 提供主流云服务商的特定配置说明
+- 包含安全最佳实践的专门章节
