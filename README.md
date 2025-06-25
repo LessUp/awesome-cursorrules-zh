@@ -1,104 +1,81 @@
-# Awesome Cursor Rules 中文版 
+# Awesome Cursor Rules 中文版
 
 <div align="center">
 
-**专为中文开发者优化的 Cursor AI 编程规则集合**
+[![项目状态](https://img.shields.io/badge/status-active-success?style=for-the-badge)](https://github.com/LessUp/awesome-cursorrules-zh)
+[![GitHub Stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github&label=Stars)](https://github.com/LessUp/awesome-cursorrules-zh/stargazers)
+[![Fork](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github&label=Fork)](https://github.com/LessUp/awesome-cursorrules-zh/network/members)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](./LICENSE)
+[![贡献指南](https://img.shields.io/badge/Contributing-Welcome-brightgreen.svg?style=for-the-badge)](./CONTRIBUTING.md)
 
-让 AI 编程助手更懂中文开发者的需求
+**一个由社区驱动、为中文开发者量身打造的 `Awesome Cursor Rules` 高质量翻译和优化项目。**
 
-[![GitHub stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh)
-[![GitHub forks](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=for-the-badge&logo=github)](https://github.com/LessUp/awesome-cursorrules-zh/network)
-[![翻译进度](https://img.shields.io/badge/翻译进度-80.9%25-brightgreen?style=for-the-badge)](./CONTRIBUTING.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Cursor AI](https://img.shields.io/badge/Cursor-AI-purple?style=for-the-badge&logo=cursor)](https://cursor.sh)
-[![中文社区](https://img.shields.io/badge/中文-社区-red?style=for-the-badge)](https://github.com/LessUp/awesome-cursorrules-zh)
+本项目的目标不仅是翻译，更是对原项目进行结构优化和内容增强，使其更符合中文开发者的使用习惯。
 
-[🚀 快速开始](#-快速开始) • [📚 技术栈](#-技术栈覆盖) • [🤝 参与贡献](#-参与贡献) • [📖 使用指南](#-使用指南)
+[🚀 快速开始](#-快速开始) • [🌟 项目亮点](#-项目亮点) • [🗺️ 路线图](#-项目路线图) • [🤝 参与贡献](#-参与贡献)
 
 </div>
 
 ---
 
-## 为什么选择我们？
+## 🤔 这是什么？
 
-🎯 **专业翻译** - 所有规则集都经过专业的中文本地化，确保术语准确、表达自然
+`Awesome Cursor Rules` 是一个优秀的 [Cursor](https://cursor.sh/) AI 编程助手规则集合，但原项目主要面向英文用户。本项目致力于：
 
-🔧 **开箱即用** - 直接复制 `.cursorrules` 文件到项目根目录即可使用
+1.  **精准翻译**: 提供高质量的中文翻译，消除语言障碍。
+2.  **结构优化**: 重新组织目录结构，按技术栈清晰分类，方便查找。
+3.  **内容增强**: 补充更符合国内技术生态的规则和最佳实践。
 
-📈 **持续更新** - 跟随原项目更新，确保规则集始终保持最新状态
+## 🌟 项目亮点
 
-🌟 **质量保证** - 采用标准化翻译流程，每个规则集都经过严格的质量检查
+-   **🎯 专为中文优化**: 所有规则都经过精心翻译和本地化，术语准确，符合中文语境。
+-   **🗂️ 清晰的结构**: 按 `后端/前端/数据库/AI` 等维度重新组织，一目了然。
+-   **✅ 开箱即用**: 只需将 `.cursorrules` 文件复制到项目根目录即可生效。
+-   **📈 社区驱动**: 欢迎任何人参与贡献，共同打造最好的中文规则库。
+-   **📝 完善的文档**: 提供详尽的《入门指南》、《贡献指南》和《行为准则》。
 
-## 项目概览
+## 🚀 快速开始
 
-```
-📦 awesome-cursorrules-zh
-├── 总规则集: 143 个
-├── ✅ 已翻译: 120 个 (80.9%)
-├── 🔥 高优先级: 15 个
-└── 质量评级: A+ (90分以上)
-```
+1.  **克隆本仓库**
+    ```bash
+    git clone https://github.com/LessUp/awesome-cursorrules-zh.git
+    cd awesome-cursorrules-zh
+    ```
 
-## 快速开始
+2.  **找到并复制规则**
+    浏览 `rules` 目录，找到你需要的规则集（例如 `rules/frontend/react/`），然后将其中的 `.cursorrules` 文件和相关 `.mdc` 文件复制到你的项目根目录。
 
-### 安装使用
+3.  **在 Cursor 中享受智能编码**
+    打开你的项目，Cursor 将自动加载规则，开始享受为中文优化的 AI 编程体验！
 
-1. **克隆仓库**
-   ```bash
-   git clone https://github.com/LessUp/awesome-cursorrules-zh.git
-   cd awesome-cursorrules-zh
-   ```
+## 🗺️ 项目路线图与未来计划
 
-2. **选择规则集**
-   ```bash
-   # 复制所需的 .cursorrules 文件到你的项目根目录
-   cp rules/frontend/react/nextjs-basic/.cursorrules ./
-   ```
+本项目是一个持续发展的开源项目。我们已经完成了第一阶段的核心翻译和结构优化工作，并制定了清晰的未来发展路线图。
 
-3. **在 Cursor 中使用**
-   - 打开 Cursor AI 编辑器
-   - 确保项目根目录包含 `.cursorrules` 文件
-   - 开始编码，享受中文优化的 AI 编程助手智能提示！
+我们诚挚邀请您查看我们的 [**项目待办清单 (PROJECT_TODO.md)**](./PROJECT_TODO.md)，在这里您可以了解到我们接下来的翻译目标，并选择您感兴趣的任务参与贡献！
 
-### 使用示例
+## 🤝 参与贡献
 
-```bash
-# React 项目使用示例
-cp rules/frontend/react/react-typescript/.cursorrules ./
+我们热烈欢迎各种形式的贡献！无论是校对翻译、提交新规则、还是改进文档，都对我们至关重要。
 
-# Vue 项目使用示例
-cp rules/frontend/vue/vue3-composition-api/.cursorrules ./
+请在开始前阅读我们的 [**贡献指南 (CONTRIBUTING.md)**](./CONTRIBUTING.md)，它详细说明了如何参与项目。
 
-# Python 项目使用示例
-cp rules/backend/python/fastapi-best-practices/.cursorrules ./
-```
+## ✨ 行为准则
 
-## 技术栈覆盖
+为了营造一个开放和友好的社区环境，我们期望所有参与者都能遵守 [**行为准则 (CODE_OF_CONDUCT.md)**](./CODE_OF_CONDUCT.md)。
 
-<table>
-<tr>
-<td width="50%">
+## 📄 许可证
 
-### ✅ 已翻译 (120个)
+本项目采用 [MIT 许可证](./LICENSE)授权。
 
-**🎨 前端开发**
-- Angular 框架 (TypeScript)
-- React 生态系统 (Next.js, React Native, React Query)
-- Vue 生态系统 (Vue 3, Nuxt.js)
-- TypeScript 开发规范
-- UI 框架 (Tailwind CSS, Shadcn UI)
-- 构建工具 (Vite, Astro)
-- Chrome 扩展开发
-**📱 边缘计算**
-- 终端推理优化
-- 模型压缩方案
-- 云边协同架构
-- 时空数据分析
-**📱 移动开发**
-- Flutter 应用开发
-- 嵌入式系统开发
-- 物联网云平台
-**⚙️ 后端开发**
+## 🛡️ 质量保障
+- 自动化校验脚本确保翻译一致性
+- 专业术语词典统一技术词汇
+- 严格的PR审核流程
+
+## 👥 社区协作
+欢迎通过 [Issues](.github/ISSUE_TEMPLATE) 认领翻译任务
+
 - Node.js (Express, NestJS)
 - Python (Django, FastAPI)
 - Java (Spring Boot JPA)
@@ -159,9 +136,6 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 
 [查看完整优先级列表 →](./CONTRIBUTING.md#翻译优先级)
 
-</td>
-<td width="50%">
-
 ### 🔥 待翻译 (23个)
 
 **最终检查**
@@ -208,10 +182,6 @@ cp rules/backend/python/fastapi-best-practices/.cursorrules ./
 - 低代码平台
 - 量子通信
 - 卫星互联网
-
-</td>
-</tr>
-</table>
 
 ## 使用指南
 

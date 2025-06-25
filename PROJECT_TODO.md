@@ -4,253 +4,63 @@
 
 ## 📊 项目概览
 
-### 当前状态 (v1.0.0)
-- ✅ **已完成翻译**: 29个规则集
-- ✅ **项目结构**: 完整的目录组织
-- ✅ **文档体系**: 完善的用户和贡献者指南
-- ✅ **质量保证**: GitHub Actions 自动化检查
-- ✅ **社区准备**: 推广材料和策略
+### 当前状态 (v1.0.1)
+- ✅ **已完成翻译**: 约 30-40 个核心规则集
+- ✅ **项目结构**: 优化的分类目录，便于查找
+- ✅ **文档体系**: 包含 `README.md`, `CHANGELOG.md`, `CODE_OF_CONDUCT.md`
+- ❌ **待办任务**: 大量来自原项目的规则集尚未翻译
 
-### 下一阶段目标 (v1.1.0 - v1.3.0)
-- 🎯 **翻译扩展**: 新增 30+ 高优先级规则集
-- 🎯 **社区建设**: 吸引 100+ GitHub Stars
-- 🎯 **质量提升**: 建立完善的审核流程
-- 🎯 **生态完善**: 开发配套工具和插件
-
-## 🔥 翻译优先级任务
-
-### 高优先级 (4周内完成)
-**目标**: 覆盖中文开发者最常用的技术栈
-
-#### 后端框架 (预计 2周)
-- [ ] **Python Django** 
-  - 📅 截止日期: 2024年1月15日
-  - 👤 负责人: 待分配
-  - 📝 任务: 翻译 Django 最佳实践规则集
-  - 🔗 原文: `rules/python-django-best-practices-cursorrules-prompt-fi/`
-
-- [ ] **Java Spring Boot**
-  - 📅 截止日期: 2024年1月20日
-  - 👤 负责人: 待分配
-  - 📝 任务: 翻译 Spring Boot JPA 规则集
-  - 🔗 原文: `rules/java-springboot-jpa-cursorrules-prompt-file/`
-
-- [ ] **Go 语言规则**
-  - 📅 截止日期: 2024年1月25日
-  - 👤 负责人: 待分配
-  - 📝 任务: 翻译 Go 后端可扩展性规则
-  - 🔗 原文: `rules/go-backend-scalability-cursorrules-prompt-file/`
-
-#### 前端框架 (预计 2周)
-- [ ] **Angular TypeScript**
-  - 📅 截止日期: 2024年1月30日
-  - 👤 负责人: 待分配
-  - 📝 任务: 翻译 Angular TypeScript 规则集
-  - 🔗 原文: `rules/angular-typescript-cursorrules-prompt-file/`
-
-- [ ] **Svelte/SvelteKit**
-  - 📅 截止日期: 2024年2月5日
-  - 👤 负责人: 待分配
-  - 📝 任务: 翻译 SvelteKit TypeScript 规则
-  - 🔗 原文: `rules/sveltekit-tailwindcss-typescript-cursorrules-promp/`
-
-### 中优先级 (8周内完成)
-**目标**: 扩展技术栈覆盖面
-
-#### 移动开发 (预计 3周)
-- [ ] **Flutter/Dart**
-  - 📅 截止日期: 2024年2月15日
-  - 📝 任务: 翻译 Flutter 专家规则集
-  - 🔗 原文: `rules/flutter-app-expert-cursorrules-prompt-file/`
-
-- [ ] **SwiftUI**
-  - 📅 截止日期: 2024年2月20日
-  - 📝 任务: 翻译 SwiftUI 指南规则
-  - 🔗 原文: `rules/swiftui-guidelines-cursorrules-prompt-file/`
-
-- [ ] **Android Jetpack Compose**
-  - 📅 截止日期: 2024年2月25日
-  - 📝 任务: 翻译 Android Jetpack Compose 规则
-  - 🔗 原文: `rules/android-jetpack-compose-cursorrules-prompt-file/`
-
-#### 系统编程 (预计 2周)
-- [ ] **Rust 语言**
-  - 📅 截止日期: 2024年3月5日
-  - 📝 任务: 创建 Rust 编程规范（原项目暂无，需自创）
-
-#### 数据科学 (预计 3周)
-- [ ] **Python 数据科学**
-  - 📅 截止日期: 2024年3月10日
-  - 📝 任务: 翻译 Pandas scikit-learn 规则
-  - 🔗 原文: `rules/pandas-scikit-learn-guide-cursorrules-prompt-file/`
-
-- [ ] **PyTorch**
-  - 📅 截止日期: 2024年3月15日
-  - 📝 任务: 翻译 PyTorch scikit-learn 规则
-  - 🔗 原文: `rules/pytorch-scikit-learn-cursorrules-prompt-file/`
-
-### 低优先级 (12周内完成)
-- [ ] **Unity C#** - 游戏开发
-- [ ] **WebAssembly** - 高性能 Web 计算
-- [ ] **Tauri** - 桌面应用开发
-- [ ] **DragonRuby** - 游戏开发框架
-
-## 📖 文档改进任务
-
-### 用户文档完善 (2周内)
-- [ ] **创建视频教程**
-  - 📅 截止日期: 2024年1月20日
-  - 📝 任务: 制作 5分钟快速上手视频
-  - 🎯 目标: 降低新用户学习成本
-
-- [ ] **完善示例项目**
-  - 📅 截止日期: 2024年1月25日
-  - 📝 任务: 在 `examples/` 目录创建实际项目示例
-  - 🎯 目标: 提供可运行的演示项目
-
-- [ ] **多语言 README**
-  - 📅 截止日期: 2024年2月1日
-  - 📝 任务: 创建英文版 README 以吸引国际用户
-
-### 技术文档优化 (3周内)
-- [ ] **API 文档**
-  - 📅 截止日期: 2024年2月10日
-  - 📝 任务: 为自动化脚本创建详细的 API 文档
-
-- [ ] **贡献者指南细化**
-  - 📅 截止日期: 2024年2月15日
-  - 📝 任务: 添加翻译质量标准和审核流程
-
-## 📢 项目推广任务
-
-### 社区推广 (第1个月)
-- [ ] **技术博客发布**
-  - 📅 截止日期: 2024年1月10日
-  - 📝 任务: 在掘金、知乎、CSDN 发布项目介绍文章
-  - 🎯 目标: 获得 5000+ 阅读量
-
-- [ ] **开源社区参与**
-  - 📅 截止日期: 2024年1月15日
-  - 📝 任务: 在 V2EX、SegmentFault 分享项目
-  - 🎯 目标: 获得社区认可和反馈
-
-- [ ] **技术群推广**
-  - 📅 截止日期: 2024年1月20日
-  - 📝 任务: 在相关技术微信群、QQ群分享
-  - 🎯 目标: 直接触达目标用户
-
-### 内容营销 (第2个月)
-- [ ] **制作使用教程**
-  - 📅 截止日期: 2024年2月1日
-  - 📝 任务: 创建详细的使用教程和最佳实践
-  - 🎯 目标: 提升用户体验
-
-- [ ] **技术分享**
-  - 📅 截止日期: 2024年2月15日
-  - 📝 任务: 参与技术会议或 Meetup 分享
-  - 🎯 目标: 建立技术影响力
-
-### KOL 合作 (第3个月)
-- [ ] **技术博主合作**
-  - 📅 截止日期: 2024年3月1日
-  - 📝 任务: 邀请知名技术博主试用和推荐
-  - 🎯 目标: 扩大项目知名度
-
-## 🔍 质量保证任务
-
-### 翻译质量审核 (持续进行)
-- [ ] **建立审核团队**
-  - 📅 截止日期: 2024年1月15日
-  - 📝 任务: 招募 3-5 名翻译审核志愿者
-  - 🎯 目标: 确保翻译质量标准
-
-- [ ] **质量评分系统**
-  - 📅 截止日期: 2024年1月30日
-  - 📝 任务: 建立翻译质量评分和反馈机制
-  - 🎯 目标: 持续改进翻译质量
-
-### 自动化测试 (4周内)
-- [ ] **规则文件验证**
-  - 📅 截止日期: 2024年2月5日
-  - 📝 任务: 开发自动验证 .cursorrules 文件格式的工具
-  - 🎯 目标: 防止格式错误
-
-- [ ] **链接检查**
-  - 📅 截止日期: 2024年2月10日
-  - 📝 任务: 自动检查文档中的链接有效性
-  - 🎯 目标: 维护文档质量
-
-## 🛠️ 技术改进任务
-
-### 自动化工具开发 (6周内)
-- [ ] **翻译辅助工具**
-  - 📅 截止日期: 2024年2月20日
-  - 📝 任务: 开发半自动化翻译工具
-  - 🎯 目标: 提高翻译效率
-
-- [ ] **规则集管理器**
-  - 📅 截止日期: 2024年2月25日
-  - 📝 任务: 开发规则集选择和管理的 CLI 工具
-  - 🎯 目标: 简化用户使用流程
-
-### CI/CD 增强 (4周内)
-- [ ] **多平台测试**
-  - 📅 截止日期: 2024年2月15日
-  - 📝 任务: 在 Windows、macOS、Linux 上测试规则集
-  - 🎯 目标: 确保跨平台兼容性
-
-- [ ] **自动发布流程**
-  - 📅 截止日期: 2024年2月20日
-  - 📝 任务: 自动化版本发布和更新日志生成
-  - 🎯 目标: 简化发布流程
-
-## 📅 时间线和里程碑
-
-### 第1个月 (2024年1月)
-**里程碑**: 社区启动和高优先级翻译
-- 🎯 目标: GitHub Stars 100+
-- 📊 指标: 社区文章阅读 5000+, 活跃贡献者 5+
-- 🔥 重点: 完成 4个高优先级规则集翻译
-
-### 第2个月 (2024年2月)
-**里程碑**: 内容扩展和质量提升
-- 🎯 目标: 翻译规则集达到 50+
-- 📊 指标: 用户反馈 20+, 翻译质量评分 4.5+
-- 🔥 重点: 完成中优先级翻译，建立质量保证流程
-
-### 第3个月 (2024年3月)
-**里程碑**: 生态完善和工具开发
-- 🎯 目标: GitHub Stars 500+
-- 📊 指标: 月活跃用户 1000+, 社区贡献者 20+
-- 🔥 重点: 开发配套工具，完善项目生态
-
-### 第4-6个月 (2024年4-6月)
-**里程碑**: 成为中文开发者首选
-- 🎯 目标: 成为 Cursor AI 中文社区标准
-- 📊 指标: 技术会议分享 3+, 企业用户 10+
-- 🔥 重点: 持续优化，建立长期影响力
-
-## 🤝 任务分配和协作
-
-### 核心维护团队
-- **项目负责人**: 负责整体规划和重要决策
-- **翻译协调员**: 负责翻译任务分配和质量控制
-- **技术开发员**: 负责工具开发和技术改进
-- **社区运营员**: 负责推广和社区建设
-
-### 志愿者贡献者
-- **翻译志愿者**: 参与规则集翻译工作
-- **审核志愿者**: 参与翻译质量审核
-- **测试志愿者**: 参与功能测试和反馈
-- **推广志愿者**: 参与社区推广活动
-
-### 协作流程
-1. **任务认领**: 在 GitHub Issues 中认领任务
-2. **进度跟踪**: 定期更新任务进度
-3. **质量审核**: 提交 PR 后进行代码审核
-4. **社区反馈**: 收集和处理用户反馈
+### 项目目标
+- 🎯 **翻译扩展**: 逐步覆盖原项目中所有高质量、高热度的规则集。
+- 🎯 **社区建设**: 吸引更多开发者参与翻译、校对和贡献。
+- 🎯 **质量提升**: 建立 PR 审核和反馈机制，确保翻译质量。
 
 ---
 
-💡 **参与贡献**: 查看 [贡献指南](./CONTRIBUTING.md) 了解如何参与项目！
-🔄 **进度跟踪**: 本文档将定期更新，反映最新的项目进展。
+## 🔥 翻译优先级任务
+
+为了让项目尽快覆盖主流技术栈，我们设定了以下优先级。欢迎社区开发者认领任务！
+
+### 优先级最高：核心后端 & 前端框架 (近期目标)
+*   [ ] **Python 生态**
+    *   [x] `python-fastapi-best-practices-cursorrules-prompt-f` (FastAPI 最佳实践)
+    *   [x] `python-django-best-practices-cursorrules-prompt-fi` (Django 最佳实践)
+    *   [ ] `cursorrules-file-cursor-ai-python-fastapi-api` (FastAPI API 示例)
+    *   [ ] `python-flask-json-guide-cursorrules-prompt-file` (Flask 指南)
+*   [ ] **前端框架 (Vue 之外)**
+    *   [ ] `angular-typescript-cursorrules-prompt-file` (Angular & TypeScript)
+    *   [ ] `sveltekit-tailwindcss-typescript-cursorrules-promp` (SvelteKit & Tailwind)
+    *   [ ] `solidjs-basic-cursorrules-prompt-file` (SolidJS 基础)
+*   [ ] **Node.js 生态**
+    *   [ ] `nodejs-mongodb-jwt-express-react-cursorrules-promp` (Node.js & Express & MongoDB)
+    *   [ ] `es-module-nodejs-guidelines-cursorrules-prompt-fil` (Node.js ES Module 指南)
+*   [ ] **其他后端**
+    *   [ ] `laravel-php-83-cursorrules-prompt-file` (PHP & Laravel)
+    *   [ ] `kotlin-springboot-best-practices-cursorrules-prompt-file` (Kotlin & SpringBoot)
+    *   [ ] `elixir-phoenix-docker-setup-cursorrules-prompt-fil` (Elixir & Phoenix)
+
+### 优先级中：移动端 & DevOps & 测试
+*   [ ] **移动开发**
+    *   [ ] `android-jetpack-compose-cursorrules-prompt-file` (Android Jetpack Compose)
+    *   [ ] `flutter-app-expert-cursorrules-prompt-file` (Flutter 专家指南)
+    *   [ ] `swiftui-guidelines-cursorrules-prompt-file` (SwiftUI 指南)
+    *   [ ] `react-native-expo-cursorrules-prompt-file` (React Native & Expo)
+*   [ ] **DevOps & 平台**
+    *   [ ] `github-code-quality-cursorrules-prompt-file` (GitHub 代码质量)
+    *   [ ] `python-containerization-cursorrules-prompt-file` (Python 容器化)
+    *   [ ] `kubernetes-mkdocs-documentation-cursorrules-prompt` (Kubernetes & MkDocs)
+*   [ ] **测试**
+    *   [ ] `cypress-e2e-testing-cursorrules-prompt-file` (Cypress E2E 测试)
+    *   [ ] `playwright-e2e-testing-cursorrules-prompt-file` (Playwright E2E 测试)
+    *   [ ] `jest-unit-testing-cursorrules-prompt-file` (Jest 单元测试)
+
+---
+
+## 🚀 如何贡献
+
+1.  **选择任务**: 从上面的列表中选择一个你感兴趣的未勾选任务。
+2.  **创建 Issue**: 在项目的 "Issues" 页面创建一个新的 Issue，标题为 `[翻译任务] <规则集名称>`，例如 `[翻译任务] python-django-best-practices`，并将自己分配给该 Issue。
+3.  **开始翻译**: Fork 本项目，在你的分支上完成翻译工作。
+4.  **提交 PR**: 完成后，提交一个 Pull Request 到主分支，并在描述中链接到你创建的 Issue。
+
+我们期待你的贡献！
