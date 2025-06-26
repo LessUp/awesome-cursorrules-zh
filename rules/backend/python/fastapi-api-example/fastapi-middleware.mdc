@@ -1,0 +1,8 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 对预期错误使用 HTTPException，并将其建模为特定的 HTTP 响应。
+- 使用中间件处理意外错误、日志记录和错误监控。
+- 使用 Pydantic 的 BaseModel 实现一致的输入/输出验证和响应模式。

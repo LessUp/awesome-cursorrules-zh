@@ -1,0 +1,41 @@
+// Solid.js 基础设置 .cursorrules
+
+// 倾向于使用函数式组件
+
+const preferFunctionalComponents = true;
+
+// Solid.js 最佳实践
+
+const solidjsBestPractices = [
+  "使用 createSignal() 创建响应式状态",
+  "利用 createEffect() 处理副作用",
+  "实现 createMemo() 用于派生值",
+  "使用 createResource() 进行数据获取",
+  "实现 Show 和 For 组件用于条件渲染和列表渲染",
+  "利用 createStore() 进行复杂状态管理",
+];
+
+// 文件夹结构
+
+const folderStructure = `
+src/
+  components/
+  pages/
+  utils/
+  App.jsx
+  index.jsx
+public/
+  index.html
+`;
+
+// 附加说明
+
+const additionalInstructions = `
+1. 使用 JSX 作为组件模板
+2. 实现适当的错误边界
+3. 在适用时利用 Solid Router 进行路由
+4. 使用 Solid 内置的优化功能
+5. 实现懒加载以提高性能
+6. 遵循 Solid.js 的命名约定和最佳实践
+7. 在需要时使用服务器端渲染 (SSR)
+`; 

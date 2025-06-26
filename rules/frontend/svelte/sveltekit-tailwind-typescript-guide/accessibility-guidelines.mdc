@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 确保正确的语义化 HTML 结构
+  - 必要时使用 ARIA 属性
+  - 为交互元素实现键盘导航
+  - 保持足够的颜色对比度

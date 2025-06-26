@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 将相关组件分组到 src/lib/components/ 下的子目录中
+  - 将页面保存在 src/routes/ 中
+  - 对页面组件使用 +page.svelte，对布局使用 +layout.svelte
+  - 将可重用的工具函数放在 src/lib/utils/ 中
+  - 将类型和接口存储在 src/lib/types/ 中

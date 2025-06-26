@@ -1,0 +1,25 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 使用 Svelte stores 进行全局状态管理：
+    typescript
+    import { writable } from 'svelte/store';
+    export const myStore = writable(initialValue);
+    
+  - 在组件中使用 `$` 前缀访问 store 的值：
+    svelte
+    <p>{$myStore}</p>
+    
+- 响应性
+  - 对派生值使用响应式声明：
+    svelte
+    $: derivedValue = someValue * 2;
+    
+  - 对副作用使用响应式语句：
+    svelte
+    $: {
+      console.log(someValue);
+      updateSomething(someValue);
+    }

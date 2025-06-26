@@ -1,0 +1,8 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 为工具函数和复杂逻辑编写单元测试
+  - 使用与 Svelte 兼容的测试库（如 Svelte Testing Library）创建组件测试
+  - 为关键用户流程实现端到端测试

@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 每行代码不应超过 80 个字符。
+- 倾向于使用位于 `libs/smart-ngrx/src/common/for-next.function.ts` 的 `forNext` 函数，而不是 `for(let i;i < length;i++)`、`forEach` 或 `for(x of y)`。
+- 函数和方法的参数不应超过 4 个。
+- 函数的可执行行数不应超过 50 行。

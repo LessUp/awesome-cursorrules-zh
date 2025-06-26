@@ -1,0 +1,11 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用函数式、声明式编程；尽可能避免使用类。
+- 倾向于使用迭代和模块化，而不是代码重复。
+- 使用带有助动词的描述性变量名（例如，is_active, has_permission）。
+- 目录和文件名使用小写字母和下划线（例如，routers/user_routes.py）。
+- 倾向于对路由和工具函数使用命名导出。
+- 使用"接收一个对象，返回一个对象"（RORO）模式。

@@ -1,0 +1,8 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 Redis 或内存存储等工具为静态和频繁访问的数据实现缓存。
+- 使用 Pydantic 优化数据序列化和反序列化。
+- 对大型数据集和大量 API 响应使用延迟加载技术。

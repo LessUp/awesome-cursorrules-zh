@@ -1,0 +1,11 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 使用 Tailwind CSS 进行样式设计
+  - 直接在标记中使用 Tailwind 的功能类
+  - 对于复杂的组件，可以考虑在限定作用域的 `<style>` 块中使用 Tailwind 的 @apply 指令
+  - 必要时使用模板字面量动态添加类：
+    svelte
+    <div class={`bg-blue-500 p-4 ${isActive ? 'opacity-100' : 'opacity-50'}`}></div>

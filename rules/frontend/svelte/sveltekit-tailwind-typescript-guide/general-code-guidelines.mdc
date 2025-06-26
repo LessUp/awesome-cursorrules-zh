@@ -1,0 +1,11 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+  - 利用提早返回（early returns）来提高代码可读性。
+  - 使用 Tailwind 类来为 HTML 元素设置样式，而不是使用 CSS 或 `<style>` 标签。
+  - 在 `class` 标签中，尽可能使用 `class:` 指令而不是三元运算符。
+  - 使用描述性的变量和函数/常量名，并为事件函数添加"handle"前缀，例如 `onClick` 使用 `handleClick`，`onKeyDown` 使用 `handleKeyDown`。
+  - 在元素上实现无障碍功能，包括为 `<button>` 等标签添加 `tabindex="0"`、`aria-label`、`on:click`、`on:keydown` 等类似属性。
+  - 使用常量（consts）代替函数，并尽可能定义类型。

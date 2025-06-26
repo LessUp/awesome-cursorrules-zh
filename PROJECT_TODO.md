@@ -25,12 +25,12 @@
 *   [ ] **Python 生态**
     *   [x] `python-fastapi-best-practices-cursorrules-prompt-f` (FastAPI 最佳实践)
     *   [x] `python-django-best-practices-cursorrules-prompt-fi` (Django 最佳实践)
-    *   [ ] `cursorrules-file-cursor-ai-python-fastapi-api` (FastAPI API 示例)
-    *   [ ] `python-flask-json-guide-cursorrules-prompt-file` (Flask 指南)
+    *   [x] `cursorrules-file-cursor-ai-python-fastapi-api` (FastAPI API 示例)
+    *   [x] `python-flask-json-guide-cursorrules-prompt-file` (Flask 指南)
 *   [ ] **前端框架 (Vue 之外)**
-    *   [ ] `angular-typescript-cursorrules-prompt-file` (Angular & TypeScript)
-    *   [ ] `sveltekit-tailwindcss-typescript-cursorrules-promp` (SvelteKit & Tailwind)
-    *   [ ] `solidjs-basic-cursorrules-prompt-file` (SolidJS 基础)
+    *   [x] `angular-typescript-cursorrules-prompt-file` (Angular & TypeScript)
+    *   [x] `sveltekit-tailwindcss-typescript-cursorrules-promp` (SvelteKit & Tailwind)
+    *   [x] `solidjs-basic-cursorrules-prompt-file` (SolidJS 基础)
 *   [ ] **Node.js 生态**
     *   [ ] `nodejs-mongodb-jwt-express-react-cursorrules-promp` (Node.js & Express & MongoDB)
     *   [ ] `es-module-nodejs-guidelines-cursorrules-prompt-fil` (Node.js ES Module 指南)

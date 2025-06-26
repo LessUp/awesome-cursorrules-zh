@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 `drawscape_factorio` 模块中的 `createFactorio` 和 `importFUE5` 函数。
+- 确保存在以下导入语句：`from drawscape_factorio import create as createFactorio` 和 `from drawscape_factorio import importFUE5`。
+- 使用 `importFUE5` 时，加载导出的实体 JSON 文件并将数据传递给该函数。
+- 调用 `createFactorio` 时，提供导入的数据和一个包含 `theme_name`、`color_scheme` 和 `show_layers` 的配置字典。
+- 将生成的 SVG 字符串写入输出文件。
