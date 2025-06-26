@@ -1,0 +1,89 @@
+// Android Jetpack Compose .cursorrules
+
+// 灵活性说明
+
+// 注意：这是一个推荐的项目结构，但请保持灵活性并适应现有的项目结构。
+// 如果项目遵循不同的组织方式，请不要强制执行这些结构模式。
+// 在应用 Jetpack Compose 最佳实践的同时，专注于与现有项目架构保持一致性。
+
+// 项目架构与最佳实践
+
+const androidJetpackComposeBestPractices = [
+    "在保持代码整洁原则的同时，适应现有的项目架构",
+    "遵循 Material Design 3 指南和组件",
+    "实现包含领域、数据和表示层的整洁架构",
+    "使用 Kotlin 协程和 Flow 进行异步操作",
+    "使用 Hilt 实现依赖注入",
+    "遵循 ViewModel 和 UI State 的单向数据流",
+    "使用 Compose 导航进行屏幕管理",
+    "实现适当的状态提升和组合",
+];
+
+// 文件夹结构
+
+// 注意：这是一个参考结构。请根据项目的现有组织方式进行调整。
+
+const projectStructure = `
+app/
+  src/
+    main/
+      java/com/package/
+        data/
+          repository/
+          datasource/
+          models/
+        domain/
+          usecases/
+          models/
+          repository/
+        presentation/
+          screens/
+          components/
+          theme/
+          viewmodels/
+        di/
+        utils/
+      res/
+        values/
+        drawable/
+        mipmap/
+    test/
+    androidTest/
+`;
+
+// Compose UI 指南
+
+const composeGuidelines = `
+1. 适当地使用 remember 和 derivedStateOf
+2. 实现适当的重组优化
+3. 使用正确的 Compose 修改器顺序
+4. 遵循可组合函数的命名约定
+5. 实现适当的预览注解
+6. 使用 MutableState 进行适当的状态管理
+7. 实现适当的错误处理和加载状态
+8. 使用 MaterialTheme 进行适当的主题设置
+9. 遵循无障碍指南
+10. 实现适当的动画模式
+`;
+
+// 测试指南
+
+const testingGuidelines = `
+1. 为 ViewModels 和 UseCases 编写单元测试
+2. 使用 Compose 测试框架实现 UI 测试
+3. 使用伪造的（fake）仓库进行测试
+4. 实现适当的测试覆盖率
+5. 使用适当的测试协程分发器
+`;
+
+// 性能指南
+
+const performanceGuidelines = `
+1. 使用适当的键（keys）最小化重组
+2. 使用 LazyColumn 和 LazyRow 进行适当的懒加载
+3. 实现高效的图片加载
+4. 使用适当的状态管理以防止不必要的更新
+5. 遵循正确的生命周期感知
+6. 实现适当的内存管理
+7. 使用适当的后台处理
+`; 

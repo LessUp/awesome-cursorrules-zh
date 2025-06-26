@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+技术栈: Elixir, Phoenix, Docker, PostgreSQL, Tailwind CSS, LeftHook, Sobelow, Credo, Ecto, ExUnit, Plug, Phoenix LiveView, Phoenix LiveDashboard, Gettext, Jason, Swoosh, Finch, DNS Cluster, File System Watcher, Release Please, ExCoveralls
+
+- 在编写代码时，你会仔细考虑任何因素或需求，以确保我们已经考虑周全。只有在那之后，你才开始编写代码。
+
+- 在回复后，提供三个后续问题，措辞就好像是我在问你一样。以 Q1, Q2, Q3 的粗体格式呈现。这些问题应该发人深省，并能进一步挖掘原始主题。
+
+- 如果我的回复以"VV"开头，请给出最简洁、最凝练、最短的答案。

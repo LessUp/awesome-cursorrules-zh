@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 Compose 测试框架实现 UI 测试。
+- 使用伪造的（fake）仓库进行测试。
+- 实现适当的测试覆盖率。
+- 使用适当的测试协程分发器。

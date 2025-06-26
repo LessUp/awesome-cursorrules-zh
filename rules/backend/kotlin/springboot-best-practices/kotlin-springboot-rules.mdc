@@ -1,0 +1,100 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## 项目结构与组织
+
+1. 将你的源代码分组到明确定义的包中，如 controller、service、repository 和 model，以分离关注点并提高可维护性。
+2. 组织你的文件系统，使每个目录都镜像 Kotlin 的包名（例如，将 com.myapp.users 放在 src/main/kotlin/com/myapp/users 下）。
+3. 每个 Kotlin 文件都以其包含的主要类或概念命名，以使代码库更易于导航和理解。
+4. 避免使用像 Utils.kt 这样模糊的文件名；相反，使用简洁且有意义的名称，以反映文件内容的目的。
+5. 将你的 Spring Boot 应用程序入口点放在根包中，并按层或功能组织子包，以帮助 Spring 高效地扫描和组织组件。
+
+## 编码风格与约定
+
+1. 类和对象名使用 PascalCase，函数和变量名使用 camelCase，常量名使用 UPPER_SNAKE_CASE，以遵循 Kotlin 的命名约定并提高可读性。
+2. 默认使用 `val` 声明变量，仅在需要可变性时才使用 `var`，以促进更安全、更可预测的代码。
+    ```kotlin
+    val maxConnections = 10    // 不可变引用
+    var currentUsers = 0       // 可变的，如果可能，尽量避免
+    ``` 
+3. 将变量的作用域限制在其实际使用的地方——函数内部或更小的代码块中——以避免意外误用，并使代码更易于遵循。
+4. 使用 4 空格缩进、在运算符和逗号周围使用适当的间距，以及编写简短、专注的函数来统一格式化你的代码，以提高清晰度和可维护性。
+5. 编写清晰且富有表现力的代码，而不是巧妙的单行代码；将复杂的逻辑分解为中间变量或命名良好的函数，以提高可读性。
+6. 为类、函数和变量使用描述性的名称以传达意图，并避免使用像 '-Manager' 或 '-Helper' 这样没有实际意义的模糊后缀。
+7. 保持属性的 getter 和 setter 简单且不含复杂逻辑；如果需要复杂的行为，请将其移至单独的方法中，以保持属性访问的可预测性。
+
+## 地道的 Kotlin 用法
+
+1. 使用数据类（data class）定义 DTO 和实体，这样你就可以获得像 `equals()` 和 `copy()` 这样的有用方法，而无需编写样板代码。
+2. 使用默认参数和命名参数替换重载的构造函数，以简化函数调用并使其更具表现力。
+    ```kotlin
+    // Kotlin – 使用默认参数
+    fun createConnection(host: String, secure: Boolean = true) { … }
+
+    createConnection("example.com")                      // 使用默认的 secure=true
+    createConnection(host = "test.com", secure = false)  // 使用命名参数以提高清晰度
+    ``` 
+3. 使用 `when` 表达式代替冗长的 `if-else` 链，以编写更清晰、更易读的条件逻辑，从而清楚地处理每种情况。
+4. 创建扩展函数而不是工具类，以更自然、更易读的方式为现有类型添加可重用行为。
+    ```kotlin
+    fun String.capitalizeFirst(): String = replaceFirstChar { it.uppercaseChar() }
+
+    println("kotlin".capitalizeFirst())  // 打印 "Kotlin"
+    ```
+5. 使用作用域函数如 `apply`、`let`、`also`、`run` 和 `with` 来减少重复，并清晰地表达对象配置或空安全操作。
+6. 仅在必要时将变量声明为可空，并使用安全调用运算符（`?.`）和 Elvis 运算符（`?:`）来处理它们，以避免运行时崩溃。
+7. 避免使用非空断言（`!!`），而是提供回退值或显式的空检查，以编写更安全、更可预测的代码。
+8. 立即处理来自 Java API 的平台类型，通过将它们显式转换为 `String` 或 `String?`，以避免在你的 Kotlin 代码中传播可空性的不确定性。
+9. 使用 Kotlin 的函数式集合操作如 `filter`、`map` 和 `forEach` 代替手动循环，以编写简洁且富有表现力的数据转换逻辑。
+    ```kotlin
+    // 命令式方法
+    val activeUsers = mutableListOf<User>()
+    for (user in users) {
+        if (user.isActive) activeUsers.add(user)
+    }
+
+    // 地道的函数式方法
+    val activeUsers = users.filter { it.isActive }
+    ``` 
+10. 当逻辑清晰时，将简单函数转换为单表达式函数，以消除不必要的语法并提高代码的简洁性。
+    ```kotlin
+    fun toDto(entity: User) = UserDto(name = entity.name, email = entity.email)
+    ``` 
+11. 使用字符串模板（`$var` 或 `${expression}`）构建字符串，而不是使用拼接，并使用三引号字符串处理干净的多行文本。
+
+## 实现模式与设计
+
+1. 通过构造函数参数使用 `val` 注入依赖，以保持其不可变性，并与 Spring 和 Kotlin 的习惯用法保持一致。
+    ```kotlin
+    @Service
+    class OrderService(
+        private val orderRepo: OrderRepository,
+        private val notifier: Notifier
+    ) {
+        // ...
+    }
+    ``` 
+2. 默认保持类为 `final`，并让 Spring 的 'all-open' 插件处理代理生成，这样你就不需要手动添加 open 修饰符。
+3. 使用 Kotlin 的 `object` 声明来实现真正的单例或无状态的工具持有者，而不是使用静态方法或 Java 风格的单例。
+4. 通过组合小的、专注的类或使用高阶函数来支持组合，而不是依赖于深层的继承层次结构。
+5. 当一个类型有一个有限的、封闭的变体集时，定义密封类（sealed class），以在 `when` 表达式中强制进行详尽的处理并提高类型安全性。
+    ```kotlin
+    sealed class Result<out T>
+    data class Success<T>(val data: T): Result<T>()
+    data class Error(val exception: Throwable): Result<Nothing>()
+    ``` 
+6. 使用枚举类（enum class）来建模可能包含逻辑的固定常量集，避免在业务逻辑中使用魔术字符串或原始值。
+7. 对于"未找到"或"无效输入"等预期场景，返回可空类型、密封类或结果包装器，而不是抛出异常。
+8. 始终使用 `use` 函数来安全地管理和关闭像流和文件句柄这样的资源，确保即使发生异常也能关闭它们。
+    ```kotlin
+    FileInputStream("data.txt").use { stream ->
+        // 从流中读取
+    } // 流在这里自动关闭
+    ``` 
+9. 尽可能使用 `private` 或 `internal` 来最小化组件的可见性，只将真正必要的内容公开为 public。
+10. 使用 Kotlin 协程和挂起函数（suspend functions）以及像 `launch` 或 `async` 这样的协程构建器来编写干净的、无回调地狱的异步后端代码。
+11. 利用 Kotlin 的标准库特性，如 `lazy`、`observable`、`infix` 和运算符重载，来编写简洁、富有表现力且地道的代码。
+12. 使用带有 `val` 字段的不可变数据类实体和 Kotlin 的 JPA 插件，以满足 JPA 的要求，同时保持模型的安全性和线程友好性。
+13. 使用依赖注入和纯函数为你的业务逻辑编写单元测试，以使测试简单且独立于 Spring 的上下文。

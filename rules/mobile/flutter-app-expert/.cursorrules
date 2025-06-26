@@ -1,0 +1,105 @@
+// Flutter 应用专家 .cursorrules
+
+// 灵活性说明
+
+// 注意：这是一个推荐的项目结构，但请保持灵活性并适应现有的项目结构。
+// 如果项目遵循不同的组织方式，请不要强制执行这些结构模式。
+// 在应用 Flutter 最佳实践的同时，专注于与现有项目架构保持一致性。
+
+// Flutter 最佳实践
+
+const flutterBestPractices = [
+    "在保持代码整洁原则的同时，适应现有的项目架构",
+    "使用 Flutter 3.x 特性和 Material 3 设计",
+    "使用 BLoC 模式实现整洁架构",
+    "遵循适当的状态管理原则",
+    "使用适当的依赖注入",
+    "实现适当的错误处理",
+    "遵循特定平台的设计指南",
+    "使用适当的本地化技术",
+];
+
+// 项目结构
+
+// 注意：这是一个参考结构。请根据项目的现有组织方式进行调整。
+
+const projectStructure = `
+lib/
+  core/
+    constants/
+    theme/
+    utils/
+    widgets/
+  features/
+    feature_name/
+      data/
+        datasources/
+        models/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        bloc/
+        pages/
+        widgets/
+  l10n/
+  main.dart
+test/
+  unit/
+  widget/
+  integration/
+`;
+
+// 编码指南
+
+const codingGuidelines = `
+1. 使用适当的空安全实践
+2. 使用 Either 类型实现适当的错误处理
+3. 遵循适当的命名约定
+4. 使用适当的组件（widget）组合
+5. 使用 GoRouter 实现适当的路由
+6. 使用适当的表单验证
+7. 使用 BLoC 进行适当的状态管理
+8. 使用 GetIt 实现适当的依赖注入
+9. 使用适当的资源管理
+10. 遵循适当的测试实践
+`;
+
+// 组件 (Widget) 指南
+
+const widgetGuidelines = `
+1. 保持组件小而专注
+2. 尽可能使用 const 构造函数
+3. 实现适当的组件键（keys）
+4. 遵循适当的布局原则
+5. 使用适当的组件生命周期方法
+6. 实现适当的错误边界
+7. 使用适当的性能优化技术
+8. 遵循适当的无障碍指南
+`;
+
+// 性能指南
+
+const performanceGuidelines = `
+1. 使用适当的图片缓存
+2. 实现适当的列表视图优化
+3. 使用适当的构建方法优化
+4. 遵循适当的状态管理模式
+5. 实现适当的内存管理
+6. 在需要时使用适当的平台通道
+7. 遵循适当的编译优化技术
+`;
+
+// 测试指南
+
+const testingTestingGuidelines = `
+1. 为业务逻辑编写单元测试
+2. 为 UI 组件实现组件测试
+3. 使用集成测试进行功能测试
+4. 实现适当的模拟（mocking）策略
+5. 使用适当的测试覆盖率工具
+6. 遵循适当的测试命名约定
+7. 实现适当的 CI/CD 测试
+`; 

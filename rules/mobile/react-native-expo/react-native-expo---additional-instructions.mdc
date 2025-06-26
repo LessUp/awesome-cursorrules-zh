@@ -1,0 +1,11 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 StyleSheet 实现适当的样式
+- 利用 Expo 的矢量图标
+- 使用 Expo 的安全存储（secure store）处理敏感数据
+- 实现适当的离线支持
+- 遵循 React Native 的性能最佳实践
+- 使用 Expo 的 OTA 更新进行快速部署

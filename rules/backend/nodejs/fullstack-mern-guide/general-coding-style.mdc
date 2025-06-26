@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 实现适当的错误处理和输入验证。

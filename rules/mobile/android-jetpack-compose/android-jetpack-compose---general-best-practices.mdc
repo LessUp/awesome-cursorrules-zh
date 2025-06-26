@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 遵循 Material Design 3 指南和组件。
+- 实现包含领域、数据和表示层的整洁架构。
+- 使用 Kotlin 协程和 Flow 进行异步操作。
+- 使用 Hilt 实现依赖注入。
+- 遵循 ViewModel 和 UI State 的单向数据流。
+- 使用 Compose 导航进行屏幕管理。
+- 实现适当的状态提升和组合。

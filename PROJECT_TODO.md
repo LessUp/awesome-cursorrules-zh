@@ -31,20 +31,20 @@
     *   [x] `angular-typescript-cursorrules-prompt-file` (Angular & TypeScript)
     *   [x] `sveltekit-tailwindcss-typescript-cursorrules-promp` (SvelteKit & Tailwind)
     *   [x] `solidjs-basic-cursorrules-prompt-file` (SolidJS 基础)
-*   [ ] **Node.js 生态**
-    *   [ ] `nodejs-mongodb-jwt-express-react-cursorrules-promp` (Node.js & Express & MongoDB)
-    *   [ ] `es-module-nodejs-guidelines-cursorrules-prompt-fil` (Node.js ES Module 指南)
-*   [ ] **其他后端**
-    *   [ ] `laravel-php-83-cursorrules-prompt-file` (PHP & Laravel)
-    *   [ ] `kotlin-springboot-best-practices-cursorrules-prompt-file` (Kotlin & SpringBoot)
-    *   [ ] `elixir-phoenix-docker-setup-cursorrules-prompt-fil` (Elixir & Phoenix)
+*   [x] **Node.js 生态**
+    *   [x] `nodejs-mongodb-jwt-express-react-cursorrules-promp` (Node.js & Express & MongoDB)
+    *   [x] `es-module-nodejs-guidelines-cursorrules-prompt-fil` (Node.js ES Module 指南)
+*   [x] **其他后端**
+    *   [x] `laravel-php-83-cursorrules-prompt-file` (PHP & Laravel)
+    *   [x] `kotlin-springboot-best-practices-cursorrules-prompt-file` (Kotlin & SpringBoot)
+    *   [x] `elixir-phoenix-docker-setup-cursorrules-prompt-fil` (Elixir & Phoenix)
 
 ### 优先级中：移动端 & DevOps & 测试
-*   [ ] **移动开发**
-    *   [ ] `android-jetpack-compose-cursorrules-prompt-file` (Android Jetpack Compose)
-    *   [ ] `flutter-app-expert-cursorrules-prompt-file` (Flutter 专家指南)
-    *   [ ] `swiftui-guidelines-cursorrules-prompt-file` (SwiftUI 指南)
-    *   [ ] `react-native-expo-cursorrules-prompt-file` (React Native & Expo)
+*   [x] **移动开发**
+    *   [x] `android-jetpack-compose-cursorrules-prompt-file` (Android Jetpack Compose)
+    *   [x] `flutter-app-expert-cursorrules-prompt-file` (Flutter 专家指南)
+    *   [x] `swiftui-guidelines-cursorrules-prompt-file` (SwiftUI 指南)
+    *   [x] `react-native-expo-cursorrules-prompt-file` (React Native & Expo)
 *   [ ] **DevOps & 平台**
     *   [ ] `github-code-quality-cursorrules-prompt-file` (GitHub 代码质量)
     *   [ ] `python-containerization-cursorrules-prompt-file` (Python 容器化)

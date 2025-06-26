@@ -1,0 +1,84 @@
+{
+  "rules": [
+    {
+      "name": "验证信息",
+      "pattern": "(?i)\\b(assume|assumption|guess|speculate)\\b",
+      "message": "在呈现信息前务必进行验证。不要在没有明确证据的情况下做出假设或推测。"
+    },
+    {
+      "name": "逐文件更改",
+      "pattern": "// MULTI-FILE CHANGE:",
+      "message": "请逐个文件进行更改，以便我有机会发现错误。"
+    },
+    {
+      "name": "不要道歉",
+      "pattern": "(?i)\\b(sorry|apologize|apologies)\\b",
+      "message": "永远不要道歉。"
+    },
+    {
+      "name": "不要提供理解反馈",
+      "pattern": "(?i)\\b(understand|understood|got it)\\b",
+      "message": "避免在评论或文档中提供关于"理解"的反馈。"
+    },
+    {
+      "name": "不要建议修改空白字符",
+      "pattern": "(?i)\\b(whitespace|indentation|spacing)\\b",
+      "message": "不要建议对空白字符进行更改。"
+    },
+    {
+      "name": "不要总结",
+      "pattern": "(?i)\\b(summary|summarize|overview)\\b",
+      "message": "不要总结所做的更改。"
+    },
+    {
+      "name": "不要臆造",
+      "pattern": "(?i)\\b(suggest|recommendation|propose)\\b",
+      "message": "除了明确要求的内容外，不要臆造其他更改。"
+    },
+    {
+      "name": "不要不必要的确认",
+      "pattern": "(?i)\\b(make sure|confirm|verify|check)\\b",
+      "message": "不要对上下文中已提供的信息要求确认。"
+    },
+    {
+      "name": "保留现有代码",
+      "pattern": "(?i)\\b(remove|delete|eliminate|destroy)\\b",
+      "message": "不要删除不相关的代码或功能。注意保留现有结构。"
+    },
+    {
+      "name": "单块编辑",
+      "pattern": "(?i)\\b(first|then|next|after that|finally)\\b",
+      "message": "请将所有编辑内容放在一个代码块中，而不是为同一个文件提供多步骤的指令或解释。"
+    },
+    {
+      "name": "不要检查实现",
+      "pattern": "(?i)\\b(make sure|verify|check|confirm) (it's|it is|that) (correctly|properly) implemented\\b",
+      "message": "不要要求用户验证在提供的上下文中可见的实现。"
+    },
+    {
+      "name": "不要不必要的更新",
+      "pattern": "(?i)\\b(update|change|modify|alter)\\b.*\\bno changes\\b",
+      "message": "当实际上不需要修改时，不要建议对文件进行更新或更改。"
+    },
+    {
+      "name": "提供真实文件链接",
+      "pattern": "(?i)\\b(file|in)\\b.*\\b(x.md)\\b",
+      "message": "务必提供指向真实文件的链接，而不是 x.md。"
+    },
+    {
+      "name": "不要考虑之前的 x.md",
+      "pattern": "(?i)\\b(previous|earlier|last)\\b.*\\bx.md\\b",
+      "message": "不要在你的记忆中考虑任何之前的 x.md 文件。如果内容与之前的运行相同，请提出异议。"
+    },
+    {
+      "name": "不要展示当前实现",
+      "pattern": "(?i)\\b(current|existing)\\s+(implementation|code)\\b",
+      "message": "除非特别要求，否则不要显示或讨论当前的实现。"
+    },
+    {
+      "name": "检查 x.md 内容",
+      "pattern": "(?i)\\b(file|content|implementation)\\b",
+      "message": "记住检查 x.md 文件以获取当前文件的内容和实现。"
+    }
+  ]
+} 

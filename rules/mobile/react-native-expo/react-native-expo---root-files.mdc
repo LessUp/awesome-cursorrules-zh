@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 始终根据文档配置 app.json

@@ -1,0 +1,8 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 掌握布局工具：使用 VStack、HStack、ZStack、Spacer 和 Padding 进行响应式设计；使用 LazyVGrid 和 LazyHGrid 创建网格；使用 GeometryReader 实现动态布局。
+- 增添视觉效果：通过使用 .animation() 修饰符，利用阴影、渐变、模糊、自定义形状和动画来增强 UI，以实现平滑过渡。
+- 为交互而设计：结合手势（轻扫、长按）、触觉反馈、清晰的导航和响应式元素，以提高用户参与度和满意度。

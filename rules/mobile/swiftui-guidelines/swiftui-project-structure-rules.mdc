@@ -1,0 +1,22 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 主文件夹包含一个 "Sources" 文件夹，其中有：
+    - 用于主文件的 "App"
+    - 分为 "Home" 和 "Profile" 部分及其 ViewModel 的 "Views"
+    - 用于可重用组件和修饰符的 "Shared"
+- "Models" 用于数据模型
+- "ViewModels" 用于视图特定逻辑
+- "Services" 包含：
+    - "Network" 用于网络请求
+    - "Persistence" 用于数据存储
+- "Utilities" 用于扩展、常量和辅助工具
+- "Resources" 文件夹存放：
+    - "Assets" 用于图片和颜色
+    - "Localization" 用于本地化字符串
+    - "Fonts" 用于自定义字体
+- "Tests" 文件夹包括：
+    - "UnitTests" 用于单元测试
+    - "UITests" 用于 UI 测试

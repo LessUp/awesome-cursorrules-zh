@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 遵循 Laravel 的约定和最佳实践
+- 使用 spatie/laravel-package-tools 作为起点
+- 实现默认的 Pint 配置以进行代码风格化
+- 尽可能使用辅助函数（helpers）而非门面（facades）
+- 专注于创建能提供卓越开发者体验（DX）、更好自动补全、类型安全和全面文档块（docblocks）的代码

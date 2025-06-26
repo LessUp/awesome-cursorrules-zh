@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 类和枚举名: 使用 PascalCase (例如, MyClass)
+- 方法名: 使用 camelCase (例如, myMethod)
+- 变量和属性名: 使用 snake_case (例如, my_variable)
+- 常量和枚举成员名: 使用 SCREAMING_SNAKE_CASE (例如, MY_CONSTANT)
+

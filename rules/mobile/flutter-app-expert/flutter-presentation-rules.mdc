@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 Flutter 3.x 特性和 Material 3 设计。
+- 遵循适当的组件（widget）组合。
+- 保持组件小而专注。
+- 使用 GoRouter 实现适当的路由。
+- 使用适当的表单验证。
+- 实现适当的错误边界。
+- 遵循适当的无障碍指南。

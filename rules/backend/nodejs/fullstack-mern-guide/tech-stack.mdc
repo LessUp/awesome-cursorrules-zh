@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 MongoDB 与 Mongoose ODM作为数据库。
+- 使用 JSON Web Tokens (JWT) 进行认证。
+- 考虑使用 Docker 进行部署。
+- 使用 Git 进行版本控制。

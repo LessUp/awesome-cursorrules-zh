@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 概述文档结构，包括 README.md、用法示例和 API 参考

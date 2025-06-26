@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 选秀可以在截止日期前更新 (比赛开始或选秀当前周的周日下午 1 点)。

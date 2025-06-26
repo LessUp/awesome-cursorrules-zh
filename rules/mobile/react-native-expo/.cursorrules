@@ -1,0 +1,38 @@
+// React Native Expo .cursorrules
+
+// React Native Expo 最佳实践
+
+const reactNativeExpoBestPractices = [
+  "使用带有钩子（hooks）的函数式组件",
+  "利用 Expo SDK 的功能和 API",
+  "使用 React Navigation 实现适当的导航",
+  "使用 Expo 的资源系统处理图片和字体",
+  "实现适当的错误处理和崩溃报告",
+  "利用 Expo 的推送通知系统",
+];
+
+// 文件夹结构
+
+const folderStructure = `
+assets/
+src/
+  components/
+  screens/
+  navigation/
+  hooks/
+  utils/
+App.js
+app.json
+`;
+
+// 附加说明
+
+const additionalInstructions = `
+1. 使用 TypeScript 以确保类型安全
+2. 使用 StyleSheet 实现适当的样式
+3. 利用 Expo 的矢量图标
+4. 使用 Expo 的安全存储（secure store）处理敏感数据
+5. 实现适当的离线支持
+6. 遵循 React Native 的性能最佳实践
+7. 使用 Expo 的 OTA 更新进行快速部署
+`; 

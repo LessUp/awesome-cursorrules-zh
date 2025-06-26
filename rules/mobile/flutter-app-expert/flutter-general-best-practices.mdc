@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 Flutter 3.x 特性和 Material 3 设计。
+- 使用 BLoC 模式实现整洁架构。
+- 遵循适当的状态管理原则。
+- 使用适当的依赖注入。
+- 实现适当的错误处理。
+- 遵循特定平台的设计指南。
+- 使用适当的本地化技术。
+

@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 使用 Flutter 3.x 特性和 Material 3 设计。
+- 实现适当的空安全实践。
+- 遵循适当的命名约定。
+- 使用适当的组件（widget）组合。
+- 保持组件小而专注。
+- 尽可能使用 const 构造函数。
+- 实现适当的组件键（keys）。
+- 遵循适当的布局原则。
