@@ -1,0 +1,36 @@
+# TensorFlow 实践手册
+
+## Keras API
+
+### 序列模型定义
+```python
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential([
+    Dense(64, activation='relu', input_shape=(784,)),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+```
+
+## 分布式训练
+
+### 多GPU训练配置
+```python
+strategy = tf.distribute.MirroredStrategy()
+
+with strategy.scope():
+    model = create_model()
+    model.compile(loss='sparse_categorical_crossentropy',
+                 optimizer='adam',
+                 metrics=['accuracy'])
+
+model.fit(train_dataset, epochs=10)
+```

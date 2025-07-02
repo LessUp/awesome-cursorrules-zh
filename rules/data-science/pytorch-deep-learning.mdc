@@ -1,0 +1,44 @@
+# PyTorch 深度学习指南
+
+## 模型定义
+
+### 使用Module定义模型结构
+```python
+import torch.nn as nn
+
+class CNNClassifier(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
+        self.fc = nn.Linear(32 * 8 * 8, 10)
+        
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.max_pool2d(x, 2)
+        x = F.relu(self.conv2(x))
+        x = F.max_pool2d(x, 2)
+        x = x.view(-1, 32 * 8 * 8)
+        x = self.fc(x)
+        return x
+```
+
+## 训练循环
+
+### 标准训练步骤
+```python
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = CNNClassifier().to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+for epoch in range(10):
+    for inputs, labels in train_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+```
