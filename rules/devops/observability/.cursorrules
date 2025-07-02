@@ -2,15 +2,22 @@
 
 ## 技术栈
 
-- Metrics
-- Logs
-- Tracing
-- 异常检测
+- **指标(Metrics)**: Prometheus + VictoriaMetrics + Grafana
+- **日志(Logs)**: Loki + FluentBit + Elasticsearch
+- **追踪(Tracing)**: OpenTelemetry + Jaeger/Tempo
+- **告警(Alert)**: Alertmanager + Grafana告警
 
 ## 核心准则
 
-1. **数据采集**：规范OpenTelemetry标准
-2. **关联分析**：实现跨信号关联
-3. **存储优化**：设计降采样策略
-4. **告警治理**：完善通知路由
-5. **成本控制**：统一数据治理
+1. **统一采集**：实现Metrics/Logs/Tracing三位一体采集
+2. **关联分析**：建立跨信号关联关系(如Trace-to-Logs)
+3. **智能基线**：基于历史数据建立动态阈值
+4. **成本控制**：采用智能采样策略减少存储开销
+5. **SLO驱动**：以服务等级目标为导向配置监控
+
+## 实施建议
+
+- 优先实现关键业务链路100%追踪覆盖
+- 日志采集保留原始上下文信息
+- 指标定义遵循RED方法(Requests/Errors/Duration)
+- 告警规则避免过度配置(建议<5条/服务)

@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+- 遵循创建高效、安全 Dockerfile 的最佳实践。

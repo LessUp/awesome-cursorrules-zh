@@ -9,7 +9,16 @@
 
 ## 规则特点
 
-- 支持OpenTelemetry
-- 提供关联分析
-- 包含存储优化指南
-- 实现智能告警
+- **统一观测**：整合Metrics/Logs/Tracing三支柱数据
+- **智能告警**：基于机器学习实现异常检测
+- **端到端追踪**：支持分布式事务全链路追踪
+- **成本优化**：智能采样降低存储开销
+- **开放标准**：兼容OpenTelemetry等开放协议
+
+## 技术栈
+
+- 指标采集：Prometheus/VictoriaMetrics
+- 日志分析：Loki/Elasticsearch
+- 分布式追踪：Jaeger/Tempo
+- 告警管理：Alertmanager/Grafana
+- 可视化：Grafana/Kibana

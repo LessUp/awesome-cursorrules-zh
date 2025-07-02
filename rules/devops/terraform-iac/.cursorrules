@@ -2,15 +2,33 @@
 
 ## 技术栈
 
-- Terraform
-- Pulumi
-- Terragrunt
-- CloudFormation
+- **核心工具**：
+  - Terraform 1.5+ (HCL语法)
+  - Pulumi (多语言支持)
+  - Terragrunt (环境管理)
+- **生态系统**：
+  - Terraform Registry (模块市场)
+  - Terraform Cloud (协作平台)
+  - Atlantis (自动化工作流)
 
 ## 核心准则
 
-1. **模块化设计**：创建可复用的基础设施模块
-2. **状态管理**：规范远程状态存储配置
-3. **变量规范**：使用类型约束的输入变量
-4. **安全实践**：敏感数据使用 Vault 或 KMS 管理
-5. **多环境策略**：实现 dev/stage/prod 环境隔离
+1. **状态管理**：
+   - 远程状态存储加密
+   - 状态文件锁定机制
+   - 定期备份策略
+2. **代码组织**：
+   - 环境隔离(dev/stage/prod)
+   - 模块化架构设计
+   - 清晰的目录结构
+3. **安全合规**：
+   - 静态代码分析(SAST)
+   - 动态权限检查
+   - 变更影响评估
+
+## 实施建议
+
+- 使用`terraform validate`验证语法
+- 通过`plan`输出评审变更
+- 小步频繁提交变更
+- 监控漂移(drift)情况
