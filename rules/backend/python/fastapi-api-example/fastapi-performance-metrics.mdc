@@ -1,8 +1,45 @@
 ---
-description:
-globs:
+description: FastAPI 性能指标
+globs: []
 alwaysApply: false
 ---
 
+# FastAPI 性能指标
 
+本规则集定义了在 FastAPI 应用程序中监控和优化性能的关键指标和方法，旨在确保应用程序的高效运行和良好的用户体验。
 
+## 1. 关键性能指标 (KPIs)
+
+- **响应时间 (Latency)**: API 端点处理请求并返回响应所需的时间。通常关注平均响应时间、P95 和 P99 响应时间。
+- **吞吐量 (Throughput)**: 单位时间内 API 端点能够处理的请求数量（例如，每秒请求数 RPS）。
+- **错误率 (Error Rate)**: 返回错误响应（例如，HTTP 5xx 状态码）的请求所占的百分比。
+- **资源利用率**: CPU 使用率、内存使用率、磁盘 I/O 和网络 I/O。
+- **并发连接数**: 同时连接到服务器的客户端数量。
+
+## 2. 监控工具与实践
+
+- **日志**: 使用结构化日志记录请求和响应信息，包括响应时间、状态码等。
+- **Prometheus/Grafana**: 集成 Prometheus 用于收集指标，Grafana 用于可视化和构建仪表盘。
+  - **FastAPI 性能中间件**: 可以使用 `starlette-exporter` 或自定义中间件来暴露 Prometheus 指标。
+- **APM (Application Performance Monitoring)**: 使用 Sentry、New Relic、Datadog 等 APM 工具进行更全面的应用性能监控和追踪。
+- **压力测试**: 使用 Locust、JMeter、k6 等工具进行压力测试，模拟高并发场景，发现性能瓶颈。
+
+## 3. 性能优化策略
+
+- **异步操作**: 充分利用 FastAPI 的异步特性（`async/await`），尤其是在进行 I/O 密集型操作（如数据库查询、外部 API 调用）时。
+- **数据库优化**: 
+  - **索引**: 确保数据库表有适当的索引。
+  - **查询优化**: 避免 N+1 查询问题，使用连接查询或批量查询。
+  - **连接池**: 使用数据库连接池来管理数据库连接。
+- **缓存**: 
+  - **内存缓存**: 使用 Redis 或 Memcached 缓存频繁访问的数据。
+  - **HTTP 缓存**: 利用 HTTP 缓存头（`Cache-Control`, `ETag`, `Last-Modified`）减少重复请求。
+- **数据序列化优化**: 优化 Pydantic 模型的序列化和反序列化性能。
+- **Gunicorn/Uvicorn 配置**: 
+  - **工作进程数**: 根据 CPU 核心数配置 Gunicorn 的工作进程数（通常为 `2 * CPU_CORES + 1`）。
+  - **Worker 类型**: 对于 I/O 密集型应用，可以考虑使用 `uvloop` 和 `httptools` 优化 Uvicorn。
+- **代码优化**: 
+  - **避免不必要的计算**: 减少每个请求中的计算量。
+  - **延迟加载**: 延迟加载不立即需要的数据或资源。
+- **限流**: 实施速率限制以保护 API 免受滥用和过载。
+- **CDN**: 对于静态文件，使用 CDN 加速内容分发。

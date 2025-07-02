@@ -1,8 +1,159 @@
 ---
-description:
-globs:
+description: SolidJS 复杂状态管理
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 复杂状态管理
 
+本规则集定义了在 SolidJS 应用程序中处理复杂状态管理的策略和最佳实践，旨在确保状态的可预测性、可维护性和高性能。
 
+## 1. 状态管理核心概念
+
+SolidJS 的核心是其细粒度响应系统，这使得状态管理相对直接。对于复杂场景，可以结合使用以下模式：
+
+- **信号 (Signals)**: SolidJS 的基本响应式原语，用于存储和更新状态。
+- **派生状态 (Derived State)**: 通过 `createMemo` 从现有信号计算出的值，只有当其依赖项改变时才重新计算。
+- **存储 (Stores)**: 用于管理复杂对象或嵌套状态，通常通过 `createStore` 创建。
+
+## 2. 组织复杂状态
+
+### 2.1 模块化状态
+
+将相关状态和操作封装在独立的模块或文件中，提高代码组织性。
+
+```javascript
+// stores/auth.js
+import { createSignal } from 'solid-js';
+
+const [user, setUser] = createSignal(null);
+const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+
+export const authStore = {
+  user,
+  isAuthenticated,
+  login: (userData) => {
+    setUser(userData);
+    setIsAuthenticated(true);
+  },
+  logout: () => {
+    setUser(null);
+    setIsAuthenticated(false);
+  },
+};
+```
+
+### 2.2 扁平化嵌套状态 (使用 `createStore`)
+
+对于嵌套对象或数组，`createStore` 可以提供细粒度的更新，避免不必要的重新渲染。
+
+```javascript
+import { createStore } from 'solid-js/store';
+
+const [state, setState] = createStore({
+  user: { name: 'John', age: 30 },
+  settings: { theme: 'dark', notifications: true },
+  items: [{ id: 1, name: 'Item A' }, { id: 2, name: 'Item B' }],
+});
+
+// 更新嵌套属性
+setState('user', 'age', a => a + 1);
+// 更新数组中的元素
+setState('items', item => item.id === 1, 'name', 'Updated Item A');
+```
+
+## 3. 跨组件状态共享
+
+### 3.1 Context API
+
+对于需要跨多层组件共享的状态，使用 SolidJS 的 Context API 是一个推荐的方式。
+
+```javascript
+// contexts/ThemeContext.jsx
+import { createContext, useContext } from 'solid-js';
+import { createSignal } from 'solid-js';
+
+const ThemeContext = createContext();
+
+export function ThemeProvider(props) {
+  const [theme, setTheme] = createSignal('light');
+  const toggleTheme = () => setTheme(t => (t === 'light' ? 'dark' : 'light'));
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+
+// Usage in a component:
+// import { useTheme } from '../contexts/ThemeContext';
+// const { theme, toggleTheme } = useTheme();
+```
+
+### 3.2 全局存储 (Global Stores)
+
+对于应用程序级别的全局状态，可以直接从模块导出信号或存储，并在任何需要的地方导入使用。这适用于不需要 Context API 提供的层级结构的场景。
+
+```javascript
+// stores/globalCounter.js
+import { createSignal } from 'solid-js';
+
+export const [count, setCount] = createSignal(0);
+
+// components/MyComponent.jsx
+import { count, setCount } from '../stores/globalCounter';
+
+function MyComponent() {
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+## 4. 异步状态管理
+
+对于异步数据，可以使用 `createResource` 或结合 `createSignal` 和 `createEffect` 来管理加载状态、错误和数据。
+
+```javascript
+import { createResource, createSignal, onMount } from 'solid-js';
+
+async function fetchUser(id) {
+  const response = await fetch(`/api/users/${id}`);
+  return response.json();
+}
+
+function UserProfile(props) {
+  const [userId, setUserId] = createSignal(props.id);
+  const [user] = createResource(userId, fetchUser);
+
+  return (
+    <div>
+      <Show when={user.loading}>
+        <p>Loading user...</p>
+      </Show>
+      <Show when={user.error}>
+        <p>Error: {user.error.message}</p>
+      </Show>
+      <Show when={user()}>
+        <p>User Name: {user().name}</p>
+      </Show>
+    </div>
+  );
+}
+```
+
+## 5. 最佳实践
+
+- **最小化状态**: 仅将真正需要响应式更新的数据存储为信号或存储。
+- **避免不必要的响应性**: 对于不需要响应式的数据，使用普通变量。
+- **单一职责原则**: 确保每个信号或存储管理一个单一的、内聚的状态片段。
+- **使用 `createMemo` 优化派生状态**: 避免在模板中直接进行复杂计算，使用 `createMemo` 缓存计算结果。
+- **清晰的命名**: 信号和存储的命名应清晰地反映其内容和用途。

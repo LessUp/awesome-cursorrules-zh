@@ -1,8 +1,106 @@
 ---
-description:
-globs:
+description: FastAPI 启动和关闭事件
+globs: []
 alwaysApply: false
 ---
 
+# FastAPI 启动和关闭事件
 
+本规则集定义了在 FastAPI 应用程序中如何利用启动 (startup) 和关闭 (shutdown) 事件来执行初始化和清理任务，确保应用程序的健壮性和资源管理的正确性。
 
+## 1. 启动事件 (Startup Events)
+
+启动事件在应用程序开始接收请求之前执行。这对于初始化数据库连接、加载配置、创建后台任务或执行其他一次性设置非常有用。
+
+### 1.1 使用 `@app.on_event("startup")` 装饰器
+
+您可以使用 `@app.on_event("startup")` 装饰器来注册启动函数。这些函数可以是同步的也可以是异步的。
+
+```python
+from fastapi import FastAPI
+import asyncio
+
+app = FastAPI()
+
+# 模拟数据库连接
+db_connection = None
+
+@app.on_event("startup")
+async def startup_event():
+    global db_connection
+    print("Application starting up...")
+    # 模拟异步数据库连接
+    await asyncio.sleep(1) 
+    db_connection = {"status": "connected"}
+    print("Database connected.")
+
+@app.get("/")
+async def read_root():
+    if db_connection and db_connection["status"] == "connected":
+        return {"message": "Hello World", "db_status": "connected"}
+    return {"message": "Hello World", "db_status": "disconnected"}
+```
+
+### 1.2 多个启动事件
+
+您可以注册多个启动事件。它们将按照注册的顺序执行。
+
+```python
+@app.on_event("startup")
+async def load_config():
+    print("Loading configuration...")
+    await asyncio.sleep(0.5)
+    print("Configuration loaded.")
+
+@app.on_event("startup")
+async def init_cache():
+    print("Initializing cache...")
+    await asyncio.sleep(0.5)
+    print("Cache initialized.")
+```
+
+## 2. 关闭事件 (Shutdown Events)
+
+关闭事件在应用程序停止接收请求并即将关闭时执行。这对于关闭数据库连接、释放资源、清理临时文件或执行其他清理任务非常有用。
+
+### 2.1 使用 `@app.on_event("shutdown")` 装饰器
+
+您可以使用 `@app.on_event("shutdown")` 装饰器来注册关闭函数。这些函数可以是同步的也可以是异步的。
+
+```python
+@app.on_event("shutdown")
+async def shutdown_event():
+    global db_connection
+    print("Application shutting down...")
+    # 模拟异步关闭数据库连接
+    if db_connection:
+        await asyncio.sleep(1)
+        db_connection = None
+        print("Database connection closed.")
+    print("Application shut down.")
+```
+
+### 2.2 多个关闭事件
+
+您可以注册多个关闭事件。它们将按照注册的顺序执行。
+
+```python
+@app.on_event("shutdown")
+async def save_logs():
+    print("Saving logs before shutdown...")
+    await asyncio.sleep(0.5)
+    print("Logs saved.")
+
+@app.on_event("shutdown")
+async def close_queue_connection():
+    print("Closing message queue connection...")
+    await asyncio.sleep(0.5)
+    print("Message queue connection closed.")
+```
+
+## 3. 最佳实践
+
+- **资源管理**: 启动事件用于获取资源，关闭事件用于释放资源，确保资源不会泄露。
+- **错误处理**: 在启动和关闭事件中添加适当的错误处理，以防止应用程序启动失败或无法正常关闭。
+- **日志记录**: 在启动和关闭事件中记录详细的日志，以便于调试和监控应用程序的生命周期。
+- **非阻塞操作**: 尽量在启动和关闭事件中使用异步操作，避免阻塞主线程。

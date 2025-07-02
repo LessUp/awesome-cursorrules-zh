@@ -1,8 +1,148 @@
 ---
-description:
-globs:
+description: SolidJS 数据获取
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 数据获取
 
+本规则集定义了在 SolidJS 应用程序中进行数据获取的策略和最佳实践，旨在确保高效、响应式和可维护的数据流。
 
+## 1. 使用 `createResource` (推荐)
+
+`createResource` 是 SolidJS 提供的一个强大且声明式的数据获取原语。它能够自动处理加载状态、错误以及数据的缓存和重新获取，非常适合异步数据源。
+
+```javascript
+import { createResource, createSignal, Show } from 'solid-js';
+
+// 模拟一个异步数据获取函数
+async function fetchUser(userId) {
+  if (!userId) return undefined; // 当 userId 为 undefined 时不执行请求
+  console.log(`Fetching user ${userId}...`);
+  const response = await new Promise(resolve => setTimeout(() => {
+    resolve({ id: userId, name: `User ${userId}`, email: `user${userId}@example.com` });
+  }, 1000));
+  return response;
+}
+
+function UserProfile(props) {
+  const [userId, setUserId] = createSignal(props.initialUserId);
+  // createResource 的第一个参数是源信号，当它改变时会触发重新获取
+  // 第二个参数是数据获取函数
+  const [user] = createResource(userId, fetchUser);
+
+  return (
+    <div>
+      <h2>User Profile</h2>
+      <input
+        type="number"
+        value={userId()}
+        onInput={(e) => setUserId(parseInt(e.target.value) || undefined)}
+        placeholder="Enter User ID"
+      />
+      <Show when={user.loading}>
+        <p>Loading user data...</p>
+      </Show>
+      <Show when={user.error}>
+        <p style={{ color: 'red' }}>Error: {user.error.message}</p>
+      </Show>
+      <Show when={user()}>
+        <p>ID: {user().id}</p>
+        <p>Name: {user().name}</p>
+        <p>Email: {user().email}</p>
+      </Show>
+      <Show when={!userId() && !user.loading && !user()}>
+        <p>Please enter a User ID to fetch data.</p>
+      </Show>
+    </div>
+  );
+}
+```
+
+### `createResource` 的优势
+
+- **自动加载状态**: `resource.loading` 信号自动指示数据是否正在加载。
+- **自动错误处理**: `resource.error` 信号捕获数据获取过程中的错误。
+- **缓存**: `createResource` 会缓存结果，避免重复请求相同的数据。
+- **响应式触发**: 当源信号改变时，自动重新执行数据获取函数。
+- **暂停/恢复**: 可以通过将源信号设置为 `undefined` 或 `null` 来暂停数据获取。
+
+## 2. 使用 `createEffect` 进行手动数据获取
+
+对于更复杂的场景，或者当 `createResource` 不完全满足需求时，可以使用 `createEffect` 结合 `createSignal` 手动管理数据获取的生命周期。
+
+```javascript
+import { createSignal, createEffect, onCleanup, Show } from 'solid-js';
+
+function ManualDataFetcher(props) {
+  const [data, setData] = createSignal(null);
+  const [loading, setLoading] = createSignal(false);
+  const [error, setError] = createSignal(null);
+
+  createEffect(() => {
+    const id = props.itemId;
+    if (!id) return; // 如果没有 ID，则不执行获取
+
+    setLoading(true);
+    setError(null);
+    setData(null);
+
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    fetch(`/api/items/${id}`, { signal })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(fetchedData => {
+        setData(fetchedData);
+      })
+      .catch(err => {
+        if (err.name !== 'AbortError') {
+          setError(err);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    // 清理函数，当 effect 重新运行时或组件卸载时执行
+    onCleanup(() => {
+      abortController.abort(); // 取消正在进行的请求
+    });
+  });
+
+  return (
+    <div>
+      <h3>Manual Data Fetcher</h3>
+      <Show when={loading()}>
+        <p>Loading item...</p>
+      </Show>
+      <Show when={error()}>
+        <p style={{ color: 'red' }}>Error: {error().message}</p>
+      </Show>
+      <Show when={data()}>
+        <p>Item Name: {data().name}</p>
+        <p>Description: {data().description}</p>
+      </Show>
+    </div>
+  );
+}
+```
+
+### 适用场景
+
+- 需要更精细控制请求生命周期（如取消请求）时。
+- 数据获取逻辑非常复杂，需要自定义处理流程时。
+
+## 3. 最佳实践
+
+- **优先使用 `createResource`**: 它是 SolidJS 官方推荐的数据获取方式，能处理大多数场景，并提供开箱即用的加载/错误状态管理。
+- **处理加载和错误状态**: 始终在 UI 中反映数据的加载状态和任何可能发生的错误，提供良好的用户体验。
+- **数据源信号化**: 将触发数据获取的参数（如 ID、查询字符串）封装为信号，以便 `createResource` 能够响应式地重新获取数据。
+- **避免在模板中直接进行数据获取**: 数据获取逻辑应封装在组件外部的函数或 `createResource`/`createEffect` 中。
+- **取消未完成的请求**: 在组件卸载或数据源信号改变时，取消之前未完成的请求，避免内存泄漏和不必要的网络活动。
+- **服务端渲染 (SSR) 考虑**: 如果使用 SSR，`createResource` 也能很好地工作，因为它支持在服务器端预取数据。

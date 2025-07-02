@@ -1,8 +1,111 @@
 ---
-description:
-globs:
+description: SolidJS 派生值管理
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 派生值管理
 
+本规则集定义了在 SolidJS 应用程序中如何高效地管理派生值（Derived Values），旨在确保计算的最小化、响应式更新的精确性以及代码的清晰度。
 
+## 1. 什么是派生值？
+
+派生值是指那些不是直接存储在信号中，而是通过其他响应式数据（如信号、存储、其他派生值）计算得出的值。当其依赖的响应式数据发生变化时，派生值会自动重新计算。
+
+## 2. 使用 `createMemo` (推荐)
+
+`createMemo` 是 SolidJS 中用于创建派生值的核心原语。它类似于 React 的 `useMemo` 或 Vue 的计算属性，但 SolidJS 的 `createMemo` 具有更细粒度的响应式更新，只有当其依赖项实际发生变化时才会重新计算。
+
+```javascript
+import { createSignal, createMemo } from 'solid-js';
+
+function Counter() {
+  const [count, setCount] = createSignal(0);
+  const [multiplier, setMultiplier] = createSignal(2);
+
+  // 派生值：计算 count * multiplier
+  const multipliedCount = createMemo(() => count() * multiplier());
+
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <p>Multiplier: {multiplier()}</p>
+      <p>Multiplied Count: {multipliedCount()}</p>
+      <button onClick={() => setCount(c => c + 1)}>Increment Count</button>
+      <button onClick={() => setMultiplier(m => m + 1)}>Increment Multiplier</button>
+    </div>
+  );
+}
+```
+
+### `createMemo` 的优势
+
+- **惰性计算**: `createMemo` 只有当其值被读取时才会执行计算函数。
+- **缓存结果**: 只有当依赖项发生变化时，`createMemo` 才会重新计算其值，否则返回缓存的结果，避免不必要的重复计算。
+- **细粒度更新**: SolidJS 的编译器会优化 `createMemo` 的依赖追踪，确保只有真正需要更新的视图部分才会重新渲染。
+
+## 3. 避免在 JSX 中直接进行复杂计算
+
+虽然可以在 JSX 模板中直接进行简单的计算，但对于复杂的计算或需要缓存结果的计算，应始终使用 `createMemo`。在 JSX 中直接进行复杂计算会导致每次组件重新渲染时都重复执行，降低性能。
+
+```javascript
+// 不推荐：在 JSX 中直接进行复杂计算
+function BadExample() {
+  const [items, setItems] = createSignal([{ price: 10, quantity: 2 }, { price: 5, quantity: 3 }]);
+
+  return (
+    <div>
+      <p>Total: {items().reduce((sum, item) => sum + item.price * item.quantity, 0)}</p>
+    </div>
+  );
+}
+
+// 推荐：使用 createMemo 计算派生值
+function GoodExample() {
+  const [items, setItems] = createSignal([{ price: 10, quantity: 2 }, { price: 5, quantity: 3 }]);
+
+  const total = createMemo(() => items().reduce((sum, item) => sum + item.price * item.quantity, 0));
+
+  return (
+    <div>
+      <p>Total: {total()}</p>
+    </div>
+  );
+}
+```
+
+## 4. 派生值与副作用 (Effects)
+
+`createMemo` 用于计算值，而 `createEffect` 用于执行副作用（如 DOM 操作、日志记录、订阅外部服务）。不要在 `createMemo` 中执行副作用，也不要依赖于 `createEffect` 的返回值。
+
+```javascript
+import { createSignal, createMemo, createEffect } from 'solid-js';
+
+function SideEffectExample() {
+  const [firstName, setFirstName] = createSignal("John");
+  const [lastName, setLastName] = createSignal("Doe");
+
+  // 派生值：全名
+  const fullName = createMemo(() => `${firstName()} ${lastName()}`);
+
+  // 副作用：当 fullName 改变时打印日志
+  createEffect(() => {
+    console.log(`Full Name changed to: ${fullName()}`);
+  });
+
+  return (
+    <div>
+      <input type="text" value={firstName()} onInput={(e) => setFirstName(e.target.value)} />
+      <input type="text" value={lastName()} onInput={(e) => setLastName(e.target.value)} />
+      <p>Hello, {fullName()}</p>
+    </div>
+  );
+}
+```
+
+## 5. 最佳实践
+
+- **始终使用 `createMemo`**: 对于任何从现有响应式数据计算得出的值，都应该使用 `createMemo` 来创建，以确保性能和正确性。
+- **避免循环依赖**: 确保 `createMemo` 的计算函数不会直接或间接依赖于其自身的值，这会导致无限循环。
+- **清晰的命名**: 派生值的命名应清晰地反映其计算逻辑和用途。
+- **分离计算与副作用**: 严格区分 `createMemo`（计算值）和 `createEffect`（执行副作用）的职责。

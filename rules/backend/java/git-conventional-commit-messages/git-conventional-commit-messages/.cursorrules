@@ -1,45 +1,54 @@
-Use the Conventional Commit Messages specification to generate commit messages
+使用 Conventional Commit Messages 规范生成提交消息
 
-The commit message should be structured as follows:
+提交消息应按以下结构组织：
 
 
 ```
-<type>[optional scope]: <description>
+<type>[可选范围]: <描述>
 
-[optional body]
+[可选正文]
 
-[optional footer(s)]
+[可选页脚]
 ``` 
 --------------------------------
 
-The commit contains the following structural elements, to communicate intent to the consumers of your library:
+提交包含以下结构元素，用于向库的消费者传达意图：
 
-  - fix: a commit of the type fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
-  - feat: a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
-  - BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
-  - types other than fix: and feat: are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
-  - footers other than BREAKING CHANGE: <description> may be provided and follow a convention similar to git trailer format.
-  - Additional types are not mandated by the Conventional Commits specification, and have no implicit effect in Semantic Versioning (unless they include a BREAKING CHANGE). A scope may be provided to a commit’s type, to provide additional contextual information and is contained within parenthesis, e.g., feat(parser): add ability to parse arrays.
+  - `fix`: `fix` 类型的提交修补了代码库中的错误（这与语义化版本控制中的 `PATCH` 相关）。
+  - `feat`: `feat` 类型的提交向代码库引入了新功能（这与语义化版本控制中的 `MINOR` 相关）。
+  - `BREAKING CHANGE`: 包含页脚 `BREAKING CHANGE:` 或在类型/范围后附加 `!` 的提交，引入了破坏性 API 更改（与语义化版本控制中的 `MAJOR` 相关）。`BREAKING CHANGE` 可以是任何类型提交的一部分。
+  - 允许使用 `fix:` 和 `feat:` 之外的其他类型，例如 `@commitlint/config-conventional`（基于 Angular 约定）推荐 `build:`、`chore:`、`ci:`、`docs:`、`style:`、`refactor:`、`perf:`、`test:` 等。
+  - 除了 `BREAKING CHANGE: <description>` 之外的页脚可以提供，并遵循类似于 git trailer 格式的约定。
+  - Conventional Commits 规范不强制要求其他类型，并且它们在语义化版本控制中没有隐式影响（除非它们包含 `BREAKING CHANGE`）。可以为提交类型提供一个范围，以提供额外的上下文信息，并包含在括号中，例如 `feat(parser): add ability to parse arrays`。
 
 
 
-### Specification Details
+### 规范详情
 
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in RFC 2119.
+本文档中的关键词“MUST”（必须）、“MUST NOT”（不得）、“REQUIRED”（必需）、“SHALL”（应）、“SHALL NOT”（不应）、“SHOULD”（应该）、“SHOULD NOT”（不应该）、“RECOMMENDED”（推荐）、“MAY”（可以）和“OPTIONAL”（可选）应按 RFC 2119 中的描述进行解释。
 
-Commits MUST be prefixed with a type, which consists of a noun, feat, fix, etc., followed by the OPTIONAL scope, OPTIONAL !, and REQUIRED terminal colon and space.
-The type feat MUST be used when a commit adds a new feature to your application or library.
-The type fix MUST be used when a commit represents a bug fix for your application.
-A scope MAY be provided after a type. A scope MUST consist of a noun describing a section of the codebase surrounded by parenthesis, e.g., fix(parser):
-A description MUST immediately follow the colon and space after the type/scope prefix. The description is a short summary of the code changes, e.g., fix: array parsing issue when multiple spaces were contained in string.
-A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.
-A commit body is free-form and MAY consist of any number of newline separated paragraphs.
-One or more footers MAY be provided one blank line after the body. Each footer MUST consist of a word token, followed by either a :<space> or <space># separator, followed by a string value (this is inspired by the git trailer convention).
-A footer’s token MUST use - in place of whitespace characters, e.g., Acked-by (this helps differentiate the footer section from a multi-paragraph body). An exception is made for BREAKING CHANGE, which MAY also be used as a token.
-A footer’s value MAY contain spaces and newlines, and parsing MUST terminate when the next valid footer token/separator pair is observed.
-Breaking changes MUST be indicated in the type/scope prefix of a commit, or as an entry in the footer.
-If included as a footer, a breaking change MUST consist of the uppercase text BREAKING CHANGE, followed by a colon, space, and description, e.g., BREAKING CHANGE: environment variables now take precedence over config files.
-If included in the type/scope prefix, breaking changes MUST be indicated by a ! immediately before the :. If ! is used, BREAKING CHANGE: MAY be omitted from the footer section, and the commit description SHALL be used to describe the breaking change.
-Types other than feat and fix MAY be used in your commit messages, e.g., docs: update ref docs.
-The units of information that make up Conventional Commits MUST NOT be treated as case sensitive by implementors, with the exception of BREAKING CHANGE which MUST be uppercase.
-BREAKING-CHANGE MUST be synonymous with BREAKING CHANGE, when used as a token in a footer.
+提交必须以类型为前缀，类型由名词（如 `feat`、`fix` 等）组成，后跟可选范围、可选 `!`，以及必需的末尾冒号和空格。
+当提交添加新功能时，必须使用 `feat` 类型。
+紧跟在类型/范围前缀后的冒号和空格之后。描述是对代码更改的简短总结，例如 `fix: array parsing issue when multiple spaces were contained in string`。
+
+可以在简短描述之后提供更长的提交正文，提供有关代码更改的额外上下文信息。正文必须在描述之后空一行开始。
+
+提交正文是自由格式的，可以由任意数量的以换行符分隔的段落组成。
+
+可以在正文之后空一行提供一个或多个页脚。每个页脚必须由一个单词标记组成，后跟 `: ` 或 ` #` 分隔符，再后跟一个字符串值（这受到 git trailer 约定的启发）。
+
+页脚的标记必须使用 `-` 代替空白字符，例如 `Acked-by`（这有助于区分页脚部分和多段正文）。`BREAKING CHANGE` 是一个例外，它也可以用作标记。
+
+页脚的值可以包含空格和换行符，并且解析必须在观察到下一个有效的页脚标记/分隔符对时终止。
+
+破坏性更改必须在提交的类型/范围前缀中指示，或作为页脚中的条目。
+
+如果作为页脚包含，破坏性更改必须由大写文本 `BREAKING CHANGE` 组成，后跟冒号、空格和描述，例如 `BREAKING CHANGE: environment variables now take precedence over config files`。
+
+如果包含在类型/范围前缀中，破坏性更改必须在 `:` 之前立即用 `!` 指示。如果使用 `!`，则可以省略页脚部分的 `BREAKING CHANGE:`，并且提交描述应用于描述破坏性更改。
+
+除了 `feat` 和 `fix` 之外的类型也可以用于您的提交消息中，例如 `docs: update ref docs`。
+
+组成 Conventional Commits 的信息单元不得被实现者视为大小写敏感，但 `BREAKING CHANGE` 必须大写。
+
+当在页脚中用作标记时，`BREAKING-CHANGE` 必须与 `BREAKING CHANGE` 同义。

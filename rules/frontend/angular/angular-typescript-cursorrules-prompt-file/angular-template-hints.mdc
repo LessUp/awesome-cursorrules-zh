@@ -1,6 +1,6 @@
 ---
-description: Rules specific to Angular templates that ensures code quality standards.
+description: 确保代码质量标准的 Angular 模板特定规则。
 globs: **/*.component.html
 ---
-- Code should obey the rules defined in the .htmlhintrc, and .editorconfig files.
-- Be concise and minimize extraneous prose.
+- 代码应遵守 `.htmlhintrc` 和 `.editorconfig` 文件中定义的规则。
+- 言简意赅，尽量减少无关的文字。

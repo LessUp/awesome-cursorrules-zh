@@ -1,8 +1,90 @@
 ---
-description:
-globs:
+description: README.md 指南
+globs: []
 alwaysApply: false
 ---
 
+# README.md 指南
 
+本规则集定义了 Laravel 包开发中 `README.md` 文件的编写指南和最佳实践，旨在确保包文档的清晰性、完整性和易用性。
 
+## 1. 标题与简介
+
+- **包名称**: `README.md` 的顶部应包含清晰的包名称，通常作为一级标题。
+- **简短描述**: 紧随其后应提供一个简短、吸引人的包功能描述，让读者快速了解其用途。
+- **状态徽章 (可选)**: 可以包含 CI/CD 状态、版本号、下载量等徽章，以提供快速概览。
+
+## 2. 安装指南
+
+- **Composer**: 详细说明如何通过 Composer 安装包，包括 `composer require` 命令。
+- **服务提供者**: 如果需要，说明如何在 `config/app.php` 中注册服务提供者。
+- **发布配置/迁移**: 如果包包含可发布的文件（如配置文件、迁移文件），提供发布命令。
+
+## 3. 使用方法
+
+- **基本用法**: 提供清晰的代码示例，展示包的核心功能如何使用。
+- **高级用法 (可选)**: 如果包有更复杂或高级的功能，可以提供额外的示例。
+- **配置**: 说明如何配置包，包括配置文件的结构和常用选项。
+
+## 4. 贡献指南
+
+- **如何贡献**: 简要说明如何为包贡献代码，例如提交 Bug 报告、功能请求或 Pull Request。
+- **代码风格**: 如果有特定的代码风格要求，可以提及或链接到相关文档。
+
+## 5. 测试
+
+- **运行测试**: 说明如何运行包的测试。
+
+## 6. 许可证
+
+- **许可证信息**: 明确指出包的许可证类型（如 MIT、Apache 2.0），并建议包含许可证文件的链接。
+
+## 7. 变更日志 (可选)
+
+- **版本历史**: 可以包含一个指向 `CHANGELOG.md` 文件的链接，或直接在 `README.md` 中简要列出主要版本变更。
+
+## 8. 示例结构
+
+```markdown
+# Your Awesome Laravel Package
+
+一个简短的描述，说明你的包做了什么。
+
+[![Build Status](https://example.com/badge.svg)](https://example.com/ci)
+
+## 安装
+
+```bash
+composer require vendor/package-name
+```
+
+### 发布配置 (可选)
+
+```bash
+php artisan vendor:publish --provider="Vendor\\PackageName\\PackageServiceProvider"
+```
+
+## 使用方法
+
+```php
+// 你的代码示例
+```
+
+## 配置
+
+说明配置选项。
+
+## 贡献
+
+欢迎贡献！请参阅 [CONTRIBUTING.md](CONTRIBUTING.md) 获取更多信息。
+
+## 测试
+
+```bash
+composer test
+```
+
+## 许可证
+
+本项目根据 MIT 许可证发布。
+```

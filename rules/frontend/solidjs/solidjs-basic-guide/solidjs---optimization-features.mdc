@@ -1,8 +1,117 @@
 ---
-description:
-globs:
+description: SolidJS 优化特性
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 优化特性
 
+本规则集介绍了 SolidJS 的核心优化特性，并提供了如何利用这些特性来构建高性能、响应迅速的应用程序的指南。
 
+SolidJS 的设计理念是最大限度地减少运行时开销，通过编译时优化和细粒度响应式系统，实现接近原生 JavaScript 的性能。
+
+## 1. 细粒度响应式系统
+
+SolidJS 的核心优势在于其细粒度的响应式系统。它不使用虚拟 DOM，而是直接将响应式数据与实际 DOM 节点绑定。这意味着只有当数据发生变化时，相关的 DOM 部分才会被更新，而不是整个组件树。
+
+### 1.1 信号 (Signals)
+
+信号是 SolidJS 响应式系统的基本单元。它们是可观察的值，当它们改变时，会自动通知所有依赖它们的计算和副作用。
+
+```javascript
+import { createSignal } from 'solid-js';
+
+const [count, setCount] = createSignal(0);
+// 只有 count() 改变时，<p> 标签的文本内容才会更新
+<p>Count: {count()}</p>
+```
+
+### 1.2 备忘录 (Memos) / 派生值 (`createMemo`)
+
+`createMemo` 用于创建派生值。它会缓存计算结果，只有当其依赖的信号发生变化时，才会重新计算。这避免了不必要的重复计算。
+
+```javascript
+import { createSignal, createMemo } from 'solid-js';
+
+const [firstName, setFirstName] = createSignal("John");
+const [lastName, setLastName] = createSignal("Doe");
+
+// fullName 只有当 firstName 或 lastName 改变时才会重新计算
+const fullName = createMemo(() => `${firstName()} ${lastName()}`);
+
+<p>Full Name: {fullName()}</p>
+```
+
+### 1.3 副作用 (`createEffect`)
+
+`createEffect` 用于执行副作用，例如 DOM 操作、日志记录或与外部 API 交互。它只在依赖的信号改变时运行，并且会自动清理旧的副作用。
+
+```javascript
+import { createSignal, createEffect } from 'solid-js';
+
+const [data, setData] = createSignal(null);
+
+createEffect(() => {
+  if (data()) {
+    console.log("Data has changed:", data());
+  }
+});
+```
+
+## 2. 编译时优化
+
+SolidJS 的 JSX 编译器将 JSX 模板编译成高效的、直接操作 DOM 的 JavaScript 代码。这意味着运行时没有虚拟 DOM 比较的开销。
+
+- **只运行一次的组件**: SolidJS 组件函数只在初始化时运行一次，而不是像 React 那样在每次状态更新时重新运行。这大大减少了 JavaScript 的执行量。
+- **模板实例化**: JSX 编译后会生成高效的 DOM 节点创建和更新代码，避免了运行时解析模板的开销。
+
+## 3. 控制流组件
+
+SolidJS 提供了特殊的控制流组件（如 `Show`, `For`, `Switch`）来优化条件渲染和列表渲染。
+
+### 3.1 `Show` 组件
+
+`Show` 组件用于条件渲染。它只会渲染 `when` 条件为真时的内容，并且在条件切换时，会高效地添加或移除 DOM 元素，而不是重新渲染整个子树。
+
+```jsx
+import { Show } from 'solid-js';
+
+<Show when={loggedIn()} fallback={<LoginButton />}>
+  <UserProfile />
+</Show>
+```
+
+### 3.2 `For` 组件
+
+`For` 组件用于高效地渲染列表。它通过键控 (keyed) 算法来最小化 DOM 操作，只更新实际改变的列表项。
+
+```jsx
+import { For } from 'solid-js';
+
+<For each={items()} fallback={<p>No items</p>}>
+  {(item) => <li>{item.name}</li>}
+</For>
+```
+
+## 4. 懒加载和代码分割
+
+SolidJS 支持通过 `lazy` 函数和 `Suspense` 组件进行组件和路由的懒加载，从而减少初始加载的包大小，提高应用程序的启动速度。
+
+```javascript
+import { lazy, Suspense } from 'solid-js';
+
+const MyLazyComponent = lazy(() => import('./MyLazyComponent'));
+
+<Suspense fallback={<div>Loading...</div>}>
+  <MyLazyComponent />
+</Suspense>
+```
+
+## 5. 最佳实践
+
+- **拥抱响应式原语**: 充分利用 `createSignal`, `createMemo`, `createEffect` 等核心原语来管理状态和逻辑。
+- **使用控制流组件**: 优先使用 SolidJS 提供的 `Show`, `For`, `Switch` 组件进行条件和列表渲染。
+- **避免不必要的响应性**: 只有需要响应式更新的数据才使用信号。对于静态数据，使用普通变量。
+- **合理使用 `createMemo`**: 将复杂的计算逻辑封装在 `createMemo` 中，以缓存结果并避免重复计算。
+- **代码分割**: 对于大型应用程序，合理地进行代码分割和懒加载，以优化初始加载性能。
+- **SSR/SSG**: 考虑使用服务端渲染 (SSR) 或静态站点生成 (SSG) 来进一步提高首次加载性能和 SEO。

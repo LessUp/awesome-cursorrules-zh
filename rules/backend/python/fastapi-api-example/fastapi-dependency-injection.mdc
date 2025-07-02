@@ -1,8 +1,92 @@
 ---
-description:
-globs:
+description: FastAPI 依赖注入
+globs: []
 alwaysApply: false
 ---
 
+# FastAPI 依赖注入
 
+本规则集定义了在 FastAPI 应用程序中如何有效地使用依赖注入（Dependency Injection, DI），以提高代码的可测试性、可维护性和模块化。
 
+## 1. 什么是依赖注入？
+
+依赖注入是一种设计模式，它允许您将组件所需的依赖项（如数据库会话、配置设置、认证用户等）“注入”到组件中，而不是让组件自己创建或查找这些依赖项。这使得组件更加独立和可重用。
+
+## 2. FastAPI 中的依赖注入
+
+FastAPI 内置了一个强大且易于使用的依赖注入系统。您可以通过在路径操作函数中声明参数来定义依赖项。
+
+### 2.1 简单的依赖
+
+- **函数作为依赖**: 最简单的依赖是一个函数，它返回一个值。FastAPI 会在调用路径操作函数之前执行这个依赖函数，并将其返回值作为参数传递给路径操作函数。
+
+```python
+from fastapi import FastAPI, Depends
+
+app = FastAPI()
+
+def get_current_user():
+    # 假设这里是从请求头或数据库获取当前用户
+    return {"username": "john_doe"}
+
+@app.get("/users/me/")
+async def read_current_user(current_user: dict = Depends(get_current_user)):
+    return current_user
+```
+
+### 2.2 带参数的依赖
+
+- **依赖也可以有自己的依赖**: 依赖函数本身也可以声明依赖项，形成依赖链。
+
+```python
+from fastapi import FastAPI, Depends, HTTPException, status
+
+app = FastAPI()
+
+def get_api_key():
+    # 假设这里从请求头获取 API Key
+    api_key = "some_api_key"
+    if api_key != "valid_key":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Invalid API Key")
+    return api_key
+
+@app.get("/protected-data/")
+async def get_protected_data(api_key: str = Depends(get_api_key)):
+    return {"data": "This is protected data", "api_key_used": api_key}
+```
+
+### 2.3 `yield` 依赖 (带清理代码)
+
+- **资源管理**: 对于需要在使用后进行清理的资源（如数据库会话、文件句柄），可以使用 `yield` 依赖。`yield` 之前的代码会在请求处理前运行，`yield` 之后的代码会在请求处理后运行。
+
+```python
+from fastapi import FastAPI, Depends
+
+app = FastAPI()
+
+class DatabaseSession:
+    def __init__(self):
+        print("Opening database session")
+
+    def close(self):
+        print("Closing database session")
+
+def get_db():
+    db = DatabaseSession()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/items/")
+async def read_items(db: DatabaseSession = Depends(get_db)):
+    # 使用数据库会话
+    return {"message": "Items read using DB session"}
+```
+
+## 3. 依赖注入的优势
+
+- **代码重用**: 依赖项可以被多个路径操作函数重用。
+- **可测试性**: 易于为路径操作函数编写单元测试，因为可以轻松地模拟或替换依赖项。
+- **解耦**: 路径操作函数不需要关心如何获取其依赖项，从而实现更好的解耦。
+- **声明式**: 通过函数参数声明依赖项，代码更加清晰和声明式。

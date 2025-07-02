@@ -1,8 +1,100 @@
 ---
-description:
-globs:
+description: FastAPI 文件结构
+globs: []
 alwaysApply: false
 ---
 
+# FastAPI 文件结构
 
+本规则集定义了在 FastAPI 应用程序中推荐的文件和目录结构，旨在提高代码的可组织性、可维护性和可扩展性。
 
+## 1. 核心原则
+
+- **模块化**: 将应用程序的不同部分（如路由、模型、服务、依赖项）分离到独立的模块中。
+- **清晰性**: 文件和目录命名应清晰明了，反映其内容和功能。
+- **可扩展性**: 结构应支持未来功能的添加和团队协作。
+
+## 2. 推荐的目录结构
+
+以下是一个推荐的 FastAPI 项目结构示例：
+
+```
+my_fastapi_project/
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # FastAPI 应用入口点
+│   ├── api/                # API 路由和端点
+│   │   ├── __init__.py
+│   │   ├── v1/             # API 版本控制 (可选)
+│   │   │   ├── __init__.py
+│   │   │   ├── endpoints/  # 具体端点实现
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── users.py
+│   │   │   │   └── items.py
+│   │   │   └── deps.py     # 版本特定的依赖项
+│   │   └── router.py       # 聚合所有 API 路由
+│   ├── core/               # 核心配置、设置、常量
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── security.py
+│   ├── crud/               # 创建、读取、更新、删除操作 (与数据库交互)
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   └── item.py
+│   ├── db/                 # 数据库相关配置和会话管理
+│   │   ├── __init__.py
+│   │   ├── base.py         # 基础模型或 ORM 声明
+│   │   └── session.py      # 数据库会话管理
+│   ├── models/             # Pydantic 模型和 SQLAlchemy 模型
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   └── item.py
+│   ├── schemas/            # Pydantic schema (请求/响应模型)
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   └── item.py
+│   ├── services/           # 业务逻辑服务层
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   └── item.py
+│   └── tests/              # 单元测试和集成测试
+│       ├── __init__.py
+│       ├── api/
+│       │   └── test_users.py
+│       └── crud/
+│           └── test_user_crud.py
+├── .env                    # 环境变量 (敏感信息)
+├── .gitignore
+├── Dockerfile              # Docker 容器化配置
+├── README.md
+├── requirements.txt        # Python 依赖包列表
+└── uvicorn_run.sh          # 启动脚本 (可选)
+```
+
+## 3. 目录说明
+
+- `app/main.py`: FastAPI 应用的入口文件，通常在这里实例化 `FastAPI()` 并包含顶层路由。
+- `app/api/`: 包含所有 API 路由定义。可以进一步按版本 (`v1/`, `v2/`) 或功能模块 (`users/`, `items/`) 组织。
+- `app/core/`: 存放应用程序的核心配置、安全设置、日志配置等。
+- `app/crud/`: 包含与数据库进行 CRUD 操作的函数。这些函数通常接收 Pydantic 模型作为输入，并返回数据库模型。
+- `app/db/`: 数据库连接、会话管理和 ORM 基础声明。
+- `app/models/`: 定义数据库模型（如 SQLAlchemy ORM 模型）。
+- `app/schemas/`: 定义 Pydantic 模型，用于请求体验证、响应序列化和数据验证。
+- `app/services/`: 包含业务逻辑。`crud` 层处理数据库交互，而 `services` 层则协调 `crud` 操作，实现更复杂的业务规则。
+- `app/tests/`: 存放所有测试文件，结构应与 `app/` 目录相对应。
+- `requirements.txt`: 列出项目所需的所有 Python 依赖。
+- `Dockerfile`: 用于构建 Docker 镜像的配置文件。
+
+## 4. 启动应用
+
+通常使用 Uvicorn 启动 FastAPI 应用：
+
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+或者如果您有 `uvicorn_run.sh` 脚本：
+
+```bash
+bash uvicorn_run.sh
+```

@@ -1,8 +1,97 @@
 ---
-description:
-globs:
+description: SolidJS 响应式状态管理
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 响应式状态管理
 
+本规则集定义了在 SolidJS 应用程序中进行响应式状态管理的核心概念和最佳实践，旨在帮助开发者构建高效、可维护且响应迅速的用户界面。
 
+SolidJS 的响应式系统是其最强大的特性之一，它允许开发者以细粒度的方式追踪状态变化，并只更新 DOM 中受影响的部分，从而实现卓越的性能。
+
+## 1. 核心原语
+
+SolidJS 的响应式系统基于三个核心原语：信号（Signals）、备忘录（Memos）和副作用（Effects）。
+
+### 1.1 信号 (Signals)
+
+信号是响应式状态的基本单元。它们是可读写的、可观察的值。当信号的值发生变化时，所有依赖于该信号的备忘录和副作用都会自动重新运行。
+
+- **创建信号**: 使用 `createSignal` 函数。
+  ```javascript
+  import { createSignal } from 'solid-js';
+
+  const [count, setCount] = createSignal(0); // count 是读取器，setCount 是写入器
+  console.log(count()); // 读取当前值
+  setCount(5); // 更新值
+  ```
+- **命名约定**: 通常使用 `[value, setValue]` 的解构形式，`value` 部分使用 camelCase。
+
+### 1.2 备忘录 (Memos) / 派生值 (`createMemo`)
+
+备忘录用于创建派生状态，即从一个或多个信号计算得出的值。`createMemo` 会缓存其结果，并且只有当其依赖的信号发生变化时才会重新计算。
+
+- **创建备忘录**: 使用 `createMemo` 函数。
+  ```javascript
+  import { createSignal, createMemo } from 'solid-js';
+
+  const [firstName, setFirstName] = createSignal("John");
+  const [lastName, setLastName] = createSignal("Doe");
+
+  // fullName 只有当 firstName 或 lastName 改变时才会重新计算
+  const fullName = createMemo(() => `${firstName()} ${lastName()}`);
+  console.log(fullName());
+  ```
+- **优化**: `createMemo` 是性能优化的关键，它避免了不必要的重复计算。
+
+### 1.3 副作用 (Effects) (`createEffect`)
+
+副作用用于执行那些不直接返回值的操作，例如更新 DOM、打印日志、订阅外部数据或执行网络请求。`createEffect` 会在其依赖的信号发生变化时自动重新运行。
+
+- **创建副作用**: 使用 `createEffect` 函数。
+  ```javascript
+  import { createSignal, createEffect } from 'solid-js';
+
+  const [count, setCount] = createSignal(0);
+
+  createEffect(() => {
+    console.log("Count is now:", count()); // 每次 count 改变时都会打印
+  });
+
+  setCount(1);
+  setCount(2);
+  ```
+- **清理**: `createEffect` 可以返回一个清理函数，当 effect 重新运行或组件卸载时，该函数会被调用。
+
+## 2. 存储 (Stores) (`createStore`)
+
+对于管理复杂对象或嵌套状态，SolidJS 提供了 `createStore`。它允许对对象或数组进行细粒度的响应式更新，而无需重新创建整个对象。
+
+- **创建存储**: 使用 `createStore` 函数。
+  ```javascript
+  import { createStore } from 'solid-js/store';
+
+  const [user, setUser] = createStore({
+    id: 1,
+    name: "Alice",
+    address: { street: "123 Main St", city: "Anytown" },
+    hobbies: ["reading", "hiking"]
+  });
+
+  // 更新嵌套属性
+  setUser("address", "city", "Newtown");
+  // 更新数组元素
+  setUser("hobbies", (hobbies) => [...hobbies, "cooking"]);
+  ```
+- **细粒度更新**: `createStore` 确保只有被修改的部分才会触发更新，而不是整个对象。
+
+## 3. 最佳实践
+
+- **最小化状态**: 仅将真正需要响应式更新的数据存储为信号或存储。对于不需要响应式的数据，使用普通变量。
+- **单一职责原则**: 确保每个信号或存储管理一个单一的、内聚的状态片段。
+- **优先使用 `createMemo`**: 对于任何从现有响应式数据计算得出的值，都应该使用 `createMemo` 来创建，以确保性能和正确性。
+- **区分计算与副作用**: 严格区分 `createMemo`（计算值）和 `createEffect`（执行副作用）的职责。
+- **避免在 JSX 中直接进行复杂计算**: 将复杂计算逻辑移到 `createMemo` 中，然后在 JSX 中引用其值。
+- **合理组织状态**: 对于大型应用程序，考虑将相关状态和逻辑组织到自定义 Hooks 或独立的模块中。
+- **处理异步状态**: 使用 `createResource` 来处理异步数据获取，它能自动管理加载和错误状态。

@@ -1,8 +1,120 @@
 ---
-description:
-globs:
+description: SolidJS 懒加载
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 懒加载
 
+本规则集定义了在 SolidJS 应用程序中实现组件和路由懒加载的策略和最佳实践，旨在优化应用程序的初始加载时间，提升用户体验。
 
+## 1. 什么是懒加载？
+
+懒加载（Lazy Loading），也称为代码分割（Code Splitting），是一种优化技术，它允许您只在需要时才加载应用程序的某些部分。这对于大型应用程序尤其有用，因为它可以显著减少初始加载时下载的 JavaScript 包大小。
+
+## 2. SolidJS 中的组件懒加载
+
+SolidJS 通过 `lazy` 函数和 `Suspense` 组件来支持组件的懒加载，这与 React 的 `React.lazy` 和 `Suspense` 类似。
+
+### 2.1 使用 `lazy` 函数
+
+`lazy` 函数接受一个返回 `Promise` 的函数，该 `Promise` 最终解析为一个 SolidJS 组件。通常，这个 `Promise` 会通过动态 `import()` 来实现。
+
+```javascript
+import { lazy } from 'solid-js';
+
+// 懒加载 MyLazyComponent
+const MyLazyComponent = lazy(() => import('./MyLazyComponent'));
+```
+
+### 2.2 使用 `Suspense` 组件
+
+`Suspense` 组件用于包裹懒加载的组件。当懒加载组件正在加载时，`Suspense` 会渲染其 `fallback` 属性提供的内容。一旦组件加载完成，`fallback` 内容就会被替换为实际组件。
+
+```jsx
+import { lazy, Suspense } from 'solid-js';
+
+const MyLazyComponent = lazy(() => import('./MyLazyComponent'));
+
+function App() {
+  return (
+    <div>
+      <h1>Welcome to My App</h1>
+      <Suspense fallback={<div>Loading MyLazyComponent...</div>}>
+        <MyLazyComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+### 2.3 错误处理
+
+如果懒加载的组件加载失败（例如，网络错误），`Suspense` 不会捕获这个错误。您需要使用错误边界（Error Boundaries）来处理这类错误。
+
+## 3. Solid Router 中的路由懒加载
+
+当使用 Solid Router 进行路由管理时，也可以结合 `lazy` 和 `Suspense` 实现路由级别的代码分割。
+
+```jsx
+import { lazy, Suspense } from 'solid-js';
+import { useRoutes } from '@solidjs/router';
+
+// 懒加载路由组件
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+
+const AppRoutes = () => {
+  const routes = useRoutes([
+    {
+      path: '/',
+      component: () => (
+        <Suspense fallback={<div>Loading Home...</div>}>
+          <Home />
+        </Suspense>
+      ),
+    },
+    {
+      path: '/about',
+      component: () => (
+        <Suspense fallback={<div>Loading About...</div>}>
+          <About />
+        </Suspense>
+      ),
+    },
+    {
+      path: '/contact',
+      component: () => (
+        <Suspense fallback={<div>Loading Contact...</div>}>
+          <Contact />
+        </Suspense>
+      ),
+    },
+  ]);
+
+  return routes;
+};
+
+function App() {
+  return (
+    <>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <AppRoutes />
+    </>
+  );
+}
+```
+
+## 4. 最佳实践
+
+- **识别可懒加载的模块**: 通常，路由组件、大型库、不经常使用的功能模块是懒加载的理想候选者。
+- **提供有意义的 `fallback`**: 在组件加载期间，向用户显示有意义的加载指示器（例如，骨架屏、加载动画），而不是空白页面。
+- **结合错误边界**: 始终将懒加载的组件包裹在错误边界中，以优雅地处理加载失败的情况。
+- **避免过度分割**: 过度细粒度的代码分割可能会导致过多的网络请求，反而影响性能。找到一个平衡点。
+- **预加载 (Preloading)**: 对于用户可能很快会访问的路由或组件，可以考虑使用预加载技术，在空闲时间提前加载它们，进一步提升用户体验。
+- **SSR 兼容性**: 确保您的懒加载策略与服务端渲染 (SSR) 兼容，如果您的应用程序使用了 SSR。

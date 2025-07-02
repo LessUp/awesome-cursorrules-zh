@@ -1,8 +1,91 @@
 ---
-description:
-globs:
+description: SolidJS 函数式组件偏好
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 函数式组件偏好
 
+本规则集定义了在 SolidJS 应用程序中优先使用函数式组件的实践，旨在促进代码的简洁性、可重用性和响应式更新的效率。
 
+## 1. 函数式组件的核心
+
+在 SolidJS 中，组件本质上是普通的 JavaScript 函数，它们在渲染时只运行一次。响应式更新不是通过重新运行组件函数来实现的，而是通过 SolidJS 的细粒度响应式系统直接更新 DOM。
+
+```javascript
+// 这是一个简单的 SolidJS 函数式组件
+function MyComponent(props) {
+  return (
+    <div>
+      <p>Hello, {props.name}!</p>
+    </div>
+  );
+}
+
+// 在其他组件中使用
+function App() {
+  return <MyComponent name="Solid" />;
+}
+```
+
+## 2. 为什么偏好函数式组件？
+
+- **性能优化**: SolidJS 的函数式组件只在初始化时执行一次，而不是像 React 那样在每次状态更新时重新渲染。这意味着更少的 JavaScript 执行，更高的性能。
+- **简洁性**: 代码更少，逻辑更直接，没有类组件中的 `this` 绑定问题或复杂的生命周期方法。
+- **响应式直观**: 响应式数据（信号、存储）可以直接在组件函数中使用，SolidJS 会自动追踪依赖并更新受影响的 DOM 部分。
+- **可重用性**: 函数式组件更容易被抽象和重用，因为它们只是纯函数，接受 `props` 并返回 JSX。
+
+## 3. 状态管理与副作用
+
+在函数式组件中，状态管理和副作用通过 SolidJS 提供的原语（如 `createSignal`, `createEffect`, `createMemo`, `createResource`）来处理。
+
+### 3.1 信号 (Signals)
+
+用于管理组件的局部状态。
+
+```javascript
+import { createSignal } from 'solid-js';
+
+function Counter() {
+  const [count, setCount] = createSignal(0);
+
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+### 3.2 副作用 (Effects)
+
+使用 `createEffect` 处理需要响应式地执行的副作用，例如日志记录、订阅外部数据等。
+
+```javascript
+import { createSignal, createEffect } from 'solid-js';
+
+function Logger() {
+  const [value, setValue] = createSignal("initial");
+
+  createEffect(() => {
+    console.log("Value changed:", value());
+  });
+
+  return (
+    <input
+      type="text"
+      value={value()}
+      onInput={(e) => setValue(e.target.value)}
+    />
+  );
+}
+```
+
+## 4. 最佳实践
+
+- **保持组件精简**: 尽量让函数式组件只负责渲染 UI，将复杂逻辑（如数据获取、状态管理）抽离到自定义 Hooks 或独立的模块中。
+- **使用 `props` 传递数据**: 通过 `props` 将数据从父组件传递给子组件。如果 `props` 是响应式的（例如，来自信号），SolidJS 会自动处理更新。
+- **避免在组件函数顶层执行昂贵操作**: 由于组件函数只运行一次，如果其中有昂贵的操作，它只会在组件挂载时执行。但如果操作依赖于响应式数据，请将其包裹在 `createMemo` 或 `createEffect` 中。
+- **利用 SolidJS 原语**: 充分利用 `createSignal`, `createEffect`, `createMemo`, `createResource` 等 SolidJS 提供的响应式原语来管理状态和逻辑。
+- **清晰的组件职责**: 每个函数式组件都应该有一个清晰的职责，避免一个组件承担过多的功能。

@@ -1,8 +1,60 @@
 ---
-description:
-globs:
+description: 使用伪代码进行战略规划
+globs: []
 alwaysApply: false
 ---
 
+# 使用伪代码进行战略规划
 
+本规则集定义了在全栈 MERN 指南中，如何利用伪代码进行战略规划和高层次设计，以确保开发流程的清晰性、可协作性和效率。
 
+## 1. 伪代码的目的
+
+- **抽象化**: 伪代码旨在抽象化具体编程语言的细节，专注于算法逻辑和业务流程。
+- **沟通工具**: 作为开发团队、产品经理和利益相关者之间沟通的桥梁，确保所有人对系统行为有共同的理解。
+- **设计验证**: 在实际编码之前，通过伪代码快速验证设计思路和逻辑，及早发现潜在问题。
+
+## 2. 伪代码的编写规范
+
+- **清晰简洁**: 伪代码应清晰、简洁，易于理解，避免冗余和模糊的表达。
+- **结构化**: 使用缩进、流程控制语句（如 `IF/THEN/ELSE`, `FOR`, `WHILE`）和函数/过程定义来组织逻辑。
+- **语言无关**: 避免使用特定编程语言的语法或关键字，但可以使用常见的数学符号和逻辑运算符。
+- **注释**: 适当添加注释，解释复杂逻辑或关键决策。
+
+## 3. 战略规划中的应用
+
+- **高层次流程**: 用于描述整个系统或模块的高层次数据流和用户交互流程。
+- **关键算法**: 详细描述复杂算法的步骤，例如数据处理、排序、搜索或业务规则的执行。
+- **API 设计**: 在设计 RESTful API 或其他接口时，可以使用伪代码来定义请求/响应结构和处理逻辑。
+- **数据库交互**: 描述与数据库的交互逻辑，例如数据查询、插入、更新和删除的步骤。
+
+## 4. 示例
+
+```pseudocode
+FUNCTION ProcessOrder(orderId)
+  GET orderDetails FROM database WHERE order_id = orderId
+  IF orderDetails IS NOT NULL THEN
+    IF orderDetails.status IS "Pending" THEN
+      CALCULATE totalAmount FROM orderDetails.items
+      IF totalAmount > 0 THEN
+        INITIATE paymentProcess WITH orderId, totalAmount
+        IF paymentProcess.status IS "Success" THEN
+          UPDATE orderDetails.status TO "Paid"
+          SEND confirmationEmail TO orderDetails.customerEmail
+          RETURN "Order Processed Successfully"
+        ELSE
+          UPDATE orderDetails.status TO "Payment Failed"
+          LOG error "Payment failed for order " + orderId
+          RETURN "Payment Failed"
+        END IF
+      ELSE
+        RETURN "Order amount is zero"
+      END IF
+    ELSE
+      RETURN "Order already processed or in invalid state"
+    END IF
+  ELSE
+    RETURN "Order not found"
+  END IF
+END FUNCTION
+```

@@ -1,8 +1,43 @@
 ---
-description:
-globs:
+description: 前端技术栈
+globs: []
 alwaysApply: false
 ---
 
+# 前端技术栈
 
+本规则集定义了全栈 MERN 指南中推荐的前端技术栈及其使用规范。
 
+## 1. React.js
+
+- **核心库**: 使用 React.js 作为构建用户界面的核心库。
+- **组件化**: 强调组件化开发，将 UI 拆分为独立、可复用的组件。
+- **状态管理**: 推荐使用 Context API 或 Redux（对于复杂应用）进行全局状态管理。
+- **路由**: 使用 React Router 进行客户端路由管理。
+
+## 2. Next.js (可选)
+
+- **SSR/SSG**: 对于需要服务器端渲染 (SSR) 或静态站点生成 (SSG) 的应用，推荐使用 Next.js。
+- **文件系统路由**: 利用 Next.js 的文件系统路由简化路由配置。
+- **API 路由**: 可以使用 Next.js 的 API 路由来构建轻量级后端。
+
+## 3. CSS 框架/库
+
+- **CSS-in-JS**: 推荐使用 Styled Components 或 Emotion 进行组件级样式管理。
+- **CSS 预处理器**: 如果需要，可以使用 Sass 或 Less。
+- **UI 组件库**: 可以考虑使用 Ant Design、Material-UI 或 Chakra UI 等成熟的 UI 组件库以加速开发。
+
+## 4. JavaScript/TypeScript
+
+- **语言**: 优先使用 TypeScript 进行开发，以提高代码质量和可维护性。
+- **ESLint/Prettier**: 配置 ESLint 和 Prettier 进行代码风格检查和格式化，确保代码一致性。
+
+## 5. 构建工具
+
+- **Webpack/Vite**: 通常由 React 或 Next.js 脚手架自动配置，无需手动干预。
+- **包管理器**: 使用 npm 或 Yarn 进行依赖管理。
+
+## 6. 部署
+
+- **静态部署**: 对于纯前端应用，可以使用 Netlify、Vercel 或 GitHub Pages 进行部署。
+- **SSR 部署**: 对于 Next.js 应用，推荐使用 Vercel 或自定义 Node.js 服务器部署。

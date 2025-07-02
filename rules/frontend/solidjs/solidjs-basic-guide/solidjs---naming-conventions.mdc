@@ -1,8 +1,70 @@
 ---
-description:
-globs:
+description: SolidJS 命名约定
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 命名约定
 
+本规则集定义了在 SolidJS 应用程序中推荐的命名约定，旨在提高代码的可读性、一致性和可维护性，使团队协作更加顺畅。
 
+## 1. 文件命名
+
+- **组件文件**: 使用 PascalCase（大驼峰命名法）命名组件文件，并以 `.jsx` 或 `.tsx` 扩展名结尾。
+  - 示例: `UserProfile.jsx`, `Button.tsx`
+- **Hooks/工具函数文件**: 使用 kebab-case（烤串命名法）或 snake_case（蛇形命名法）命名，并清晰地表明其用途。
+  - 示例: `use-auth.js`, `data_utils.ts`
+- **样式文件**: 与组件文件同名，并使用相应的样式扩展名（如 `.css`, `.module.css`, `.scss`）。
+  - 示例: `UserProfile.module.css`
+- **常量文件**: 使用 kebab-case 或 snake_case，通常放在 `constants` 目录下。
+  - 示例: `app-constants.js`, `api_endpoints.ts`
+
+## 2. 组件命名
+
+- **组件名称**: 始终使用 PascalCase（大驼峰命名法）。组件名称应该清晰、描述性强，并反映其功能。
+  - 示例: `Header`, `ProductCard`, `UserAvatar`
+- **避免通用名称**: 避免使用过于通用的名称，如 `Component`, `Item`，除非它们在特定上下文中非常明确。
+
+## 3. 信号 (Signals) 和存储 (Stores) 命名
+
+- **信号**: 使用 `createSignal` 创建的信号，通常使用 `[value, setValue]` 的解构形式。`value` 部分使用 camelCase（小驼峰命名法）。
+  - 示例: `const [count, setCount] = createSignal(0);`
+  - 对于布尔值，通常以 `is` 或 `has` 开头。
+    - 示例: `const [isLoading, setIsLoading] = createSignal(false);`
+- **存储**: 使用 `createStore` 创建的存储，通常使用 `[state, setState]` 的解构形式。`state` 部分使用 camelCase。
+  - 示例: `const [userStore, setUserStore] = createStore({});`
+- **派生值 (Memos)**: 使用 `createMemo` 创建的派生值，使用 camelCase。
+  - 示例: `const fullName = createMemo(() => `${firstName()} ${lastName()}`);`
+
+## 4. 函数和变量命名
+
+- **函数**: 使用 camelCase。函数名应该清晰地表明其执行的动作。
+  - 示例: `handleClick`, `fetchData`, `formatDate`
+- **事件处理函数**: 通常以 `handle` 开头，后跟事件名称。
+  - 示例: `onClick={handleClick}`, `onChange={handleChange}`
+- **布尔变量**: 通常以 `is`, `has`, `can` 等开头。
+  - 示例: `const isActive = true;`, `let hasError = false;`
+- **常量**: 使用 SCREAMING_SNAKE_CASE（全大写下划线命名法）。
+  - 示例: `const MAX_ITEMS = 10;`, `const API_URL = '/api';`
+- **循环变量**: 简短且具描述性。
+  - 示例: `item`, `idx`, `user`
+
+## 5. 属性 (Props) 命名
+
+- **属性名称**: 使用 camelCase。
+  - 示例: `<MyComponent userName={user.name} isActive={true} />`
+- **布尔属性**: 避免使用 `isLoggedIn={true}` 这样的冗余写法，直接使用 `isLoggedIn`。
+  - 示例: `<Button disabled />` 而不是 `<Button disabled={true} />`
+
+## 6. CSS 类名命名 (可选)
+
+- **BEM (Block-Element-Modifier)**: 推荐使用 BEM 命名约定，以提高 CSS 的可读性和可维护性。
+  - 示例: `block-name__element-name--modifier-name`
+- **CSS Modules**: 如果使用 CSS Modules，可以利用其局部作用域的特性，但仍建议保持一致的命名风格。
+
+## 7. 最佳实践
+
+- **保持一致性**: 在整个项目中保持命名约定的一致性是至关重要的。
+- **清晰和描述性**: 名称应该足够清晰，能够传达其用途和含义，避免使用缩写或模糊的名称。
+- **避免冲突**: 确保命名不会与 JavaScript 关键字、DOM 属性或 SolidJS 内部名称冲突。
+- **团队约定**: 如果是团队项目，确保所有团队成员都遵循相同的命名约定，可以通过 ESLint 规则或代码审查来强制执行。

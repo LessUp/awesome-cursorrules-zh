@@ -1,8 +1,97 @@
 ---
-description:
-globs:
+description: SolidJS 错误边界
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS 错误边界
 
+本规则集定义了在 SolidJS 应用程序中如何实现错误边界（Error Boundaries），以优雅地捕获组件树中的 JavaScript 错误，并显示备用 UI，而不是导致整个应用程序崩溃。
 
+## 1. 什么是错误边界？
+
+错误边界是一种 SolidJS 组件，它可以捕获其子组件树中任何位置的 JavaScript 错误，记录这些错误，并显示一个备用 UI，而不是崩溃整个组件树。错误边界在渲染期间、生命周期方法中以及构造函数中捕获错误。
+
+## 2. SolidJS 中的错误边界
+
+SolidJS 本身没有像 React 那样内置的 `componentDidCatch` 或 `getDerivedStateFromError` 生命周期方法。然而，可以通过 `createEffect` 和 `onError` 回调函数来模拟错误边界的行为。
+
+### 2.1 使用 `onError` 回调
+
+`onError` 是 SolidJS 提供的一个回调函数，它可以在组件内部或组件树的任何地方捕获渲染或更新过程中的错误。当错误发生时，`onError` 会被调用，并且可以用来更新本地状态以显示回退 UI。
+
+```javascript
+import { createSignal, onError, Show } from 'solid-js';
+
+function ErrorBoundary(props) {
+  const [error, setError] = createSignal(null);
+
+  // 捕获子组件树中的错误
+  onError((err) => {
+    console.error("Caught an error:", err);
+    setError(err);
+  });
+
+  return (
+    <Show
+      when={!error()}
+      fallback={
+        <div style={{
+          border: '1px solid red',
+          padding: '10px',
+          margin: '10px 0',
+          background: '#ffebeb'
+        }}>
+          <h2>Something went wrong.</h2>
+          <p>Error details: {error()?.message}</p>
+          <button onClick={() => setError(null)}>Try again</button>
+        </div>
+      }
+    >
+      {props.children}
+    </Show>
+  );
+}
+
+function BuggyComponent() {
+  const [count, setCount] = createSignal(0);
+
+  const handleClick = () => {
+    setCount(c => c + 1);
+    if (count() === 2) {
+      throw new Error("I crashed at count 2!");
+    }
+  };
+
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <button onClick={handleClick}>Increment and Crash</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+      <ErrorBoundary>
+        <BuggyComponent />
+      </ErrorBoundary>
+      <p>This part of the app is still working.</p>
+    </div>
+  );
+}
+```
+
+### 2.2 错误边界的放置
+
+错误边界应该放置在您希望捕获错误并显示备用 UI 的组件树的任何位置。通常，您会将其放置在路由组件的顶层，或者在可能包含不稳定组件的 UI 部分周围。
+
+## 3. 最佳实践
+
+- **细化错误边界范围**: 不要将整个应用程序包裹在一个错误边界中。这会使得错误难以定位，并且可能隐藏其他部分的问题。将错误边界放置在逻辑上独立的 UI 块周围。
+- **提供有用的回退 UI**: 当错误发生时，显示一个清晰、友好的消息，告知用户发生了什么，并提供可能的解决方案（如“刷新页面”或“联系支持”）。
+- **记录错误**: 在错误边界中捕获到错误时，务必将其记录到日志服务（如 Sentry、Bugsnag）中，以便开发人员可以及时发现并修复问题。
+- **避免在错误边界内部抛出错误**: 错误边界本身不应该抛出错误，否则它将无法捕获自身的错误。
+- **测试错误边界**: 编写测试用例来验证错误边界是否按预期工作，包括它是否捕获错误、是否显示正确的备用 UI 以及是否正确记录错误。

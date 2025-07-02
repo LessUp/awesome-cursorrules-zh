@@ -1,8 +1,125 @@
 ---
-description:
-globs:
+description: SolidJS JSX 模板
+globs: []
 alwaysApply: false
 ---
 
+# SolidJS JSX 模板
 
+本规则集定义了在 SolidJS 应用程序中使用 JSX 模板的策略和最佳实践，旨在确保代码的清晰度、可维护性以及与 SolidJS 响应式系统的无缝集成。
 
+## 1. JSX 基础
+
+SolidJS 使用 JSX 作为其模板语言，与 React 类似，但其内部工作方式有所不同。在 SolidJS 中，JSX 被编译为真实的 DOM 操作，而不是虚拟 DOM。这意味着 JSX 表达式只运行一次，而其中的响应式数据更新会直接、细粒度地反映到 DOM 上。
+
+```jsx
+import { createSignal } from 'solid-js';
+
+function Greeting() {
+  const [name, setName] = createSignal("World");
+
+  return (
+    <div>
+      <h1>Hello, {name()}!</h1>
+      <input
+        type="text"
+        value={name()}
+        onInput={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+```
+
+## 2. 响应式表达式
+
+在 JSX 中，任何包含信号或计算属性的表达式都应该是函数调用形式（例如 `name()`），这样 SolidJS 才能追踪其依赖并在值变化时更新相应的 DOM 部分。
+
+```jsx
+// 正确：使用函数调用来访问信号的值
+<p>Count: {count()}</p>
+
+// 错误：直接访问信号，这将不会响应式更新
+// <p>Count: {count}</p>
+```
+
+## 3. 属性绑定
+
+### 3.1 静态属性
+
+静态属性直接写在 JSX 元素上。
+
+```jsx
+<div class="container">Static Content</div>
+```
+
+### 3.2 动态属性
+
+动态属性使用花括号 `{}` 包裹 JavaScript 表达式。对于布尔属性，如果值为 `true`，属性会被添加；如果为 `false` 或 `null`，属性会被移除。
+
+```jsx
+<button disabled={isLoading()}>Click Me</button>
+<img src={imageUrl()} alt="Dynamic Image" />
+```
+
+### 3.3 class 和 style
+
+- **`class`**: 可以是字符串、对象或数组。对象形式的键是类名，值是布尔值，用于条件性地添加类。
+
+  ```jsx
+  <div class="static-class" classList={{ 'active': isActive(), 'hidden': isHidden() }}>
+    Dynamic Classes
+  </div>
+  ```
+
+- **`style`**: 可以是字符串或对象。对象形式的键是 CSS 属性名（驼峰命名），值是属性值。
+
+  ```jsx
+  <div style={{ color: textColor(), 'font-size': '16px' }}>
+    Dynamic Styles
+  </div>
+  ```
+
+## 4. 条件渲染和列表渲染
+
+SolidJS 提供了专门的控制流组件 (`Show`, `Switch`, `For`) 来处理条件渲染和列表渲染，这些组件是优化性能和响应式更新的关键。
+
+### 4.1 条件渲染 (`Show`, `Switch/Match`)
+
+```jsx
+import { Show, Switch, Match } from 'solid-js';
+
+<Show when={user()}>Welcome, {user().name}!</Show>
+
+<Switch fallback={<p>Loading...</p>}>
+  <Match when={state() === 'success'}>Data Loaded!</Match>
+  <Match when={state() === 'error'}>Error!</Match>
+</Switch>
+```
+
+### 4.2 列表渲染 (`For`)
+
+```jsx
+import { For } from 'solid-js';
+
+<For each={items()}>
+  {(item) => <li>{item.name}</li>}
+</For>
+```
+
+## 5. 事件处理
+
+事件处理与 React 类似，使用 `on` 前缀的驼峰命名属性，值为一个函数。
+
+```jsx
+<button onClick={() => setCount(c => c + 1)}>Increment</button>
+<input onInput={(e) => setValue(e.target.value)} />
+```
+
+## 6. 最佳实践
+
+- **保持 JSX 简洁**: JSX 应该主要用于描述 UI 结构，将复杂的逻辑（如数据转换、条件判断）移到组件函数或 `createMemo` 中。
+- **使用控制流组件**: 始终优先使用 SolidJS 提供的 `Show`, `Switch`, `For` 等控制流组件进行条件和列表渲染，而不是在 JSX 中使用 JavaScript 逻辑运算符。
+- **正确访问响应式值**: 确保所有响应式值（信号、存储、计算属性）在 JSX 中都以函数调用的形式访问。
+- **提供 `key` 属性**: 在列表渲染时，为 `For` 组件的子元素提供一个稳定且唯一的 `key` 属性，以优化性能。
+- **避免不必要的重新渲染**: SolidJS 已经非常优化，但仍需注意避免在 JSX 中创建不必要的响应式依赖或执行昂贵的操作。

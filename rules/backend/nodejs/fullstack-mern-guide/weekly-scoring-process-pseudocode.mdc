@@ -1,8 +1,85 @@
 ---
-description:
-globs:
+description: 每周评分流程伪代码
+globs: []
 alwaysApply: false
 ---
 
+# 每周评分流程伪代码
 
+本规则集定义了全栈 MERN 指南中每周评分流程的伪代码实现，旨在清晰地描述评分逻辑和数据处理步骤。
 
+## 1. 流程概述
+
+每周评分流程旨在汇总用户或实体的表现数据，并根据预定义的规则计算出新的分数或排名。该流程通常作为后台定时任务运行。
+
+## 2. 伪代码实现
+
+```pseudocode
+FUNCTION CalculateWeeklyScores()
+  // 1. 获取所有需要评分的用户或实体
+  users = GET_ALL_ACTIVE_USERS_FROM_DATABASE()
+
+  FOR EACH user IN users
+    // 2. 获取用户本周的相关数据
+    weeklyData = GET_USER_WEEKLY_DATA(user.id, CURRENT_WEEK_START_DATE, CURRENT_WEEK_END_DATE)
+
+    // 3. 初始化用户本周总分
+    totalScore = 0
+
+    // 4. 根据不同数据项计算分数
+    IF weeklyData.completedTasks IS NOT NULL THEN
+      totalScore = totalScore + (weeklyData.completedTasks * TASK_SCORE_WEIGHT)
+    END IF
+
+    IF weeklyData.bugsReported IS NOT NULL THEN
+      totalScore = totalScore + (weeklyData.bugsReported * BUG_SCORE_WEIGHT)
+    END IF
+
+    IF weeklyData.customerFeedbackScore IS NOT NULL THEN
+      totalScore = totalScore + (weeklyData.customerFeedbackScore * FEEDBACK_SCORE_WEIGHT)
+    END IF
+
+    // 5. 应用惩罚或奖励规则
+    IF user.hasLateSubmissions THIS_WEEK THEN
+      totalScore = totalScore - LATE_SUBMISSION_PENALTY
+    END IF
+
+    IF user.achievedBonusGoal THIS_WEEK THEN
+      totalScore = totalScore + BONUS_REWARD
+    END IF
+
+    // 6. 更新用户的总分或历史分数记录
+    UPDATE_USER_SCORE_IN_DATABASE(user.id, totalScore, CURRENT_WEEK)
+
+    // 7. 记录评分日志
+    LOG_INFO("User " + user.id + " weekly score calculated: " + totalScore)
+  END FOR
+
+  // 8. 可选：根据新分数重新排名
+  RECALCULATE_GLOBAL_RANKINGS()
+
+  LOG_INFO("Weekly scoring process completed.")
+END FUNCTION
+
+// 辅助函数示例
+FUNCTION GET_USER_WEEKLY_DATA(userId, startDate, endDate)
+  // 从数据库或数据源获取指定用户在给定日期范围内的所有相关数据
+  // RETURN { completedTasks: 10, bugsReported: 2, customerFeedbackScore: 4.5, ... }
+END FUNCTION
+
+FUNCTION UPDATE_USER_SCORE_IN_DATABASE(userId, score, week)
+  // 将计算出的分数更新到数据库中用户的记录
+END FUNCTION
+
+FUNCTION RECALCULATE_GLOBAL_RANKINGS()
+  // 根据所有用户的最新分数重新计算并更新全局排名
+END FUNCTION
+```
+
+## 3. 关键考虑事项
+
+- **数据源**: 明确所有评分所需数据的数据源及其获取方式。
+- **权重与常数**: 评分规则中使用的所有权重和常数应可配置。
+- **错误处理**: 在数据获取和更新过程中应包含健壮的错误处理机制。
+- **性能**: 对于大量用户，需要考虑评分流程的性能优化，例如批量处理或并行计算。
+- **可审计性**: 确保每次评分的结果和依据都可追溯。

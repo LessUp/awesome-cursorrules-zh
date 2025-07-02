@@ -1,0 +1,6 @@
+---
+description: 强调 Convex 自动处理系统字段（_id, _creationTime）的理解，并且不需要为这些字段手动创建索引。
+globs: **/convex/schema.ts
+---
+- 理解 Convex 自动为每个文档生成系统字段 `_id` 和 `_creationTime`。
+- 不要手动为 `_id` 和 `_creationTime` 添加索引，因为它们会自动添加。
