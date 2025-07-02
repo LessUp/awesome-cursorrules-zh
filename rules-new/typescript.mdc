@@ -1,0 +1,57 @@
+---
+description: 适用于现代 Web 开发的 TypeScript 编码标准和最佳实践
+globs: **/*.ts, **/*.tsx, **/*.d.ts
+---
+
+# TypeScript 最佳实践
+
+## 类型系统
+- 对象定义优先使用接口 (interfaces) 而不是类型 (types)
+- 对联合、交叉和映射类型使用类型 (type)
+- 避免使用 `any`，对未知类型优先使用 `unknown`
+- 使用严格的 TypeScript 配置
+- 利用 TypeScript 的内置实用程序类型
+- 对可重用的类型模式使用泛型
+
+## 命名约定
+- 类型名称和接口使用帕斯卡命名法 (PascalCase)
+- 变量和函数使用驼峰命名法 (camelCase)
+- 常量使用大写 (UPPER_CASE)
+- 使用带辅助动词的描述性名称（例如 isLoading, hasError）
+- React props 的接口以 'Props' 为前缀（例如 ButtonProps）
+
+## 代码组织
+- 将类型定义放在其使用位置附近
+- 当类型和接口共享时，从专用的类型文件中导出
+- 使用桶式导出 (index.ts) 来组织导出
+- 将共享类型放在 `types` 目录中
+- 将组件 props 与其组件放在一起
+
+## 函数
+- 对公共函数使用显式返回类型
+- 对回调和方法使用箭头函数
+- 使用自定义错误类型实现正确的错误处理
+- 对复杂的类型场景使用函数重载
+- 优先使用 async/await 而不是 Promises
+
+## 最佳实践
+- 在 tsconfig.json 中启用严格模式
+- 对不可变属性使用 readonly
+- 利用可辨识联合 (discriminated unions) 实现类型安全
+- 对运行时类型检查使用类型守卫 (type guards)
+- 实现正确的 null 检查
+- 除非必要，否则避免类型断言
+
+## 错误处理
+- 为领域特定的错误创建自定义错误类型
+- 对可能失败的操作使用 Result 类型
+- 实现正确的错误边界
+- 使用带类型化 catch 子句的 try-catch 块
+- 正确处理 Promise 拒绝
+
+## 模式
+- 对复杂的对象创建使用构建器模式 (Builder pattern)
+- 对数据访问实现仓库模式 (Repository pattern)
+- 对对象创建使用工厂模式 (Factory pattern)
+- 利用依赖注入
+- 对封装使用模块模式 (Module pattern)

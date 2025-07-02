@@ -1,0 +1,111 @@
+---
+description: Gitflow 工作流规则。在执行 git 操作时应应用这些规则。
+---
+# Gitflow 工作流规则
+
+## 主要分支
+
+### main (或 master)
+- 包含生产就绪的代码
+- 切勿直接提交到 main
+- 只接受来自以下分支的合并：
+  - hotfix/* 分支
+  - release/* 分支
+- 每次合并后必须用版本号打上标签
+
+### develop
+- 主要开发分支
+- 包含最新的已交付开发变更
+- 功能分支的源分支
+- 切勿直接提交到 develop
+
+## 支持分支
+
+### feature/*
+- 分支来源: develop
+- 合并回: develop
+- 命名约定: feature/[issue-id]-descriptive-name
+- 示例: feature/123-user-authentication
+- 创建 PR 前必须与 develop 保持同步
+- 合并后删除
+
+### release/*
+- 分支来源: develop
+- 合并回: 
+  - main
+  - develop
+- 命名约定: release/vX.Y.Z
+- 示例: release/v1.2.0
+- 只包含错误修复、文档和面向发布的任务
+- 没有新功能
+- 合并后删除
+
+### hotfix/*
+- 分支来源: main
+- 合并回:
+  - main
+  - develop
+- 命名约定: hotfix/vX.Y.Z
+- 示例: hotfix/v1.2.1
+- 仅用于紧急的生产修复
+- 合并后删除
+
+## 提交信息
+
+- 格式: `type(scope): description`
+- 类型:
+  - feat: 新功能
+  - fix: 错误修复
+  - docs: 文档变更
+  - style: 格式化、缺少分号等
+  - refactor: 代码重构
+  - test: 添加测试
+  - chore: 维护任务
+
+## 版本控制
+
+### 语义化版本控制
+- MAJOR 版本用于不兼容的 API 变更
+- MINOR 版本用于向后兼容的功能
+- PATCH 版本用于向后兼容的错误修复
+
+## 拉取请求规则 (Pull Request Rules)
+
+1. 所有变更必须通过拉取请求进行
+2. 需要的批准数：最少 1 个
+3. CI 检查必须通过
+4. 禁止直接提交到受保护的分支 (main, develop)
+5. 合并前分支必须是最新状态
+6. 合并后删除分支
+
+## 分支保护规则
+
+### main & develop
+- 要求拉取请求审查
+- 要求状态检查通过
+- 要求分支是最新状态
+- 将管理员包含在限制中
+- 禁止强制推送
+- 禁止删除
+
+## 发布流程
+
+1. 从 develop 创建 release 分支
+2. 提升版本号
+3. 修复任何与发布相关的问题
+4. 创建到 main 的 PR
+5. 合并到 main 后：
+   - 标记发布版本
+   - 合并回 develop
+   - 删除 release 分支
+
+## 热修复流程
+
+1. 从 main 创建 hotfix 分支
+2. 修复问题
+3. 提升补丁版本号
+4. 创建到 main 的 PR
+5. 合并到 main 后：
+   - 标记发布版本
+   - 合并回 develop
+   - 删除 hotfix 分支 

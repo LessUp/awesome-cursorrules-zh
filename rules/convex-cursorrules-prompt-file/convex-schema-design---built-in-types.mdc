@@ -1,0 +1,6 @@
+---
+description: 提供在使用内置系统字段和数据类型定义 Convex 模式时的指导，以确保正确处理数据。
+globs: **/convex/schema.ts
+---
+- 在设计模式时，请参考 https://docs.convex.dev/database/types 提供的系统内置字段和数据类型。
+- 特别注意 `v` 验证器构建器 (https://docs.convex.dev/api/modules/values#v) 在定义模式类型时的正确用法。

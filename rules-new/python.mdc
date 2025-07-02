@@ -1,0 +1,120 @@
+---
+description: 使用 Flask 和 SQLite 的现代软件开发的 Python 最佳实践和模式
+globs: **/*.py, src/**/*.py, tests/**/*.py
+---
+
+# Python 最佳实践
+
+## 项目结构
+- 使用 `src/your_package_name/` 的 src 布局
+- 将测试放在与 `src/` 并行的 `tests/` 目录中
+- 将配置保存在 `config/` 中或作为环境变量
+- 将需求存储在 `requirements.txt` 或 `pyproject.toml` 中
+- 将静态文件放在 `static/` 目录中
+- 对 Jinja2 模板使用 `templates/`
+
+## 代码风格
+- 遵循 Black 代码格式化
+- 使用 isort 进行导入排序
+- 遵循 PEP 8 命名约定：
+  - 函数和变量使用蛇形命名法 (snake_case)
+  - 类使用帕斯卡命名法 (PascalCase)
+  - 常量使用大写 (UPPER_CASE)
+- 最大行长为 88 个字符 (Black 默认)
+- 使用绝对导入而非相对导入
+
+## 类型提示
+- 对所有函数参数和返回值使用类型提示
+- 从 `typing` 模块导入类型
+- 使用 `Optional[Type]` 而不是 `Type | None`
+- 对泛型类型使用 `TypeVar`
+- 在 `types.py` 中定义自定义类型
+- 对鸭子类型使用 `Protocol`
+
+## Flask 结构
+- 使用 Flask 工厂模式
+- 使用蓝图 (Blueprints) 组织路由
+- 使用 Flask-SQLAlchemy 进行数据库操作
+- 实现正确的错误处理器
+- 使用 Flask-Login 进行认证
+- 以适当的关注点分离来构建视图
+
+## 数据库
+- 使用 SQLAlchemy ORM
+- 使用 Alembic 实现数据库迁移
+- 使用正确的连接池
+- 在单独的模块中定义模型
+- 实现正确的关系
+- 使用正确的索引策略
+
+## 认证
+- 使用 Flask-Login 进行会话管理
+- 使用 Flask-OAuth 实现 Google OAuth
+- 使用 bcrypt 哈希密码
+- 使用正确的会话安全
+- 实现 CSRF 保护
+- 使用正确的基于角色的访问控制
+
+## API 设计
+- 使用 Flask-RESTful 构建 REST API
+- 实现正确的请求验证
+- 使用正确的 HTTP 状态码
+- 一致地处理错误
+- 使用正确的响应格式
+- 实现正确的速率限制
+
+## 测试
+- 使用 pytest 进行测试
+- 为所有路由编写测试
+- 使用 pytest-cov 进行覆盖率检查
+- 实现正确的夹具 (fixtures)
+- 使用 pytest-mock 进行正确的模拟
+- 测试所有错误场景
+
+## 安全
+- 在生产环境中使用 HTTPS
+- 实现正确的 CORS
+- 清理所有用户输入
+- 使用正确的会话配置
+- 实现正确的日志记录
+- 遵循 OWASP 指南
+
+## 性能
+- 使用 Flask-Caching 进行正确的缓存
+- 实现数据库查询优化
+- 使用正确的连接池
+- 实现正确的分页
+- 对繁重操作使用后台任务
+- 监控应用程序性能
+
+## 错误处理
+- 创建自定义异常类
+- 使用正确的 try-except 块
+- 实现正确的日志记录
+- 返回正确的错误响应
+- 正确处理边界情况
+- 使用正确的错误消息
+
+## 文档
+- 使用 Google 风格的文档字符串
+- 为所有公共 API 编写文档
+- 保持 README.md 更新
+- 使用正确的内联注释
+- 生成 API 文档
+- 记录环境设置
+
+## 开发工作流
+- 使用虚拟环境 (venv)
+- 实现 pre-commit 钩子
+- 使用正确的 Git 工作流
+- 遵循语义化版本控制
+- 使用正确的 CI/CD 实践
+- 实现正确的日志记录
+
+## 依赖
+- 固定依赖版本
+- 对生产环境使用 requirements.txt
+- 分离开发依赖
+- 使用正确的包版本
+- 定期更新依赖
+- 检查安全漏洞

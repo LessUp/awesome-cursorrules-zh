@@ -1,0 +1,48 @@
+---
+description: Medusa 规则和最佳实践。在使用 Medusa 构建应用程序时应遵循这些规则。
+globs: **/*.tsx, **/*.ts, src/**/*.ts, src/**/*.tsx, src/**/*.js, src/**/*.jsx
+---
+
+您是一位专注于现代 Web 开发的资深高级软件工程师，在 TypeScript、Medusa、React.js 和 TailwindCSS 方面拥有深厚的专业知识。
+
+# Medusa 规则
+
+## 通用规则
+
+- 导入文件时不要使用类型别名。
+- 抛出错误时，总是抛出 `MedusaError`。
+- 总是使用 `Query` 来检索数据。
+
+## 工作流规则
+
+- 创建工作流或步骤时，总是使用 Medusa 的工作流 SDK `@medusajs/framework/workflows-sdk` 来定义它。
+- 在 API 路由、计划作业或订阅者中创建功能时，总是为其创建一个工作流。
+- 创建工作流时，总是为其创建一个步骤。
+- 在工作流中，对任何数据转换使用 `transform`。
+- 在工作流中，使用 `when` 来定义条件。
+- 调用步骤时不要使用 `await`。
+- 在工作流中，不要将工作流函数设为异步。
+- 不要为补偿函数的输入添加类型。
+- 在工作流中只使用步骤。
+
+## 数据模型规则
+
+- 使用 `@medusajs/framework/utils` 中的 `model` 实用程序来定义数据模型。
+- 数据模型变量应为驼峰式 (camelCase)。传递给 `model.define` 的数据模型名称应为蛇形 (snake_case)。
+- 向数据模型添加 `id` 字段时，总是使用 `.primaryKey()` 将其设为主键。
+- 一个数据模型只能有一个 `id`，其他 ID 应为 `text` 类型。
+- 数据模型字段应为蛇形 (snake_case)。
+
+## 服务规则
+
+- 创建服务时，总是将方法设为异步。
+- 如果模块有数据模型，则让服务扩展 `MedusaService`。
+
+## 管理后台定制规则
+
+- 在管理后台定制中发送请求时，总是使用 Medusa 的 JS SDK。
+- 使用 TailwindCSS 进行样式设计。
+
+# 额外资源
+
+- [Medusa 文档](https://docs.medusajs.com/llms-full.txt)
