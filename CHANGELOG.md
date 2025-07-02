@@ -5,6 +5,12 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.5.0] - 2025-07-03
+
+### 新增
+- **完成所有规则集翻译**：项目翻译进度达到 100%。
+- **文档全面优化**：统一更新 `README.md`, `CONTRIBUTING.md`, 和 `CODE_OF_CONDUCT.md` 以反映项目进入维护阶段。
+
 ## [1.4.0] - 2025-07-02
 
 ### 新增
@@ -163,10 +169,4 @@
 
 ---
 
-## 计划中的更新
 
-### [1.2.0] - 计划中
-- 新增 Angular 框架规则集
-- 新增 Flutter/Dart 规则集
-- 新增 PHP Laravel 规则集
-- 社区贡献工具优化

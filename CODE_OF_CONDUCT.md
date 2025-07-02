@@ -1,6 +1,6 @@
-# Contributor Covenant Code of Conduct
+# 贡献者契约行为准则
 
-## Our Pledge
+## 我们的承诺
 
 We as members, contributors, and leaders pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
@@ -58,9 +58,8 @@ representative at an online or offline event.
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-[INSERT CONTACT METHOD].
+如果遇到骚扰、滥用或其他不可接受的行为，请通过
+**[在此处插入项目维护者的联系方式]** 向负责执行准则的社区负责人报告。
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

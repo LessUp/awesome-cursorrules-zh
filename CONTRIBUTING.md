@@ -1,6 +1,8 @@
 # 贡献指南
 
-感谢您对 Awesome Cursor Rules 中文版的关注！我们欢迎所有形式的贡献。本项目采用标准化的翻译工作流程，确保高质量的翻译成果。
+# 贡献指南
+
+感谢您对 Awesome Cursor Rules 中文版的关注！随着项目所有翻译工作的完成，我们现在进入了持续维护和优化阶段。我们欢迎所有形式的贡献，共同保持这个项目的活力。
 
 ## 🚀 快速开始
 
@@ -17,65 +19,32 @@
 - 文本编辑器（推荐 VS Code 或 Cursor）
 - 基本的 Markdown 知识
 
-## 🔄 标准化翻译工作流程
 
-我们建立了完整的6阶段翻译工作流程，确保翻译质量和效率：
-
-### 阶段1：翻译准备
-- 选择目标规则集（参考优先级列表）
-- 检查原始文件完整性
-- 准备翻译环境和工具
-- 规划目录结构
-
-### 阶段2：翻译执行
-- **第一遍翻译**：使用 AI 辅助进行整体翻译
-- **第二遍优化**：改进中文表达的自然性
-- **第三遍校对**：完善细节和格式
-
-### 阶段3：自检验证
-- 术语一致性检查
-- 结构完整性检查
-- 内容准确性检查
-- 语言质量检查
-
-### 阶段4：质量审核
-- 专业性审核
-- 语言审核
-- 格式审核
-- 最终确认
-
-### 阶段5：发布部署
-- 发布前检查
-- Git 提交和推送
-- 进度更新
-
-### 阶段6：质量跟踪
-- 持续监控和改进
 
 
 
 ## 🤝 贡献方式
 
-### 翻译新的规则集
+### 报告问题
+如果您发现任何翻译不准确、内容过时或链接失效等问题，请通过 [GitHub Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues) 提交详细报告。一个好的问题报告应包括：
+- 问题所在的具体文件。
+- 问题描述。
+- （可选）您的修改建议。
+
+### 改进现有翻译
+如果您希望直接帮助我们改进内容，请遵循以下步骤：
 1. **Fork 本仓库**
-2. **创建翻译分支**：`git checkout -b translate/规则集名称`
-3. **选择目标规则集**：从优先级列表中选择
-4. **执行翻译流程**：
-   - 复制原始规则集到对应的中文目录
-   - 按照翻译标准进行内容翻译
-   - 进行质量自检和验证
-   - 提交翻译成果
-5. **提交 Pull Request**
+2. **创建您的分支**：`git checkout -b fix/your-improvement-description`
+3. **进行修改**：在您的分支上进行修改。
+4. **提交 Pull Request**：提交您的更改，并清晰地描述您所做的改进。
 
 ### 改进现有翻译
 1. **报告问题**：在 Issues 中详细描述翻译问题
 2. **提供改进建议**：包含具体的修改建议
 3. **提交 Pull Request**：遵循标准工作流程
 
-### 参与项目管理
-1. **流程完善**：改进翻译工作流程
-2. **文档维护**：更新项目文档
-3. **社区建设**：参与项目讨论和推广
+### 同步上游更新
+[原项目](https://github.com/PatrickJS/awesome-cursorrules) 可能会有更新。我们欢迎贡献者帮助我们将这些更新同步到中文版中。
 
 ## 📝 翻译质量标准
 
@@ -120,49 +89,23 @@
 - **语言审核**：中文表达和术语使用规范性
 - **格式审核**：Markdown 格式和链接有效性
 
-## 📋 翻译优先级（2025年更新）
 
-### 🔥 最高优先级（立即开始）
-- **Python Django** (`python-django-best-practices-cursorrules-prompt-fi`)
-- **Java Spring Boot** (`java-springboot-jpa-cursorrules-prompt-file`)
-- **Go 后端开发** (`go-backend-scalability-cursorrules-prompt-file`)
-- **Angular TypeScript** (`angular-typescript-cursorrules-prompt-file`)
-
-### ⭐ 高优先级（2-4周内）
-- **Flutter 应用开发** (`flutter-app-expert-cursorrules-prompt-file`)
-- **Laravel PHP** (`laravel-php-83-cursorrules-prompt-file`)
-- **TypeScript NestJS** (`typescript-nestjs-best-practices-cursorrules-promp`)
-- **Chrome 扩展开发** (`chrome-extension-dev-js-typescript-cursorrules-pro`)
-
-### 📈 中优先级（4-8周内）
-- **Svelte/SvelteKit** (`sveltekit-tailwindcss-typescript-cursorrules-promp`)
-- **Astro TypeScript** (`astro-typescript-cursorrules-prompt-file`)
-- **SwiftUI** (`swiftui-guidelines-cursorrules-prompt-file`)
-- **Android Jetpack Compose** (`android-jetpack-compose-cursorrules-prompt-file`)
-
-### 📚 低优先级（8周后）
-- 其他小众技术栈
-- 实验性框架
-- 特定领域应用
-
-**当前翻译进度**：48/141 规则集 (34.04%)
 
 ## 🏷️ 提交规范
 
 使用约定式提交格式：
 
 ```bash
-# 翻译新规则集
-feat(backend/python): add Chinese translation for django best practices
-feat(frontend/angular): add Chinese translation for angular typescript
+# 示例
 
-# 改进现有翻译
-fix(backend/java): improve spring boot terminology consistency
-docs(frontend/react): update react hooks translation
+# 修复拼写错误
+fix(docs): correct spelling in README.md
 
-# 项目管理
-docs: update project documentation
-refactor: improve project structure
+# 更新某个规则集
+feat(backend/python): sync django best practices with upstream
+
+# 改进文档
+docs: update contributing guide for maintenance phase
 ```
 
 ### 提交信息模板
@@ -201,12 +144,7 @@ refactor: improve project structure
 - **Pull Request**：提交代码和翻译
 - **Discussions**：参与项目讨论
 
-## 维护阶段贡献指南
 
-本项目翻译已全部完成，欢迎参与维护工作：
-- 报告问题
-- 提交改进建议
-- 帮助同步上游更新
 
 ---
 
