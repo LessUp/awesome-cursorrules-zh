@@ -1,5 +1,46 @@
 ---
-description: 利用 MobX DevTools 调试 MobX 应用程序。
+description: "利用 MobX DevTools 调试 MobX 应用程序"
 globs: src/**/*.ts
 ---
-- 利用 MobX DevTools 进行调试。
+- **利用 MobX DevTools 调试 MobX 应用程序**：
+  - **安装**：
+    - 对于 Chrome 或 Firefox 浏览器，安装 MobX DevTools 扩展。
+    - 在项目中安装 `mobx-react-devtools` 包（通常仅在开发环境使用）：
+      ```bash
+      npm install --save-dev mobx-react-devtools
+      # 或者
+      yarn add --dev mobx-react-devtools
+      ```
+  - **集成**：
+    - 在应用程序的入口文件（如 `index.js` 或 `App.js`）中导入并渲染 `DevTools` 组件。
+    - 示例：
+      ```jsx
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import App from './App';
+
+      // 仅在开发环境导入 DevTools
+      if (process.env.NODE_ENV === 'development') {
+        const DevTools = require('mobx-react-devtools').default;
+        ReactDOM.createRoot(document.getElementById('root')).render(
+          <React.StrictMode>
+            <App />
+            <DevTools />
+          </React.StrictMode>
+        );
+      } else {
+        ReactDOM.createRoot(document.getElementById('root')).render(
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        );
+      }
+      ```
+  - **功能**：
+    - **状态检查**：实时查看 MobX store 的状态，包括可观察数据、计算值和 action。
+    - **时间旅行调试**：回溯和重放状态变化，帮助理解数据流和定位问题。
+    - **Action 追踪**：记录所有 action 的执行，显示其参数和对状态的影响。
+    - **性能分析**：识别哪些组件因为哪些状态变化而重新渲染，优化性能。
+  - **最佳实践**：
+    - 仅在开发环境中使用 MobX DevTools，避免在生产环境中打包。
+    - 结合浏览器开发者工具一起使用，更全面地调试应用程序。

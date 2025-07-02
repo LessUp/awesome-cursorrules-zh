@@ -1,5 +1,56 @@
 ---
-description: 使用 reaction 处理基于可观察变化的副作用。
+description: "使用 reaction 处理基于可观察变化的副作用"
 globs: src/**/*.ts
 ---
-- 使用 reaction 处理基于可观察变化的副作用。
+- **使用 `reaction` 处理基于可观察变化的副作用**：
+  - **`reaction` 的作用**：
+    - `reaction` 是 MobX 提供的一种副作用处理机制，它接受两个函数作为参数：第一个函数（`data` 函数）跟踪其内部使用的可观察数据，并返回一个值；第二个函数（`effect` 函数）接收 `data` 函数的返回值，并在 `data` 函数返回的值发生变化时执行。
+    - 与 `autorun` 不同，`reaction` 允许你更精确地控制哪些数据变化会触发副作用，并且 `effect` 函数不会在初始化时立即运行。
+  - **使用场景**：
+    - 当你需要根据 MobX 状态的变化执行一些副作用，例如：
+      - 异步数据加载（例如，当用户 ID 变化时加载用户数据）。
+      - 订阅外部服务或事件。
+      - 写入本地存储（localStorage）。
+      - 打印日志。
+  - **示例**：
+    ```typescript
+    import { makeObservable, observable, action, reaction } from 'mobx';
+
+    class UserStore {
+      @observable userId = 0;
+      @observable userData = null;
+
+      constructor() {
+        makeObservable(this);
+        reaction(
+          () => this.userId, // data 函数：跟踪 userId
+          async (userId) => {
+            if (userId > 0) {
+              console.log(`Fetching user data for userId: ${userId}`);
+              // 模拟异步请求
+              this.userData = await new Promise(resolve => 
+                setTimeout(() => resolve({ id: userId, name: `User ${userId}` }), 500)
+              );
+            } else {
+              this.userData = null;
+            }
+          }, 
+          { fireImmediately: true } // 立即执行一次 effect 函数
+        );
+      }
+
+      @action
+      setUserId(id: number) {
+        this.userId = id;
+      }
+    }
+
+    const userStore = new UserStore();
+    userStore.setUserId(1); // 这将触发 reaction，加载用户数据
+    // userStore.setUserId(2); // 再次触发 reaction
+    ```
+  - **最佳实践**：
+    - 尽量在 store 内部使用 `reaction` 来处理与状态相关的副作用，保持组件的纯粹性。
+    - 避免在 `data` 函数中执行耗时操作，因为它会频繁运行。
+    - 如果副作用需要清理（例如，取消订阅），`reaction` 函数会返回一个清理函数，可以在组件卸载时调用它。
+    - 对于简单的、不依赖于特定数据变化的副作用，可以考虑使用 `autorun`。

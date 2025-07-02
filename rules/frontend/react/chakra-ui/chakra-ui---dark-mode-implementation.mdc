@@ -1,5 +1,26 @@
 ---
-description: 在构建 React 组件时使用 Chakra UI 的颜色模式实现暗模式。
+description: "在构建 React 组件时使用 Chakra UI 的颜色模式实现暗模式"
 globs: src/**/*.*
 ---
-- 使用 Chakra UI 的颜色模式实现暗模式
+- **使用 Chakra UI 的颜色模式实现暗模式**：
+  - **自动颜色模式**：利用 Chakra UI 内置的颜色模式（Color Mode）功能，轻松实现亮/暗模式切换，并支持系统偏好设置。
+  - **`useColorMode` Hook**：在组件中使用 `useColorMode` Hook 来获取当前颜色模式和切换模式的函数。
+  - **`ColorModeScript`**：在应用的根部（例如 `_document.js` 或 `index.js`）引入 `ColorModeScript`，以防止页面加载时的闪烁问题。
+  - **主题配置**：在 Chakra UI 主题中定义 `colors` 对象，为亮/暗模式提供不同的颜色值，确保组件在不同模式下显示正确。
+  - **示例**：
+    ```jsx
+    import { useColorMode, Button, Box } from '@chakra-ui/react';
+
+    function ColorModeSwitcher() {
+      const { colorMode, toggleColorMode } = useColorMode();
+      return (
+        <Box>
+          <Button onClick={toggleColorMode}>
+            Toggle {colorMode === 'light' ? 'Dark' : 'Light'} Mode
+          </Button>
+        </Box>
+      );
+    }
+    ```
+  - **持久化**：Chakra UI 默认会将颜色模式偏好存储在 localStorage 中，确保用户下次访问时保持一致。
+  - **可访问性**：确保亮/暗模式切换时，颜色对比度仍然满足可访问性标准。

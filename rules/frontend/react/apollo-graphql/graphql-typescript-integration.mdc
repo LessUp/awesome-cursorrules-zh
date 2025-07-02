@@ -1,5 +1,79 @@
 ---
-description: 强制使用 TypeScript 确保 GraphQL 操作的类型安全。
+description: "强制使用 TypeScript 确保 GraphQL 操作的类型安全"
 globs: src/graphql/**/*.ts
 ---
-- 对 GraphQL 操作使用 TypeScript 确保类型安全
+- **对 GraphQL 操作使用 TypeScript 确保类型安全**：
+  - **代码生成**：利用 GraphQL Code Generator 或类似工具，根据 GraphQL schema 和操作（Queries, Mutations, Subscriptions）自动生成 TypeScript 类型定义。
+  - **类型推断**：确保 `useQuery`、`useMutation` 和 `useSubscription` Hooks 的返回值（`data`, `loading`, `error`）和变量（`variables`）都具有正确的类型推断。
+  - **端到端类型安全**：从 GraphQL API 到前端组件，实现端到端的类型安全，减少运行时错误。
+  - **示例**：
+    ```typescript
+    // graphql.schema.json (部分)
+    {
+      "data": {
+        "__schema": {
+          "types": [
+            {
+              "kind": "OBJECT",
+              "name": "User",
+              "fields": [
+                { "name": "id", "type": { "kind": "NON_NULL", "ofType": { "kind": "SCALAR", "name": "ID" } } },
+                { "name": "name", "type": { "kind": "SCALAR", "name": "String" } }
+              ]
+            }
+          ]
+        }
+      }
+    }
+
+    // query.graphql
+    query GetUser($id: ID!) {
+      user(id: $id) {
+        id
+        name
+      }
+    }
+
+    // generated.ts (通过工具生成)
+    export type GetUserQueryVariables = {
+      id: string;
+    };
+
+    export type GetUserQuery = {
+      user?:  {
+        __typename?: "User";
+        id: string;
+        name?: string | null;
+      } | null;
+    };
+
+    // component.tsx
+    import { useQuery } from '@apollo/client';
+    import { GetUserQuery, GetUserQueryVariables } from './generated'; // 假设类型已生成
+
+    const GET_USER_QUERY = gql`
+      query GetUser($id: ID!) {
+        user(id: $id) {
+          id
+          name
+        }
+      }
+    `;
+
+    function UserProfile({ userId }: { userId: string }) {
+      const { data, loading, error } = useQuery<GetUserQuery, GetUserQueryVariables>(GET_USER_QUERY, {
+        variables: { id: userId },
+      });
+
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error: {error.message}</p>;
+
+      return (
+        <div>
+          <h1>{data?.user?.name}</h1>
+          <p>ID: {data?.user?.id}</p>
+        </div>
+      );
+    }
+    ```
+  - **手动类型定义（不推荐）**：在无法使用代码生成工具的情况下，可以手动定义 GraphQL 响应的 TypeScript 接口，但这容易出错且难以维护。

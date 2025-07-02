@@ -1,5 +1,30 @@
 ---
-description: 要求遵循查询、变更和片段的命名约定。
+description: "要求遵循查询、变更和片段的命名约定"
 globs: src/graphql/**/*.js
 ---
-- 遵循查询、变更和片段的命名约定
+- **遵循查询、变更和片段的命名约定**：
+  - **查询（Queries）**：
+    - 使用 `get` 或 `fetch` 前缀，后跟实体名称和可选的复数形式。
+    - 示例：`getUsers`、`getUserById`、`fetchProductDetails`。
+  - **变更（Mutations）**：
+    - 使用动词前缀表示操作类型，后跟实体名称。
+    - 示例：`createUser`、`updateProduct`、`deleteComment`。
+  - **订阅（Subscriptions）**：
+    - 使用 `on` 前缀，后跟事件名称。
+    - 示例：`onNewMessage`、`onUserUpdated`。
+  - **片段（Fragments）**：
+    - 使用实体名称，后跟 `Fields` 或 `Details` 后缀。
+    - 示例：`UserFields`、`ProductDetails`。
+  - **类型（Types）和字段（Fields）**：
+    - 类型名称使用 PascalCase（大驼峰命名法）。
+    - 字段名称使用 camelCase（小驼峰命名法）。
+    - 示例：`User` 类型中的 `firstName` 字段。
+  - **枚举（Enums）**：
+    - 枚举类型名称使用 PascalCase，枚举值使用 ALL_CAPS（全大写）。
+    - 示例：`OrderStatus` 枚举中的 `PENDING`、`COMPLETED`。
+  - **变量（Variables）**：
+    - 变量名称使用 camelCase。
+    - 示例：`$userId`、`$input`。
+  - **通用原则**：
+    - 保持命名清晰、简洁、一致，能够直观地表达其用途和所操作的数据。
+    - 避免缩写，除非是广为人知的缩写（如 `ID`）。

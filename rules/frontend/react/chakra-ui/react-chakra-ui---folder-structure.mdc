@@ -1,15 +1,25 @@
 ---
-description: 维护 React 和 Chakra UI 项目的定义文件夹结构以确保代码组织有序。
+description: "维护 React 和 Chakra UI 项目的定义文件夹结构以确保代码组织有序"
 globs: src/**/*.*
 ---
-- 遵循以下文件夹结构：
-
-src/
-  components/
-  pages/
-  theme/
-    index.js
-    foundations/
-    components/
-  hooks/
-  utils/
+- **遵循以下文件夹结构**：
+  - **`src/`**：项目源代码根目录。
+    - **`components/`**：存放可复用的 UI 组件。
+      - **`common/`**：通用组件，如按钮、输入框等。
+      - **`layout/`**：布局相关组件，如 Header, Footer, Sidebar 等。
+      - **`specific/`**：特定业务或页面使用的组件。
+    - **`pages/`**：存放页面组件，每个文件代表一个路由页面。
+    - **`theme/`**：存放 Chakra UI 主题相关的配置。
+      - **`index.js`**：主题的入口文件，用于组合所有主题配置。
+      - **`foundations/`**：基础样式，如颜色、字体、间距、断点等。
+      - **`components/`**：组件样式覆盖和变体。
+    - **`hooks/`**：存放自定义 React Hooks。
+    - **`utils/`**：存放工具函数、常量、辅助函数等。
+    - **`assets/`**：存放静态资源，如图片、字体、SVG 等。
+    - **`App.js`**：应用程序的根组件。
+    - **`index.js`**：应用程序的入口文件，通常用于渲染 `App` 组件并包裹 `ChakraProvider`。
+  - **优点**：
+    - **清晰的职责分离**：每个目录都有明确的用途，便于团队协作和新成员快速上手。
+    - **可维护性**：逻辑和 UI 分离，便于修改和扩展。
+    - **可扩展性**：随着项目增长，可以轻松添加新的模块和功能。
+    - **一致性**：统一的结构有助于保持整个代码库的一致性。

@@ -1,5 +1,40 @@
 ---
-description: 使用 Chakra UI 的 React 组件的一般偏好，包括使用带有 hooks 的函数式组件。
+description: "使用 Chakra UI 的 React 组件的一般偏好，包括使用带有 hooks 的函数式组件"
 globs: src/**/*.*
 ---
-- 优先使用带有 hooks 的函数式组件
+- **优先使用带有 hooks 的函数式组件**：
+  - **现代化开发**：在 Chakra UI 项目中，优先使用 React 函数式组件和 Hooks 进行开发，而不是类组件。
+  - **代码简洁性**：Hooks 使得组件逻辑更易于组织和测试，减少了冗余代码。
+  - **逻辑复用**：自定义 Hooks 可以轻松地在不同组件之间共享状态逻辑。
+  - **性能优化**：结合 `React.memo`、`useCallback` 和 `useMemo` 可以更好地控制组件的渲染行为，优化性能。
+  - **示例**：
+    ```jsx
+    import { Box, Button, useToast } from '@chakra-ui/react';
+    import React, { useState, useCallback } from 'react';
+
+    function MyFunctionalComponent() {
+      const [count, setCount] = useState(0);
+      const toast = useToast();
+
+      const handleClick = useCallback(() => {
+        setCount(prevCount => prevCount + 1);
+        toast({
+          title: 'Count updated.',
+          description: `Count is now ${count + 1}`,
+          status: 'success',
+          duration: 1000,
+          isClosable: true,
+        });
+      }, [count, toast]);
+
+      return (
+        <Box p={4}>
+          <Text>Count: {count}</Text>
+          <Button onClick={handleClick} mt={2}>
+            Increment
+          </Button>
+        </Box>
+      );
+    }
+    ```
+  - **与 Chakra UI 的兼容性**：Chakra UI 的 Hooks（如 `useColorMode`, `useDisclosure`）与函数式组件无缝集成，提供了强大的功能扩展。

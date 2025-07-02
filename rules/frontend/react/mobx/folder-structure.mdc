@@ -1,11 +1,25 @@
 ---
-description: 为 React 和 MobX 项目强制执行特定的目录结构。
+description: "为 React 和 MobX 项目强制执行特定的目录结构"
 globs: src/**
 ---
-- 维护以下文件夹结构：
-  src/
-    components/
-    stores/
-    hooks/
-    pages/
-    utils/
+- **维护以下文件夹结构**：
+  - **`src/`**：项目源代码根目录。
+    - **`components/`**：存放可复用的 React UI 组件。
+      - **`common/`**：通用组件。
+      - **`layout/`**：布局相关组件。
+      - **`specific/`**：特定业务组件。
+    - **`stores/`**：存放 MobX 状态管理相关的 store 文件。
+      - **`rootStore.js`**：根 store，聚合所有子 store。
+      - **`userStore.js`**：用户相关的 store。
+      - **`itemStore.js`**：业务数据相关的 store。
+    - **`hooks/`**：存放自定义 React Hooks，用于封装可复用的逻辑。
+    - **`pages/`**：存放页面组件，每个文件代表一个路由页面。
+    - **`utils/`**：存放工具函数、常量、辅助函数等。
+    - **`assets/`**：存放静态资源，如图片、字体、SVG 等。
+    - **`App.js`**：应用程序的根组件。
+    - **`index.js`**：应用程序的入口文件，通常用于渲染 `App` 组件并设置 MobX Provider。
+  - **优点**：
+    - **清晰的职责分离**：每个目录都有明确的用途，便于团队协作和新成员快速上手。
+    - **可维护性**：逻辑和 UI 分离，便于修改和扩展。
+    - **可扩展性**：随着项目增长，可以轻松添加新的模块和功能。
+    - **一致性**：统一的结构有助于保持整个代码库的一致性。

@@ -1,5 +1,53 @@
 ---
-description: 在使用 MobX 与 React Lite 时强制执行最佳实践。
+description: "在使用 MobX 与 React Lite 时强制执行最佳实践"
 globs: src/components/**/*.tsx
 ---
-- 使用 MobX-react-lite 以在函数式组件中获得最佳性能。
+- **使用 MobX-react-lite 以在函数式组件中获得最佳性能**：
+  - **`observer` HOC 或 `useObserver` Hook**：
+    - 对于函数式组件，推荐使用 `mobx-react-lite` 提供的 `observer` 高阶组件（HOC）或 `useObserver` Hook 来包裹组件，使其能够响应 MobX 状态的变化。
+    - `observer` HOC 示例：
+      ```jsx
+      import React from 'react';
+      import { observer } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const TodoList = observer(() => {
+        const { todoStore } = useStore();
+
+        return (
+          <div>
+            {todoStore.todos.map(todo => (
+              <div key={todo.id}>{todo.text}</div>
+            ))}
+          </div>
+        );
+      });
+
+      export default TodoList;
+      ```
+    - `useObserver` Hook 示例（适用于需要更细粒度控制渲染的场景）：
+      ```jsx
+      import React from 'react';
+      import { useObserver } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const TodoItem = ({ todo }) => {
+        return useObserver(() => (
+          <li>
+            {todo.text}
+            <button onClick={() => todo.toggleCompleted()}>
+              {todo.completed ? 'Mark Incomplete' : 'Mark Complete'}
+            </button>
+          </li>
+        ));
+      };
+
+      export default TodoItem;
+      ```
+  - **性能优化**：
+    - `mobx-react-lite` 针对函数式组件进行了优化，只在组件实际观察到的数据发生变化时才重新渲染组件，从而最大限度地减少不必要的渲染。
+    - 避免在 `observer` 组件内部解构 MobX store 的可观察属性，这可能导致组件观察到整个 store 而不是特定属性，从而触发不必要的重新渲染。应在组件内部访问具体属性。
+  - **与 Hooks 结合使用**：
+    - `mobx-react-lite` 与 React Hooks 完美结合，可以在 `observer` 组件内部自由使用 `useState`, `useEffect`, `useContext` 等 Hooks。
+  - **轻量级**：
+    - `mobx-react-lite` 是一个轻量级的包，只提供了 MobX 与 React 函数式组件集成的核心功能，没有额外的负担。

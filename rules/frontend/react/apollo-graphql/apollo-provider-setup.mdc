@@ -1,5 +1,29 @@
 ---
-description: 要求在应用程序根部使用 Apollo Provider。
+description: "要求在应用程序根部使用 Apollo Provider"
 globs: src/App.jsx
 ---
-- 在应用程序根部使用 Apollo Provider
+- **在应用程序根部使用 Apollo Provider**：
+  - **全局可用性**：确保在 React 应用程序的根组件（例如 `App.js` 或 `index.js`）中使用 `ApolloProvider` 包裹整个应用，以便所有子组件都能访问 Apollo Client 实例。
+  - **Client 实例配置**：在 `ApolloProvider` 中传入已配置好的 `ApolloClient` 实例，该实例应包含 `uri`（GraphQL 服务器地址）和 `cache`（缓存策略，通常是 `InMemoryCache`）等必要配置。
+  - **示例**：
+    ```javascript
+    // index.js 或 App.js
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+    import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+    import App from './App';
+
+    const client = new ApolloClient({
+      uri: 'YOUR_GRAPHQL_ENDPOINT',
+      cache: new InMemoryCache(),
+    });
+
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <React.StrictMode>
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
+      </React.StrictMode>,
+    );
+    ```
+  - **中间件与错误处理**：在 `ApolloClient` 配置中，可以添加 `link` 来处理认证、错误重试、文件上传等高级功能，例如使用 `HttpLink`、`AuthLink`、`ErrorLink` 等。

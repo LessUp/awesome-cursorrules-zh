@@ -1,5 +1,11 @@
 ---
-description: 建议使用 Apollo Client DevTools 进行调试。
+description: "建议使用 Apollo Client DevTools 进行调试"
 globs: src/**/*.js
 ---
-- 使用 Apollo Client DevTools 进行调试
+- **使用 Apollo Client DevTools 进行调试**：
+  - **安装与集成**：在开发环境中安装并集成 Apollo Client DevTools 浏览器扩展，以便于调试 Apollo Client 的操作和缓存状态。
+  - **查询与变更监控**：利用 DevTools 监控所有 GraphQL 查询（Queries）、变更（Mutations）和订阅（Subscriptions）的请求与响应，包括变量、操作名称和返回数据。
+  - **缓存检查**：检查 Apollo Client 的规范化缓存（Normalized Cache）内容，理解数据如何存储、更新和失效，有助于排查数据不一致问题。
+  - **性能分析**：分析 GraphQL 请求的性能，识别潜在的瓶颈，例如慢查询或过多的网络请求。
+  - **错误诊断**：查看 GraphQL 错误信息，快速定位后端或前端数据处理中的问题。
+  - **状态管理**：观察组件如何与 Apollo Client 交互，以及数据流如何在应用中传递。

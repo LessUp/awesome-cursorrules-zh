@@ -1,5 +1,24 @@
 ---
-description: 在使用 Chakra UI 组件时使用 'as' prop 进行语义化 HTML 渲染。
+description: "在使用 Chakra UI 组件时使用 'as' prop 进行语义化 HTML 渲染"
 globs: src/components/**/*.*
 ---
-- 使用 'as' prop 进行语义化 HTML 渲染
+- **使用 `as` prop 进行语义化 HTML 渲染**：
+  - **增强可访问性**：优先使用 Chakra UI 组件的 `as` prop 来渲染正确的语义化 HTML 元素，而不是使用通用的 `Box` 或 `Flex` 组件来替代。
+  - **搜索引擎优化（SEO）**：语义化 HTML 有助于搜索引擎更好地理解页面结构和内容，从而提高 SEO 排名。
+  - **代码可读性**：使用具有明确语义的 HTML 标签可以提高代码的可读性和可维护性。
+  - **示例**：
+    ```jsx
+    import { Text, Box, Button } from '@chakra-ui/react';
+
+    function SemanticExample() {
+      return (
+        <Box as="section" mb={4}>
+          <Text as="h2" fontSize="xl" mb={2}>Section Title</Text>
+          <Text as="p" mb={4}>This is a paragraph of text within the section.</Text>
+          <Button as="a" href="/learn-more">Learn More</Button>
+        </Box>
+      );
+    }
+    ```
+  - **避免滥用 `as` prop**：仅在需要改变组件渲染的底层 HTML 元素时使用 `as` prop，而不是为了样式目的而滥用。
+  - **保持一致性**：在整个项目中保持语义化 HTML 渲染的一致性，确保所有开发人员都遵循相同的最佳实践。

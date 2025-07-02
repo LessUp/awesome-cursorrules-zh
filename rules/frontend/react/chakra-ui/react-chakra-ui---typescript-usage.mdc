@@ -1,5 +1,31 @@
 ---
-description: 在使用 Chakra UI 的 React 组件时利用 TypeScript 确保类型安全。
+description: "在使用 Chakra UI 的 React 组件时利用 TypeScript 确保类型安全"
 globs: src/**/*.tsx
 ---
-- 对 Chakra UI 组件使用 TypeScript 确保类型安全
+- **对 Chakra UI 组件使用 TypeScript 确保类型安全**：
+  - **类型推断**：Chakra UI 组件通常具有良好的 TypeScript 类型定义，可以自动推断 props 的类型，减少手动定义的工作量。
+  - **自定义组件的类型定义**：
+    - 当创建自定义组件并包裹 Chakra UI 组件时，应正确定义组件的 props 接口，并利用 Chakra UI 提供的类型工具（如 `ThemingProps`、`SystemProps`）来确保类型安全和智能提示。
+    - 示例：
+      ```typescript
+      import { Box, BoxProps } from '@chakra-ui/react';
+      import React from 'react';
+
+      interface CustomCardProps extends BoxProps {
+        title: string;
+        description: string;
+      }
+
+      const CustomCard: React.FC<CustomCardProps> = ({ title, description, children, ...rest }) => {
+        return (
+          <Box p={5} shadow="md" borderWidth="1px" {...rest}>
+            <Text fontSize="xl" fontWeight="semibold">{title}</Text>
+            <Text mt={2}>{description}</Text>
+            {children}
+          </Box>
+        );
+      };
+      ```
+  - **主题类型**：如果对 Chakra UI 主题进行了扩展，确保为自定义主题添加类型定义，以便在整个应用中获得类型安全。
+  - **避免 `any` 类型**：尽量避免使用 `any` 类型，尤其是在处理 Chakra UI 组件的 props 或样式时，以充分利用 TypeScript 的优势。
+  - **工具支持**：利用 VS Code 等 IDE 的 TypeScript 支持，获得代码补全、错误检查和重构等功能，提高开发效率。

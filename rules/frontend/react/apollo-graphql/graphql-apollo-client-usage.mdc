@@ -1,9 +1,62 @@
 ---
-description: 应用 GraphQL 和 Apollo Client 使用的最佳实践，包括状态管理、数据获取和错误处理。
+description: "应用 GraphQL 和 Apollo Client 使用的最佳实践，包括状态管理、数据获取和错误处理"
 globs: src/graphql/**/*.js
 ---
-- 使用 Apollo Client 进行状态管理和数据获取
-- 实现查询组件进行数据获取
-- 利用变更操作进行数据修改
-- 使用片段创建可重用的查询部分
-- 实现适当的错误处理和加载状态
+- **使用 Apollo Client 进行状态管理和数据获取**：
+  - 利用 `useQuery` Hook 进行数据查询，处理加载状态、错误和数据。
+  - 使用 `useMutation` Hook 执行数据修改操作，并在成功后更新缓存或重新获取相关数据。
+  - 结合 `useSubscription` Hook 实现实时数据更新。
+- **实现查询组件进行数据获取**：
+  - 推荐使用基于 Hook 的方式（如 `useQuery`）而非旧版 `Query` 组件，以更好地利用 React Hooks 的特性。
+  - 示例：
+    ```typescript
+    import { useQuery, gql } from '@apollo/client';
+
+    const GET_TODOS = gql`
+      query GetTodos {
+        todos {
+          id
+          text
+          completed
+        }
+      }
+    `;
+
+    function TodosList() {
+      const { loading, error, data } = useQuery(GET_TODOS);
+
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error :({error.message}</p>;
+
+      return (
+        <ul>
+          {data.todos.map(({ id, text, completed }) => (
+            <li key={id} style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+              {text}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    ```
+- **利用变更操作进行数据修改**：
+  - 使用 `useMutation` Hook 发送变更请求，并利用 `update` 函数或 `refetchQueries` 选项在变更成功后更新 Apollo 缓存，确保 UI 状态与后端数据同步。
+- **使用片段创建可重用的查询部分**：
+  - 定义 GraphQL 片段（Fragments）来封装可重用的字段集，提高查询的可维护性和复用性。
+  - 示例：
+    ```graphql
+    fragment UserFields on User {
+      id
+      name
+      email
+    }
+
+    query GetUserDetails($id: ID!) {
+      user(id: $id) {
+        ...UserFields
+      }
+    }
+    ```
+- **实现适当的错误处理和加载状态**：
+  - 在组件中处理 `loading` 和 `error` 状态，向用户提供友好的加载指示和错误反馈。
+  - 可以结合 `ErrorLink` 或自定义错误边界（Error Boundaries）来集中处理 GraphQL 错误。

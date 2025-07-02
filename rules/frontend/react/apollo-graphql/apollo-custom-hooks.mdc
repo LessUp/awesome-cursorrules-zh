@@ -1,5 +1,32 @@
 ---
-description: 指导为 Apollo 操作实现自定义 hooks。
+description: "指导为 Apollo 操作实现自定义 hooks"
 globs: src/hooks/**/*.js
 ---
-- 为 Apollo 操作实现自定义 hooks
+- **为 Apollo 操作实现自定义 hooks**：
+  - **封装复杂逻辑**：将重复的 Apollo Client 操作（如查询、变更、订阅）和相关逻辑封装到自定义 hooks 中，提高代码复用性。
+  - **统一错误处理和加载状态**：在自定义 hooks 中统一处理加载（`loading`）、错误（`error`）状态和数据（`data`），简化组件层的逻辑。
+  - **类型安全**：结合 TypeScript 为自定义 hooks 定义清晰的输入（变量）和输出（数据、状态）类型，确保类型安全。
+  - **可测试性**：设计易于测试的自定义 hooks，方便进行单元测试和集成测试。
+  - **示例**：
+    ```typescript
+    // hooks/useUser.ts
+    import { useQuery, gql } from '@apollo/client';
+
+    const GET_USER_QUERY = gql`
+      query GetUser($id: ID!) {
+        user(id: $id) {
+          id
+          name
+          email
+        }
+      }
+    `;
+
+    export const useUser = (id: string) => {
+      const { data, loading, error } = useQuery(GET_USER_QUERY, {
+        variables: { id },
+      });
+
+      return { user: data?.user, loading, error };
+    };
+    ```

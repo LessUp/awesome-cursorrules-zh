@@ -1,5 +1,58 @@
 ---
-description: 要求为 GraphQL 错误实现适当的错误边界。
+description: "要求为 GraphQL 错误实现适当的错误边界"
 globs: src/**/*.jsx
----
-- 为 GraphQL 错误实现适当的错误边界
+--- 
+- **为 GraphQL 错误实现适当的错误边界**：
+  - **使用 React 错误边界**：利用 React 的错误边界（Error Boundaries）来捕获组件树中由 GraphQL 操作（查询、变更、订阅）引起的 JavaScript 错误，防止整个应用崩溃。
+  - **集中错误处理**：在错误边界组件中集中处理和展示友好的错误信息，而不是让每个组件单独处理错误状态。
+  - **错误日志记录**：在错误边界中实现错误日志记录机制（例如，发送到 Sentry、Bugsnag 等错误监控服务），以便于跟踪和诊断生产环境中的问题。
+  - **用户体验**：当发生错误时，向用户显示一个回退 UI，提供重试选项或引导用户进行下一步操作，提升用户体验。
+  - **示例**：
+    ```javascript
+    // ErrorBoundary.js
+    import React from 'react';
+
+    class ErrorBoundary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { hasError: false, error: null, errorInfo: null };
+      }
+
+      static getDerivedStateFromError(error) {
+        // 更新 state 使下一次渲染能够显示降级后的 UI
+        return { hasError: true };
+      }
+
+      componentDidCatch(error, errorInfo) {
+        // 你同样可以将错误日志上报给服务器
+        console.error("Uncaught error:", error, errorInfo);
+        this.setState({ error, errorInfo });
+      }
+
+      render() {
+        if (this.state.hasError) {
+          // 你可以自定义降级后的 UI 并渲染
+          return (
+            <div style={{ padding: '20px', border: '1px solid red', color: 'red' }}>
+              <h2>Something went wrong.</h2>
+              <details style={{ whiteSpace: 'pre-wrap' }}>
+                {this.state.error && this.state.error.toString()}
+                <br />
+                {this.state.errorInfo.componentStack}
+              </details>
+            </div>
+          );
+        }
+
+        return this.props.children;
+      }
+    }
+
+    export default ErrorBoundary;
+
+    // 在应用中使用
+    // <ErrorBoundary>
+    //   <MyGraphQLComponent />
+    // </ErrorBoundary>
+    ```
+  - **与 Apollo Link 结合**：对于 GraphQL 网络层面的错误（如 HTTP 错误、GraphQL 格式错误），可以结合 Apollo Client 的 `ErrorLink` 进行处理，并在 `ErrorLink` 中抛出错误，使其能被 React 错误边界捕获。

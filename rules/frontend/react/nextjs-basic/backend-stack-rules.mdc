@@ -1,6 +1,10 @@
 ---
-description: 指定后端技术栈，包括 Next.js API Routes 和 TypeScript，适用于所有后端文件。
+description: "指定后端技术栈，包括 Next.js API Routes 和 TypeScript，适用于所有后端文件"
 globs: backend/**/*.*
 ---
-- 框架：Next.js API Routes（用于无服务器函数）
-- 语言：TypeScript（用于 API 路由）
+- **框架**：Next.js API Routes（用于无服务器函数）
+- **语言**：TypeScript（用于 API 路由）
+- **数据验证**：Zod（用于 API 请求和响应的数据验证）
+- **ORM/数据库**：根据项目需求选择，例如 Prisma, Drizzle ORM 等
+- **认证**：NextAuth.js（如果需要用户认证）
+- **部署**：Vercel（推荐用于Next.js应用）

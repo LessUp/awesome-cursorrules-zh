@@ -1,5 +1,33 @@
 ---
-description: 在 React 组件中强制使用带有 hooks 的函数式组件。
+description: "在 React 组件中强制使用带有 hooks 的函数式组件"
 globs: src/components/**/*.jsx
 ---
-- 始终使用带有 hooks 的函数式组件而不是类组件。
+- **始终使用带有 hooks 的函数式组件而不是类组件**：
+  - **现代化开发**：优先使用 React Hooks（如 `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo` 等）进行状态管理和副作用处理，以符合 React 官方推荐的现代化开发范式。
+  - **代码简洁性**：函数式组件通常比类组件更简洁，更易于阅读和理解，尤其是在处理逻辑复用时。
+  - **逻辑复用**：通过自定义 Hooks，可以方便地在不同组件之间共享状态逻辑，避免了高阶组件（HOCs）和渲染属性（Render Props）带来的嵌套问题。
+  - **性能优化**：结合 `useCallback` 和 `useMemo` 等 Hooks，可以有效地进行性能优化，避免不必要的渲染。
+  - **可测试性**：函数式组件和 Hooks 更容易进行单元测试。
+  - **示例**：
+    ```javascript
+    // 函数式组件示例
+    import React, { useState, useEffect } from 'react';
+
+    function Counter() {
+      const [count, setCount] = useState(0);
+
+      useEffect(() => {
+        document.title = `You clicked ${count} times`;
+      }, [count]);
+
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+    ```
+  - **特殊情况**：仅在极少数需要使用 `getSnapshotBeforeUpdate` 或 `componentDidCatch` 等生命周期方法时，才考虑使用类组件，但大多数场景下 Hooks 都能提供替代方案（如错误边界）。

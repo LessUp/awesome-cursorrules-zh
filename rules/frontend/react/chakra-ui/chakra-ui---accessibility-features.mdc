@@ -1,5 +1,27 @@
 ---
-description: 使用 Chakra UI 构建的 React 组件的可访问性功能。
+description: "使用 Chakra UI 构建的 React 组件的可访问性功能"
 globs: src/**/*.*
 ---
-- 利用 Chakra UI 的内置可访问性功能
+- **利用 Chakra UI 的内置可访问性功能**：
+  - **语义化 HTML**：优先使用 Chakra UI 提供的组件，它们通常会渲染出语义化的 HTML 元素，有助于提高可访问性。
+  - **WAI-ARIA 支持**：Chakra UI 组件内置了 WAI-ARIA 属性，如 `aria-label`、`aria-labelledby`、`aria-describedby` 等，确保辅助技术能够正确解释组件。
+  - **键盘导航**：所有交互式组件都应支持键盘导航，确保用户可以通过键盘（Tab、Enter、Space 等）进行操作。
+  - **焦点管理**：在模态框、抽屉、菜单等组件中，确保焦点管理正确，例如打开时将焦点移到内容区域，关闭时将焦点返回到触发元素。
+  - **颜色对比度**：在设计自定义主题或使用颜色时，确保文本和背景之间有足够高的颜色对比度，以满足 WCAG 2.1 AA 级标准。
+  - **可访问性属性定制**：在必要时，可以通过 `aria-` 和 `data-` 属性来自定义组件的可访问性行为。
+  - **示例**：
+    ```jsx
+    import { Button } from '@chakra-ui/react';
+
+    function MyAccessibleButton() {
+      return (
+        <Button
+          onClick={() => alert('Button clicked!')}
+          aria-label="Click me to activate function"
+        >
+          Click Me
+        </Button>
+      );
+    }
+    ```
+  - **测试**：在开发过程中，使用可访问性测试工具（如 Lighthouse、axe-core）和屏幕阅读器（如 NVDA、JAWS）进行测试，确保应用的可访问性。

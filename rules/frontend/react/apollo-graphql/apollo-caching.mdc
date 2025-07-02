@@ -1,5 +1,10 @@
 ---
-description: 利用 Apollo Client 的缓存功能来提高性能。
+description: "利用 Apollo Client 的缓存功能来提高性能"
 globs: src/**/*.js
 ---
-- 利用 Apollo Client 的缓存功能
+- **利用 Apollo Client 的缓存功能**：
+  - 优先使用 Apollo Client 的规范化缓存（Normalized Cache）来存储和管理数据，减少不必要的网络请求。
+  - 理解并配置 `fetchPolicy`，以优化数据获取策略，例如 `cache-first`、`network-only`、`cache-and-network` 等。
+  - 针对频繁变动的数据，考虑使用 `no-cache` 或 `cache-and-network` 策略，并结合订阅（Subscriptions）或轮询（Polling）实现实时更新。
+  - 对于列表数据，合理使用 `offsetLimitPagination` 或 `cursorPagination` 等策略来处理分页和无限滚动，确保缓存的有效性。
+  - 在进行数据修改（如 Mutations）后，通过 `update` 函数或 `refetchQueries` 来及时更新缓存，保持UI与后端数据的一致性。

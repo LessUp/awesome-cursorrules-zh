@@ -1,5 +1,32 @@
 ---
-description: 利用 Chakra UI 的布局组件在 React 应用程序中创建响应式设计。
+description: "利用 Chakra UI 的布局组件在 React 应用程序中创建响应式设计"
 globs: src/**/*.*
 ---
-- 使用 Chakra UI 的布局组件进行响应式设计
+- **使用 Chakra UI 的布局组件进行响应式设计**：
+  - **响应式样式**：利用 Chakra UI 的响应式样式语法，通过数组或对象语法为不同断点（breakpoints）应用不同的样式。
+  - **断点定制**：在主题配置中定制或扩展默认断点，以适应项目特定的设计需求。
+  - **布局组件**：使用 `Box`、`Flex`、`Grid`、`Stack` 等布局组件构建灵活的响应式布局。
+  - **`useBreakpointValue` Hook**：使用 `useBreakpointValue` Hook 根据当前断点动态地选择值。
+  - **示例**：
+    ```jsx
+    import { Box, Flex, Text, useBreakpointValue } from '@chakra-ui/react';
+
+    function ResponsiveLayout() {
+      const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 });
+
+      return (
+        <Box p={4}>
+          <Text fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}>
+            This text changes size based on screen width.
+          </Text>
+          <Flex direction={{ base: 'column', md: 'row' }} mt={4}>
+            <Box flex="1" bg="blue.100" p={4} m={2}>Column 1</Box>
+            <Box flex="1" bg="green.100" p={4} m={2}>Column 2</Box>
+            {columns > 2 && <Box flex="1" bg="red.100" p={4} m={2}>Column 3</Box>}
+          </Flex>
+        </Box>
+      );
+    }
+    ```
+  - **隐藏/显示组件**：使用 `display` 属性的响应式值（如 `display={{ base: 'none', md: 'block' }}`）来控制组件在不同断点下的显示与隐藏。
+  - **可访问性**：确保响应式设计在不同屏幕尺寸和设备上都能保持良好的可访问性。

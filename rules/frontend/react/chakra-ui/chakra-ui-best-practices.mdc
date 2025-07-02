@@ -1,9 +1,42 @@
 ---
-description: 强制执行 Chakra UI 最佳实践以保持一致性并利用框架的功能。
+description: "强制执行 Chakra UI 最佳实践以保持一致性并利用框架的功能"
 globs: src/**/*.*
 ---
-- 在应用程序根部使用 ChakraProvider
-- 利用 Chakra UI 组件实现一致的设计
-- 实现自定义主题以进行品牌特定的样式设计
-- 使用 Chakra UI 断点系统的响应式样式
-- 利用 Chakra UI hooks 增强功能
+- **在应用程序根部使用 `ChakraProvider`**：
+  - 确保在 React 应用程序的根组件中包裹 `ChakraProvider`，以便所有 Chakra UI 组件都能访问主题和上下文。
+  - 示例：
+    ```jsx
+    import { ChakraProvider } from '@chakra-ui/react';
+    import customTheme from './theme'; // 假设你的主题文件在 './theme/index.js'
+
+    function App() {
+      return (
+        <ChakraProvider theme={customTheme}>
+          {/* 你的应用程序内容 */}
+        </ChakraProvider>
+      );
+    }
+    ```
+- **利用 Chakra UI 组件实现一致的设计**：
+  - 优先使用 Chakra UI 提供的组件来构建 UI，而不是编写自定义 CSS，以确保设计的一致性和可维护性。
+  - 充分利用其内置的样式 props 和组合能力。
+- **实现自定义主题以进行品牌特定的样式设计**：
+  - 通过 `extendTheme` 函数定制颜色、字体、间距、组件样式等，以匹配品牌指南。
+  - 将主题配置分解为模块化文件（如 `foundations` 和 `components` 目录），提高可组织性。
+- **使用 Chakra UI 断点系统的响应式样式**：
+  - 利用 Chakra UI 的响应式样式语法（数组或对象语法）来轻松实现跨设备的响应式布局和样式。
+  - 示例：`fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}`。
+- **利用 Chakra UI hooks 增强功能**：
+  - 使用 `useDisclosure` 管理模态框、抽屉等的打开/关闭状态。
+  - 使用 `useToast` 显示通知。
+  - 使用 `useBreakpointValue` 根据断点获取值。
+  - 使用 `useColorMode` 管理亮/暗模式。
+- **可访问性**：
+  - 始终关注可访问性，利用 Chakra UI 内置的 WAI-ARIA 支持和语义化 HTML 渲染。
+  - 确保键盘导航、焦点管理和颜色对比度符合标准。
+- **性能优化**：
+  - 按需导入组件，避免不必要的重新渲染（使用 `React.memo`、`useCallback`、`useMemo`）。
+  - 对于长列表，考虑使用虚拟化。
+- **组件组合**：
+  - 善用 `as` prop 来改变组件渲染的底层 HTML 元素，实现语义化。
+  - 将复杂逻辑封装在自定义组件中，并使用 Chakra UI 的布局组件进行组合。

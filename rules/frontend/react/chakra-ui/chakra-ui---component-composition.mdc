@@ -1,5 +1,49 @@
 ---
-description: 确保使用 Chakra UI 组件以可组合的方式构建 React 组件。
+description: "确保使用 Chakra UI 组件以可组合的方式构建 React 组件"
 globs: src/components/**/*.*
 ---
-- 使用 Chakra UI 实现适当的组件组合
+- **使用 Chakra UI 实现适当的组件组合**：
+  - **利用 `as` prop**：Chakra UI 组件支持 `as` prop，允许将组件渲染为不同的 HTML 元素或 React 组件，这在构建灵活的 UI 时非常有用。
+  - **扩展现有组件**：通过直接传递 Chakra UI 组件的 props 来扩展其样式和行为，而不是重新创建组件。
+  - **自定义组件的封装**：将复杂的 UI 逻辑和样式封装在自定义组件中，并使用 `Box`、`Flex`、`Stack` 等布局组件进行组合，保持组件的单一职责和可复用性。
+  - **使用 `forwardRef`**：当自定义组件需要转发 ref 时，使用 `forwardRef` 确保其与 Chakra UI 组件的兼容性。
+  - **示例**：
+    ```jsx
+    import { Box, Flex, Text, Button } from '@chakra-ui/react';
+
+    function Card({ title, description, buttonText, ...rest }) {
+      return (
+        <Box p={5} shadow="md" borderWidth="1px" {...rest}>
+          <Flex alignItems="baseline">
+            <Text fontSize="xl" fontWeight="semibold" lineHeight="short">
+              {title}
+            </Text>
+          </Flex>
+          <Text mt={2}>{description}</Text>
+          <Button mt={4} colorScheme="teal">
+            {buttonText}
+          </Button>
+        </Box>
+      );
+    }
+
+    // 使用示例
+    function MyPage() {
+      return (
+        <Flex direction="column" gap={4}>
+          <Card
+            title="Card Title 1"
+            description="This is a description for card 1."
+            buttonText="Action 1"
+          />
+          <Card
+            title="Card Title 2"
+            description="This is a description for card 2."
+            buttonText="Action 2"
+            bg="blue.50"
+          />
+        </Flex>
+      );
+    }
+    ```
+  - **避免过度封装**：在某些情况下，直接使用 Chakra UI 的原子组件可能比创建新的自定义组件更有效，避免不必要的抽象。

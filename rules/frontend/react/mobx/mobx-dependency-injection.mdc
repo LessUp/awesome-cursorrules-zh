@@ -1,5 +1,52 @@
 ---
-description: 为 stores 实现适当的依赖注入。
+description: "为 stores 实现适当的依赖注入"
 globs: src/**/*.ts
 ---
-- 为 stores 实现适当的依赖注入。
+- **为 stores 实现适当的依赖注入**：
+  - **使用 React Context 提供 store**：
+    - 推荐使用 React Context API 来将 MobX store 注入到组件树中，避免手动通过 props 层层传递（prop drilling）。
+    - 创建一个 `StoreContext`，并在应用程序的根组件中使用 `Provider` 提供 store 实例。
+    - 示例：
+      ```jsx
+      // stores/index.js
+      import { createContext, useContext } from 'react';
+      import { RootStore } from './RootStore';
+
+      export const RootStoreInstance = new RootStore();
+      export const StoreContext = createContext(RootStoreInstance);
+      export const useStore = () => useContext(StoreContext);
+
+      // App.js
+      import React from 'react';
+      import { StoreContext, RootStoreInstance } from './stores';
+
+      function App() {
+        return (
+          <StoreContext.Provider value={RootStoreInstance}>
+            {/* Your application components */}
+          </StoreContext.Provider>
+        );
+      }
+      ```
+  - **自定义 Hook 简化使用**：
+    - 创建一个自定义 Hook（如 `useStore`）来简化组件中对 store 的访问，提高代码可读性。
+    - 示例：
+      ```jsx
+      // components/MyComponent.js
+      import React from 'react';
+      import { observer } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const MyComponent = observer(() => {
+        const { userStore } = useStore();
+
+        return (
+          <div>
+            <p>User Name: {userStore.name}</p>
+            <button onClick={() => userStore.setName('New Name')}>Change Name</button>
+          </div>
+        );
+      });
+      ```
+  - **测试友好**：依赖注入使得在单元测试中替换或模拟 store 变得容易，提高了测试的独立性和效率。
+  - **避免全局变量**：避免将 store 实例作为全局变量直接导入，这会降低模块的独立性和可测试性。

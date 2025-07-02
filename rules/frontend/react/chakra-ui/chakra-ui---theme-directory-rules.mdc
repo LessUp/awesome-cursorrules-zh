@@ -1,7 +1,54 @@
 ---
-description: 主题目录的特定规则，用于管理和自定义 Chakra UI 主题。
+description: "主题目录的特定规则，用于管理和自定义 Chakra UI 主题"
 globs: src/theme/**/*.*
 ---
-- 创建 theme/index.js 来导出主题
-- 将主题基础放在 theme/foundations/ 中
-- 将组件特定的主题覆盖放在 theme/components/ 中
+- **主题目录的特定规则，用于管理和自定义 Chakra UI 主题**：
+  - **创建 `theme/index.js` 来导出主题**：
+    - 所有的主题配置都应集中在 `theme/index.js` 文件中，并从这里导出最终的主题对象。
+    - 示例：
+      ```javascript
+      // theme/index.js
+      import { extendTheme } from '@chakra-ui/react';
+      import { colors } from './foundations/colors';
+      import { Button } from './components/Button';
+
+      const theme = extendTheme({
+        colors,
+        components: {
+          Button,
+        },
+      });
+
+      export default theme;
+      ```
+  - **将主题基础放在 `theme/foundations/` 中**：
+    - 基础主题设置，如颜色（`colors.js`）、字体（`fonts.js`）、间距（`space.js`）等，应组织在 `theme/foundations/` 目录下。
+    - 示例：
+      ```javascript
+      // theme/foundations/colors.js
+      export const colors = {
+        brand: {
+          900: '#1a365d',
+          800: '#153e75',
+          700: '#2a69ac',
+        },
+      };
+      ```
+  - **将组件特定的主题覆盖放在 `theme/components/` 中**：
+    - 对特定 Chakra UI 组件的样式覆盖和变体定义，应组织在 `theme/components/` 目录下，每个组件一个文件。
+    - 示例：
+      ```javascript
+      // theme/components/Button.js
+      export const Button = {
+        baseStyle: {
+          fontWeight: 'bold',
+        },
+        variants: {
+          solid: (props) => ({
+            bg: props.colorMode === 'dark' ? 'brand.700' : 'brand.500',
+            color: 'white',
+          }),
+        },
+      };
+      ```
+  - **模块化和可维护性**：这种结构有助于保持主题配置的模块化、可读性和可维护性，特别是在大型项目中。
