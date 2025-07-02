@@ -1,0 +1,31 @@
+# Scikit-learn 机器学习指南
+
+## 数据预处理
+
+### 管道操作(Pipeline)
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+
+pipeline = Pipeline([
+    ('imputer', SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler()),
+    ('classifier', RandomForestClassifier(n_estimators=100))
+])
+```
+
+## 模型训练
+
+### 交叉验证最佳实践
+```python
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(
+    pipeline, X, y, 
+    cv=5,  # 5折交叉验证
+    scoring='accuracy'
+)
+print(f"平均准确率: {scores.mean():.2f} ± {scores.std():.2f}")
+```

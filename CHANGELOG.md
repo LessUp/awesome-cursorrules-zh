@@ -18,6 +18,7 @@
 ### 新增
 - 完成 Django 全规则集翻译
 - 完成 FastAPI 核心规范翻译（项目结构/数据库交互/错误处理）
+- **数据科学核心规范**：完成Python数据处理、Pandas和Matplotlib指南
 
 ### 待完成
 - FastAPI 性能优化规范
