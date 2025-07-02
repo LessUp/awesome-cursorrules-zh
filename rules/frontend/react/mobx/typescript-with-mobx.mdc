@@ -1,5 +1,75 @@
 ---
-description: 如何在 MobX 中使用 TypeScript 的说明。
+description: "如何在 MobX 中使用 TypeScript 的说明"
 globs: src/**/*.ts
 ---
-- 对 MobX 使用 TypeScript 确保类型安全。
+- **对 MobX 使用 TypeScript 确保类型安全**：
+  - **安装必要的类型定义**：
+    - 对于 MobX 核心库和 `mobx-react-lite`，通常它们自带 TypeScript 类型定义。如果遇到类型错误，可能需要手动安装 `@types/mobx` 和 `@types/mobx-react-lite`（如果它们不是内置的）。
+  - **使用装饰器（Decorators）**：
+    - MobX 推荐使用装饰器 (`@observable`, `@action`, `@computed`) 来定义可观察状态、动作和计算值。在 TypeScript 中使用装饰器需要启用相应的编译器选项。
+    - 在 `tsconfig.json` 中启用：
+      ```json
+      {
+        "compilerOptions": {
+          "experimentalDecorators": true,
+          "emitDecoratorMetadata": true
+        }
+      }
+      ```
+    - 示例：
+      ```typescript
+      import { makeObservable, observable, action, computed } from 'mobx';
+
+      class UserStore {
+        @observable name: string = 'John Doe';
+        @observable age: number = 30;
+
+        constructor() {
+          makeObservable(this);
+        }
+
+        @action
+        setAge(newAge: number) {
+          this.age = newAge;
+        }
+
+        @computed
+        get isAdult() {
+          return this.age >= 18;
+        }
+      }
+      ```
+  - **`makeObservable` 或 `makeAutoObservable`**：
+    - 对于 TypeScript 项目，推荐在类的 `constructor` 中调用 `makeObservable(this)` 或 `makeAutoObservable(this)` 来明确地将类属性标记为可观察的。这比使用装饰器更现代，并且在某些环境中可能不需要额外的 Babel 配置。
+    - 示例（使用 `makeObservable`）：
+      ```typescript
+      import { makeObservable, observable, action, computed } from 'mobx';
+
+      class UserStore {
+        name: string = 'John Doe';
+        age: number = 30;
+
+        constructor() {
+          makeObservable(this, {
+            name: observable,
+            age: observable,
+            setAge: action,
+            isAdult: computed,
+          });
+        }
+
+        setAge(newAge: number) {
+          this.age = newAge;
+        }
+
+        get isAdult() {
+          return this.age >= 18;
+        }
+      }
+      ```
+  - **类型推断与显式类型**：
+    - TypeScript 能够很好地推断 MobX store 的类型，但在复杂场景下，显式地为属性、参数和返回值添加类型注解可以提高代码的可读性和健壮性。
+  - **接口和类型别名**：
+    - 定义清晰的接口（`interface`）或类型别名（`type`）来描述 MobX store 的状态结构和 action 的参数，有助于保持代码的一致性和可维护性。
+  - **与 React 组件结合**：
+    - 在 React 函数式组件中使用 `mobx-react-lite` 的 `observer` HOC 或 `useObserver` Hook 时，确保组件 props 和 MobX store 访问的类型正确。

@@ -1,5 +1,43 @@
 ---
-description: 一般 React 偏好，优先使用带有 hooks 的函数式组件。
+description: "一般 React 偏好，优先使用带有 hooks 的函数式组件"
 globs: src/**/*.tsx
 ---
-- 优先使用带有 hooks 的函数式组件。
+- **优先使用带有 Hooks 的函数式组件**：
+  - **现代化开发**：
+    - 函数式组件结合 Hooks 是 React 官方推荐的现代开发范式。它使得组件逻辑更清晰、可复用性更高，并且避免了类组件中 `this` 的复杂性。
+  - **代码简洁性**：
+    - Hooks 允许你在函数式组件中直接使用状态（`useState`）、生命周期（`useEffect`）和其他 React 特性，从而减少了样板代码，使组件更简洁。
+    - 示例：
+      ```jsx
+      import React, { useState, useEffect } from 'react';
+      import { observer } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const Counter = observer(() => {
+        const [count, setCount] = useState(0);
+        const { appStore } = useStore();
+
+        useEffect(() => {
+          console.log('Component mounted or updated');
+          return () => console.log('Component unmounted');
+        }, []);
+
+        return (
+          <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <p>App Status: {appStore.status}</p>
+          </div>
+        );
+      });
+
+      export default Counter;
+      ```
+  - **逻辑复用**：
+    - 自定义 Hooks 使得逻辑复用变得非常简单和直观，你可以将状态逻辑和副作用封装成可独立测试和复用的单元。
+  - **性能优化**：
+    - 结合 `React.memo`、`useCallback` 和 `useMemo` 等 Hooks，可以对函数式组件进行更细粒度的性能优化，避免不必要的重新渲染。
+  - **与 MobX 兼容性**：
+    - `mobx-react-lite` 库专门为函数式组件和 Hooks 优化，提供了 `observer` HOC 和 `useObserver` Hook，使得 MobX 状态管理在函数式组件中表现出色。
+  - **社区支持**：
+    - 随着 Hooks 的普及，越来越多的库和工具都优先支持函数式组件和 Hooks，这使得开发生态更加丰富和活跃。

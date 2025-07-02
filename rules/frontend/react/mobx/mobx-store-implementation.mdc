@@ -1,8 +1,104 @@
 ---
-description: 实现 MobX stores 进行应用程序状态管理的指导原则。
+description: "实现 MobX stores 进行应用程序状态管理的指导原则"
 globs: src/stores/**/*.ts
 ---
-- 实现 stores 来管理应用程序状态。
-- 利用计算值处理派生状态。
-- 使用 actions 修改可观察状态。
-- 在异步 actions 中实现适当的错误处理。
+- **实现 stores 来管理应用程序状态**：
+  - **定义可观察状态**：
+    - 使用 `@observable` 或 `makeObservable` 定义 store 中需要响应式跟踪的状态。
+    - 示例：
+      ```typescript
+      import { makeObservable, observable, action, computed } from 'mobx';
+
+      class TodoStore {
+        @observable todos = [];
+        @observable isLoading = false;
+        @observable error = null;
+
+        constructor() {
+          makeObservable(this);
+        }
+
+        // ... actions and computed values
+      }
+      ```
+  - **利用计算值（`@computed`）处理派生状态**：
+    - 对于可以从现有可观察状态派生出的数据，使用 `@computed` 属性。它们是惰性求值的，并且只有在依赖的可观察数据发生变化时才会重新计算。
+    - 示例：
+      ```typescript
+      class TodoStore {
+        // ...
+        @computed
+        get completedTodosCount() {
+          return this.todos.filter(todo => todo.completed).length;
+        }
+
+        @computed
+        get uncompletedTodos() {
+          return this.todos.filter(todo => !todo.completed);
+        }
+      }
+      ```
+  - **使用动作（`@action`）修改可观察状态**：
+    - 所有修改 MobX store 可观察状态的函数都应该用 `@action` 标记。这有助于 MobX 批量更新，提高性能，并使调试更容易。
+    - 示例：
+      ```typescript
+      class TodoStore {
+        // ...
+        @action
+        addTodo(text: string) {
+          this.todos.push({ id: Date.now(), text, completed: false });
+        }
+
+        @action
+        toggleTodo(id: number) {
+          const todo = this.todos.find(t => t.id === id);
+          if (todo) {
+            todo.completed = !todo.completed;
+          }
+        }
+      }
+      ```
+  - **在异步 actions 中实现适当的错误处理**：
+    - 对于异步操作（如 API 调用），应在 action 中处理加载状态、成功和失败情况，并捕获错误。
+    - 示例：
+      ```typescript
+      class TodoStore {
+        // ...
+        @action
+        async fetchTodos() {
+          this.isLoading = true;
+          this.error = null;
+          try {
+            // 模拟 API 调用
+            const response = await new Promise(resolve => 
+              setTimeout(() => resolve([{ id: 1, text: 'Learn MobX', completed: false }]), 1000)
+            );
+            this.todos = response;
+          } catch (e) {
+            this.error = e;
+          } finally {
+            this.isLoading = false;
+          }
+        }
+      }
+      ```
+  - **Store 的组合**：
+    - 对于大型应用，可以将多个相关的 store 组合成一个根 store，方便统一管理和访问。
+    - 示例：
+      ```typescript
+      // RootStore.ts
+      import { makeObservable, observable } from 'mobx';
+      import { TodoStore } from './TodoStore';
+      import { UserStore } from './UserStore';
+
+      export class RootStore {
+        @observable todoStore: TodoStore;
+        @observable userStore: UserStore;
+
+        constructor() {
+          makeObservable(this);
+          this.todoStore = new TodoStore();
+          this.userStore = new UserStore();
+        }
+      }
+      ```

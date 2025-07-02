@@ -1,5 +1,60 @@
 ---
-description: 对响应式组件使用 Observer HOC 或 useObserver hook。
+description: "对响应式组件使用 Observer HOC 或 useObserver hook"
 globs: src/components/**/*.tsx
 ---
-- 对响应式组件使用 observer HOC 或 useObserver hook。
+- **对响应式组件使用 `observer` HOC 或 `useObserver` hook**：
+  - **`observer` HOC（高阶组件）**：
+    - `observer` 是 `mobx-react-lite` 库提供的一个高阶组件，用于包裹 React 函数式组件或类组件，使其能够响应 MobX 状态的变化。
+    - 当被包裹组件中使用的任何可观察数据发生变化时，`observer` 会触发组件的重新渲染。
+    - 示例：
+      ```jsx
+      import React from 'react';
+      import { observer } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const UserProfile = observer(() => {
+        const { userStore } = useStore();
+
+        return (
+          <div>
+            <h1>{userStore.name}</h1>
+            <p>Email: {userStore.email}</p>
+            <button onClick={() => userStore.updateName('Jane Doe')}>Update Name</button>
+          </div>
+        );
+      });
+
+      export default UserProfile;
+      ```
+  - **`useObserver` Hook**：
+    - `useObserver` 是 `mobx-react-lite` 提供的另一个选择，它是一个 React Hook，允许你在函数式组件的内部定义一个响应式渲染块。
+    - 它适用于需要更细粒度控制渲染，或者只希望组件的某个部分响应 MobX 状态变化的场景。
+    - 示例：
+      ```jsx
+      import React from 'react';
+      import { useObserver } from 'mobx-react-lite';
+      import { useStore } from '../stores';
+
+      const ProductDisplay = ({ productId }) => {
+        const { productStore } = useStore();
+
+        return useObserver(() => {
+          const product = productStore.getProductById(productId);
+          if (!product) return <div>Loading...</div>;
+
+          return (
+            <div>
+              <h2>{product.name}</h2>
+              <p>Price: ${product.price}</p>
+              <p>Stock: {product.stock}</p>
+            </div>
+          );
+        });
+      };
+
+      export default ProductDisplay;
+      ```
+  - **选择建议**：
+    - **优先使用 `observer` HOC**：对于大多数情况，直接使用 `observer` HOC 包裹整个函数式组件是更简洁和推荐的做法。它会自动处理组件内部所有可观察数据的响应式更新。
+    - **在特定场景使用 `useObserver` Hook**：当你需要在一个组件中，只有部分 UI 响应 MobX 状态变化，或者需要将响应式逻辑封装在自定义 Hook 中时，`useObserver` 提供了更大的灵活性。
+    - **性能**：两者在性能上都非常高效，因为 `mobx-react-lite` 实现了精确的响应式更新，只在实际观察到的数据发生变化时才触发渲染。
