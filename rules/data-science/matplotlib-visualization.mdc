@@ -1,0 +1,26 @@
+# Matplotlib 可视化指南
+
+## 基础图表
+
+### 创建多子图布局
+```python
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(2, 2, figsize=(10, 8))
+
+# 散点图
+axes[0, 0].scatter(x, y, s=20, alpha=0.5)
+axes[0, 0].set_title('散点图')
+
+# 折线图
+axes[0, 1].plot(x, y, 'g-', linewidth=2)
+
+# 直方图
+axes[1, 0].hist(data, bins=20, color='skyblue')
+
+# 箱线图
+axes[1, 1].boxplot([data1, data2])
+
+plt.tight_layout()
+plt.show()
+```

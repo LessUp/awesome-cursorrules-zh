@@ -1,0 +1,24 @@
+# Pandas 最佳实践
+
+## 数据处理
+
+### 避免链式赋值
+```python
+# 不推荐
+filtered_data = raw_data[raw_data['score'] > 80]
+filtered_data['grade'] = 'A'
+
+# 推荐
+filtered_data = raw_data.loc[raw_data['score'] > 80].copy()
+filtered_data['grade'] = 'A'
+```
+
+### 使用向量化操作
+```python
+# 慢速循环
+for i in range(len(df)):
+    df.iloc[i, 'new_col'] = df.iloc[i, 'old_col'] * 2
+
+# 快速向量化
+df['new_col'] = df['old_col'] * 2
+```
