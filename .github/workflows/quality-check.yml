@@ -41,7 +41,7 @@ jobs:
     - name: 检查目录结构
       run: |
         echo "验证项目目录结构..."
-        required_dirs=("rules" "docs" "examples" "templates")
+        required_dirs=("rules" "docs" "scripts")
         for dir in "${required_dirs[@]}"; do
           if [ ! -d "$dir" ]; then
             echo "错误: 缺少必需目录 $dir"
