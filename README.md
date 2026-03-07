@@ -85,7 +85,7 @@ cp rules/frontend/react/nextjs-typescript/.cursorrules /path/to/your/project/
 ## 📊 项目现状
 - **翻译进度**: 100% 完成
 - **质量状态**: 高质量翻译，已审核
-- **最新版本**: v1.4.0
+- **最新版本**: v1.5.0
 - **查看详细进度**：[翻译进度报告](./docs/translation-progress.md)
 
 ## 🤝 参与贡献
@@ -150,41 +150,11 @@ cp rules/frontend/react/nextjs-typescript/.cursorrules /path/to/your/project/
 
 如果规则不生效或遇到其他问题，请查阅我们的 [**故障排除指南 (docs/troubleshooting.md)**](./docs/troubleshooting.md)，里面包含了常见问题的解决方案和诊断工具。
 
-## 参与贡献
-
-我们采用标准化的翻译工作流程，欢迎所有开发者参与贡献：
-
-### 快速开始
-1. **Fork 本仓库** 并创建你的功能分支
-2. **选择翻译目标** - 从[高优先级列表](./CONTRIBUTING.md#翻译优先级)中选择未翻译的规则集
-3. **遵循翻译标准** - 查看 [贡献指南](./CONTRIBUTING.md) 了解详细的翻译流程和质量要求
-4. **提交 Pull Request** - 我们会及时审核并提供反馈
-
-### 贡献方式
-- **🌟 翻译新规则集** - 优先翻译高需求技术栈
-- **🔧 改进现有翻译** - 提升翻译质量和准确性
-- **📚 完善文档** - 改进项目文档和使用指南
-- **🐛 报告问题** - 发现问题请及时反馈
-
-### 翻译标准
-- 保持技术术语的准确性和一致性
-- 确保中文表达自然流畅
-- 保留原文的代码示例和格式
-- 遵循项目的翻译术语表
-
----
-
 ## 致谢
 
 感谢 [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) 原项目提供的优秀基础。
 
 感谢所有为本项目贡献翻译和改进的开发者们！
-
-## 许可证
-
-本项目采用 [MIT 许可证](./LICENSE) 开源。
-
----
 
 <div align="center">
 
@@ -192,6 +162,6 @@ cp rules/frontend/react/nextjs-typescript/.cursorrules /path/to/your/project/
 
 **让更多中文开发者受益于优质的 AI 编程规则！**
 
-[⬆️ 回到顶部](#awesome-cursor-rules-中文版-)
+[⬆️ 回到顶部](#awesome-cursor-rules-中文版)
 
 </div>
