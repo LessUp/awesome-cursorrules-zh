@@ -126,16 +126,16 @@ ls -lh .cursorrules
 #### 技术术语不一致
 **问题描述**：相同术语在不同文件中有不同翻译
 **解决方案**：
-1. 使用统一术语表（见`docs/terminology.md`）
-2. 运行术语检查脚本：`python scripts/term_checker.py`
-3. 接受自动修复建议或手动调整
+1. 确保使用统一的术语翻译，专有名词保留英文（如 React、Vue、Docker）
+2. 参考 [CONTRIBUTING.md](../CONTRIBUTING.md) 中的翻译质量标准
+3. 手动检查并修正不一致的术语
 
 #### 代码示例格式错误
 **问题描述**：翻译后代码缩进或格式破坏
 **解决方案**：
-1. 使用Markdown代码块标识符指定语言类型
-2. 运行格式校验工具：`npm run lint:markdown`
-3. 根据错误提示修正格式
+1. 使用 Markdown 代码块标识符指定语言类型（如 \`\`\`python）
+2. 检查代码块内的缩进是否被意外破坏
+3. 确保翻译时未修改代码块内容
 
 #### 长句表达不清
 **问题描述**：英文长句直译导致中文晦涩
@@ -205,8 +205,8 @@ except Exception as e:
 ## 🆘 获取帮助
 
 ### 1. 社区支持
-- 📝 [提交 Issue](https://github.com/your-username/awesome-cursorrules-zh/issues)
-- 💬 [社区讨论](https://github.com/your-username/awesome-cursorrules-zh/discussions)
+- 📝 [提交 Issue](https://github.com/LessUp/awesome-cursorrules-zh/issues)
+- 💬 [社区讨论](https://github.com/LessUp/awesome-cursorrules-zh/discussions)
 - 📚 [查看文档](./getting-started.md)
 
 ### 2. 问题报告模板
