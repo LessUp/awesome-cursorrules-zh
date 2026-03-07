@@ -189,8 +189,6 @@ awesome-cursorrules-zh/
 │   ├── best-practices.md   #   最佳实践
 │   ├── installation-guide.md #  安装指南
 │   └── troubleshooting.md  #   故障排除
-├── scripts/                # 自动化工具
-│   └── validate_translations.py  # 翻译质量校验脚本
 ├── .github/                # GitHub 配置
 │   ├── workflows/          #   CI/CD 质量检查
 │   ├── ISSUE_TEMPLATE/     #   Issue 模板
