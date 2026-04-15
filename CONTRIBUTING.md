@@ -1,144 +1,225 @@
 # 贡献指南
 
-感谢您对 Awesome Cursor Rules 中文版的关注！随着项目所有翻译工作的完成，我们现在进入了持续维护和优化阶段。我们欢迎所有形式的贡献，共同保持这个项目的活力。
+感谢你对 Awesome Cursor Rules 中文版的关注！本项目欢迎所有形式的贡献。
 
-## 🚀 快速开始
+## 目录
 
-### 新贡献者指南
-1. **了解项目结构**：查看 [README.md](README.md) 了解项目概况
-2. **熟悉翻译标准**：阅读本文档的翻译标准部分
-3. **选择翻译目标**：从高优先级规则集中选择一个开始
-4. **使用工具集**：利用 ai-help 工具集提高效率
-5. **遵循工作流程**：按照标准化流程进行翻译
-
-### 环境准备
-- Git 版本控制工具
-- PowerShell（用于运行自动化脚本）
-- 文本编辑器（推荐 VS Code 或 Cursor）
-- 基本的 Markdown 知识
-
-
-
-
-
-## 🤝 贡献方式
-
-### 报告问题
-如果您发现任何翻译不准确、内容过时或链接失效等问题，请通过 [GitHub Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues) 提交详细报告。一个好的问题报告应包括：
-- 问题所在的具体文件。
-- 问题描述。
-- （可选）您的修改建议。
-
-### 改进现有翻译
-如果您希望直接帮助我们改进内容，请遵循以下步骤：
-1. **Fork 本仓库**
-2. **创建您的分支**：`git checkout -b fix/your-improvement-description`
-3. **进行修改**：在您的分支上进行修改。
-4. **提交 Pull Request**：提交您的更改，并清晰地描述您所做的改进。
-
-### 同步上游更新
-[原项目](https://github.com/PatrickJS/awesome-cursorrules) 可能会有更新。我们欢迎贡献者帮助我们将这些更新同步到中文版中。
-
-## 📝 翻译质量标准
-
-### 内容准确性
-- **术语一致性**：保持技术术语翻译的一致性和准确性
-- **技术准确性**：确保技术概念翻译准确无误
-- **代码完整性**：保留所有代码示例和注释
-- **链接有效性**：验证外部链接可访问或进行本地化
-
-### 语言质量
-- **中文表达**：自然流畅，符合中文技术文档习惯
-- **术语规范**：专有名词正确保留英文（如 React、Vue、Docker）
-- **语法正确**：中文标点符号使用规范
-- **可读性强**：适合目标读者群体
-
-### 格式完整性
-- **Markdown 规范**：保持原文档结构和格式
-- **代码高亮**：确保代码块语法高亮正确
-- **文档结构**：标题层级、列表、表格格式完整
-
-### 质量评分标准
-- **准确性** (40分)：技术术语和概念翻译准确
-- **流畅性** (30分)：中文表达自然流畅
-- **完整性** (20分)：内容完整无遗漏
-- **规范性** (10分)：格式和术语使用规范
-
-**目标质量等级**：90分以上（优秀）
-
-## 🔍 质量保证流程
-
-### 自检阶段
-翻译完成后请进行自检：
-- [ ] 术语一致性检查
-- [ ] 结构完整性检查
-- [ ] 内容准确性检查
-- [ ] 语言质量检查
-- [ ] 格式规范性检查
-
-### 审核阶段
-所有 Pull Request 都会经过质量审核：
-- **专业性审核**：技术概念和最佳实践准确性
-- **语言审核**：中文表达和术语使用规范性
-- **格式审核**：Markdown 格式和链接有效性
-
-
-
-## 🏷️ 提交规范
-
-使用约定式提交格式：
-
-```bash
-# 示例
-
-# 修复拼写错误
-fix(docs): correct spelling in README.md
-
-# 更新某个规则集
-feat(backend/python): sync django best practices with upstream
-
-# 改进文档
-docs: update contributing guide for maintenance phase
-```
-
-### 提交信息模板
-```
-<type>(<scope>): <description>
-
-- Translate rule set: <rule-set-name>
-- Category: <category>
-- Status: <status>
-- Quality: <quality-score>
-```
-
-## 🎯 贡献认可
-
-### 贡献者等级
-- **🥉 翻译贡献者**：完成 1-3 个规则集翻译
-- **🥈 活跃贡献者**：完成 4-10 个规则集翻译
-- **🥇 核心贡献者**：完成 10+ 个规则集翻译或重要功能开发
-- **⭐ 维护者**：长期参与项目管理和质量保证
-
-### 贡献统计
-我们会在项目中记录和展示贡献者的工作成果，包括：
-- 翻译规则集数量和质量
-- 文档维护和改进
-- 社区建设和推广
-
-## 📞 获取帮助
-
-### 常见问题
-1. **如何选择翻译目标？** 查看优先级列表，选择标记为高优先级的规则集
-2. **翻译质量如何保证？** 遵循翻译质量标准和自检流程
-3. **遇到技术问题怎么办？** 在 Issues 中提问或参与项目讨论
-
-### 联系方式
-- **GitHub Issues**：报告问题和建议
-- **Pull Request**：提交代码和翻译
-- **Discussions**：参与项目讨论
-
-
+- [行为准则](#行为准则)
+- [如何贡献](#如何贡献)
+- [翻译规范](#翻译规范)
+- [提交规范](#提交规范)
+- [审核流程](#审核流程)
 
 ---
 
-**感谢您的贡献！每一个翻译都让中文开发者社区受益。** 🙏
+## 行为准则
+
+参与本项目即表示你同意遵守我们的 [行为准则](./CODE_OF_CONDUCT.md)。
+
+核心原则：
+- 尊重所有贡献者
+- 接受建设性批评
+- 关注对社区最有利的事情
+
+---
+
+## 如何贡献
+
+### 报告问题
+
+发现翻译错误或内容过时？请提交 Issue：
+
+1. 搜索 [现有 Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues) 确保问题未被报告
+2. 使用问题模板创建新 Issue
+3. 提供清晰的描述和复现步骤
+
+### 改进内容
+
+```bash
+# 1. Fork 仓库
+gh repo fork LessUp/awesome-cursorrules-zh
+
+# 2. 克隆你的 Fork
+git clone https://github.com/你的用户名/awesome-cursorrules-zh.git
+cd awesome-cursorrules-zh
+
+# 3. 创建分支
+git checkout -b fix/your-improvement
+
+# 4. 进行修改
+# 编辑相关文件
+
+# 5. 提交更改
+git add .
+git commit -m "fix: 修复翻译错误"
+
+# 6. 推送到 Fork
+git push origin fix/your-improvement
+
+# 7. 创建 Pull Request
+gh pr create
+```
+
+### 同步上游更新
+
+```bash
+# 添加上游仓库
+git remote add upstream https://github.com/LessUp/awesome-cursorrules-zh.git
+
+# 获取最新更新
+git fetch upstream
+
+# 合并到本地
+git checkout main
+git merge upstream/main
+```
+
+---
+
+## 翻译规范
+
+### 术语一致性
+
+| 英文 | 中文翻译 | 说明 |
+|------|----------|------|
+| Component | 组件 | |
+| Hook | 钩子 | React 术语 |
+| State | 状态 | |
+| Props | 属性 | 或保留 props |
+| Middleware | 中间件 | |
+| Endpoint | 端点 | |
+| Repository | 仓库 | Git 语境 |
+| Repository | 仓储 | DDD 语境 |
+| Schema | 模式 | 数据库语境 |
+| Schema | 架构 | GraphQL 语境 |
+
+**专有名词保留英文：**
+- React, Vue, Angular, Svelte
+- Next.js, Nuxt, NestJS
+- TypeScript, JavaScript
+- Docker, Kubernetes
+- PostgreSQL, MongoDB
+- FastAPI, Django
+
+### 翻译质量标准
+
+| 维度 | 要求 | 权重 |
+|------|------|------|
+| 准确性 | 术语翻译准确，技术概念无误 | 40% |
+| 流畅性 | 中文表达自然，符合技术文档习惯 | 30% |
+| 完整性 | 内容完整，无遗漏 | 20% |
+| 规范性 | 格式正确，术语使用规范 | 10% |
+
+### 翻译检查清单
+
+- [ ] 专有名词保留英文
+- [ ] 技术术语翻译一致
+- [ ] 代码示例未被修改
+- [ ] Markdown 格式正确
+- [ ] 链接有效可访问
+- [ ] 无语法和拼写错误
+
+---
+
+## 提交规范
+
+使用约定式提交格式：
+
+```
+<类型>(<范围>): <描述>
+
+[可选正文]
+
+[可选页脚]
+```
+
+### 提交类型
+
+| 类型 | 说明 | 示例 |
+|------|------|------|
+| `feat` | 新功能 | feat: 添加 Go 后端规则集 |
+| `fix` | Bug 修复 | fix: 修正 FastAPI 规则中的错误 |
+| `docs` | 文档更新 | docs: 更新安装指南 |
+| `translate` | 翻译更新 | translate: 完成 React 规则集翻译 |
+| `refactor` | 重构 | refactor: 重组目录结构 |
+| `style` | 格式调整 | style: 统一缩进格式 |
+| `test` | 测试相关 | test: 添加验证脚本 |
+| `chore` | 杂项 | chore: 更新 CI 配置 |
+
+### 提交示例
+
+```bash
+# 新增翻译
+git commit -m "translate(backend/python): 完成 FastAPI 规则集翻译"
+
+# 修复问题
+git commit -m "fix(docs): 修正快速开始指南中的路径错误"
+
+# 更新文档
+git commit -m "docs: 更新贡献指南中的提交规范"
+```
+
+---
+
+## 审核流程
+
+### Pull Request 流程
+
+```
+提交 PR → 自动检查 → 人工审核 → 合并
+    │         │           │        │
+    │         │           │        └── 完成贡献
+    │         │           └── 代码审查
+    │         └── CI/CD 检查
+    └── 创建 PR
+```
+
+### 审核标准
+
+| 检查项 | 要求 |
+|--------|------|
+| CI 检查 | 全部通过 |
+| 代码质量 | 无明显问题 |
+| 翻译质量 | 符合翻译规范 |
+| 提交信息 | 符合提交规范 |
+| 文档完整 | 必要的文档已更新 |
+
+### 审核时间
+
+- 小型修复：1-3 天
+- 中型变更：3-7 天
+- 大型变更：7-14 天
+
+---
+
+## 贡献者认可
+
+### 贡献等级
+
+| 等级 | 条件 | 标识 |
+|------|------|------|
+| 🥉 翻译贡献者 | 完成 1-3 个规则集 | 列入贡献者名单 |
+| 🥈 活跃贡献者 | 完成 4-10 个规则集 | 突出显示 |
+| 🥇 核心贡献者 | 完成 10+ 规则集或重要功能 | 置顶展示 |
+| ⭐ 维护者 | 长期参与项目管理 | 协作权限 |
+
+### 贡献统计
+
+我们会在项目中记录和展示：
+- 翻译的规则集数量
+- 提交的 PR 数量
+- 参与的领域
+
+---
+
+## 获取帮助
+
+- **问题讨论**：[GitHub Discussions](https://github.com/LessUp/awesome-cursorrules-zh/discussions)
+- **问题报告**：[GitHub Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues)
+- **邮件联系**：通过 GitHub 个人主页
+
+---
+
+**感谢你的贡献！** 🙏
+
+每一个翻译、每一次修正，都让中文开发者社区受益。

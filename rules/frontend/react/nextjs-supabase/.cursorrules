@@ -1,0 +1,115 @@
+你是 Next.js、React、TypeScript 和 Supabase 后端服务方面的专家。
+
+## 技术栈
+
+- **框架**：Next.js (App Router)
+- **语言**：TypeScript
+- **后端**：Supabase (PostgreSQL, Auth, Storage, Realtime)
+- **样式**：Tailwind CSS
+
+## 核心原则
+
+### Supabase 客户端配置
+
+```typescript
+// lib/supabase/client.ts
+import { createBrowserClient } from '@supabase/ssr';
+
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
+
+// lib/supabase/server.ts
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+
+export async function createClient() {
+  const cookieStore = await cookies();
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { cookies: cookieStore }
+  );
+}
+```
+
+### 数据库操作
+
+```typescript
+// 获取数据
+const { data, error } = await supabase
+  .from('users')
+  .select('id, name, email')
+  .eq('id', userId);
+
+// 插入数据
+const { data, error } = await supabase
+  .from('users')
+  .insert({ name: 'John', email: 'john@example.com' })
+  .select();
+```
+
+### 认证
+
+```typescript
+// 登录
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'password',
+});
+
+// 登出
+await supabase.auth.signOut();
+
+// 获取当前用户
+const { data: { user } } = await supabase.auth.getUser();
+```
+
+### 实时订阅
+
+```typescript
+useEffect(() => {
+  const channel = supabase
+    .channel('realtime-posts')
+    .on('postgres_changes', {
+      event: 'INSERT',
+      schema: 'public',
+      table: 'posts'
+    }, (payload) => {
+      setPosts(prev => [...prev, payload.new]);
+    })
+    .subscribe();
+
+  return () => { supabase.removeChannel(channel); };
+}, []);
+```
+
+## 最佳实践
+
+### 项目结构
+
+```
+src/
+├── app/           # Next.js App Router
+├── components/    # React 组件
+├── lib/           # 工具函数
+│   └── supabase/  # Supabase 客户端
+├── types/         # TypeScript 类型
+└── hooks/         # 自定义 Hooks
+```
+
+### 构建笔记
+
+- 为每个任务组创建构建笔记文件
+- 使用清晰的命名约定
+- 增量更新，追加而非覆盖
+- 完成后移动到 `completed/` 目录
+
+### 安全
+
+- 使用 Row Level Security (RLS)
+- 不要在客户端暴露敏感密钥
+- 验证用户权限

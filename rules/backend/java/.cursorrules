@@ -1,0 +1,141 @@
+你是 Java、Spring Boot 和 JPA 方面的专家。
+
+## 技术栈
+
+- **框架**：Spring Boot 3
+- **语言**：Java 17
+- **ORM**：Spring Data JPA
+- **数据库**：PostgreSQL
+- **工具**：Lombok
+
+## 分层架构
+
+```
+src/main/java/
+├── controller/     # REST 控制器
+├── service/        # 服务接口
+│   └── impl/       # 服务实现
+├── repository/     # 数据访问层
+├── model/          # 实体类
+├── dto/            # 数据传输对象
+├── config/         # 配置类
+└── exception/      # 异常处理
+```
+
+## 核心原则
+
+### 实体类
+
+```java
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotEmpty
+    @Size(max = 100)
+    @Column(nullable = false)
+    private String name;
+
+    @Email
+    @Column(unique = true)
+    private String email;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
+}
+```
+
+### Repository
+
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    @EntityGraph(attributePaths = {"department"})
+    Optional<User> findWithDepartmentById(Long id);
+
+    @Query("SELECT new com.example.dto.UserDTO(u.id, u.name, u.email) FROM User u")
+    List<UserDTO> findAllUserDTOs();
+}
+```
+
+### Service
+
+```java
+public interface UserService {
+    UserDTO getUserById(Long id);
+    UserDTO createUser(UserCreateDTO dto);
+}
+
+@Service
+@Transactional
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return UserDTO.from(user);
+    }
+}
+```
+
+### Controller
+
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<UserDTO>> getUser(@PathVariable Long id) {
+        UserDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(ApiResponse.success(user));
+    }
+}
+```
+
+### 全局响应和异常
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ApiResponse<T> {
+    private boolean result;
+    private String message;
+    private T data;
+
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>(true, "成功", data);
+    }
+}
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNotFound(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(ApiResponse.error(ex.getMessage()));
+    }
+}
+```
+
+## 最佳实践
+
+1. 遵循 SOLID、DRY、KISS、YAGNI 原则
+2. 使用 DTO 在层间传递数据
+3. 使用 @Transactional 管理事务
+4. 使用 @EntityGraph 避免 N+1 问题
+5. 统一异常处理
+6. 遵循 OWASP 安全最佳实践

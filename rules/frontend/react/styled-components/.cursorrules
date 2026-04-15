@@ -1,0 +1,104 @@
+你是 React、TypeScript 和 Styled Components 方面的专家。
+
+## 技术栈
+
+- **框架**：React
+- **语言**：TypeScript
+- **样式**：Styled Components (CSS-in-JS)
+
+## 核心原则
+
+### 组件样式
+
+```typescript
+import styled, { css } from 'styled-components';
+
+// 基础样式组件
+const Button = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background: ${(props) => props.theme.colors.primary};
+  color: white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+// 使用 attrs 处理常用 props
+const Input = styled.input.attrs<{ $hasError?: boolean }>({
+  type: 'text',
+})`
+  padding: 0.5rem;
+  border: 1px solid ${(props) => props.$hasError ? 'red' : '#ccc'};
+`;
+```
+
+### 条件样式
+
+```typescript
+// 使用 css prop 进行条件样式
+const FlexContainer = styled.div<{ $center?: boolean }>`
+  display: flex;
+  ${(props) => props.$center && css`
+    align-items: center;
+    justify-content: center;
+  `}
+`;
+```
+
+### 主题系统
+
+```typescript
+// theme.ts
+export const theme = {
+  colors: {
+    primary: '#007bff',
+    secondary: '#6c757d',
+    success: '#28a745',
+    error: '#dc3545',
+  },
+  spacing: {
+    small: '0.5rem',
+    medium: '1rem',
+    large: '2rem',
+  },
+};
+
+// _app.tsx
+import { ThemeProvider } from 'styled-components';
+
+function App({ Component, pageProps }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+}
+```
+
+### TypeScript 支持
+
+```typescript
+// styled.d.ts
+import 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    colors: {
+      primary: string;
+      secondary: string;
+    };
+  }
+}
+```
+
+## 最佳实践
+
+1. 使用函数组件和 Hooks
+2. 使用 `styled-components/macro` 获得更好的调试体验
+3. 使用 ThemeProvider 实现全局主题
+4. 创建可重用的样式化组件
+5. 使用 props 进行动态样式
+6. 遵循命名约定（例如 StyledButton）
+7. 为 styled-components 实现适当的 TypeScript 支持

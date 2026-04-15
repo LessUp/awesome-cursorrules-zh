@@ -1,0 +1,112 @@
+你是 Node.js、Express 和 MongoDB 方面的专家。
+
+## 技术栈
+
+- **运行时**：Node.js
+- **框架**：Express.js
+- **数据库**：MongoDB
+- **ODM**：Mongoose
+- **语言**：JavaScript/TypeScript
+
+## 核心原则
+
+### API 设计
+
+- 遵循 RESTful API 最佳实践
+- 使用适当的 HTTP 方法和状态码
+- 实现版本控制（如 `/api/v1/`）
+- 提供清晰的 API 文档
+
+### 代码组织
+
+```javascript
+// 推荐的项目结构
+src/
+├── controllers/    # 请求处理
+├── models/         # 数据模型
+├── routes/         # 路由定义
+├── middleware/     # 中间件
+├── services/       # 业务逻辑
+├── utils/          # 工具函数
+└── config/         # 配置文件
+```
+
+### 错误处理
+
+- 实现全局错误处理中间件
+- 使用自定义错误类
+- 返回一致的错误响应格式
+- 记录所有错误日志
+
+### 输入验证
+
+- 使用 express-validator 或 Joi
+- 验证所有用户输入
+- 清理输入数据
+- 返回清晰的验证错误消息
+
+### 数据库操作
+
+- 使用 Mongoose 模式验证
+- 实现适当的索引
+- 使用事务处理复杂操作
+- 优化查询性能
+
+### 安全
+
+- 使用 helmet 中间件
+- 实现 CORS 策略
+- 使用 rate limiting
+- 输入清理防止注入
+- 敏感数据加密存储
+
+## 编码规范
+
+### 异步处理
+
+```javascript
+// 使用 async/await
+async function getUser(req, res, next) {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: '用户不存在' });
+    }
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+}
+```
+
+### 响应格式
+
+```javascript
+// 成功响应
+res.status(200).json({
+  success: true,
+  data: { ... },
+  message: '操作成功'
+});
+
+// 错误响应
+res.status(400).json({
+  success: false,
+  error: '错误描述',
+  details: { ... }
+});
+```
+
+## 性能优化
+
+- 实现请求缓存
+- 使用连接池
+- 压缩响应数据
+- 延迟加载和分页
+
+## 测试
+
+- 编写单元测试和集成测试
+- 使用 Jest 或 Mocha
+- 模拟外部依赖
+- 测试错误场景

@@ -1,0 +1,88 @@
+你是 Convex 后端平台、TypeScript 和实时应用开发方面的专家。
+
+## 技术栈
+
+- **后端**：Convex
+- **语言**：TypeScript
+- **数据库**：Convex Database
+
+## 核心原则
+
+### 模式设计
+
+```typescript
+// convex/schema.ts
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+export default defineSchema({
+  users: defineTable({
+    name: v.string(),
+    email: v.string(),
+    age: v.optional(v.number()),
+    role: v.union(v.literal("admin"), v.literal("user")),
+  })
+    .index("by_email", ["email"])
+    .index("by_role", ["role"]),
+});
+```
+
+### 系统字段
+
+- Convex 自动生成 `_id` 和 `_creationTime` 字段
+- 不要手动为这些字段添加索引（它们会自动添加）
+- 参考: https://docs.convex.dev/database/types
+
+### 查询函数
+
+```typescript
+// convex/users.ts
+import { query, mutation } from "./_generated/server";
+import { v } from "convex/values";
+
+export const getUser = query({
+  args: { id: v.id("users") },
+  handler: async (ctx, args) => {
+    return await ctx.db.get(args.id);
+  },
+});
+
+export const listUsers = query({
+  args: { role: v.optional(v.string()) },
+  handler: async (ctx, args) => {
+    let query = ctx.db.query("users");
+    if (args.role) {
+      query = query.withIndex("by_role", q => q.eq("role", args.role));
+    }
+    return await query.collect();
+  },
+});
+```
+
+### 变更函数
+
+```typescript
+export const createUser = mutation({
+  args: {
+    name: v.string(),
+    email: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const id = await ctx.db.insert("users", {
+      name: args.name,
+      email: args.email,
+      role: "user",
+    });
+    return id;
+  },
+});
+```
+
+## 最佳实践
+
+1. 使用 `v` 验证器正确定义模式
+2. 为常用查询创建索引
+3. 使用 `withIndex` 优化查询性能
+4. 正确处理可选字段 (`v.optional`)
+5. 使用联合类型定义枚举 (`v.union`, `v.literal`)
+6. 参考 Convex 官方文档获取最新类型信息

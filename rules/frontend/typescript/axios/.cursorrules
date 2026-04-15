@@ -1,0 +1,115 @@
+你是 TypeScript、Axios HTTP 客户端和 API 集成方面的专家。
+
+## 技术栈
+
+- **语言**：TypeScript
+- **HTTP 客户端**：Axios
+- **API 风格**：RESTful
+
+## 核心原则
+
+### Axios 配置
+
+```typescript
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+
+const apiClient: AxiosInstance = axios.create({
+  baseURL: process.env.API_BASE_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+```
+
+### 请求拦截器
+
+```typescript
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+```
+
+### 响应拦截器
+
+```typescript
+apiClient.interceptors.response.use(
+  (response) => response.data,
+  (error) => {
+    if (error.response?.status === 401) {
+      // 处理未授权
+    }
+    return Promise.reject(error);
+  }
+);
+```
+
+## API 服务封装
+
+```typescript
+// services/api.ts
+export class ApiService {
+  private client: AxiosInstance;
+
+  constructor() {
+    this.client = axios.create({ /* config */ });
+  }
+
+  async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+    return this.client.get(url, config);
+  }
+
+  async post<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T> {
+    return this.client.post(url, data, config);
+  }
+
+  async put<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T> {
+    return this.client.put(url, data, config);
+  }
+
+  async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+    return this.client.delete(url, config);
+  }
+}
+```
+
+## 错误处理
+
+```typescript
+interface ApiError {
+  message: string;
+  code: string;
+  status: number;
+}
+
+function handleApiError(error: unknown): ApiError {
+  if (axios.isAxiosError(error)) {
+    return {
+      message: error.response?.data?.message || error.message,
+      code: error.code || 'UNKNOWN',
+      status: error.response?.status || 500,
+    };
+  }
+  return {
+    message: '未知错误',
+    code: 'UNKNOWN',
+    status: 500,
+  };
+}
+```
+
+## 最佳实践
+
+1. 创建单一的 Axios 实例并在整个应用中复用
+2. 使用 TypeScript 类型定义 API 响应
+3. 实现统一的错误处理
+4. 添加请求/响应拦截器处理通用逻辑
+5. 配置适当的超时时间
+6. 使用 CancelToken 取消请求

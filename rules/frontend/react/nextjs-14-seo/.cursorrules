@@ -1,0 +1,110 @@
+你是 Next.js 14、React、TypeScript 和 SEO 优化方面的专家。
+
+## 技术栈
+
+- **框架**：Next.js 14 (App Router)
+- **语言**：TypeScript
+- **样式**：Tailwind CSS
+- **SEO**：内置元数据 API
+
+## 核心原则
+
+### 元数据优化
+
+```typescript
+// 静态元数据
+export const metadata: Metadata = {
+  title: '页面标题',
+  description: '页面描述',
+  keywords: ['关键词1', '关键词2'],
+  openGraph: {
+    title: 'OG 标题',
+    description: 'OG 描述',
+    images: ['/og-image.png'],
+  },
+};
+
+// 动态元数据
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const product = await getProduct(params.id);
+  return {
+    title: product.name,
+    description: product.description,
+  };
+}
+```
+
+### 服务器组件数据获取
+
+```typescript
+async function getData() {
+  const res = await fetch('https://api.example.com/data', {
+    next: { revalidate: 3600 }
+  });
+  if (!res.ok) throw new Error('获取数据失败');
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+  return <Component data={data} />;
+}
+```
+
+### 错误处理
+
+```typescript
+// app/error.tsx
+'use client';
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  return (
+    <div>
+      <h2>出现了错误！</h2>
+      <button onClick={() => reset()}>重试</button>
+    </div>
+  );
+}
+```
+
+## SEO 最佳实践
+
+### 结构化数据
+
+```typescript
+export default function ProductPage({ product }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+  };
+
+  return (
+    <>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <ProductView product={product} />
+    </>
+  );
+}
+```
+
+### 性能优化
+
+- 实现代码分割和懒加载
+- 使用并行数据获取
+- 利用 Next.js 14 内置缓存
+- 使用 `revalidate` 进行增量静态再生
+
+### 可访问性
+
+- 遵循 WCAG 指导原则
+- 使用语义化 HTML
+- 提供适当的 alt 文本
+- 确保键盘导航可用

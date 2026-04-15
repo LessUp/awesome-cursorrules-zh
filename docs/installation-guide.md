@@ -1,202 +1,292 @@
-# 安装指南 📦
+# 安装指南
 
-本指南将帮助您快速安装和配置 Awesome Cursor Rules 中文版。
+> 完整的环境安装与配置说明
 
-## 📋 前置要求
+## 目录
+
+- [系统要求](#系统要求)
+- [安装 Cursor 编辑器](#安装-cursor-编辑器)
+- [获取规则集](#获取规则集)
+- [项目配置](#项目配置)
+- [验证安装](#验证安装)
+- [更新维护](#更新维护)
+
+---
+
+## 系统要求
+
+### 操作系统
+
+| 系统 | 最低版本 | 推荐版本 |
+|------|----------|----------|
+| Windows | 10 | 11 |
+| macOS | 10.15 (Catalina) | 14 (Sonoma) |
+| Linux | Ubuntu 18.04 | Ubuntu 22.04 |
+
+### 硬件要求
+
+| 组件 | 最低要求 | 推荐配置 |
+|------|----------|----------|
+| 内存 | 4 GB | 8 GB+ |
+| 存储 | 500 MB | 1 GB+ |
+| CPU | 双核 | 四核+ |
 
 ### 必需软件
-- **Cursor AI 编辑器** - [下载地址](https://cursor.sh/)
-- **Git** - 用于克隆仓库 ([下载地址](https://git-scm.com/))
 
-### 系统要求
-- **操作系统**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
-- **内存**: 至少 4GB RAM (推荐 8GB+)
-- **存储**: 至少 1GB 可用空间
+- **Git** - [下载地址](https://git-scm.com/downloads)
+- **Cursor AI** - [下载地址](https://cursor.sh/)
 
-## 🚀 安装方法
+---
 
-### 方法一：直接下载 (推荐)
+## 安装 Cursor 编辑器
 
-1. **克隆仓库**
-   ```bash
-   git clone https://github.com/LessUp/awesome-cursorrules-zh.git
-   cd awesome-cursorrules-zh
-   ```
+### Windows
 
-2. **选择规则集**
-   ```bash
-   # 查看可用的规则集
-   ls rules/frontend/react/
-   
-   # 复制所需规则到项目
-   cp rules/frontend/react/nextjs-typescript/.cursorrules ./your-project/
-   ```
+```powershell
+# 方法一：官网下载
+# 访问 https://cursor.sh/ 下载安装包
 
-3. **在 Cursor 中使用**
-   - 用 Cursor 打开您的项目
-   - 确保项目根目录包含 `.cursorrules` 文件
-   - 开始编码！
+# 方法二：使用 winget
+winget install cursor
+```
 
-### 方法二：使用 VSCode 扩展
+### macOS
 
-1. **安装 Cursor AI**
-   - 访问 [cursor.sh](https://cursor.sh/)
-   - 下载并安装适合您系统的版本
+```bash
+# 方法一：官网下载
+# 访问 https://cursor.sh/ 下载 .dmg 文件
 
-2. **安装扩展**
-   - 安装 [vscode-cursor-rules](https://marketplace.visualstudio.com/items?itemName=BeilunYang.cursor-rules) 扩展
+# 方法二：使用 Homebrew
+brew install --cask cursor
+```
 
-3. **使用扩展**
-   - 打开命令面板 (`Cmd+Shift+P` 或 `Ctrl+Shift+P`)
-   - 输入 `Cursor Rules: Add .cursorrules`
-   - 选择并下载适合的规则文件
-   - 根据需要自定义规则
+### Linux
 
-## 🔧 配置步骤
+```bash
+# AppImage 安装
+wget https://downloader.cursor.sh/linux/appImage/x64 -O cursor.AppImage
+chmod +x cursor.AppImage
+./cursor.AppImage
 
-### 1. Cursor AI 设置
+# 或使用 snap
+sudo snap install cursor
+```
 
-#### 启用 .cursorrules 支持
-1. 打开 Cursor 设置 (`Cmd/Ctrl + ,`)
+### 首次启动配置
+
+1. 打开 Cursor
+2. 登录账户（可选，但推荐）
+3. 选择 AI 模型偏好设置
+4. 完成初始设置向导
+
+---
+
+## 获取规则集
+
+### 方法一：Git 克隆（推荐）
+
+```bash
+# 克隆仓库
+git clone https://github.com/LessUp/awesome-cursorrules-zh.git
+
+# 进入目录
+cd awesome-cursorrules-zh
+
+# 更新到最新版本
+git pull origin main
+```
+
+### 方法二：下载压缩包
+
+```bash
+# 下载 ZIP
+wget https://github.com/LessUp/awesome-cursorrules-zh/archive/refs/heads/main.zip
+
+# 解压
+unzip main.zip
+cd awesome-cursorrules-zh-main
+```
+
+### 方法三：GitHub CLI
+
+```bash
+# 使用 gh 命令
+gh repo clone LessUp/awesome-cursorrules-zh
+cd awesome-cursorrules-zh
+```
+
+---
+
+## 项目配置
+
+### 快速配置
+
+```bash
+# 1. 进入你的项目目录
+cd /你的项目路径
+
+# 2. 复制合适的规则文件
+cp /path/to/awesome-cursorrules-zh/rules/frontend/react/nextjs-typescript/.cursorrules ./
+
+# 3. 验证文件存在
+ls -la .cursorrules
+```
+
+### 完整配置流程
+
+**步骤 1：确定技术栈**
+
+```bash
+# 列出可用的前端规则
+ls /path/to/awesome-cursorrules-zh/rules/frontend/react/
+
+# 列出可用的后端规则
+ls /path/to/awesome-cursorrules-zh/rules/backend/python/
+```
+
+**步骤 2：复制规则文件**
+
+```bash
+# 单一规则
+cp rules/frontend/react/nextjs-typescript/.cursorrules ./your-project/
+
+# 多规则合并
+cat rules/frontend/react/nextjs-typescript/.cursorrules > ./your-project/.cursorrules
+echo "" >> ./your-project/.cursorrules
+cat rules/backend/python/fastapi-api-example/.cursorrules >> ./your-project/.cursorrules
+```
+
+**步骤 3：Cursor 设置**
+
+在 Cursor 中启用规则支持：
+
+1. 打开设置 (`Ctrl/Cmd + ,`)
 2. 搜索 "cursorrules"
-3. 确保 "Use .cursorrules" 选项已启用
+3. 启用 "Use .cursorrules" 选项
+4. 重启 Cursor
 
-#### 优化 AI 设置
+### 推荐配置
+
 ```json
+// Cursor 设置 (settings.json)
 {
-  "cursor.ai.model": "gpt-4",
-  "cursor.ai.maxTokens": 2048,
-  "cursor.ai.temperature": 0.3,
-  "cursor.ai.enableCodeActions": true
+  "cursor.ai.model": "claude-3.5-sonnet",
+  "cursor.ai.maxTokens": 4096,
+  "cursor.ai.temperature": 0.2,
+  "cursor.ai.enableCodeActions": true,
+  "cursor.ai.useCursorRules": true
 }
 ```
 
-### 2. 项目配置
+---
 
-#### 单技术栈项目
+## 验证安装
+
+### 检查清单
+
 ```bash
-# React + Next.js 项目
-cp rules/frontend/react/nextjs-typescript/.cursorrules ./
+# 1. 检查 Cursor 版本
+cursor --version  # 或在 Cursor 中查看 Help > About
 
-# Vue 3 项目
-cp rules/frontend/vue/composition-api/.cursorrules ./
-
-# Python FastAPI 项目
-cp rules/backend/python/fastapi/.cursorrules ./
-```
-
-#### 多技术栈项目
-```bash
-# 方法1: 合并规则文件
-cat rules/frontend/react/nextjs-basic/.cursorrules > .cursorrules
-echo "" >> .cursorrules
-cat rules/backend/nodejs/express-mongodb/.cursorrules >> .cursorrules
-
-# 方法2: 目录特定规则
-cp rules/general/code-guidelines/.cursorrules ./
-cp rules/frontend/react/nextjs-basic/.cursorrules frontend/
-cp rules/backend/nodejs/express-mongodb/.cursorrules backend/
-```
-
-### 3. 团队配置
-
-#### 版本控制
-```bash
-# 将规则文件加入版本控制
-git add .cursorrules
-git commit -m "添加 Cursor AI 编程规则"
-```
-
-#### 团队文档
-在项目 README.md 中添加：
-```markdown
-## 开发环境设置
-
-本项目使用 Cursor AI 编程规则，请确保：
-1. 安装 [Cursor AI 编辑器](https://cursor.sh/)
-2. 项目根目录包含 `.cursorrules` 文件
-3. 遵循规则中的编码规范
-```
-
-## ✅ 验证安装
-
-### 检查 Cursor AI
-1. 打开 Cursor 编辑器
-2. 创建一个新的代码文件
-3. 开始输入代码，观察 AI 建议
-4. 确认建议符合规则要求
-
-### 检查规则文件
-```bash
-# 验证文件存在
+# 2. 检查规则文件
 ls -la .cursorrules
+cat .cursorrules | head -20
 
-# 检查文件内容
-head -10 .cursorrules
+# 3. 检查文件编码
+file .cursorrules  # 应显示: UTF-8 Unicode text
 ```
 
-### 测试 AI 行为
-1. 创建一个简单的函数
-2. 观察 AI 的命名建议
-3. 检查代码结构建议
-4. 验证错误处理建议
+### 功能测试
 
-## 🐛 常见问题
+1. **打开项目** - 用 Cursor 打开包含 `.cursorrules` 的项目
+2. **创建测试文件** - 新建一个代码文件
+3. **触发 AI 建议** - 开始输入代码，观察 AI 建议
+4. **验证规则生效** - 检查建议是否符合规则要求
 
-### Q: 规则不生效怎么办？
-A: 
-1. 确保 `.cursorrules` 文件在项目根目录
-2. 重启 Cursor 编辑器
-3. 检查 Cursor 设置中是否启用了规则支持
+### 预期效果
 
-### Q: 如何更新规则集？
-A:
+| 检查项 | 预期结果 |
+|--------|----------|
+| AI 命名建议 | 符合规则中定义的命名规范 |
+| 代码结构 | 遵循规则中的架构模式 |
+| 错误处理 | 符合规则中的错误处理策略 |
+| 注释风格 | 符合规则中的文档规范 |
+
+---
+
+## 更新维护
+
+### 更新规则集
+
 ```bash
-# 拉取最新版本
-git pull origin main
-
-# 重新复制规则文件
-cp rules/frontend/react/nextjs-typescript/.cursorrules ./
-```
-
-### Q: 可以自定义规则吗？
-A: 可以！编辑 `.cursorrules` 文件，添加项目特定的规则：
-```yaml
-# 在文件末尾添加
-- 使用公司特定的命名约定
-- 遵循团队的代码审查标准
-- 集成项目特定的工具和库
-```
-
-## 🔄 更新和维护
-
-### 定期更新
-```bash
-# 每月检查更新
+# 进入规则集目录
 cd awesome-cursorrules-zh
+
+# 拉取最新更新
 git pull origin main
 
-# 查看新增规则集
-git log --oneline --since="1 month ago"
+# 查看更新内容
+git log --oneline -10
+```
+
+### 版本锁定
+
+```bash
+# 锁定到特定版本
+git checkout v1.5.0
+
+# 或创建自己的分支
+git checkout -b my-custom-rules
 ```
 
 ### 备份配置
+
 ```bash
 # 备份当前规则
 cp .cursorrules .cursorrules.backup
 
 # 恢复备份
 cp .cursorrules.backup .cursorrules
+
+# 从 Git 恢复
+git checkout HEAD -- .cursorrules
 ```
-
-## 📞 获取帮助
-
-如果遇到问题：
-1. 查看 [故障排除指南](./troubleshooting.md)
-2. 搜索 [GitHub Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues)
-3. 提交新的 Issue 报告问题
-4. 参与 [社区讨论](https://github.com/LessUp/awesome-cursorrules-zh/discussions)
 
 ---
 
-🎉 **安装完成！** 现在您可以享受 AI 辅助的中文编程体验了！
+## 常见安装问题
+
+### 问题：Cursor 无法识别 .cursorrules
+
+**解决方案：**
+
+1. 确认文件在项目根目录（不是子目录）
+2. 检查文件名是否正确（注意前面的点）
+3. 重启 Cursor 编辑器
+4. 检查设置中是否启用了规则支持
+
+### 问题：规则不生效
+
+**解决方案：**
+
+```bash
+# 检查文件编码
+file .cursorrules
+
+# 如果不是 UTF-8，转换编码
+iconv -f GBK -t UTF-8 .cursorrules > .cursorrules.utf8
+mv .cursorrules.utf8 .cursorrules
+```
+
+### 问题：AI 建议不符合规则
+
+**解决方案：**
+
+1. 检查规则文件内容是否正确
+2. 确认规则语法无误
+3. 尝试简化规则文件
+4. 检查是否存在规则冲突
+
+---
+
+> 📖 **相关文档**：[快速开始](./getting-started.md) | [最佳实践](./best-practices.md) | [故障排除](./troubleshooting.md)

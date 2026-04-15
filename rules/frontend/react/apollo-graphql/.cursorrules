@@ -1,0 +1,80 @@
+你是 React、TypeScript、GraphQL 和 Apollo Client 方面的专家。
+
+## 技术栈
+
+- **框架**：React
+- **语言**：TypeScript
+- **数据管理**：Apollo Client
+- **API**：GraphQL
+
+## 核心原则
+
+### Apollo Client 配置
+
+- 使用 `ApolloProvider` 包裹根组件
+- 配置 `InMemoryCache` 进行缓存
+- 合理设置 `fetchPolicy` 优化数据获取
+
+```typescript
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://api.example.com/graphql',
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <YourApp />
+    </ApolloProvider>
+  );
+}
+```
+
+### 缓存策略
+
+- 使用规范化缓存减少网络请求
+- 使用 `cache-first` 作为默认策略
+- 频繁变动的数据使用 `cache-and-network`
+- 列表数据使用分页策略（`offsetLimitPagination` 或 `cursorPagination`）
+
+### 自定义 Hooks
+
+```typescript
+// hooks/useUser.ts
+import { useQuery, gql } from '@apollo/client';
+
+const GET_USER_QUERY = gql`
+  query GetUser($id: ID!) {
+    user(id: $id) { id name email }
+  }
+`;
+
+export const useUser = (id: string) => {
+  const { data, loading, error } = useQuery(GET_USER_QUERY, {
+    variables: { id }
+  });
+  return { user: data?.user, loading, error };
+};
+```
+
+### 数据变更（Mutations）
+
+- 使用 `useMutation` 进行数据修改
+- 通过 `update` 函数更新缓存
+- 或使用 `refetchQueries` 重新获取数据
+
+### 调试
+
+- 使用 Apollo Client DevTools
+- 监控查询和变更
+- 检查缓存状态
+- 分析性能瓶颈
+
+## 最佳实践
+
+1. 封装复杂逻辑到自定义 hooks
+2. 统一错误处理和加载状态
+3. 为所有操作定义 TypeScript 类型
+4. 设计易于测试的 hooks

@@ -1,0 +1,114 @@
+你是 DragonRuby 游戏引擎和 Ruby 编程方面的专家。
+
+## 技术栈
+
+- **引擎**：DragonRuby
+- **语言**：Ruby
+
+## 核心原则
+
+### 命名约定
+
+- 文件名：snake_case（例如 `player_controller.rb`）
+- 方法名：snake_case（例如 `update_player`）
+- 变量名：snake_case（例如 `player_health`）
+- 类名：CamelCase（例如 `PlayerController`）
+- 模块名：CamelCase（例如 `GameUtils`）
+
+### 代码风格
+
+```ruby
+# 遵循 Ruby 风格指南
+# https://rubystyle.guide/
+
+# 使用表达性语法
+unless player.dead?
+  player.update
+end
+
+# 使用 ||= 初始化
+player.score ||= 0
+
+# 使用安全导航
+player&.weapon&.attack
+
+# 单引号用于非插值字符串
+name = 'player'
+
+# 双引号用于插值字符串
+message = "Player #{player.name} scored!"
+```
+
+### 游戏结构
+
+```ruby
+class Game
+  attr_gtk
+
+  def tick
+    defaults
+    render
+    calc
+    process_inputs
+  end
+
+  def defaults
+    state.player ||= {
+      x: 0,
+      y: 0,
+      health: 100
+    }
+  end
+
+  def render
+    outputs.sprites << {
+      x: state.player.x,
+      y: state.player.y,
+      w: 32,
+      h: 32,
+      path: 'sprites/player.png'
+    }
+  end
+
+  def calc
+    # 游戏逻辑
+  end
+
+  def process_inputs
+    # 输入处理
+  end
+end
+```
+
+### 错误处理
+
+```ruby
+# 使用异常处理特殊情况
+def load_level(name)
+  level = LevelLoader.load(name)
+rescue LevelNotFoundError => e
+  log_error("Level not found: #{name}")
+  raise e
+end
+
+# 不要用异常做流程控制
+# 不佳
+def find_player(id)
+  raise "Not found" unless players[id]
+  players[id]
+end
+
+# 推荐
+def find_player(id)
+  players[id] || default_player
+end
+```
+
+## 最佳实践
+
+1. 编写简洁、符合惯用法的 Ruby 代码
+2. 遵循 DragonRuby 约定
+3. 使用面向对象和函数式编程模式
+4. 优先选择迭代和模块化，避免代码重复
+5. 实现 proper 错误日志记录
+6. 提供用户友好的错误消息

@@ -1,223 +1,363 @@
-# 故障排除指南 🔧
+# 故障排除指南
 
-遇到问题？本指南将帮助您解决使用 Awesome Cursor Rules 中文版时的常见问题。
+> 快速诊断和解决常见问题
 
-## 🚨 常见问题
+## 目录
 
-### 1. 规则不生效
+- [快速诊断](#快速诊断)
+- [常见问题解决](#常见问题解决)
+- [诊断工具](#诊断工具)
+- [高级故障排除](#高级故障排除)
+- [获取帮助](#获取帮助)
 
-#### 问题描述
-AI 的代码建议没有遵循 .cursorrules 文件中的规则。
+---
 
-#### 解决方案
+## 快速诊断
+
+### 5 分钟检查清单
+
 ```bash
-# 1. 检查文件位置
+# 1. 检查文件是否存在
 ls -la .cursorrules
 
-# 2. 检查文件内容
-cat .cursorrules | head -10
+# 2. 检查文件位置（必须在项目根目录）
+pwd
 
-# 3. 重启 Cursor 编辑器
-# 关闭 Cursor，然后重新打开项目
+# 3. 检查文件内容
+head -10 .cursorrules
 
-# 4. 检查 Cursor 设置
-# 确保 "Use .cursorrules" 选项已启用
-```
-
-#### 可能原因
-- `.cursorrules` 文件不在项目根目录
-- 文件格式错误或损坏
-- Cursor 编辑器需要重启
-- 设置中未启用规则文件
-
-### 2. 文件格式错误
-
-#### 问题描述
-.cursorrules 文件无法被正确解析。
-
-#### 解决方案
-```bash
-# 1. 检查文件编码
+# 4. 检查文件编码
 file .cursorrules
 
-# 2. 验证 YAML 格式（如果适用）
-# 使用在线 YAML 验证器检查格式
-
-# 3. 重新复制规则文件
-cp rules/frontend/react/nextjs-basic/.cursorrules ./
-
-# 4. 检查特殊字符
-# 确保没有不可见字符或错误的换行符
+# 5. 检查文件权限
+stat .cursorrules
 ```
 
-#### 预防措施
-- 使用 UTF-8 编码保存文件
-- 避免手动编辑复杂的规则文件
-- 定期备份工作的规则配置
+### 一键诊断脚本
 
-### 3. 规则冲突
-
-#### 问题描述
-合并多个规则集后出现冲突或不一致的建议。
-
-#### 解决方案
-```bash
-# 1. 使用单一规则集测试
-cp rules/frontend/react/nextjs-basic/.cursorrules ./
-
-# 2. 逐步添加规则
-# 先使用基础规则，然后逐步添加特定规则
-
-# 3. 检查规则兼容性
-# 确保选择的规则集来自兼容的技术栈
-```
-
-#### 最佳实践
-- 优先使用单一技术栈的规则集
-- 避免混合不兼容的框架规则
-- 测试规则组合的效果
-
-### 4. AI 建议质量差
-
-#### 问题描述
-AI 的代码建议不符合预期或质量较低。
-
-#### 解决方案
-```bash
-# 1. 检查规则文件完整性
-wc -l .cursorrules
-
-# 2. 尝试不同的规则集
-cp rules/general/code-guidelines/.cursorrules ./
-
-# 3. 调整 Cursor 设置
-# 在设置中调整 AI 模型和参数
-```
-
-#### 优化建议
-- 使用更具体的规则集
-- 提供更多的上下文信息
-- 调整 AI 的创造性级别
-
-### 5. 性能问题
-
-#### 问题描述
-使用规则后 Cursor 响应变慢。
-
-#### 解决方案
-```bash
-# 1. 简化规则文件
-# 删除不必要的规则条目
-
-# 2. 检查文件大小
-ls -lh .cursorrules
-
-# 3. 重启 Cursor
-# 清理缓存并重新启动
-```
-
-#### 性能优化
-- 保持规则文件简洁
-- 避免过于复杂的规则
-- 定期清理 Cursor 缓存
-
-### 6. 翻译问题
-
-#### 技术术语不一致
-**问题描述**：相同术语在不同文件中有不同翻译
-**解决方案**：
-1. 确保使用统一的术语翻译，专有名词保留英文（如 React、Vue、Docker）
-2. 参考 [CONTRIBUTING.md](../CONTRIBUTING.md) 中的翻译质量标准
-3. 手动检查并修正不一致的术语
-
-#### 代码示例格式错误
-**问题描述**：翻译后代码缩进或格式破坏
-**解决方案**：
-1. 使用 Markdown 代码块标识符指定语言类型（如 \`\`\`python）
-2. 检查代码块内的缩进是否被意外破坏
-3. 确保翻译时未修改代码块内容
-
-#### 长句表达不清
-**问题描述**：英文长句直译导致中文晦涩
-**解决方案**：
-1. 拆分长句为多个短句
-2. 调整语序符合中文习惯
-3. 保留技术准确性的前提下优化表达
-```markdown
-# 不佳示例
-当组件被渲染时，状态更新将触发重新渲染
-
-# 优化后
-组件渲染时，状态更新会触发重新渲染
-```
-
-## 🔍 诊断工具
-
-### 1. 规则文件检查脚本
 ```bash
 #!/bin/bash
-# check_cursorrules.sh
+# 保存为 diagnose.sh 并运行
 
-echo "🔍 检查 .cursorrules 文件..."
+echo "=== Cursor Rules 诊断工具 ==="
+echo ""
 
-if [ ! -f ".cursorrules" ]; then
+# 检查文件存在
+if [ -f ".cursorrules" ]; then
+    echo "✅ .cursorrules 文件存在"
+else
     echo "❌ .cursorrules 文件不存在"
     exit 1
 fi
 
-echo "✅ 文件存在"
-echo "📊 文件大小: $(ls -lh .cursorrules | awk '{print $5}')"
-echo "📝 行数: $(wc -l < .cursorrules)"
+# 检查文件位置
+if [ -d ".git" ]; then
+    echo "✅ 文件位于项目根目录"
+else
+    echo "⚠️ 可能不在 Git 项目根目录"
+fi
 
-echo "🔤 文件编码:"
+# 检查文件编码
+ENCODING=$(file -b --mime-encoding .cursorrules)
+if [ "$ENCODING" = "utf-8" ] || [ "$ENCODING" = "us-ascii" ]; then
+    echo "✅ 文件编码正确: $ENCODING"
+else
+    echo "❌ 文件编码异常: $ENCODING"
+fi
+
+# 检查文件大小
+LINES=$(wc -l < .cursorrules)
+if [ "$LINES" -lt 5 ]; then
+    echo "⚠️ 文件内容较少 ($LINES 行)，可能不完整"
+else
+    echo "✅ 文件内容正常 ($LINES 行)"
+fi
+
+echo ""
+echo "=== 诊断完成 ==="
+```
+
+---
+
+## 常见问题解决
+
+### 问题 1：规则不生效
+
+**症状：** AI 建议不符合 `.cursorrules` 中定义的规则
+
+**诊断步骤：**
+
+```bash
+# 步骤 1：确认文件位置
+ls -la .cursorrules
+# 应该在项目根目录，不是子目录
+
+# 步骤 2：检查 Cursor 设置
+# 打开 Cursor 设置，搜索 "cursorrules"
+# 确保 "Use .cursorrules" 选项已启用
+
+# 步骤 3：重启 Cursor
+# 完全关闭 Cursor，然后重新打开
+```
+
+**解决方案：**
+
+| 原因 | 解决方法 |
+|------|----------|
+| 文件不在根目录 | 移动到项目根目录 |
+| 设置未启用 | 在设置中启用 "Use .cursorrules" |
+| 编辑器缓存 | 重启 Cursor |
+| 文件编码错误 | 转换为 UTF-8 编码 |
+
+### 问题 2：文件格式错误
+
+**症状：** `.cursorrules` 文件无法被正确解析
+
+**诊断步骤：**
+
+```bash
+# 检查编码
 file .cursorrules
 
-echo "📋 文件内容预览:"
-head -5 .cursorrules
+# 检查隐藏字符
+cat -A .cursorrules | head -20
+
+# 检查行尾符
+od -c .cursorrules | head -5
 ```
 
-### 2. 环境检查
+**解决方案：**
+
 ```bash
-# 检查 Cursor 版本
-cursor --version
+# 修复编码问题
+iconv -f GBK -t UTF-8 .cursorrules > .cursorrules.fixed
+mv .cursorrules.fixed .cursorrules
+
+# 修复行尾符（Windows -> Unix）
+dos2unix .cursorrules
+
+# 或使用 sed
+sed -i 's/\r$//' .cursorrules
+```
+
+### 问题 3：规则冲突
+
+**症状：** 合并多个规则后 AI 建议不一致
+
+**诊断步骤：**
+
+```bash
+# 查找重复定义
+grep -n "命名" .cursorrules
+grep -n "编码" .cursorrules
+grep -n "错误" .cursorrules
+```
+
+**解决方案：**
+
+```bash
+# 方案 1：使用单一规则集测试
+cp rules/frontend/react/nextjs-typescript/.cursorrules ./
+
+# 方案 2：逐步合并
+# 先添加一个规则，测试通过后再添加下一个
+
+# 方案 3：解决冲突
+# 手动编辑 .cursorrules，保留一致的规则
+```
+
+### 问题 4：性能问题
+
+**症状：** Cursor 响应变慢
+
+**诊断步骤：**
+
+```bash
+# 检查文件大小
+ls -lh .cursorrules
+
+# 检查行数
+wc -l .cursorrules
+```
+
+**解决方案：**
+
+```bash
+# 精简规则文件
+# 1. 删除不必要的注释
+# 2. 移除重复的规则
+# 3. 只保留核心规则
+
+# 建议限制
+# - 文件大小：< 50 KB
+# - 行数：< 500 行
+```
+
+### 问题 5：翻译问题
+
+**症状：** 技术术语翻译不一致或表述不清
+
+**解决方案：**
+
+| 问题类型 | 处理方法 |
+|----------|----------|
+| 术语不一致 | 统一使用标准翻译，专有名词保留英文 |
+| 代码格式错乱 | 检查代码块标记和缩进 |
+| 表述不清 | 调整语序，拆分长句 |
+
+---
+
+## 诊断工具
+
+### 规则文件验证器
+
+```bash
+#!/bin/bash
+# validate_cursorrules.sh
+
+FILE=".cursorrules"
+
+echo "验证 .cursorrules 文件..."
+
+# 检查文件存在
+if [ ! -f "$FILE" ]; then
+    echo "❌ 错误：文件不存在"
+    exit 1
+fi
+
+# 检查文件不为空
+if [ ! -s "$FILE" ]; then
+    echo "❌ 错误：文件为空"
+    exit 1
+fi
+
+# 检查编码
+ENCODING=$(file -b --mime-encoding "$FILE")
+if [ "$ENCODING" != "utf-8" ] && [ "$ENCODING" != "us-ascii" ]; then
+    echo "⚠️ 警告：编码可能有问题 ($ENCODING)"
+fi
+
+# 检查内容
+LINES=$(wc -l < "$FILE")
+echo "📄 文件行数：$LINES"
+
+SIZE=$(wc -c < "$FILE")
+echo "📦 文件大小：$SIZE 字节"
+
+echo "✅ 验证完成"
+```
+
+### 环境检查
+
+```bash
+#!/bin/bash
+# check_environment.sh
+
+echo "=== 环境检查 ==="
+
+# 检查 Cursor
+if command -v cursor &> /dev/null; then
+    echo "✅ Cursor 已安装"
+else
+    echo "⚠️ Cursor 未在 PATH 中找到"
+fi
+
+# 检查 Git
+if command -v git &> /dev/null; then
+    echo "✅ Git 已安装: $(git --version)"
+else
+    echo "❌ Git 未安装"
+fi
 
 # 检查项目结构
-tree -L 2
+if [ -d ".git" ]; then
+    echo "✅ Git 仓库"
+else
+    echo "⚠️ 不是 Git 仓库"
+fi
 
-# 检查 Git 状态
-git status
+# 检查规则文件
+if [ -f ".cursorrules" ]; then
+    echo "✅ .cursorrules 存在"
+else
+    echo "❌ .cursorrules 不存在"
+fi
 ```
 
-### 3. 规则验证
+---
+
+## 高级故障排除
+
+### 调试模式
+
 ```bash
-# 验证规则文件语法
-python3 -c "
-import yaml
-try:
-    with open('.cursorrules', 'r', encoding='utf-8') as f:
-        content = f.read()
-    print('✅ 文件格式正确')
-except Exception as e:
-    print(f'❌ 文件格式错误: {e}')
-"
+# 启用 Cursor 日志
+export CURSOR_LOG_LEVEL=debug
+
+# 查看 Cursor 日志
+# macOS/Linux
+tail -f ~/.cursor/logs/main.log
+
+# Windows
+Get-Content -Tail 50 $env:APPDATA\Cursor\logs\main.log
 ```
 
-## 🆘 获取帮助
+### 完全重置
 
-### 1. 社区支持
-- 📝 [提交 Issue](https://github.com/LessUp/awesome-cursorrules-zh/issues)
-- 💬 [社区讨论](https://github.com/LessUp/awesome-cursorrules-zh/discussions)
-- 📚 [查看文档](./getting-started.md)
+```bash
+# 备份当前配置
+cp .cursorrules .cursorrules.backup
 
-### 2. 问题报告模板
+# 删除规则文件
+rm .cursorrules
+
+# 从规则集重新复制
+cp rules/frontend/react/nextjs-typescript/.cursorrules ./
+
+# 重启 Cursor
+```
+
+### 清除缓存
+
+```bash
+# macOS/Linux
+rm -rf ~/.cursor/cache
+
+# Windows
+Remove-Item -Recurse -Force $env:APPDATA\Cursor\cache
+```
+
+---
+
+## 获取帮助
+
+### 自助资源
+
+| 资源 | 链接 |
+|------|------|
+| 快速开始 | [getting-started.md](./getting-started.md) |
+| 最佳实践 | [best-practices.md](./best-practices.md) |
+| 安装指南 | [installation-guide.md](./installation-guide.md) |
+
+### 社区支持
+
+| 渠道 | 用途 |
+|------|------|
+| [GitHub Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues) | 报告 Bug、请求功能 |
+| [GitHub Discussions](https://github.com/LessUp/awesome-cursorrules-zh/discussions) | 提问、分享经验 |
+
+### 问题报告模板
+
+提交 Issue 时，请包含以下信息：
+
 ```markdown
 ## 问题描述
-简要描述遇到的问题
+[简要描述问题]
 
 ## 环境信息
-- OS: [例如 Windows 11]
-- Cursor 版本: [例如 0.40.0]
-- 规则集: [例如 react/nextjs-basic]
+- 操作系统：[如 Windows 11]
+- Cursor 版本：[如 0.45.0]
+- 规则集：[如 frontend/react/nextjs-typescript]
 
 ## 复现步骤
 1. 
@@ -225,78 +365,20 @@ except Exception as e:
 3. 
 
 ## 期望行为
-描述期望的行为
+[描述期望的结果]
 
 ## 实际行为
-描述实际发生的情况
+[描述实际发生的情况]
 
 ## 附加信息
-- .cursorrules 文件内容
-- 错误截图
+- .cursorrules 文件内容（或截图）
+- 错误信息
 - 相关日志
 ```
 
-### 3. 快速修复检查清单
-- [ ] .cursorrules 文件在项目根目录
-- [ ] 文件内容完整且格式正确
-- [ ] Cursor 编辑器已重启
-- [ ] 设置中启用了规则文件
-- [ ] 没有规则冲突
-- [ ] 文件编码为 UTF-8
-
-## 🔄 重置和恢复
-
-### 1. 重置规则配置
-```bash
-# 备份当前配置
-cp .cursorrules .cursorrules.backup
-
-# 使用默认规则
-cp rules/general/code-guidelines/.cursorrules ./
-
-# 测试基本功能
-```
-
-### 2. 恢复工作配置
-```bash
-# 从备份恢复
-cp .cursorrules.backup .cursorrules
-
-# 或从版本控制恢复
-git checkout HEAD -- .cursorrules
-```
-
-### 3. 完全重新开始
-```bash
-# 删除现有配置
-rm .cursorrules
-
-# 重新选择规则集
-cp rules/frontend/react/nextjs-basic/.cursorrules ./
-
-# 重启 Cursor
-```
-
-## 📞 联系支持
-
-如果以上方法都无法解决您的问题，请：
-
-1. **收集信息**
-   - 操作系统和版本
-   - Cursor 编辑器版本
-   - 使用的规则集
-   - 错误截图或日志
-
-2. **提交 Issue**
-   - 使用详细的问题描述
-   - 提供复现步骤
-   - 附上相关文件和截图
-
-3. **参与讨论**
-   - 在社区讨论中寻求帮助
-   - 分享您的解决方案
-   - 帮助其他用户
-
 ---
 
-💡 **提示**: 大多数问题都可以通过重启 Cursor 编辑器和检查文件位置来解决！
+> 💡 **提示**：大多数问题可以通过以下三步解决：
+> 1. 确认 `.cursorrules` 在项目根目录
+> 2. 重启 Cursor 编辑器
+> 3. 检查文件编码为 UTF-8

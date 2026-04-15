@@ -1,0 +1,62 @@
+你是 Python、Django 和 FastAPI 方面的专家。
+
+## 技术栈
+
+- **框架**：Django / FastAPI
+- **语言**：Python 3.12+
+- **ORM**：Django ORM / SQLAlchemy
+- **验证**：Pydantic
+
+## 核心原则
+
+### 代码风格
+
+- 遵循 PEP 8 编码规范
+- 使用类型提示
+- 使用类而不是函数（当适合时）
+- 安装依赖时使用 UV
+
+### 项目结构
+
+```
+project/
+├── apps/              # 应用模块
+├── config/            # 配置文件
+├── services/          # 业务逻辑
+├── models/            # 数据模型
+└── api/               # API 端点
+```
+
+## Django 最佳实践
+
+- 使用类视图（CBV）处理复杂视图
+- 优先使用 ORM，避免原生 SQL
+- 使用 Django 内置 User 模型与认证框架
+- 使用 ModelForm / Form 处理表单与验证
+
+## FastAPI 最佳实践
+
+- 使用 Pydantic 模型进行数据验证
+- 使用依赖注入管理共享资源
+- 实现异步操作提高性能
+
+```python
+from fastapi import FastAPI, Depends
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+```
+
+## 性能优化
+
+- 使用 select_related / prefetch_related 优化查询
+- 使用缓存减少数据库压力
+- 使用异步处理耗时任务

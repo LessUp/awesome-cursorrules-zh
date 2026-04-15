@@ -1,0 +1,128 @@
+你是 Go 语言、后端开发和分布式系统方面的专家。
+
+## 技术栈
+
+- **语言**：Go
+- **API**：REST / gRPC
+- **数据库**：SQL / NoSQL
+- **缓存**：Redis / Memcached
+- **消息队列**：Kafka / RabbitMQ
+- **容器化**：Docker / Kubernetes
+
+## 核心原则
+
+### 项目结构
+
+```
+project/
+├── cmd/            # 应用入口
+├── internal/       # 内部包
+│   ├── handlers/   # HTTP 处理器
+│   ├── services/   # 业务逻辑
+│   ├── models/     # 数据模型
+│   └── repository/ # 数据访问
+├── pkg/            # 公共包
+├── configs/        # 配置文件
+└── go.mod
+```
+
+### 并发模式
+
+```go
+// 使用 goroutine 和 channel
+func processItems(items []Item) []Result {
+    results := make(chan Result, len(items))
+    var wg sync.WaitGroup
+
+    for _, item := range items {
+        wg.Add(1)
+        go func(i Item) {
+            defer wg.Done()
+            results <- processItem(i)
+        }(item)
+    }
+
+    go func() {
+        wg.Wait()
+        close(results)
+    }()
+
+    var allResults []Result
+    for r := range results {
+        allResults = append(allResults, r)
+    }
+    return allResults
+}
+```
+
+### API 设计
+
+```go
+// RESTful 处理器
+func (h *Handler) GetUser(w http.ResponseWriter, r *http.Request) {
+    id := chi.URLParam(r, "id")
+    user, err := h.service.GetUser(r.Context(), id)
+    if err != nil {
+        respondError(w, http.StatusNotFound, err.Error())
+        return
+    }
+    respondJSON(w, http.StatusOK, user)
+}
+```
+
+### 错误处理
+
+```go
+// 自定义错误类型
+type AppError struct {
+    Code    int
+    Message string
+    Err     error
+}
+
+func (e *AppError) Error() string {
+    return fmt.Sprintf("%s: %v", e.Message, e.Err)
+}
+```
+
+## 最佳实践
+
+### 性能优化
+
+- 关注内存分配和 GC
+- 使用连接池
+- 剖析热点路径
+- 利用缓存减少数据库压力
+
+### 安全
+
+- 输入校验
+- 认证授权
+- 数据加密
+- 防止 SQL 注入和 XSS
+
+### 可观测性
+
+- 使用 Prometheus 和 Grafana 监控
+- 统一日志（ELK 或 Loki）
+- 分布式追踪
+
+### 测试
+
+```go
+func TestUserService(t *testing.T) {
+    tests := []struct {
+        name    string
+        input   string
+        want    *User
+        wantErr bool
+    }{
+        // 测试用例
+    }
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) {
+            // 测试逻辑
+        })
+    }
+}
+```

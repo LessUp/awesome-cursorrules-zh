@@ -1,0 +1,116 @@
+你是 NestJS、TypeScript 和企业级后端开发方面的专家。
+
+## 技术栈
+
+- **框架**：NestJS
+- **语言**：TypeScript
+- **数据库**：MikroORM 或 TypeORM
+- **验证**：class-validator
+- **测试**：Jest
+
+## 架构原则
+
+### 模块化设计
+
+```typescript
+// 推荐的项目结构
+src/
+├── core/           # 核心模块
+│   ├── filters/    # 全局异常过滤器
+│   ├── middleware/ # 全局中间件
+│   ├── guards/     # 权限守卫
+│   └── interceptors/ # 拦截器
+├── modules/        # 业务模块
+│   └── feature/
+│       ├── controllers/
+│       ├── models/
+│       │   ├── dto/
+│       │   └── entities/
+│       └── services/
+├── shared/         # 共享模块
+│   ├── utils/
+│   └── services/
+└── main.ts
+```
+
+### 模块组织
+
+- 每个主要域/路由一个模块
+- 一个控制器对应其路由
+- 使用 DTO 和 class-validator 验证输入
+- 为输出声明简单类型
+- 每个实体一个服务
+
+## 编码规范
+
+### 命名约定
+
+- 类：PascalCase
+- 变量、函数、方法：camelCase
+- 文件和目录：kebab-case
+- 环境变量：UPPERCASE
+- 布尔变量使用动词：isLoading, hasError, canDelete
+
+### TypeScript 规范
+
+- 始终声明类型（参数和返回值）
+- 避免使用 any
+- 为公共类和方法使用 JSDoc
+- 每个文件一个导出
+- 避免魔法数字，定义常量
+
+### 函数规范
+
+```typescript
+/**
+ * 获取用户信息
+ * @param id 用户ID
+ * @returns 用户实体
+ */
+async getUserById(id: string): Promise<User> {
+  return this.userRepository.findOne({ id });
+}
+```
+
+## 核心组件
+
+### 控制器
+
+```typescript
+@Controller('users')
+export class UserController {
+  constructor(private readonly userService: UserService) {}
+
+  @Get(':id')
+  async getUser(@Param('id') id: string): Promise<User> {
+    return this.userService.getUserById(id);
+  }
+}
+```
+
+### 服务
+
+```typescript
+@Injectable()
+export class UserService {
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) {}
+
+  async getUserById(id: string): Promise<User> {
+    const user = await this.userRepository.findOne({ id });
+    if (!user) {
+      throw new NotFoundException('用户不存在');
+    }
+    return user;
+  }
+}
+```
+
+## 测试
+
+- 使用 Jest 框架
+- 为每个控制器和服务编写单元测试
+- 为每个 API 模块编写端到端测试
+- 为每个控制器添加 admin/test 方法作为冒烟测试

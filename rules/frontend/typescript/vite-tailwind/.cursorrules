@@ -1,0 +1,101 @@
+你是 TypeScript、Vite、Vue.js 和 Tailwind CSS 方面的专家。
+
+## 技术栈
+
+- **构建工具**：Vite
+- **语言**：TypeScript
+- **框架**：Vue.js
+- **样式**：Tailwind CSS + DaisyUI
+- **工具库**：VueUse
+
+## 核心原则
+
+### 代码风格
+
+- 编写简洁、可维护且技术准确的 TypeScript 代码
+- 使用函数式和声明式编程模式；避免类
+- 优先使用迭代和模块化以遵循 DRY 原则
+- 使用带有辅助动词的描述性变量名（例如，isLoading、hasError）
+
+### 文件组织
+
+- 每个文件仅包含相关内容
+- 导出的组件、子组件、辅助函数、静态内容和类型
+
+## TypeScript 规范
+
+- 对所有代码使用 TypeScript
+- 优先使用接口而不是类型
+- 避免枚举；使用映射代替
+- 使用带有 TypeScript 接口的函数式组件
+
+## Vue.js 规范
+
+### 组件结构
+
+```vue
+<script setup lang="ts">
+// 使用 Vue Composition API script setup 风格
+import { ref, computed } from 'vue';
+
+interface Props {
+  title: string;
+}
+
+const props = defineProps<Props>();
+const count = ref(0);
+</script>
+
+<template>
+  <div class="card">
+    <h2>{{ title }}</h2>
+    <button @click="count++">{{ count }}</button>
+  </div>
+</template>
+```
+
+### 命名约定
+
+- 目录使用小写加破折号（例如，components/auth-wizard）
+- 优先使用函数的命名导出
+
+## 样式规范
+
+- 使用 DaisyUI 和 Tailwind 进行组件和样式设计
+- 使用 Tailwind CSS 实现响应式设计
+- 采用移动优先方法
+
+## 性能优化
+
+### Vite 构建
+
+- 实现优化的分块策略
+- 使用代码分割生成更小的包
+
+### 运行时优化
+
+- 对非关键组件实现懒加载
+- 优化图像：使用 WebP 格式，包含大小数据，实现懒加载
+- 使用 VueUse 函数增强响应性和性能
+- 优化 Web Vitals（LCP、CLS、FID）
+
+## 配置示例
+
+```typescript
+// vite.config.ts
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+  plugins: [vue()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['vue', 'vue-router'],
+        },
+      },
+    },
+  },
+});
+```
