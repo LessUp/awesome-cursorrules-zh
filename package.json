@@ -1,0 +1,19 @@
+{
+  "name": "awesome-cursorrules-zh-site",
+  "version": "2.1.0",
+  "description": "Awesome Cursor Rules - GitHub Pages Site",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

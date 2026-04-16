@@ -1,0 +1,1 @@
+../docs/zh/installation-guide.md
