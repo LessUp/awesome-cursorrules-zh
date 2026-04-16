@@ -15,15 +15,18 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: 检查 Markdown 文件
-      uses: DavidAnson/markdownlint-cli2-action@v13
+      uses: DavidAnson/markdownlint-cli2-action@v19
       with:
         globs: '**/*.md'
         config: '.markdownlint.json'
 
     - name: 验证 .cursorrules 文件格式
       run: |
+        set -e
         echo "检查 .cursorrules 文件..."
-        find . -name ".cursorrules" -type f | while read file; do
+        found=0
+        while IFS= read -r file; do
+          found=1
           echo "验证文件: $file"
           # 检查文件是否为空
           if [ ! -s "$file" ]; then
@@ -31,10 +34,14 @@ jobs:
             exit 1
           fi
           echo "✅ $file 格式正确"
-        done
+        done < <(find . -name ".cursorrules" -type f)
+        if [ "$found" -eq 0 ]; then
+          echo "⚠️ 未找到 .cursorrules 文件"
+        fi
 
     - name: 检查目录结构
       run: |
+        set -e
         echo "验证项目目录结构..."
         required_dirs=("rules" "docs")
         for dir in "${required_dirs[@]}"; do
@@ -47,12 +54,22 @@ jobs:
 
     - name: 统计翻译进度
       run: |
+        set -e
         echo "📊 翻译进度统计:"
-        total_rules=$(find rules -type d -mindepth 3 -maxdepth 3 | wc -l)
+        total_rules=$(find rules -type d -mindepth 3 -maxdepth 3 2>/dev/null | wc -l)
         echo "总规则集数量: $total_rules"
+
+        if [ -d "rules/frontend" ]; then
+          frontend_rules=$(find rules/frontend -type d -mindepth 2 -maxdepth 2 2>/dev/null | wc -l)
+        else
+          frontend_rules=0
+        fi
         
-        frontend_rules=$(find rules/frontend -type d -mindepth 2 -maxdepth 2 | wc -l)
-        backend_rules=$(find rules/backend -type d -mindepth 2 -maxdepth 2 | wc -l)
-        
+        if [ -d "rules/backend" ]; then
+          backend_rules=$(find rules/backend -type d -mindepth 2 -maxdepth 2 2>/dev/null | wc -l)
+        else
+          backend_rules=0
+        fi
+
         echo "前端规则集: $frontend_rules"
         echo "后端规则集: $backend_rules"

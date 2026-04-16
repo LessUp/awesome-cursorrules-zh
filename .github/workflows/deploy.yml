@@ -29,13 +29,8 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
       - name: Install dependencies
-        run: |
-          npm init -y
-          npm install -D vitepress@latest postcss@latest autoprefixer@latest
+        run: npm ci
 
       - name: Build with VitePress
         run: |
