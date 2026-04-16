@@ -17,6 +17,7 @@
 参与本项目即表示你同意遵守我们的 [行为准则](./CODE_OF_CONDUCT.md)。
 
 核心原则：
+
 - 尊重所有贡献者
 - 接受建设性批评
 - 关注对社区最有利的事情
@@ -94,6 +95,7 @@ git merge upstream/main
 | Schema | 架构 | GraphQL 语境 |
 
 **专有名词保留英文：**
+
 - React, Vue, Angular, Svelte
 - Next.js, Nuxt, NestJS
 - TypeScript, JavaScript
@@ -125,7 +127,7 @@ git merge upstream/main
 
 使用约定式提交格式：
 
-```
+```text
 <类型>(<范围>): <描述>
 
 [可选正文]
@@ -165,7 +167,7 @@ git commit -m "docs: 更新贡献指南中的提交规范"
 
 ### Pull Request 流程
 
-```
+```text
 提交 PR → 自动检查 → 人工审核 → 合并
     │         │           │        │
     │         │           │        └── 完成贡献
@@ -206,6 +208,7 @@ git commit -m "docs: 更新贡献指南中的提交规范"
 ### 贡献统计
 
 我们会在项目中记录和展示：
+
 - 翻译的规则集数量
 - 提交的 PR 数量
 - 参与的领域

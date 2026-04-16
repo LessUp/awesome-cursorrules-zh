@@ -112,7 +112,7 @@ cat rules/backend/python/fastapi-api-example/.cursorrules >> .cursorrules
 
 ### 目录级规则配置
 
-```
+```text
 my-project/
 ├── .cursorrules           # 通用规则
 ├── frontend/

@@ -12,11 +12,13 @@
 ### 新增
 
 - **29 个新规则文件**
+
   - React 生态：apollo-graphql, mobx, nextjs-14-seo, nextjs-react-ts, nextjs-supabase, nextjs-ui, react-components, react-typescript, styled-components
   - 后端规则：Go, Java, Django, NestJS, express-mongodb
   - 其他：Convex, DragonRuby, Elixir, GitHub 代码质量, 代码规范, TypeScript axios/conventions/vite-tailwind
 
 - **全新文档体系**
+
   - 重写 `docs/getting-started.md` - 三步快速上手指南
   - 重写 `docs/best-practices.md` - 完整最佳实践手册
   - 重写 `docs/installation-guide.md` - 多平台安装配置
@@ -105,6 +107,7 @@
 #### 规则集（29 个）
 
 **React 生态（13 个）**
+
 - Next.js + TypeScript 完整配置
 - React 组件开发最佳实践
 - Chakra UI 和 Styled Components 样式指南
@@ -113,21 +116,25 @@
 - React Native Expo 移动开发
 
 **Vue 生态（2 个）**
+
 - Vue 3 Composition API 开发规范
 - Nuxt 3 全栈开发指南
 
 **TypeScript 专项（3 个）**
+
 - TypeScript 编码约定
 - Vite + Tailwind CSS 构建
 - Axios HTTP 客户端集成
 
 **后端开发（6 个）**
+
 - Python FastAPI
 - Node.js Express + MongoDB
 - TypeScript NestJS
 - ASP.NET ABP 框架
 
 **其他（5 个）**
+
 - React Native Expo 跨平台
 - iOS UIKit 原生开发
 - Solidity Foundry 智能合约
@@ -151,9 +158,3 @@
 | 主版本 | 重大架构变更 |
 | 次版本 | 新功能或重要改进 |
 | 修订号 | Bug 修复和小改进 |
-
----
-
-## 链接
-
-[比较变更]: https://github.com/LessUp/awesome-cursorrules-zh/compare/v1.5.0...v2.0.0

@@ -129,7 +129,7 @@ cp rules/frontend/react/nextjs-typescript/.cursorrules ./
 
 ### 多技术栈项目
 
-**方法一：合并规则**
+#### 方法一：合并规则
 
 ```bash
 cat rules/frontend/react/nextjs-typescript/.cursorrules > .cursorrules
@@ -137,9 +137,9 @@ echo "" >> .cursorrules
 cat rules/backend/python/fastapi-api-example/.cursorrules >> .cursorrules
 ```
 
-**方法二：目录级规则**
+#### 方法二：目录级规则
 
-```
+```text
 project/
 ├── .cursorrules           # 通用规则
 ├── frontend/
@@ -251,7 +251,7 @@ EOF
 
 <div align="center">
 
-**如果这个项目对你有帮助，请给一个 ⭐ Star**
+#### 如果这个项目对你有帮助，请给一个 ⭐ Star
 
 [⬆️ 返回顶部](#awesome-cursor-rules-中文版)
 

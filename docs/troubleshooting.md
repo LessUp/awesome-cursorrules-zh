@@ -379,6 +379,7 @@ Remove-Item -Recurse -Force $env:APPDATA\Cursor\cache
 ---
 
 > 💡 **提示**：大多数问题可以通过以下三步解决：
+>
 > 1. 确认 `.cursorrules` 在项目根目录
 > 2. 重启 Cursor 编辑器
 > 3. 检查文件编码为 UTF-8

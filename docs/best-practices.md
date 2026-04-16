@@ -25,7 +25,7 @@
 
 ### 技术栈匹配表
 
-```
+```text
 前端框架匹配：
 ├── React 项目 → rules/frontend/react/nextjs-typescript/
 ├── Vue 项目   → rules/frontend/vue/composition-api/
