@@ -18,12 +18,7 @@ jobs:
       uses: DavidAnson/markdownlint-cli2-action@v13
       with:
         globs: '**/*.md'
-        config: |
-          {
-            "MD013": false,
-            "MD033": false,
-            "MD041": false
-          }
+        config: '.markdownlint.json'
 
     - name: 验证 .cursorrules 文件格式
       run: |
