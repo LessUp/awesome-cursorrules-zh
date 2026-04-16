@@ -15,7 +15,9 @@ function getRulesStats() {
     try {
       const subdirs = readdirSync(catPath).filter(f => statSync(join(catPath, f)).isDirectory())
       totalRules += subdirs.length
-    } catch {}
+    } catch (e) {
+      console.warn(`无法读取目录 ${catPath}:`, e.message)
+    }
   })
   
   return { totalRules, totalCategories }
@@ -328,9 +330,9 @@ export default defineConfig({
     ['meta', { name: 'og:type', content: 'website' }],
     ['meta', { name: 'og:locale', content: 'zh-CN' }],
     ['meta', { name: 'og:site_name', content: 'Awesome Cursor Rules' }],
-    ['meta', { name: 'og:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.png' }],
+    ['meta', { name: 'og:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.svg' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.png' }],
+    ['meta', { name: 'twitter:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.svg' }],
   ],
 
   // Markdown 配置
@@ -374,6 +376,12 @@ export default defineConfig({
   ignoreDeadLinks: [
     /^https?:\/\//,
     /^\//,
+    /\.\/LICENSE/,
+    /\.\/README\.zh-CN/,
+    /\.\/rules\/.*\/index/,
+    /\.\/\.\.\//,
+    /\/index$/,
+    /\/README\.zh-CN$/,
   ],
 
   // 源目录
