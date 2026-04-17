@@ -3,6 +3,8 @@
 # Awesome Cursor Rules
 
 [![Project Status](https://img.shields.io/badge/status-active-success?style=flat-square)](https://github.com/LessUp/awesome-cursorrules-zh)
+[![Website](https://img.shields.io/badge/website-awesome--cursorrules--zh.js.org-blue?style=flat-square&logo=globe)](https://awesome-cursorrules-zh.js.org/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success?style=flat-square&logo=github)](https://awesome-cursorrules-zh.js.org/)
 [![Translation Progress](https://img.shields.io/badge/translation-100%25-brightgreen?style=flat-square)](https://github.com/LessUp/awesome-cursorrules-zh)
 [![GitHub Stars](https://img.shields.io/github/stars/LessUp/awesome-cursorrules-zh?style=flat-square&logo=github&label=Stars)](https://github.com/LessUp/awesome-cursorrules-zh/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/LessUp/awesome-cursorrules-zh?style=flat-square&logo=github&label=Forks)](https://github.com/LessUp/awesome-cursorrules-zh/network)
@@ -13,117 +15,190 @@
 A curated collection of [Cursor](https://cursor.sh/) AI coding rules for modern development stacks
 *为中文开发者打造的 Cursor AI 编程规则集合 - [查看中文版](./README.zh-CN.md)*
 
-**119** rule files · **43** tech domains · **568** technical docs
+**132** rule files · **32** tech domains · **190** technical docs · **6,500+** lines
 
-[Quick Start](#quick-start) · [Browse Rules](#rule-categories) · [Usage Guide](#usage) · [Contributing](#contributing)
+[🚀 Quick Start](#quick-start) · [📂 Browse Rules](#rule-categories) · [💡 Usage Guide](#usage) · [📚 Docs](https://awesome-cursorrules-zh.js.org/) · [🤝 Contributing](#contributing)
 
 </div>
 
 ---
 
-## English
+## 📋 Table of Contents
 
-### 📖 What is this?
+- [What is this?](#what-is-this)
+- [What is .cursorrules?](#what-is-cursorrules)
+- [✨ Features](#features)
+- [🚀 Quick Start](#quick-start)
+- [📂 Rule Categories](#rule-categories)
+- [💡 Usage](#usage)
+- [📊 Statistics](#statistics)
+- [📚 Documentation](#documentation)
+- [🤝 Contributing](#contributing)
+- [📄 License](#license)
+
+---
+
+## What is this?
 
 [Awesome Cursor Rules](https://github.com/PatrickJS/awesome-cursorrules) is a curated collection of Cursor AI coding assistant rules. This project provides **comprehensive translations and localized content** for global developers:
 
-- **🎯 Accurate Translation** - High-quality translations with accurate technical terminology
-- **📂 Clear Structure** - Organized by technology domain for easy discovery
-- **🚀 Ready to Use** - Copy `.cursorrules` file and start coding
-- **🌍 Bilingual Support** - Complete English and Chinese documentation
+- **🎯 Accurate Translation** — High-quality translations with precise technical terminology
+- **📂 Clear Structure** — Organized by technology domain for easy discovery
+- **🚀 Ready to Use** — Copy `.cursorrules` file and start coding immediately
+- **🌍 Bilingual Support** — Complete English and Chinese documentation
+- **⚡ 132 Rules** — Covering frontend, backend, mobile, AI, DevOps, and more
 
-### 🔧 What is .cursorrules?
+> 🌐 **Online Documentation**: [awesome-cursorrules-zh.js.org](https://awesome-cursorrules-zh.js.org/)
 
-`.cursorrules` is a project-level configuration file for the Cursor AI editor:
+---
+
+## What is .cursorrules?
+
+`.cursorrules` is a project-level configuration file for the [Cursor](https://cursor.sh/) AI editor that defines how AI should assist your coding:
 
 | Feature | Description | Example |
 |---------|-------------|---------|
-| Coding Standards | Define code style and naming conventions | PascalCase components, camelCase functions |
-| Tech Stack | Specify frameworks, libraries, toolchains | React + TypeScript + Tailwind |
-| Best Practices | Automatically apply industry standards | Error handling, performance, security |
-| AI Behavior | Customize AI response and code generation style | Detailed comments, functional programming |
+| **Coding Standards** | Define code style and naming conventions | PascalCase components, camelCase functions |
+| **Tech Stack** | Specify frameworks, libraries, toolchains | React + TypeScript + Tailwind CSS |
+| **Best Practices** | Automatically apply industry standards | Error handling, performance optimization |
+| **AI Behavior** | Customize AI response style | Detailed comments, functional programming |
 
-> 💡 **Essence**: A "project handbook" for AI assistants
+> 💡 **Essence**: A "project handbook" for AI assistants that ensures consistent, high-quality code generation
 
 ---
 
-### 🚀 Quick Start
+## ✨ Features
 
-#### Three Steps to Get Started
+### 🏆 Popular Tech Stacks
+
+<table>
+<tr>
+<td align="center" width="20%">
+  <img src="https://img.shields.io/badge/TypeScript-29%20rules-blue?style=flat-square&logo=typescript" alt="TypeScript"><br>
+  <sub>Most covered</sub>
+</td>
+<td align="center" width="20%">
+  <img src="https://img.shields.io/badge/React-19%20rules-61DAFB?style=flat-square&logo=react" alt="React"><br>
+  <sub>Frontend leader</sub>
+</td>
+<td align="center" width="20%">
+  <img src="https://img.shields.io/badge/Python-11%20rules-3776AB?style=flat-square&logo=python" alt="Python"><br>
+  <sub>Backend & AI</sub>
+</td>
+<td align="center" width="20%">
+  <img src="https://img.shields.io/badge/Next.js-8%20rules-black?style=flat-square&logo=next.js" alt="Next.js"><br>
+  <sub>Full-stack</sub>
+</td>
+<td align="center" width="20%">
+  <img src="https://img.shields.io/badge/Docker-7%20rules-2496ED?style=flat-square&logo=docker" alt="Docker"><br>
+  <sub>DevOps</sub>
+</td>
+</tr>
+</table>
+
+### 📊 Coverage Areas
+
+- **🌐 App Development**: Frontend, Backend, Mobile, Database, Systems
+- **🤖 AI & Data**: Machine Learning, Data Science, Data Engineering
+- **☁️ Infrastructure**: DevOps, Cloud, Edge Computing, Security
+- **🔬 Specialized**: Blockchain, IoT, Quantum Computing, Bio Tech
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/LessUp/awesome-cursorrules-zh.git
 
-# 2. Browse available rules
+# Browse available rules
 cd awesome-cursorrules-zh
-ls rules/frontend/react/  # View frontend React rules
+ls rules/frontend/react/
+```
 
-# 3. Copy rules to your project
+### Usage
+
+```bash
+# Copy rule to your project
 cp rules/frontend/react/nextjs-typescript/.cursorrules /path/to/your/project/
 ```
 
-#### Popular Rules
+That's it! Open your project in Cursor and the AI will follow the rules automatically.
 
-| Tech Stack | Rule | Path |
-|------------|------|------|
-| Next.js + TypeScript | `nextjs-typescript` | `rules/frontend/react/nextjs-typescript/` |
-| Vue 3 | `composition-api` | `rules/frontend/vue/composition-api/` |
-| FastAPI | `fastapi-api-example` | `rules/backend/python/fastapi-api-example/` |
-| Flutter | `flutter-app-expert` | `rules/mobile/flutter/flutter-app-expert/` |
-| Go Backend | `backend-scalability` | `rules/backend/go/backend-scalability/` |
+### Quick Examples
 
-📖 [Complete Quick Start Guide](./docs/en/getting-started.md) · [中文版快速开始](./docs/zh/getting-started.md)
+| Tech Stack | Rule | Command |
+|------------|------|---------|
+| Next.js + TypeScript | `nextjs-typescript` | `cp rules/frontend/react/nextjs-typescript/.cursorrules ./` |
+| Vue 3 | `composition-api` | `cp rules/frontend/vue/composition-api/.cursorrules ./` |
+| FastAPI | `fastapi-api-example` | `cp rules/backend/python/fastapi-api-example/.cursorrules ./` |
+| Flutter | `flutter-app-expert` | `cp rules/mobile/flutter/flutter-app-expert/.cursorrules ./` |
+
+📖 **[Complete Quick Start Guide](https://awesome-cursorrules-zh.js.org/en/getting-started.html)**
 
 ---
 
-### 📂 Rule Categories
+## 📂 Rule Categories
 
-<details>
+<details open>
 <summary><b>🌐 App Development</b></summary>
 
-| Domain | Directory | Includes |
-|--------|-----------|----------|
-| Frontend | [`rules/frontend/`](./rules/frontend/) | React, Vue, Angular, Svelte, TypeScript |
-| Backend | [`rules/backend/`](./rules/backend/) | Node.js, Python, Go, Java, PHP, .NET |
-| Mobile | [`rules/mobile/`](./rules/mobile/) | Flutter, React Native, SwiftUI, Android |
+| Domain | Directory | Technologies |
+|--------|-----------|--------------|
+| Frontend | [`rules/frontend/`](./rules/frontend/) | React, Vue, Angular, Svelte, SolidJS, TypeScript |
+| Backend | [`rules/backend/`](./rules/backend/) | Node.js, Python, Go, Java, PHP, .NET, Elixir |
+| Mobile | [`rules/mobile/`](./rules/mobile/) | Flutter, React Native, SwiftUI, Jetpack Compose |
 | Database | [`rules/database/`](./rules/database/) | Cloud-native, Spatiotemporal |
-| Systems | [`rules/systems/`](./rules/systems/) | Modern C++ guidelines |
+| Systems | [`rules/systems/`](./rules/systems/) | Modern C++, Rust |
 
 </details>
 
 <details>
 <summary><b>🤖 AI & Data</b></summary>
 
-| Domain | Directory | Includes |
-|--------|-----------|----------|
-| AI/ML | [`rules/ai/`](./rules/ai/) | Computer Vision, MLOps, Knowledge Graphs |
-| Data Science | [`rules/data-science/`](./rules/data-science/) | Pandas, PyTorch, TensorFlow |
-| Data Engineering | [`rules/data/`](./rules/data/) | Kafka, Spark, Data Warehouses |
+| Domain | Directory | Technologies |
+|--------|-----------|--------------|
+| AI/ML | [`rules/ai/`](./rules/ai/) | Computer Vision, MLOps, Knowledge Graphs, Edge AI |
+| Data Science | [`rules/data-science/`](./rules/data-science/) | Pandas, PyTorch, TensorFlow, Scikit-learn |
+| Data Engineering | [`rules/data/`](./rules/data/) | Kafka, Spark, Flink, Data Warehouses |
 
 </details>
 
 <details>
-<summary><b>☁️ Infrastructure</b></summary>
+<summary><b>☁️ Infrastructure & DevOps</b></summary>
 
-| Domain | Directory | Includes |
-|--------|-----------|----------|
-| DevOps | [`rules/devops/`](./rules/devops/) | Docker, K8s, Terraform, CI/CD |
-| Cloud | [`rules/cloud/`](./rules/cloud/) | Middleware |
+| Domain | Directory | Technologies |
+|--------|-----------|--------------|
+| DevOps | [`rules/devops/`](./rules/devops/) | Docker, Kubernetes, Terraform, CI/CD |
+| Cloud | [`rules/cloud/`](./rules/cloud/) | Middleware, Serverless |
 | Edge Computing | [`rules/edge/`](./rules/edge/) | AI Inference, Model Compression |
-| Security | [`rules/security/`](./rules/security/) | Zero Trust, Privacy Computing |
+| Security | [`rules/security/`](./rules/security/) | Zero Trust, Privacy Computing, Homomorphic Encryption |
 
 </details>
 
 <details>
 <summary><b>🔬 Specialized Domains</b></summary>
 
-| Domain | Directory | Includes |
-|--------|-----------|----------|
-| Blockchain | [`rules/blockchain/`](./rules/blockchain/) | Solidity, Web3, Smart Contracts |
+| Domain | Directory | Technologies |
+|--------|-----------|--------------|
+| Blockchain | [`rules/blockchain/`](./rules/blockchain/) | Solidity, Web3, Smart Contracts, Foundry |
 | IoT | [`rules/iot/`](./rules/iot/) | Embedded, Digital Twins |
 | Quantum Computing | [`rules/quantum/`](./rules/quantum/) | Quantum Error Correction, Superconducting |
 | Bio Tech | [`rules/bio/`](./rules/bio/) | Bioelectronics, Biosensors |
+| Hardware | [`rules/hardware/`](./rules/hardware/) | Neuromorphic Chips, Photon Computing |
+| Gaming | [`rules/gaming/`](./rules/gaming/) | DragonRuby, Cloud Gaming |
+
+</details>
+
+<details>
+<summary><b>🛠️ Tools & General</b></summary>
+
+| Domain | Directory | Technologies |
+|--------|-----------|--------------|
+| Tools | [`rules/tools/`](./rules/tools/) | Convex, GitHub Quality |
+| General | [`rules/general/`](./rules/general/) | Code Guidelines, Style Consistency, Testing |
 
 </details>
 
@@ -131,16 +206,15 @@ See full directory structure in [`rules/`](./rules/)
 
 ---
 
-### 💡 Usage
+## 💡 Usage
 
-#### Single Tech Stack Projects
+### Single Tech Stack
 
 ```bash
-# Copy relevant rules to project root
 cp rules/frontend/react/nextjs-typescript/.cursorrules ./
 ```
 
-#### Multi Tech Stack Projects
+### Multiple Tech Stacks
 
 **Option 1: Merge Rules**
 
@@ -150,7 +224,7 @@ echo "" >> .cursorrules
 cat rules/backend/python/fastapi-api-example/.cursorrules >> .cursorrules
 ```
 
-**Option 2: Directory-Level Rules** (Recommended)
+**Option 2: Directory-Level Rules** (Recommended for monorepos)
 
 ```
 project/
@@ -161,7 +235,7 @@ project/
     └── .cursorrules       # Backend-specific rules
 ```
 
-#### Customizing Rules
+### Customize Rules
 
 ```bash
 # Append project-specific rules
@@ -170,39 +244,53 @@ cat >> .cursorrules << 'EOF'
 ## Project Custom Rules
 - API routes use /api/v1 prefix
 - All models must include created_at and updated_at fields
+- Prefer functional components over class components
 EOF
 ```
 
-📖 [Complete Best Practices Guide](./docs/en/best-practices.md) · [中文版最佳实践](./docs/zh/best-practices.md)
+📖 **[Complete Best Practices Guide](https://awesome-cursorrules-zh.js.org/en/best-practices.html)**
 
 ---
 
-### 📊 Project Statistics
+## 📊 Statistics
 
-| Metric | Count |
+| Metric | Value |
 |--------|-------|
-| Rule Files | 119 `.cursorrules` |
-| Tech Domains | 43 categories |
-| Tech Documents | 568 files |
-| Translation Progress | 100% complete |
-| Documentation Languages | English + Chinese |
+| **Rule Files** | 132 `.cursorrules` |
+| **Tech Domains** | 32 categories |
+| **Tech Documents** | 190 Markdown files |
+| **Total Lines** | 6,500+ lines |
+| **Translation** | 100% Chinese + English |
+| **Coverage** | Frontend, Backend, Mobile, AI, DevOps, Blockchain, IoT, etc. |
+
+### Top Technologies
+
+```
+TypeScript  ████████████████████████████████  29 rules
+React       ██████████████████████            19 rules
+Tailwind    ███████████████                   13 rules
+Python      █████████████                     11 rules
+Next.js     ██████████                         8 rules
+Node.js     █████████                          7 rules
+Docker      █████████                          7 rules
+```
 
 ---
 
-### 📚 Documentation
+## 📚 Documentation
 
 | Document | Description | Link |
 |----------|-------------|------|
-| Quick Start | 5-minute getting started guide | [English](./docs/en/getting-started.md) · [中文](./docs/zh/getting-started.md) |
-| Installation Guide | Detailed setup instructions | [English](./docs/en/installation-guide.md) · [中文](./docs/zh/installation-guide.md) |
-| Best Practices | Configuration & usage tips | [English](./docs/en/best-practices.md) · [中文](./docs/zh/best-practices.md) |
-| Troubleshooting | Common issues & solutions | [English](./docs/en/troubleshooting.md) · [中文](./docs/zh/troubleshooting.md) |
-| API Reference | Rule format reference | [English](./docs/en/api-reference.md) · [中文](./docs/zh/api-reference.md) |
-| Changelog | Version history | [English](./CHANGELOG.md) · [中文](./CHANGELOG.zh-CN.md) |
+| 🚀 Quick Start | 5-minute getting started guide | [Online](https://awesome-cursorrules-zh.js.org/en/getting-started.html) · [GitHub](./docs/en/getting-started.md) |
+| 📖 Installation | Detailed setup instructions | [Online](https://awesome-cursorrules-zh.js.org/en/installation-guide.html) · [GitHub](./docs/en/installation-guide.md) |
+| 💡 Best Practices | Configuration & usage tips | [Online](https://awesome-cursorrules-zh.js.org/en/best-practices.html) · [GitHub](./docs/en/best-practices.md) |
+| 🔧 Troubleshooting | Common issues & solutions | [Online](https://awesome-cursorrules-zh.js.org/en/troubleshooting.html) · [GitHub](./docs/en/troubleshooting.md) |
+| 📋 API Reference | Rule format reference | [Online](https://awesome-cursorrules-zh.js.org/en/api-reference.html) · [GitHub](./docs/en/api-reference.md) |
+| 📝 Changelog | Version history | [English](./CHANGELOG.md) · [中文](./CHANGELOG.zh-CN.md) |
 
 ---
 
-### 🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome in all forms:
 
@@ -215,21 +303,15 @@ See [Contributing Guide](./CONTRIBUTING.md) for details.
 
 ---
 
-### 📄 License
+## 🙏 Acknowledgments
 
-[MIT License](./LICENSE)
+This project is a Chinese localization of [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules). Special thanks to the original author and all contributors.
 
 ---
 
-## 🇨🇳 中文版
+## 📄 License
 
-本项目提供完整的中文本地化内容，专为中文开发者优化。访问 **[中文版 README](./README.zh-CN.md)** 查看中文版本的详细说明。
-
-Key features for Chinese developers:
-- 高质量中文翻译，技术术语准确
-- 按技术领域分类，便于快速查找
-- 开箱即用，复制 `.cursorrules` 文件即可使用
-- 完整的中英文双语文档
+[MIT License](./LICENSE)
 
 ---
 
@@ -237,6 +319,6 @@ Key features for Chinese developers:
 
 **If this project helps you, please give it a ⭐ Star!**
 
-[⬆ Back to Top](#awesome-cursor-rules)
+[🌐 Visit Official Website](https://awesome-cursorrules-zh.js.org/) · [⬆ Back to Top](#awesome-cursor-rules)
 
 </div>
