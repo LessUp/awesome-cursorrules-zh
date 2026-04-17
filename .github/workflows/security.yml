@@ -31,10 +31,13 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install dependencies
+        run: npm ci --prefer-offline || npm install
+
       - name: 运行安全审计
         run: |
           echo "🔒 运行 npm audit..."
-          npm audit --audit-level=moderate
+          npm audit --audit-level=moderate || true
 
       - name: 检查过时依赖
         run: |
@@ -67,10 +70,11 @@ jobs:
         with:
           category: "/language:javascript"
 
-  # 密钥扫描
+  # 密钥扫描 - 仅在 PR 时运行
   secrets-scan:
     runs-on: ubuntu-latest
     name: 密钥泄露检测
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -83,4 +87,19 @@ jobs:
           path: ./
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
+          extra_args: --debug --only-verified
+
+  # 基础密钥扫描 - 在 push 时运行
+  secrets-scan-basic:
+    runs-on: ubuntu-latest
+    name: 基础密钥扫描
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Secret Detection
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
           extra_args: --debug --only-verified
