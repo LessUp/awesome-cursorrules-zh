@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5f67ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:0.95" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1100" cy="530" r="120" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="950" cy="150" r="60" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Main card -->
+  <rect x="80" y="120" width="1040" height="390" rx="20" fill="url(#cardGrad)" filter="drop-shadow(0 10px 30px rgba(0,0,0,0.2))"/>
+
+  <!-- Logo icon -->
+  <rect x="140" y="180" width="80" height="80" rx="16" fill="url(#bgGrad)"/>
+  <text x="180" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">CR</text>
+  <circle cx="200" cy="195" r="6" fill="#00d4aa"/>
+
+  <!-- Title -->
+  <text x="140" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="#1a1a2e">Awesome Cursor Rules</text>
+
+  <!-- Subtitle -->
+  <text x="140" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#5f67ee">中文版 | Chinese Edition</text>
+
+  <!-- Description -->
+  <text x="140" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#666">为中文开发者打造的 Cursor AI 编程规则集合</text>
+
+  <!-- Stats badges -->
+  <rect x="140" y="450" width="140" height="36" rx="18" fill="#5f67ee"/>
+  <text x="210" y="473" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">119+ 规则</text>
+
+  <rect x="300" y="450" width="160" height="36" rx="18" fill="#00d4aa"/>
+  <text x="380" y="473" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">43 技术领域</text>
+
+  <!-- Tech icons decoration -->
+  <g transform="translate(850, 200)">
+    <!-- React icon representation -->
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#61dafb" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#61dafb"/>
+    <ellipse cx="0" cy="0" rx="50" ry="20" fill="none" stroke="#61dafb" stroke-width="2" transform="rotate(60)"/>
+    <ellipse cx="0" cy="0" rx="50" ry="20" fill="none" stroke="#61dafb" stroke-width="2" transform="rotate(-60)"/>
+  </g>
+
+  <!-- TypeScript icon -->
+  <rect x="920" y="175" width="50" height="50" rx="8" fill="#3178c6"/>
+  <text x="945" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">TS</text>
+
+  <!-- Python icon -->
+  <rect x="980" y="175" width="50" height="50" rx="8" fill="#3776ab"/>
+  <text x="1005" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Py</text>
+
+  <!-- Vue icon -->
+  <rect x="920" y="240" width="50" height="50" rx="8" fill="#42b883"/>
+  <text x="945" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">V</text>
+
+  <!-- Go icon -->
+  <rect x="980" y="240" width="50" height="50" rx="8" fill="#00add8"/>
+  <text x="1005" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Go</text>
+
+  <!-- Footer text -->
+  <text x="600" y="590" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)" text-anchor="middle">GitHub: LessUp/awesome-cursorrules-zh</text>
+</svg>

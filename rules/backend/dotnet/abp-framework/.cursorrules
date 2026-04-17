@@ -1,0 +1,160 @@
+# ABP 框架开发 .cursorrules 提示文件
+
+## 技术栈
+
+- .NET 8.0+
+- ABP Framework
+- Entity Framework Core
+- ASP.NET Core
+- Blazor / Angular / React
+- Dapr（可选）
+
+## 核心原则
+
+### 命名约定
+
+- 项目名：PascalCase（例如 `MyProject`）
+- 类名：PascalCase（例如 `UserManager`）
+- 接口名：I + PascalCase（例如 `IUserAppService`）
+- 方法名：PascalCase（例如 `GetUserAsync`）
+- 变量名：camelCase（例如 `userRepository`）
+- 常量：PascalCase 或 UPPER_SNAKE_CASE
+
+### 代码风格
+
+```csharp
+// 遵循 C# 编码规范
+// 使用现代 C# 特性
+
+// 使用记录类型定义 DTO
+public record CreateUpdateUserDto(
+    string UserName,
+    string Email,
+    string? PhoneNumber
+);
+
+// 使用 primary constructor（C# 12）
+public class UserAppService(
+    IUserRepository userRepository,
+    UserManager<User> userManager) : ApplicationService, IUserAppService
+{
+    public async Task<UserDto> GetAsync(Guid id)
+    {
+        var user = await userRepository.FindAsync(id);
+        return ObjectMapper.Map<User, UserDto>(user);
+    }
+}
+
+// 使用 required 属性
+public class UserDto
+{
+    public Guid Id { get; init; }
+    public required string UserName { get; init; }
+    public required string Email { get; init; }
+}
+```
+
+### ABP 最佳实践
+
+1. **领域层**
+   - 实体继承 `Entity` 或 `AggregateRoot`
+   - 使用值对象封装复杂类型
+   - 定义领域服务和仓储接口
+   - 使用领域事件
+
+```csharp
+public class User : AggregateRoot<Guid>
+{
+    public string UserName { get; private set; }
+    public string Email { get; private set; }
+
+    private User() { } // ORM
+
+    public User(Guid id, string userName, string email) : base(id)
+    {
+        UserName = userName;
+        Email = email;
+    }
+
+    public void UpdateEmail(string email)
+    {
+        Email = email;
+        AddLocalEvent(new UserEmailChangedEvent(Id, email));
+    }
+}
+```
+
+2. **应用层**
+   - 应用服务实现 `IApplicationService`
+   - 使用 DTO 进行数据传输
+   - 使用 AutoMapper 进行对象映射
+   - 实现权限授权
+
+```csharp
+[Authorize(MyProjectPermissions.Users.Create)]
+public class UserAppService : ApplicationService, IUserAppService
+{
+    public async Task<UserDto> CreateAsync(CreateUpdateUserDto input)
+    {
+        var user = new User(GuidGenerator.Create(), input.UserName, input.Email);
+        await _userRepository.InsertAsync(user);
+        return ObjectMapper.Map<User, UserDto>(user);
+    }
+}
+```
+
+3. **基础设施层**
+   - 实现 `IRepository<TEntity>` 接口
+   - 使用 EF Core 配置映射
+   - 实现数据库迁移
+
+4. **表现层**
+   - 使用 Auto API Controllers
+   - 实现动态 C# API 客户端
+   - 使用 ABP 的 Bundling 系统
+
+### 项目结构
+
+```
+src/
+├── MyProject.Domain/
+│   ├── Entities/
+│   ├── Repositories/
+│   └── ValueObjects/
+├── MyProject.Domain.Shared/
+│   └── Enums/
+├── MyProject.Application/
+│   ├── Services/
+│   ├── DTOs/
+│   └── AutoMapper/
+├── MyProject.Application.Contracts/
+│   ├── Services/
+│   └── DTOs/
+├── MyProject.EntityFrameworkCore/
+│   ├── EntityConfigurations/
+│   └── Migrations/
+├── MyProject.HttpApi/
+│   └── Controllers/
+└── MyProject.Web/
+    ├── Pages/
+    └── Components/
+```
+
+## 测试
+
+- 使用 xUnit 进行单元测试
+- 使用 ABP 测试基础设施
+- 模拟依赖项
+- 测试应用服务和领域逻辑
+
+## 模块化
+
+- 定义模块依赖关系
+- 使用 Volo.Abp.Modularity
+- 实现模块初始化逻辑
+
+## 文档
+
+- 使用 XML 注释记录公共 API
+- 为复杂业务逻辑添加解释
+- 维护 CHANGELOG

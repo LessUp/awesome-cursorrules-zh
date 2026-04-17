@@ -1,0 +1,1185 @@
+{
+  "generatedAt": "2026-04-17T02:46:11.374Z",
+  "summary": {
+    "totalRules": 132,
+    "totalCategories": 32,
+    "totalDocs": 185,
+    "totalLines": 6567,
+    "avgRuleSize": 865
+  },
+  "categories": {
+    "ai": {
+      "count": 6,
+      "rules": [
+        {
+          "name": "computer-vision",
+          "path": "rules/ai/computer-vision",
+          "size": 189,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "edge-ai",
+          "path": "rules/ai/edge-ai",
+          "size": 168,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "federated-learning",
+          "path": "rules/ai/federated-learning",
+          "size": 180,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "knowledge-graph",
+          "path": "rules/ai/knowledge-graph",
+          "size": 184,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "mlops",
+          "path": "rules/ai/mlops",
+          "size": 219,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "photonic-neural-network",
+          "path": "rules/ai/photonic-neural-network",
+          "size": 169,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "ar-vr": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "augmented-reality",
+          "path": "rules/ar-vr/augmented-reality",
+          "size": 186,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "automation": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "rpa",
+          "path": "rules/automation/rpa",
+          "size": 171,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "backend": {
+      "count": 21,
+      "rules": [
+        {
+          "name": "abp-framework",
+          "path": "rules/backend/dotnet/abp-framework",
+          "size": 2973,
+          "lines": 161,
+          "hasReadme": true
+        },
+        {
+          "name": "guidelines",
+          "path": "rules/backend/elixir/guidelines",
+          "size": 1853,
+          "lines": 113,
+          "hasReadme": true
+        },
+        {
+          "name": "phoenix-docker-setup",
+          "path": "rules/backend/elixir/phoenix-docker-setup",
+          "size": 1093,
+          "lines": 38,
+          "hasReadme": true
+        },
+        {
+          "name": "go",
+          "path": "rules/backend/go",
+          "size": 1987,
+          "lines": 129,
+          "hasReadme": true
+        },
+        {
+          "name": "backend-scalability",
+          "path": "rules/backend/go/backend-scalability",
+          "size": 2900,
+          "lines": 132,
+          "hasReadme": true
+        },
+        {
+          "name": "java",
+          "path": "rules/backend/java",
+          "size": 2790,
+          "lines": 142,
+          "hasReadme": true
+        },
+        {
+          "name": "git-conventional-commit-messages",
+          "path": "rules/backend/java/git-conventional-commit-messages",
+          "size": 1974,
+          "lines": 55,
+          "hasReadme": true
+        },
+        {
+          "name": "springboot-jpa",
+          "path": "rules/backend/java/springboot-jpa",
+          "size": 2842,
+          "lines": 88,
+          "hasReadme": true
+        },
+        {
+          "name": "springboot-best-practices",
+          "path": "rules/backend/kotlin/springboot-best-practices",
+          "size": 3747,
+          "lines": 97,
+          "hasReadme": true
+        },
+        {
+          "name": "es-module-guide",
+          "path": "rules/backend/nodejs/es-module-guide",
+          "size": 376,
+          "lines": 26,
+          "hasReadme": true
+        },
+        {
+          "name": "express-mongodb",
+          "path": "rules/backend/nodejs/express-mongodb",
+          "size": 1372,
+          "lines": 113,
+          "hasReadme": true
+        },
+        {
+          "name": "fullstack-mern-guide",
+          "path": "rules/backend/nodejs/fullstack-mern-guide",
+          "size": 795,
+          "lines": 67,
+          "hasReadme": true
+        },
+        {
+          "name": "nestjs-typescript",
+          "path": "rules/backend/nodejs/nestjs-typescript",
+          "size": 1805,
+          "lines": 117,
+          "hasReadme": true
+        },
+        {
+          "name": "laravel-package-guide",
+          "path": "rules/backend/php/laravel-package-guide",
+          "size": 785,
+          "lines": 31,
+          "hasReadme": true
+        },
+        {
+          "name": "laravel-php-83",
+          "path": "rules/backend/php/laravel-php-83",
+          "size": 742,
+          "lines": 28,
+          "hasReadme": true
+        },
+        {
+          "name": "django",
+          "path": "rules/backend/python/django",
+          "size": 1129,
+          "lines": 94,
+          "hasReadme": true
+        },
+        {
+          "name": "django-best-practices",
+          "path": "rules/backend/python/django-best-practices",
+          "size": 1672,
+          "lines": 61,
+          "hasReadme": true
+        },
+        {
+          "name": "fastapi",
+          "path": "rules/backend/python/fastapi",
+          "size": 1591,
+          "lines": 69,
+          "hasReadme": true
+        },
+        {
+          "name": "fastapi-api-example",
+          "path": "rules/backend/python/fastapi-api-example",
+          "size": 1591,
+          "lines": 68,
+          "hasReadme": true
+        },
+        {
+          "name": "fastapi-best-practices",
+          "path": "rules/backend/python/fastapi-best-practices",
+          "size": 890,
+          "lines": 63,
+          "hasReadme": true
+        },
+        {
+          "name": "flask-json-guide",
+          "path": "rules/backend/python/flask-json-guide",
+          "size": 572,
+          "lines": 22,
+          "hasReadme": true
+        }
+      ]
+    },
+    "bio": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "bioelectronics",
+          "path": "rules/bio/bioelectronics",
+          "size": 168,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "biological-cpu",
+          "path": "rules/bio/biological-cpu",
+          "size": 167,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "biosensor-fusion",
+          "path": "rules/bio/biosensor-fusion",
+          "size": 170,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "blockchain": {
+      "count": 4,
+      "rules": [
+        {
+          "name": "advanced-protocols",
+          "path": "rules/blockchain/advanced-protocols",
+          "size": 192,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "smart-contract-security",
+          "path": "rules/blockchain/smart-contract-security",
+          "size": 183,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "foundry",
+          "path": "rules/blockchain/solidity/foundry",
+          "size": 2913,
+          "lines": 150,
+          "hasReadme": true
+        },
+        {
+          "name": "web3",
+          "path": "rules/blockchain/web3",
+          "size": 188,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "cloud": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "middleware",
+          "path": "rules/cloud/middleware",
+          "size": 164,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "cms": {
+      "count": 2,
+      "rules": [
+        {
+          "name": "drupal-11",
+          "path": "rules/cms/drupal/drupal-11",
+          "size": 1765,
+          "lines": 114,
+          "hasReadme": true
+        },
+        {
+          "name": "drupal-11",
+          "path": "rules/cms/drupal-11",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        }
+      ]
+    },
+    "compute": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "distributed",
+          "path": "rules/compute/distributed",
+          "size": 176,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "data": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "data-warehouse",
+          "path": "rules/data/data-warehouse",
+          "size": 238,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "kafka-pulsar",
+          "path": "rules/data/kafka-pulsar",
+          "size": 233,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "spark-flink",
+          "path": "rules/data/spark-flink",
+          "size": 234,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "data-science": {
+      "count": 2,
+      "rules": [
+        {
+          "name": ".",
+          "path": "rules/data-science/.",
+          "size": 1856,
+          "lines": 115,
+          "hasReadme": true
+        },
+        {
+          "name": "python-data-processing",
+          "path": "rules/data-science/python-data-processing",
+          "size": 2847,
+          "lines": 176,
+          "hasReadme": true
+        }
+      ]
+    },
+    "database": {
+      "count": 2,
+      "rules": [
+        {
+          "name": "cloud-native",
+          "path": "rules/database/cloud-native",
+          "size": 192,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "spatiotemporal",
+          "path": "rules/database/spatiotemporal",
+          "size": 187,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "devops": {
+      "count": 12,
+      "rules": [
+        {
+          "name": "chaos-engineering",
+          "path": "rules/devops/chaos-engineering",
+          "size": 174,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "ci-cd-pipelines",
+          "path": "rules/devops/ci-cd-pipelines",
+          "size": 227,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "docker-containerization",
+          "path": "rules/devops/docker-containerization",
+          "size": 239,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "conventional-commits",
+          "path": "rules/devops/git/conventional-commits",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "github-code-quality",
+          "path": "rules/devops/github-code-quality",
+          "size": 2364,
+          "lines": 84,
+          "hasReadme": true
+        },
+        {
+          "name": "kubernetes-mkdocs-documentation",
+          "path": "rules/devops/kubernetes/kubernetes-mkdocs-documentation",
+          "size": 352,
+          "lines": 22,
+          "hasReadme": true
+        },
+        {
+          "name": "observability",
+          "path": "rules/devops/observability",
+          "size": 512,
+          "lines": 24,
+          "hasReadme": true
+        },
+        {
+          "name": "prometheus-grafana-monitoring",
+          "path": "rules/devops/prometheus-grafana-monitoring",
+          "size": 263,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "python-containerization",
+          "path": "rules/devops/python-containerization",
+          "size": 627,
+          "lines": 47,
+          "hasReadme": true
+        },
+        {
+          "name": "serverless",
+          "path": "rules/devops/serverless",
+          "size": 229,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "service-mesh",
+          "path": "rules/devops/service-mesh",
+          "size": 207,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "terraform-iac",
+          "path": "rules/devops/terraform-iac",
+          "size": 474,
+          "lines": 35,
+          "hasReadme": true
+        }
+      ]
+    },
+    "edge": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "ai-inference",
+          "path": "rules/edge/ai-inference",
+          "size": 161,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "computing",
+          "path": "rules/edge/computing",
+          "size": 183,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "model-compression",
+          "path": "rules/edge/model-compression",
+          "size": 156,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "emerging-tech": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "biological-computing",
+          "path": "rules/emerging-tech/biological-computing",
+          "size": 175,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "quantum-communication",
+          "path": "rules/emerging-tech/quantum-communication",
+          "size": 175,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "quantum-computing",
+          "path": "rules/emerging-tech/quantum-computing",
+          "size": 192,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "frontend": {
+      "count": 26,
+      "rules": [
+        {
+          "name": "angular-ts-guide",
+          "path": "rules/frontend/angular/angular-ts-guide",
+          "size": 611,
+          "lines": 36,
+          "hasReadme": true
+        },
+        {
+          "name": "angular-typescript",
+          "path": "rules/frontend/angular/angular-typescript",
+          "size": 614,
+          "lines": 36,
+          "hasReadme": true
+        },
+        {
+          "name": "angular-typescript-guide",
+          "path": "rules/frontend/angular/angular-typescript-guide",
+          "size": 626,
+          "lines": 35,
+          "hasReadme": true
+        },
+        {
+          "name": "chrome-extension-dev-js-typescript",
+          "path": "rules/frontend/chrome/chrome-extension-dev-js-typescript",
+          "size": 1485,
+          "lines": 75,
+          "hasReadme": true
+        },
+        {
+          "name": "micro-frontend",
+          "path": "rules/frontend/micro-frontend",
+          "size": 206,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "apollo-graphql",
+          "path": "rules/frontend/react/apollo-graphql",
+          "size": 1352,
+          "lines": 81,
+          "hasReadme": true
+        },
+        {
+          "name": "chakra-ui",
+          "path": "rules/frontend/react/chakra-ui",
+          "size": 1170,
+          "lines": 82,
+          "hasReadme": true
+        },
+        {
+          "name": "mobx",
+          "path": "rules/frontend/react/mobx",
+          "size": 1596,
+          "lines": 97,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-14-seo",
+          "path": "rules/frontend/react/nextjs-14-seo",
+          "size": 1777,
+          "lines": 111,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-basic",
+          "path": "rules/frontend/react/nextjs-basic",
+          "size": 1023,
+          "lines": 71,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-react-ts",
+          "path": "rules/frontend/react/nextjs-react-ts",
+          "size": 1241,
+          "lines": 82,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-supabase",
+          "path": "rules/frontend/react/nextjs-supabase",
+          "size": 2099,
+          "lines": 116,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-tailwind",
+          "path": "rules/frontend/react/nextjs-tailwind",
+          "size": 1351,
+          "lines": 93,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-typescript",
+          "path": "rules/frontend/react/nextjs-typescript",
+          "size": 1117,
+          "lines": 68,
+          "hasReadme": true
+        },
+        {
+          "name": "nextjs-ui",
+          "path": "rules/frontend/react/nextjs-ui",
+          "size": 1015,
+          "lines": 72,
+          "hasReadme": true
+        },
+        {
+          "name": "react-components",
+          "path": "rules/frontend/react/react-components",
+          "size": 1156,
+          "lines": 73,
+          "hasReadme": true
+        },
+        {
+          "name": "react-query",
+          "path": "rules/frontend/react/react-query",
+          "size": 1561,
+          "lines": 41,
+          "hasReadme": true
+        },
+        {
+          "name": "react-typescript",
+          "path": "rules/frontend/react/react-typescript",
+          "size": 1312,
+          "lines": 85,
+          "hasReadme": true
+        },
+        {
+          "name": "styled-components",
+          "path": "rules/frontend/react/styled-components",
+          "size": 1736,
+          "lines": 105,
+          "hasReadme": true
+        },
+        {
+          "name": "solidjs-basic-guide",
+          "path": "rules/frontend/solidjs/solidjs-basic-guide",
+          "size": 629,
+          "lines": 41,
+          "hasReadme": true
+        },
+        {
+          "name": "sveltekit-tailwind-typescript-guide",
+          "path": "rules/frontend/svelte/sveltekit-tailwind-typescript-guide",
+          "size": 2678,
+          "lines": 149,
+          "hasReadme": true
+        },
+        {
+          "name": "axios",
+          "path": "rules/frontend/typescript/axios",
+          "size": 2155,
+          "lines": 116,
+          "hasReadme": true
+        },
+        {
+          "name": "conventions",
+          "path": "rules/frontend/typescript/conventions",
+          "size": 1126,
+          "lines": 91,
+          "hasReadme": true
+        },
+        {
+          "name": "vite-tailwind",
+          "path": "rules/frontend/typescript/vite-tailwind",
+          "size": 1440,
+          "lines": 102,
+          "hasReadme": true
+        },
+        {
+          "name": "composition-api",
+          "path": "rules/frontend/vue/composition-api",
+          "size": 633,
+          "lines": 39,
+          "hasReadme": true
+        },
+        {
+          "name": "nuxt3",
+          "path": "rules/frontend/vue/nuxt3",
+          "size": 813,
+          "lines": 31,
+          "hasReadme": true
+        }
+      ]
+    },
+    "gaming": {
+      "count": 2,
+      "rules": [
+        {
+          "name": "cloud-gaming",
+          "path": "rules/gaming/cloud-gaming",
+          "size": 187,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "dragonruby",
+          "path": "rules/gaming/dragonruby",
+          "size": 1454,
+          "lines": 115,
+          "hasReadme": true
+        }
+      ]
+    },
+    "general": {
+      "count": 8,
+      "rules": [
+        {
+          "name": "code-guidelines",
+          "path": "rules/general/code-guidelines",
+          "size": 484,
+          "lines": 44,
+          "hasReadme": true
+        },
+        {
+          "name": "code-guidelines-comprehensive",
+          "path": "rules/general/code-guidelines-comprehensive",
+          "size": 1084,
+          "lines": 78,
+          "hasReadme": true
+        },
+        {
+          "name": "pair-interviews",
+          "path": "rules/general/code-review/pair-interviews",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "code-style",
+          "path": "rules/general/code-style",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "gherkin-testing",
+          "path": "rules/general/gherkin-testing",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "git-conventions",
+          "path": "rules/general/git-conventions",
+          "size": 1920,
+          "lines": 46,
+          "hasReadme": true
+        },
+        {
+          "name": "ticket-template",
+          "path": "rules/general/ticket-template",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        },
+        {
+          "name": "xray-testing",
+          "path": "rules/general/xray-testing",
+          "size": 463,
+          "lines": 18,
+          "hasReadme": true
+        }
+      ]
+    },
+    "hardware": {
+      "count": 4,
+      "rules": [
+        {
+          "name": "carbon-chip",
+          "path": "rules/hardware/carbon-chip",
+          "size": 168,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "neuromorphic-chips",
+          "path": "rules/hardware/neuromorphic-chips",
+          "size": 175,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "photon-computing",
+          "path": "rules/hardware/photon-computing",
+          "size": 169,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "superconducting-memory",
+          "path": "rules/hardware/superconducting-memory",
+          "size": 170,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "industrial": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "automation",
+          "path": "rules/industrial/automation",
+          "size": 199,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "iot": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "digital-twin",
+          "path": "rules/iot/digital-twin",
+          "size": 191,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "embedded",
+          "path": "rules/iot/embedded",
+          "size": 200,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "platform",
+          "path": "rules/iot/platform",
+          "size": 202,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "mobile": {
+      "count": 5,
+      "rules": [
+        {
+          "name": "android-jetpack-compose",
+          "path": "rules/mobile/android-jetpack-compose",
+          "size": 1534,
+          "lines": 89,
+          "hasReadme": true
+        },
+        {
+          "name": "flutter-app-expert",
+          "path": "rules/mobile/flutter/flutter-app-expert",
+          "size": 1724,
+          "lines": 106,
+          "hasReadme": true
+        },
+        {
+          "name": "ios-uikit",
+          "path": "rules/mobile/ios-uikit",
+          "size": 4471,
+          "lines": 220,
+          "hasReadme": true
+        },
+        {
+          "name": "react-native-expo",
+          "path": "rules/mobile/react-native-expo",
+          "size": 597,
+          "lines": 38,
+          "hasReadme": true
+        },
+        {
+          "name": "swiftui-guidelines",
+          "path": "rules/mobile/swiftui-guidelines",
+          "size": 823,
+          "lines": 18,
+          "hasReadme": true
+        }
+      ]
+    },
+    "network": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "satellite-internet",
+          "path": "rules/network/satellite-internet",
+          "size": 168,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "platform": {
+      "count": 3,
+      "rules": [
+        {
+          "name": "low-code",
+          "path": "rules/platform/low-code",
+          "size": 184,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "metaverse",
+          "path": "rules/platform/metaverse",
+          "size": 182,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "no-code",
+          "path": "rules/platform/no-code",
+          "size": 174,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "quantum": {
+      "count": 2,
+      "rules": [
+        {
+          "name": "error-correction",
+          "path": "rules/quantum/error-correction",
+          "size": 167,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "superconducting-computing",
+          "path": "rules/quantum/superconducting-computing",
+          "size": 170,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "robotics": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "ros",
+          "path": "rules/robotics/ros",
+          "size": 200,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "science": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "bioinformatics",
+          "path": "rules/science/bioinformatics",
+          "size": 196,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "security": {
+      "count": 5,
+      "rules": [
+        {
+          "name": "homomorphic-encryption",
+          "path": "rules/security/homomorphic-encryption",
+          "size": 175,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "privacy-computing",
+          "path": "rules/security/privacy-computing",
+          "size": 172,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "secure-multiparty",
+          "path": "rules/security/secure-multiparty",
+          "size": 170,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "service-mesh",
+          "path": "rules/security/service-mesh",
+          "size": 171,
+          "lines": 17,
+          "hasReadme": true
+        },
+        {
+          "name": "zero-trust",
+          "path": "rules/security/zero-trust",
+          "size": 203,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "simulation": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "digital-twin",
+          "path": "rules/simulation/digital-twin",
+          "size": 179,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "storage": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "dna-storage",
+          "path": "rules/storage/dna-storage",
+          "size": 172,
+          "lines": 17,
+          "hasReadme": true
+        }
+      ]
+    },
+    "systems": {
+      "count": 1,
+      "rules": [
+        {
+          "name": "guidelines",
+          "path": "rules/systems/cpp/guidelines",
+          "size": 1903,
+          "lines": 113,
+          "hasReadme": true
+        }
+      ]
+    },
+    "tools": {
+      "count": 2,
+      "rules": [
+        {
+          "name": "convex",
+          "path": "rules/tools/convex",
+          "size": 1690,
+          "lines": 89,
+          "hasReadme": true
+        },
+        {
+          "name": "github-quality",
+          "path": "rules/tools/github-quality",
+          "size": 888,
+          "lines": 89,
+          "hasReadme": true
+        }
+      ]
+    }
+  },
+  "techStack": {
+    "React": 19,
+    "Vue": 3,
+    "Angular": 6,
+    "Svelte": 1,
+    "Node.js": 7,
+    "Python": 11,
+    "Go": 2,
+    "Rust": 1,
+    "TypeScript": 29,
+    "JavaScript": 5,
+    "Java": 5,
+    "PHP": 4,
+    ".NET": 1,
+    "Flutter": 1,
+    "Swift": 2,
+    "Kotlin": 2,
+    "Docker": 7,
+    "Kubernetes": 3,
+    "AWS": 3,
+    "Terraform": 1,
+    "FastAPI": 3,
+    "Django": 3,
+    "Next.js": 8,
+    "Tailwind": 13
+  },
+  "topRules": [
+    {
+      "name": "ios-uikit",
+      "category": "mobile",
+      "size": 4471,
+      "lines": 220
+    },
+    {
+      "name": "springboot-best-practices",
+      "category": "backend",
+      "size": 3747,
+      "lines": 97
+    },
+    {
+      "name": "abp-framework",
+      "category": "backend",
+      "size": 2973,
+      "lines": 161
+    },
+    {
+      "name": "foundry",
+      "category": "blockchain",
+      "size": 2913,
+      "lines": 150
+    },
+    {
+      "name": "backend-scalability",
+      "category": "backend",
+      "size": 2900,
+      "lines": 132
+    },
+    {
+      "name": "python-data-processing",
+      "category": "data-science",
+      "size": 2847,
+      "lines": 176
+    },
+    {
+      "name": "springboot-jpa",
+      "category": "backend",
+      "size": 2842,
+      "lines": 88
+    },
+    {
+      "name": "java",
+      "category": "backend",
+      "size": 2790,
+      "lines": 142
+    },
+    {
+      "name": "sveltekit-tailwind-typescript-guide",
+      "category": "frontend",
+      "size": 2678,
+      "lines": 149
+    },
+    {
+      "name": "github-code-quality",
+      "category": "devops",
+      "size": 2364,
+      "lines": 84
+    }
+  ],
+  "recentChanges": []
+}

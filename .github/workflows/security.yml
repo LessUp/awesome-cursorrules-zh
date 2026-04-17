@@ -1,0 +1,86 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'package*.json'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'package*.json'
+  schedule:
+    # 每周一凌晨 3 点运行
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  # 依赖安全审计
+  audit:
+    runs-on: ubuntu-latest
+    name: 依赖安全审计
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 运行安全审计
+        run: |
+          echo "🔒 运行 npm audit..."
+          npm audit --audit-level=moderate
+
+      - name: 检查过时依赖
+        run: |
+          echo "📦 检查过时依赖..."
+          npm outdated || true
+
+  # CodeQL 分析
+  codeql:
+    runs-on: ubuntu-latest
+    name: CodeQL 分析
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+          queries: security-extended,security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
+
+  # 密钥扫描
+  secrets-scan:
+    runs-on: ubuntu-latest
+    name: 密钥泄露检测
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Secret Detection
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified

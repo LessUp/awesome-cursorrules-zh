@@ -1,0 +1,219 @@
+# UIKit iOS 开发 .cursorrules 提示文件
+
+## 技术栈
+
+- Swift 5.9+
+- UIKit
+- SnapKit（自动布局）
+- Combine（响应式编程）
+
+## 核心原则
+
+### 命名约定
+
+- 类名：PascalCase（例如 `UserProfileViewController`）
+- 函数名：camelCase（例如 `configureViews`）
+- 变量名：camelCase（例如 `titleLabel`）
+- 常量：camelCase 或 PascalCase
+- 枚举：PascalCase（例如 `ViewState`）
+
+### 代码风格
+
+```swift
+// 使用 MARK: 组织代码
+class UserProfileViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private let viewModel: UserProfileViewModel
+    private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+
+    // MARK: - Initialization
+
+    init(viewModel: UserProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        bindViewModel()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+        setupTableView()
+        setupConstraints()
+    }
+
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+    }
+
+    private func setupConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension UserProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 配置 cell
+    }
+}
+```
+
+### UIKit 最佳实践
+
+1. **编程式 UI（不使用 Storyboard/XIB）**
+
+```swift
+// 使用 SnapKit 进行自动布局
+private func setupConstraints() {
+    titleLabel.snp.makeConstraints { make in
+        make.top.equalToSuperview().offset(20)
+        make.leading.trailing.equalToSuperview().inset(16)
+    }
+
+    // 支持动态类型
+    titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+    titleLabel.adjustsFontForContentSizeCategory = true
+}
+```
+
+2. **使用工厂/构建器模式**
+
+```swift
+// UI 工厂
+struct UIComponentFactory {
+    static func makePrimaryButton(title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 12
+        return button
+    }
+}
+
+// 使用
+let submitButton = UIComponentFactory.makePrimaryButton(title: "提交")
+```
+
+3. **基于闭包的事件处理**
+
+```swift
+class CustomView: UIView {
+    var onTap: ((CustomView) -> Void)?
+
+    private lazy var tapGesture = UITapGestureRecognizer(
+        target: self,
+        action: #selector(handleTap)
+    )
+
+    @objc private func handleTap() {
+        onTap?(self)  // 传递 self 以便外部识别
+    }
+}
+
+// 使用
+customView.onTap = { [weak self] view in
+    self?.handleViewTap(view)
+}
+```
+
+4. **MVVM 架构**
+
+```swift
+// ViewModel
+class UserProfileViewModel {
+    @Published var user: User?
+    @Published var isLoading = false
+
+    private var cancellables = Set<AnyCancellable>()
+
+    func loadUser() {
+        isLoading = true
+        userService.fetchUser()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                self?.isLoading = false
+            } receiveValue: { [weak self] user in
+                self?.user = user
+            }
+            .store(in: &cancellables)
+    }
+}
+
+// ViewController 绑定
+private func bindViewModel() {
+    viewModel.$user
+        .receive(on: DispatchQueue.main)
+        .sink { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+        .store(in: &cancellables)
+}
+```
+
+### 项目结构
+
+```
+MyApp/
+├── App/
+│   ├── AppDelegate.swift
+│   ├── SceneDelegate.swift
+│   └── Info.plist
+├── Models/
+│   └── User.swift
+├── ViewModels/
+│   └── UserProfileViewModel.swift
+├── Views/
+│   ├── Components/
+│   │   └── PrimaryButton.swift
+│   └── UserProfileView.swift
+├── ViewControllers/
+│   └── UserProfileViewController.swift
+├── Services/
+│   └── UserService.swift
+├── Utilities/
+│   └── Extensions/
+└── Resources/
+    └── Assets.xcassets
+```
+
+## 测试
+
+- 使用 XCTest 进行单元测试
+- 测试 ViewModel 逻辑
+- 使用快照测试验证 UI
+
+## 性能优化
+
+- 使用 `prepareForReuse` 复用 cell
+- 异步加载图片
+- 避免主线程阻塞
+
+## 文档
+
+- 使用 Swift DocC 格式
+- 为公开 API 添加文档注释
+- 记录架构决策

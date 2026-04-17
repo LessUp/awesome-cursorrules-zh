@@ -2,77 +2,197 @@ name: 质量检查
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - 'LICENSE'
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  NODE_VERSION: 20
 
 jobs:
-  validate:
+  # 快速检查 - 首先运行，快速失败
+  quick-check:
     runs-on: ubuntu-latest
-    name: 验证文件格式
-
+    name: 快速检查
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-    - name: 检查 Markdown 文件
-      uses: DavidAnson/markdownlint-cli2-action@v19
-      with:
-        globs: '**/*.md'
-        config: '.markdownlint.json'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
-    - name: 验证 .cursorrules 文件格式
-      run: |
-        set -e
-        echo "检查 .cursorrules 文件..."
-        found=0
-        while IFS= read -r file; do
-          found=1
-          echo "验证文件: $file"
-          # 检查文件是否为空
-          if [ ! -s "$file" ]; then
-            echo "错误: $file 文件为空"
+      - name: 验证项目结构
+        run: |
+          set -e
+          echo "📁 验证项目目录结构..."
+          
+          required_dirs=("rules" "docs" ".vitepress")
+          for dir in "${required_dirs[@]}"; do
+            if [ ! -d "$dir" ]; then
+              echo "❌ 错误: 缺少必需目录 $dir"
+              exit 1
+            fi
+            echo "✅ 目录 $dir 存在"
+          done
+
+      - name: 统计项目数据
+        run: |
+          echo "📊 项目统计:"
+          echo "  .cursorrules 文件数: $(find rules -name '.cursorrules' -type f | wc -l)"
+          echo "  技术域分类: $(ls -1 rules | wc -l)"
+          echo "  Markdown 文档: $(find . -name '*.md' -not -path './node_modules/*' | wc -l)"
+
+  # Markdown 格式检查
+  lint-markdown:
+    runs-on: ubuntu-latest
+    name: Markdown 格式检查
+    needs: quick-check
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Run markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
+          config: '.markdownlint.json'
+
+  # 深度规则验证
+  validate-rules:
+    runs-on: ubuntu-latest
+    name: 规则文件验证
+    needs: quick-check
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: 运行规则验证
+        run: npm run validate
+
+      - name: 生成规则统计
+        run: npm run stats
+
+      - name: 上传统计结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: rules-stats
+          path: |
+            stats.json
+            validation-report.json
+          retention-days: 30
+
+  # VitePress 构建测试
+  build-test:
+    runs-on: ubuntu-latest
+    name: 构建测试
+    needs: [lint-markdown, validate-rules]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Cache VitePress
+        uses: actions/cache@v4
+        with:
+          path: .vitepress/cache
+          key: vitepress-${{ hashFiles('**/*.md') }}-${{ github.sha }}
+          restore-keys: |
+            vitepress-${{ hashFiles('**/*.md') }}-
+            vitepress-
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Build VitePress
+        run: npm run docs:build
+
+      - name: 检查构建产物
+        run: |
+          if [ ! -d ".vitepress/dist" ]; then
+            echo "❌ 构建产物不存在"
             exit 1
           fi
-          echo "✅ $file 格式正确"
-        done < <(find . -name ".cursorrules" -type f)
-        if [ "$found" -eq 0 ]; then
-          echo "⚠️ 未找到 .cursorrules 文件"
-        fi
+          
+          echo "✅ 构建成功"
+          echo "📦 产物大小: $(du -sh .vitepress/dist | cut -f1)"
+          echo "📄 文件数量: $(find .vitepress/dist -type f | wc -l)"
 
-    - name: 检查目录结构
-      run: |
-        set -e
-        echo "验证项目目录结构..."
-        required_dirs=("rules" "docs")
-        for dir in "${required_dirs[@]}"; do
-          if [ ! -d "$dir" ]; then
-            echo "错误: 缺少必需目录 $dir"
-            exit 1
-          fi
-          echo "✅ 目录 $dir 存在"
-        done
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitepress-dist
+          path: .vitepress/dist
+          retention-days: 7
 
-    - name: 统计翻译进度
-      run: |
-        set -e
-        echo "📊 翻译进度统计:"
-        total_rules=$(find rules -type d -mindepth 3 -maxdepth 3 2>/dev/null | wc -l)
-        echo "总规则集数量: $total_rules"
-
-        if [ -d "rules/frontend" ]; then
-          frontend_rules=$(find rules/frontend -type d -mindepth 2 -maxdepth 2 2>/dev/null | wc -l)
-        else
-          frontend_rules=0
-        fi
-        
-        if [ -d "rules/backend" ]; then
-          backend_rules=$(find rules/backend -type d -mindepth 2 -maxdepth 2 2>/dev/null | wc -l)
-        else
-          backend_rules=0
-        fi
-
-        echo "前端规则集: $frontend_rules"
-        echo "后端规则集: $backend_rules"
+  # 总结
+  summary:
+    runs-on: ubuntu-latest
+    name: 质量检查总结
+    needs: [build-test]
+    if: always()
+    steps:
+      - name: 输出检查结果
+        run: |
+          echo "=========================================="
+          echo "🔍 质量检查完成"
+          echo "=========================================="
+          echo "快速检查: ${{ needs.quick-check.result }}"
+          echo "Markdown 检查: ${{ needs.lint-markdown.result }}"
+          echo "规则验证: ${{ needs.validate-rules.result }}"
+          echo "构建测试: ${{ needs.build-test.result }}"
+          echo "=========================================="

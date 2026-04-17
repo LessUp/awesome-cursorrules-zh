@@ -1,0 +1,13 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 查看文档
+    url: https://awesome-cursorrules-zh.js.org/
+    about: 请先查看文档，可能已有解决方案
+
+  - name: 🌐 访问官网
+    url: https://cursor.sh/
+    about: Cursor 编辑器官网
+
+  - name: 💬 加入讨论
+    url: https://github.com/LessUp/awesome-cursorrules-zh/discussions
+    about: 对于问题和使用帮助，请使用 GitHub Discussions

@@ -1,0 +1,3466 @@
+{
+  "timestamp": "2026-04-17T02:17:44.103Z",
+  "summary": {
+    "total": 132,
+    "valid": 10,
+    "warnings": 122,
+    "errors": 0
+  },
+  "details": [
+    {
+      "file": "rules/ai/computer-vision/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 189,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.208Z"
+    },
+    {
+      "file": "rules/ai/edge-ai/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 168,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.208Z"
+    },
+    {
+      "file": "rules/ai/federated-learning/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 180,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.208Z"
+    },
+    {
+      "file": "rules/ai/knowledge-graph/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 184,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.212Z"
+    },
+    {
+      "file": "rules/ai/mlops/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 219,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.212Z"
+    },
+    {
+      "file": "rules/ai/photonic-neural-network/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 169,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.212Z"
+    },
+    {
+      "file": "rules/ar-vr/augmented-reality/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 186,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.212Z"
+    },
+    {
+      "file": "rules/automation/rpa/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 171,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.212Z"
+    },
+    {
+      "file": "rules/backend/dotnet/abp-framework/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 2973,
+      "lines": 161,
+      "lastModified": "2026-04-16T15:33:06.750Z"
+    },
+    {
+      "file": "rules/backend/elixir/phoenix-docker-setup/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 1093,
+      "lines": 38,
+      "lastModified": "2026-04-15T16:58:53.215Z"
+    },
+    {
+      "file": "rules/backend/go/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1987,
+      "lines": 129,
+      "lastModified": "2026-04-15T17:42:17.800Z"
+    },
+    {
+      "file": "rules/backend/go/backend-scalability/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 2900,
+      "lines": 132,
+      "lastModified": "2026-04-15T16:58:53.219Z"
+    },
+    {
+      "file": "rules/backend/java/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 2790,
+      "lines": 142,
+      "lastModified": "2026-04-15T17:42:41.502Z"
+    },
+    {
+      "file": "rules/backend/java/git-conventional-commit-messages/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "trailingWhitespace",
+          "message": "存在行尾空格",
+          "severity": "info"
+        }
+      ],
+      "size": 1974,
+      "lines": 55,
+      "lastModified": "2026-04-15T16:58:53.219Z"
+    },
+    {
+      "file": "rules/backend/java/springboot-jpa/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 2842,
+      "lines": 88,
+      "lastModified": "2026-04-15T16:58:53.219Z"
+    },
+    {
+      "file": "rules/backend/kotlin/springboot-best-practices/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        },
+        {
+          "rule": "trailingWhitespace",
+          "message": "存在行尾空格",
+          "severity": "info"
+        }
+      ],
+      "size": 3747,
+      "lines": 97,
+      "lastModified": "2026-04-15T16:58:53.226Z"
+    },
+    {
+      "file": "rules/backend/nodejs/es-module-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 376,
+      "lines": 26,
+      "lastModified": "2026-04-15T16:58:53.226Z"
+    },
+    {
+      "file": "rules/backend/nodejs/express-mongodb/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1372,
+      "lines": 113,
+      "lastModified": "2026-04-15T17:26:20.731Z"
+    },
+    {
+      "file": "rules/backend/nodejs/fullstack-mern-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 795,
+      "lines": 67,
+      "lastModified": "2026-04-15T16:58:53.226Z"
+    },
+    {
+      "file": "rules/backend/nodejs/nestjs-typescript/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1805,
+      "lines": 117,
+      "lastModified": "2026-04-15T17:26:48.512Z"
+    },
+    {
+      "file": "rules/backend/php/laravel-package-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        },
+        {
+          "rule": "trailingWhitespace",
+          "message": "存在行尾空格",
+          "severity": "info"
+        }
+      ],
+      "size": 785,
+      "lines": 31,
+      "lastModified": "2026-04-15T16:58:53.230Z"
+    },
+    {
+      "file": "rules/backend/php/laravel-php-83/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 742,
+      "lines": 28,
+      "lastModified": "2026-04-15T16:58:53.230Z"
+    },
+    {
+      "file": "rules/backend/python/django/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1129,
+      "lines": 94,
+      "lastModified": "2026-04-15T17:27:08.054Z"
+    },
+    {
+      "file": "rules/backend/python/django-best-practices/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1672,
+      "lines": 61,
+      "lastModified": "2026-04-15T16:58:53.230Z"
+    },
+    {
+      "file": "rules/backend/python/fastapi/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1591,
+      "lines": 69,
+      "lastModified": "2026-04-15T17:14:01.975Z"
+    },
+    {
+      "file": "rules/backend/python/fastapi-api-example/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1591,
+      "lines": 68,
+      "lastModified": "2026-04-15T16:58:53.230Z"
+    },
+    {
+      "file": "rules/backend/python/fastapi-best-practices/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 890,
+      "lines": 63,
+      "lastModified": "2026-04-15T17:28:31.770Z"
+    },
+    {
+      "file": "rules/backend/python/flask-json-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 572,
+      "lines": 22,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/bio/bioelectronics/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 168,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/bio/biological-cpu/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 167,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/bio/biosensor-fusion/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 170,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/blockchain/advanced-protocols/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 192,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/blockchain/smart-contract-security/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 183,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.234Z"
+    },
+    {
+      "file": "rules/blockchain/solidity/foundry/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 2913,
+      "lines": 150,
+      "lastModified": "2026-04-16T15:32:35.189Z"
+    },
+    {
+      "file": "rules/blockchain/web3/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 188,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.238Z"
+    },
+    {
+      "file": "rules/cloud/middleware/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 164,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.238Z"
+    },
+    {
+      "file": "rules/cms/drupal/drupal-11/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 1765,
+      "lines": 114,
+      "lastModified": "2026-04-16T15:32:06.312Z"
+    },
+    {
+      "file": "rules/code-guidelines-cursorrules-prompt-file/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1084,
+      "lines": 78,
+      "lastModified": "2026-04-15T17:43:12.221Z"
+    },
+    {
+      "file": "rules/code-pair-interviews/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.525Z"
+    },
+    {
+      "file": "rules/code-style-consistency-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.509Z"
+    },
+    {
+      "file": "rules/compute/distributed/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 176,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.238Z"
+    },
+    {
+      "file": "rules/convex-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1690,
+      "lines": 89,
+      "lastModified": "2026-04-15T17:43:39.654Z"
+    },
+    {
+      "file": "rules/data/data-warehouse/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 238,
+      "lines": 18,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/data/kafka-pulsar/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 233,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/data/spark-flink/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 234,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/data-science/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1856,
+      "lines": 115,
+      "lastModified": "2026-04-15T17:29:17.478Z"
+    },
+    {
+      "file": "rules/data-science/python-data-processing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 2847,
+      "lines": 176,
+      "lastModified": "2026-04-16T15:33:41.809Z"
+    },
+    {
+      "file": "rules/database/cloud-native/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 192,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/database/spatiotemporal/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 187,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/devops/chaos-engineering/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 174,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/devops/ci-cd-pipelines/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 227,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/devops/docker-containerization/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 239,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/devops/github-code-quality/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasStructure",
+          "message": "文件结构不够清晰，建议使用标题层级组织内容",
+          "severity": "info"
+        }
+      ],
+      "size": 2364,
+      "lines": 84,
+      "lastModified": "2026-04-15T16:58:53.241Z"
+    },
+    {
+      "file": "rules/devops/kubernetes/kubernetes-mkdocs-documentation/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 352,
+      "lines": 22,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/devops/observability/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 512,
+      "lines": 24,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/devops/prometheus-grafana-monitoring/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 263,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/devops/python-containerization/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 627,
+      "lines": 47,
+      "lastModified": "2026-04-15T17:14:23.733Z"
+    },
+    {
+      "file": "rules/devops/serverless/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 229,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/devops/service-mesh/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 207,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/devops/terraform-iac/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 474,
+      "lines": 35,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/dragonruby-best-practices-cursorrules-prompt-file/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1454,
+      "lines": 115,
+      "lastModified": "2026-04-15T17:44:02.651Z"
+    },
+    {
+      "file": "rules/drupal-11-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.505Z"
+    },
+    {
+      "file": "rules/edge/ai-inference/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 161,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/edge/computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 183,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.245Z"
+    },
+    {
+      "file": "rules/edge/model-compression/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 156,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/elixir-engineer-guidelines-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 1853,
+      "lines": 113,
+      "lastModified": "2026-04-15T17:44:24.424Z"
+    },
+    {
+      "file": "rules/emerging-tech/biological-computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 175,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/emerging-tech/quantum-communication/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 175,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/emerging-tech/quantum-computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 192,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/engineering-ticket-template-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.533Z"
+    },
+    {
+      "file": "rules/frontend/angular/angular-typescript/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 614,
+      "lines": 36,
+      "lastModified": "2026-04-15T16:58:53.253Z"
+    },
+    {
+      "file": "rules/frontend/angular/angular-typescript-cursorrules-prompt-file/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 611,
+      "lines": 36,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/frontend/angular/angular-typescript-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 626,
+      "lines": 35,
+      "lastModified": "2026-04-15T16:58:53.249Z"
+    },
+    {
+      "file": "rules/frontend/chrome/chrome-extension-dev-js-typescript/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1485,
+      "lines": 75,
+      "lastModified": "2026-04-15T16:58:53.253Z"
+    },
+    {
+      "file": "rules/frontend/micro-frontend/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 206,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.253Z"
+    },
+    {
+      "file": "rules/frontend/react/apollo-graphql/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1352,
+      "lines": 81,
+      "lastModified": "2026-04-15T17:38:56.176Z"
+    },
+    {
+      "file": "rules/frontend/react/chakra-ui/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1170,
+      "lines": 82,
+      "lastModified": "2026-04-15T17:26:04.176Z"
+    },
+    {
+      "file": "rules/frontend/react/mobx/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1596,
+      "lines": 97,
+      "lastModified": "2026-04-15T17:39:08.496Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-14-seo/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1777,
+      "lines": 111,
+      "lastModified": "2026-04-15T17:39:31.469Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-basic/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1023,
+      "lines": 71,
+      "lastModified": "2026-04-15T17:25:35.899Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-react-ts/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1241,
+      "lines": 82,
+      "lastModified": "2026-04-15T17:40:20.102Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-supabase/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 2099,
+      "lines": 116,
+      "lastModified": "2026-04-15T17:39:57.513Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-tailwind/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1351,
+      "lines": 93,
+      "lastModified": "2026-04-15T17:28:19.350Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-typescript/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1117,
+      "lines": 68,
+      "lastModified": "2026-04-15T16:58:53.260Z"
+    },
+    {
+      "file": "rules/frontend/react/nextjs-ui/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1015,
+      "lines": 72,
+      "lastModified": "2026-04-15T17:40:43.963Z"
+    },
+    {
+      "file": "rules/frontend/react/react-components/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1156,
+      "lines": 73,
+      "lastModified": "2026-04-15T17:41:06.015Z"
+    },
+    {
+      "file": "rules/frontend/react/react-query/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        }
+      ],
+      "size": 1561,
+      "lines": 41,
+      "lastModified": "2026-04-15T16:58:53.260Z"
+    },
+    {
+      "file": "rules/frontend/react/react-typescript/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1312,
+      "lines": 85,
+      "lastModified": "2026-04-15T17:41:25.657Z"
+    },
+    {
+      "file": "rules/frontend/react/styled-components/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1736,
+      "lines": 105,
+      "lastModified": "2026-04-15T17:41:51.052Z"
+    },
+    {
+      "file": "rules/frontend/solidjs/solidjs-basic-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 629,
+      "lines": 41,
+      "lastModified": "2026-04-15T16:58:53.264Z"
+    },
+    {
+      "file": "rules/frontend/svelte/sveltekit-tailwind-typescript-guide/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "trailingWhitespace",
+          "message": "存在行尾空格",
+          "severity": "info"
+        }
+      ],
+      "size": 2678,
+      "lines": 149,
+      "lastModified": "2026-04-15T16:58:53.264Z"
+    },
+    {
+      "file": "rules/frontend/typescript/axios/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 2155,
+      "lines": 116,
+      "lastModified": "2026-04-15T17:27:48.928Z"
+    },
+    {
+      "file": "rules/frontend/typescript/conventions/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1126,
+      "lines": 91,
+      "lastModified": "2026-04-15T17:28:04.590Z"
+    },
+    {
+      "file": "rules/frontend/typescript/vite-tailwind/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1440,
+      "lines": 102,
+      "lastModified": "2026-04-15T17:27:27.268Z"
+    },
+    {
+      "file": "rules/frontend/vue/composition-api/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 633,
+      "lines": 39,
+      "lastModified": "2026-04-15T16:58:53.271Z"
+    },
+    {
+      "file": "rules/frontend/vue/nuxt3/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 813,
+      "lines": 31,
+      "lastModified": "2026-04-15T16:58:53.271Z"
+    },
+    {
+      "file": "rules/gaming/cloud-gaming/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 187,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.271Z"
+    },
+    {
+      "file": "rules/general/code-guidelines/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 484,
+      "lines": 44,
+      "lastModified": "2026-04-15T17:13:39.336Z"
+    },
+    {
+      "file": "rules/general/git-conventions/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "trailingWhitespace",
+          "message": "存在行尾空格",
+          "severity": "info"
+        }
+      ],
+      "size": 1920,
+      "lines": 46,
+      "lastModified": "2026-04-15T16:58:53.275Z"
+    },
+    {
+      "file": "rules/gherkin-style-testing-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.529Z"
+    },
+    {
+      "file": "rules/git-conventional-commit-messages/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.517Z"
+    },
+    {
+      "file": "rules/github-code-quality-cursorrules-prompt-file/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 888,
+      "lines": 89,
+      "lastModified": "2026-04-15T17:44:45.775Z"
+    },
+    {
+      "file": "rules/hardware/carbon-chip/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 168,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.275Z"
+    },
+    {
+      "file": "rules/hardware/neuromorphic-chips/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 175,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.275Z"
+    },
+    {
+      "file": "rules/hardware/photon-computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 169,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.275Z"
+    },
+    {
+      "file": "rules/hardware/superconducting-memory/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 170,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.275Z"
+    },
+    {
+      "file": "rules/industrial/automation/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 199,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/iot/digital-twin/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 191,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/iot/embedded/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 200,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/iot/platform/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 202,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/mobile/android-jetpack-compose/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 1534,
+      "lines": 89,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/mobile/flutter/flutter-app-expert/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1724,
+      "lines": 106,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/mobile/ios-uikit/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 4471,
+      "lines": 220,
+      "lastModified": "2026-04-16T15:34:10.509Z"
+    },
+    {
+      "file": "rules/mobile/react-native-expo/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 597,
+      "lines": 38,
+      "lastModified": "2026-04-15T16:58:53.282Z"
+    },
+    {
+      "file": "rules/mobile/swiftui-guidelines/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 823,
+      "lines": 18,
+      "lastModified": "2026-04-15T16:58:53.286Z"
+    },
+    {
+      "file": "rules/network/satellite-internet/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 168,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.286Z"
+    },
+    {
+      "file": "rules/platform/low-code/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 184,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.286Z"
+    },
+    {
+      "file": "rules/platform/metaverse/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 182,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.286Z"
+    },
+    {
+      "file": "rules/platform/no-code/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 174,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.286Z"
+    },
+    {
+      "file": "rules/quantum/error-correction/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 167,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.290Z"
+    },
+    {
+      "file": "rules/quantum/superconducting-computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 170,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.290Z"
+    },
+    {
+      "file": "rules/robotics/ros/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 200,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.290Z"
+    },
+    {
+      "file": "rules/science/bioinformatics/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 196,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.290Z"
+    },
+    {
+      "file": "rules/security/homomorphic-encryption/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 175,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/security/privacy-computing/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 172,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/security/secure-multiparty/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 170,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/security/service-mesh/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 171,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/security/zero-trust/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 203,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/simulation/digital-twin/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 179,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/storage/dna-storage/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "minFileSize",
+          "message": "文件内容过少（< 200字符），建议补充更多规范",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 172,
+      "lines": 17,
+      "lastModified": "2026-04-15T16:58:53.294Z"
+    },
+    {
+      "file": "rules/systems/cpp/guidelines/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1903,
+      "lines": 113,
+      "lastModified": "2026-04-16T15:31:43.244Z"
+    },
+    {
+      "file": "rules/xray-test-case-cursorrules-prompt-file/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.509Z"
+    }
+  ],
+  "categoryStats": {
+    "ai": {
+      "total": 6,
+      "valid": 0,
+      "issues": 6
+    },
+    "ar-vr": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "automation": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "backend": {
+      "total": 20,
+      "valid": 0,
+      "issues": 20
+    },
+    "bio": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "blockchain": {
+      "total": 4,
+      "valid": 0,
+      "issues": 4
+    },
+    "cloud": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "cms": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "code-guidelines-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "code-pair-interviews": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "code-style-consistency-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "compute": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "convex-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "data": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "data-science": {
+      "total": 2,
+      "valid": 0,
+      "issues": 2
+    },
+    "database": {
+      "total": 2,
+      "valid": 0,
+      "issues": 2
+    },
+    "devops": {
+      "total": 11,
+      "valid": 0,
+      "issues": 11
+    },
+    "dragonruby-best-practices-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "drupal-11-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "edge": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "elixir-engineer-guidelines-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "emerging-tech": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "engineering-ticket-template-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "frontend": {
+      "total": 26,
+      "valid": 1,
+      "issues": 25
+    },
+    "gaming": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "general": {
+      "total": 2,
+      "valid": 0,
+      "issues": 2
+    },
+    "gherkin-style-testing-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "git-conventional-commit-messages": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    },
+    "github-code-quality-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "hardware": {
+      "total": 4,
+      "valid": 0,
+      "issues": 4
+    },
+    "industrial": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "iot": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "mobile": {
+      "total": 5,
+      "valid": 0,
+      "issues": 5
+    },
+    "network": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "platform": {
+      "total": 3,
+      "valid": 0,
+      "issues": 3
+    },
+    "quantum": {
+      "total": 2,
+      "valid": 0,
+      "issues": 2
+    },
+    "robotics": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "science": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "security": {
+      "total": 5,
+      "valid": 0,
+      "issues": 5
+    },
+    "simulation": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "storage": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "systems": {
+      "total": 1,
+      "valid": 0,
+      "issues": 1
+    },
+    "xray-test-case-cursorrules-prompt-file": {
+      "total": 1,
+      "valid": 1,
+      "issues": 0
+    }
+  }
+}

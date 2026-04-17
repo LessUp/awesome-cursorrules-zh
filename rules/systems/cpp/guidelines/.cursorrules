@@ -1,0 +1,112 @@
+# C++ 开发 .cursorrules 提示文件
+
+## 文件模式匹配
+
+- `*.cpp` - C++ 源文件
+- `*.h` - C/C++ 头文件
+- `*.hpp` - C++ 头文件
+- `*.cxx` - C++ 源文件
+- `*.cc` - C++ 源文件
+- `*.c` - C 源文件
+- `CMakeLists.txt` - CMake 构建配置
+- `*.cmake` - CMake 脚本
+- `Makefile` - Make 构建文件
+
+## 技术栈
+
+- C++17/C++20 标准
+- CMake 构建系统
+- STL 标准库
+- 第三方库（Boost、fmt、spdlog 等）
+
+## 核心原则
+
+### 命名约定
+
+- 变量名：snake_case（例如 `player_count`）
+- 函数名：snake_case 或 camelCase（例如 `calculate_total` 或 `calculateTotal`）
+- 类名：PascalCase（例如 `PlayerController`）
+- 常量：UPPER_SNAKE_CASE（例如 `MAX_BUFFER_SIZE`）
+- 命名空间：snake_case（例如 `game_utils`）
+- 模板参数：PascalCase（例如 `typename TInput`）
+
+### 代码风格
+
+```cpp
+// 使用现代 C++ 特性
+// 使用 auto 简化类型声明
+auto result = calculate_value();
+
+// 使用 range-based for 循环
+for (const auto& item : container) {
+    process(item);
+}
+
+// 使用 constexpr 编译期计算
+constexpr int kBufferSize = 1024;
+
+// 使用智能指针管理内存
+auto ptr = std::make_unique<Resource>();
+auto shared = std::make_shared<Data>();
+
+// 使用 RAII 模式
+class FileHandle {
+public:
+    FileHandle(const std::string& path) : file_(std::fopen(path.c_str(), "r")) {}
+    ~FileHandle() { if (file_) std::fclose(file_); }
+    // 禁止拷贝
+    FileHandle(const FileHandle&) = delete;
+    FileHandle& operator=(const FileHandle&) = delete;
+private:
+    std::FILE* file_;
+};
+```
+
+### 最佳实践
+
+1. **内存管理**
+   - 优先使用智能指针（std::unique_ptr、std::shared_ptr）
+   - 避免裸指针和手动内存管理
+   - 使用 RAII 管理资源
+
+2. **错误处理**
+   - 使用异常处理错误情况
+   - 使用 std::optional 处理可能缺失的值
+   - 使用 std::expected（C++23）或第三方库
+
+3. **性能优化**
+   - 避免不必要的拷贝，使用 const& 传递
+   - 使用移动语义（std::move）
+   - 合理使用 constexpr
+
+4. **代码组织**
+   - 头文件使用 `#pragma once` 或传统 include guard
+   - 实现与声明分离
+   - 合理使用命名空间
+
+### 项目结构
+
+```
+project/
+├── CMakeLists.txt
+├── include/
+│   └── project/
+│       └── module.hpp
+├── src/
+│   └── module.cpp
+├── tests/
+│   └── test_module.cpp
+└── third_party/
+```
+
+## 测试
+
+- 使用单元测试框架（GoogleTest、Catch2）
+- 保持测试覆盖率
+- 测试边界条件和异常情况
+
+## 文档
+
+- 使用 Doxygen 格式注释
+- 注释 API 和复杂算法
+- 保持文档与代码同步

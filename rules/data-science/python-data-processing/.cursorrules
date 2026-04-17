@@ -1,0 +1,175 @@
+# Python 数据处理 .cursorrules 提示文件
+
+## 技术栈
+
+- Python 3.10+
+- Pandas / Polars
+- NumPy
+- PyArrow
+- Dask（大数据处理）
+
+## 核心原则
+
+### 文件操作
+
+```python
+# 使用 with 语句安全处理文件
+with open('data.csv', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+# 使用 pathlib 处理路径
+from pathlib import Path
+
+data_dir = Path('data/')
+csv_file = data_dir / 'dataset.csv'
+
+if csv_file.exists():
+    with csv_file.open('r', encoding='utf-8') as f:
+        data = f.read()
+```
+
+### 代码风格
+
+```python
+# 使用类型注解
+from typing import Any
+import pandas as pd
+
+def process_data(
+    df: pd.DataFrame,
+    columns: list[str],
+    fill_value: Any = None
+) -> pd.DataFrame:
+    """处理数据框中的缺失值"""
+    return df[columns].fillna(fill_value)
+
+# 使用 PyArrow 进行高效数据读取
+import pyarrow.parquet as pq
+
+table = pq.read_table('data.parquet')
+df = table.to_pandas()
+
+# 使用 Polars 进行高性能数据处理
+import polars as pl
+
+df = pl.read_csv('data.csv')
+result = (
+    df
+    .filter(pl.col('status') == 'active')
+    .group_by('category')
+    .agg(pl.col('value').mean())
+)
+```
+
+### 最佳实践
+
+1. **内存管理**
+   - 使用分块处理大数据
+   - 及时释放不需要的变量
+   - 使用适当的数据类型减少内存占用
+
+```python
+# 分块读取大文件
+chunk_size = 100000
+for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
+    process_chunk(chunk)
+```
+
+2. **数据验证**
+   - 使用 Pydantic 或 Pandera 验证数据
+   - 检查数据完整性
+   - 处理异常值和缺失值
+
+```python
+import pandera as pa
+
+schema = pa.DataFrameSchema({
+    'id': pa.Column(int, checks=pa.Check.ge(0)),
+    'name': pa.Column(str, nullable=False),
+    'value': pa.Column(float, checks=pa.Check.lt(100)),
+})
+
+validated_df = schema.validate(df)
+```
+
+3. **性能优化**
+   - 向量化操作替代循环
+   - 使用内置方法而非自定义实现
+   - 合理使用并行处理
+
+```python
+# 向量化操作
+df['total'] = df['quantity'] * df['price']
+
+# 使用 apply 时优化
+df['processed'] = df['text'].str.lower().str.strip()
+
+# 并行处理
+from concurrent.futures import ThreadPoolExecutor
+
+with ThreadPoolExecutor(max_workers=4) as executor:
+    results = list(executor.map(process_item, items))
+```
+
+4. **数据管道**
+   - 构建可复用的数据管道
+   - 使用函数式编程风格
+   - 记录数据血缘
+
+```python
+from functools import partial
+
+def load_data(path: Path) -> pd.DataFrame:
+    return pd.read_csv(path)
+
+def clean_data(df: pd.DataFrame) -> pd.DataFrame:
+    return df.dropna().drop_duplicates()
+
+def transform_data(df: pd.DataFrame, column: str) -> pd.DataFrame:
+    df[column] = df[column].astype('category')
+    return df
+
+# 管道式处理
+pipeline = [
+    load_data,
+    clean_data,
+    partial(transform_data, column='category')
+]
+
+result = df
+for step in pipeline:
+    result = step(result)
+```
+
+### 项目结构
+
+```
+data-project/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── output/
+├── src/
+│   ├── __init__.py
+│   ├── extract.py
+│   ├── transform.py
+│   └── load.py
+├── notebooks/
+├── tests/
+│   └── test_pipeline.py
+├── pyproject.toml
+└── README.md
+```
+
+## 测试
+
+- 使用 pytest 进行单元测试
+- 测试数据处理函数的边界情况
+- 使用 fixtures 准备测试数据
+- 测试数据验证逻辑
+
+## 文档
+
+- 为数据处理函数添加 docstrings
+- 记录数据模式和字段含义
+- 维护数据字典

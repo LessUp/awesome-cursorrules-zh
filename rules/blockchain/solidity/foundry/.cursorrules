@@ -1,0 +1,149 @@
+# Solidity Foundry 开发 .cursorrules 提示文件
+
+## 技术栈
+
+- Solidity ^0.8.x
+- Foundry（forge、cast、anvil）
+- OpenZeppelin 合约库
+- Ethers.rs
+
+## 核心原则
+
+### 命名约定
+
+- 合约名：PascalCase（例如 `TokenVault`）
+- 函数名：camelCase（例如 `transferFrom`）
+- 变量名：camelCase（例如 `userBalance`）
+- 常量：UPPER_SNAKE_CASE（例如 `MAX_SUPPLY`）
+- 事件：PascalCase（例如 `Transfer`）
+- 错误：PascalCase（例如 `InsufficientBalance`）
+
+### 代码风格
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+/// @title 代币合约示例
+/// @author Your Name
+/// @notice 实现 ERC20 代币标准
+contract MyToken is ERC20, Ownable {
+    uint256 public constant MAX_SUPPLY = 1_000_000 * 10**18;
+
+    error ExceedsMaxSupply();
+
+    event Minted(address indexed to, uint256 amount);
+
+    constructor() ERC20("MyToken", "MTK") Ownable(msg.sender) {}
+
+    /// @notice 铸造新代币
+    /// @param to 接收地址
+    /// @param amount 铸造数量
+    function mint(address to, uint256 amount) external onlyOwner {
+        if (totalSupply() + amount > MAX_SUPPLY) {
+            revert ExceedsMaxSupply();
+        }
+        _mint(to, amount);
+        emit Minted(to, amount);
+    }
+}
+```
+
+### Foundry 最佳实践
+
+1. **测试**
+   - 使用 forge test 运行测试
+   - 使用 fuzz testing（模糊测试）
+   - 使用 invariant testing（不变量测试）
+   - 使用 foundry.toml 配置测试参数
+
+```solidity
+// 测试文件示例
+contract MyTokenTest is Test {
+    MyToken token;
+    address owner = address(0x1);
+    address user = address(0x2);
+
+    function setUp() public {
+        vm.prank(owner);
+        token = new MyToken();
+    }
+
+    function testFuzz_Mint(uint256 amount) public {
+        vm.assume(amount <= MyToken(token).MAX_SUPPLY());
+        vm.prank(owner);
+        token.mint(user, amount);
+        assertEq(token.balanceOf(user), amount);
+    }
+}
+```
+
+2. **Gas 优化**
+   - 使用 forge snapshot 记录 gas
+   - 使用 forge gas-report 查看报告
+   - 使用 unchecked 算术运算（安全时）
+   - 批量操作减少 SLOAD/SSTORE
+
+3. **部署**
+   - 使用 forge script 编写部署脚本
+   - 使用 cast 进行链上交互
+   - 使用 anvil 进行本地测试
+
+### 安全实践
+
+1. **检查-效果-交互模式**
+   ```solidity
+   function withdraw(uint256 amount) external {
+       require(balances[msg.sender] >= amount, "Insufficient balance");
+       balances[msg.sender] -= amount;  // 效果
+       (bool success,) = msg.sender.call{value: amount}("");
+       require(success, "Transfer failed");  // 交互
+   }
+   ```
+
+2. **使用 ReentrancyGuard**
+   ```solidity
+   import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+
+   contract Secure is ReentrancyGuard {
+       function withdraw() external nonReentrant {
+           // 安全的提取逻辑
+       }
+   }
+   ```
+
+3. **使用自定义错误**
+   - 比 require 字符串更节省 gas
+   - 提供更好的错误信息
+
+### 项目结构
+
+```
+foundry-project/
+├── foundry.toml
+├── src/
+│   └── MyToken.sol
+├── test/
+│   └── MyToken.t.sol
+├── script/
+│   └── Deploy.s.sol
+└── lib/
+    └── forge-std/
+```
+
+## 测试
+
+- 单元测试覆盖所有公共函数
+- 集成测试覆盖合约交互
+- 模糊测试边界条件
+- 不变量测试核心约束
+
+## 文档
+
+- 使用 NatSpec 注释
+- 记录所有公开函数
+- 说明参数和返回值
+- 提供使用示例

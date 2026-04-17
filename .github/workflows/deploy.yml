@@ -3,6 +3,13 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [master, main]
+    paths:
+      - '**.md'
+      - '**.mjs'
+      - '**.js'
+      - '**.ts'
+      - 'package*.json'
+      - '.vitepress/**'
   workflow_dispatch:
 
 permissions:
@@ -16,6 +23,7 @@ concurrency:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  NODE_VERSION: 20
 
 jobs:
   build:
@@ -26,23 +34,54 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
+      - name: Cache VitePress build
+        uses: actions/cache@v4
+        with:
+          path: |
+            .vitepress/cache
+            .vitepress/.temp
+          key: vitepress-build-${{ hashFiles('**/*.md', '**/*.mjs') }}-${{ github.sha }}
+          restore-keys: |
+            vitepress-build-${{ hashFiles('**/*.md', '**/*.mjs') }}-
+            vitepress-build-
+
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline
 
       - name: Build with VitePress
         run: |
-          npx vitepress build
+          echo "🚀 开始构建..."
+          npm run docs:build
+          echo "✅ 构建完成"
+
+      - name: 验证构建产物
+        run: |
+          if [ ! -d ".vitepress/dist" ]; then
+            echo "❌ 构建产物目录不存在"
+            exit 1
+          fi
+          
+          if [ ! -f ".vitepress/dist/index.html" ]; then
+            echo "❌ 缺少首页文件"
+            exit 1
+          fi
+          
+          echo "📦 构建产物统计:"
+          echo "  总大小: $(du -sh .vitepress/dist | cut -f1)"
+          echo "  HTML 文件: $(find .vitepress/dist -name '*.html' | wc -l)"
+          echo "  静态资源: $(find .vitepress/dist \( -name '*.js' -o -name '*.css' \) | wc -l)"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist
+          retention-days: 1
 
   deploy:
     environment:

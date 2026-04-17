@@ -25,35 +25,6 @@ function getRulesStats() {
 
 const stats = getRulesStats()
 
-// 获取文档侧边栏
-function getDocsSidebar(labelGettingStarted, labelGuide, labelReference) {
-  return [
-    {
-      text: labelGettingStarted,
-      collapsed: false,
-      items: [
-        { text: 'Quick Start', link: '/getting-started' },
-        { text: 'Installation', link: '/installation-guide' },
-      ]
-    },
-    {
-      text: labelGuide,
-      collapsed: false,
-      items: [
-        { text: 'Best Practices', link: '/best-practices' },
-        { text: 'Troubleshooting', link: '/troubleshooting' },
-      ]
-    },
-    {
-      text: labelReference,
-      collapsed: false,
-      items: [
-        { text: 'API Reference', link: '/api-reference' },
-      ]
-    }
-  ]
-}
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // 基础配置
@@ -323,16 +294,86 @@ export default defineConfig({
     siteTitle: false,
   },
 
-  // 头部配置
+  // 头部配置 - SEO 优化
   head: [
+    // 基础图标和主题
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['meta', { name: 'theme-color', content: '#5f67ee' }],
-    ['meta', { name: 'og:type', content: 'website' }],
-    ['meta', { name: 'og:locale', content: 'zh-CN' }],
-    ['meta', { name: 'og:site_name', content: 'Awesome Cursor Rules' }],
-    ['meta', { name: 'og:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.svg' }],
+    
+    // SEO 基础
+    ['meta', { name: 'author', content: 'Awesome Cursor Rules Contributors' }],
+    ['meta', { name: 'keywords', content: 'Cursor, AI, coding rules, 编程规范, .cursorrules, IDE, 代码辅助, React, Vue, TypeScript' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['meta', { name: 'googlebot', content: 'index, follow' }],
+    ['meta', { name: 'baidu-site-verification', content: 'codeva' }],
+    
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Awesome Cursor Rules' }],
+    ['meta', { property: 'og:title', content: 'Awesome Cursor Rules - Cursor AI 编程规则集合' }],
+    ['meta', { property: 'og:description', content: '为中文开发者打造的 Cursor AI 编程规则集合，包含 125+ 技术栈规则' }],
+    ['meta', { property: 'og:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.svg' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:locale:alternate', content: 'en_US' }],
+    
+    // Twitter Card
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:site', content: '@cursorrules_zh' }],
+    ['meta', { name: 'twitter:title', content: 'Awesome Cursor Rules' }],
+    ['meta', { name: 'twitter:description', content: '为中文开发者打造的 Cursor AI 编程规则集合' }],
     ['meta', { name: 'twitter:image', content: 'https://awesome-cursorrules-zh.js.org/og-image.svg' }],
+    
+    // 移动端优化
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=5.0' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
+    ['meta', { name: 'format-detection', content: 'telephone=no' }],
+    
+    // 规范链接
+    ['link', { rel: 'canonical', href: 'https://awesome-cursorrules-zh.js.org/' }],
+    
+    // 预连接优化
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    
+    // 结构化数据 - JSON-LD
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Awesome Cursor Rules',
+      url: 'https://awesome-cursorrules-zh.js.org',
+      description: '为中文开发者打造的 Cursor AI 编程规则集合',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Awesome Cursor Rules Contributors',
+        url: 'https://github.com/LessUp/awesome-cursorrules-zh'
+      },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://awesome-cursorrules-zh.js.org/search?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    })],
+    
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Awesome Cursor Rules',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5',
+        ratingCount: '100'
+      }
+    })],
   ],
 
   // Markdown 配置
@@ -347,7 +388,7 @@ export default defineConfig({
     }
   },
 
-  // Vite 配置
+  // Vite 配置 - 性能优化
   vite: {
     resolve: {
       alias: {
@@ -362,10 +403,48 @@ export default defineConfig({
       }
     },
     build: {
-      chunkSizeWarningLimit: 1000,
+      // 优化 chunk 大小
+      chunkSizeWarningLimit: 500,
+      rollupOptions: {
+        output: {
+          // 手动分割代码块（VitePress 特殊处理）
+          manualChunks: (id) => {
+            // 将大型依赖分割到单独的 chunk
+            if (id.includes('node_modules')) {
+              if (id.includes('shiki')) return 'vendor-shiki';
+              if (id.includes('@vueuse')) return 'vendor-vueuse';
+            }
+          },
+          // 优化资源命名
+          assetFileNames: (assetInfo) => {
+            const info = assetInfo.name.split('.')
+            const ext = info[info.length - 1]
+            if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(assetInfo.name)) {
+              return `assets/images/[name]-[hash][extname]`
+            }
+            if (/\.(woff2?|eot|ttf|otf)$/.test(assetInfo.name)) {
+              return `assets/fonts/[name]-[hash][extname]`
+            }
+            return `assets/[name]-[hash][extname]`
+          },
+        }
+      },
+      // 压缩配置（使用 esbuild，无需额外依赖）
+      minify: 'esbuild',
+      reportCompressedSize: false,
+    },
+    optimizeDeps: {
+      include: ['vue', '@vueuse/core'],
+      exclude: []
+    },
+    server: {
+      hmr: {
+        overlay: false
+      }
     }
   },
 
+  // 站点配置
   // 最后更新时间
   lastUpdated: true,
   
@@ -379,7 +458,7 @@ export default defineConfig({
     /\.\/LICENSE/,
     /\.\/README\.zh-CN/,
     /\.\/rules\/.*\/index/,
-    /\.\/\.\.\//,
+    /\.\.\/\.\.\//,
     /\/index$/,
     /\/README\.zh-CN$/,
   ],
@@ -404,4 +483,7 @@ export default defineConfig({
   
   // 是否使用 Git 日志获取最后更新时间
   useGit: true,
+  
+  // 转换页面前的空格
+  metaChunk: true,
 })

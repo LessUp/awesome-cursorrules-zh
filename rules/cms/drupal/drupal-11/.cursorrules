@@ -1,0 +1,113 @@
+# Drupal 11 开发 .cursorrules 提示文件
+
+## 技术栈
+
+- PHP 8.2+
+- Symfony 6.x 组件
+- Drupal 11 API
+- MySQL/PostgreSQL
+- Composer
+
+## 核心原则
+
+### 命名约定
+
+- 模块名：snake_case（例如 `user_management`）
+- 类名：PascalCase（例如 `UserManager`）
+- 函数名：snake_case（例如 `calculate_total`）
+- 变量名：snake_case 或 camelCase
+- 常量：UPPER_SNAKE_CASE
+- 注解：使用 PHP 8 Attributes
+
+### 代码风格
+
+```php
+// 遵循 PSR-12 编码标准
+// https://www.php-fig.org/psr/psr-12/
+
+// 使用 PHP 8 特性
+// 使用类型声明
+function processItem(string $name, int $count): array {
+    return ['name' => $name, 'count' => $count];
+}
+
+// 使用命名参数
+$result = processItem(name: 'example', count: 10);
+
+// 使用 match 表达式
+$status = match($code) {
+    200 => 'success',
+    404 => 'not found',
+    default => 'error'
+};
+
+// 使用 Attributes 而非注解
+#[\Drupal\Core\Routing\Route(path: '/admin/config/example')]
+class ExampleController {
+    // ...
+}
+```
+
+### Drupal 最佳实践
+
+1. **模块开发**
+   - 使用 Drupal Console 或 Drush 生成模块骨架
+   - 使用 Drupal Core API 而非直接数据库操作
+   - 实现适当的钩子（hook）和事件订阅者
+   - 使用依赖注入服务
+
+2. **实体系统**
+   - 使用 Entity API 创建内容实体
+   - 正确定义基字段和配置字段
+   - 使用 EntityStorage 进行实体操作
+
+3. **表单 API**
+   - 使用 Form API 构建表单
+   - 实现表单验证和提交处理
+   - 使用 Ajax 回调增强用户体验
+
+4. **主题系统**
+   - 使用 Twig 模板引擎
+   - 创建主题钩子和预处理函数
+   - 使用 Libraries API 管理资源
+
+5. **安全性**
+   - 使用 Drupal 的权限系统
+   - 对输出进行转义（Twig 自动转义）
+   - 使用验证过的输入
+   - 避免直接 SQL 查询
+
+### 项目结构
+
+```
+modules/custom/
+├── my_module/
+│   ├── my_module.info.yml
+│   ├── my_module.module
+│   ├── src/
+│   │   ├── Controller/
+│   │   ├── Form/
+│   │   ├── Entity/
+│   │   └── Plugin/
+│   ├── config/
+│   └── tests/
+```
+
+## 测试
+
+- 使用 PHPUnit 进行单元测试
+- 使用 Drupal 的 Kernel、Functional 和 Browser 测试
+- 保持测试覆盖率
+
+## 性能优化
+
+- 使用缓存 API（Cache API、Render Cache）
+- 优化数据库查询
+- 使用 BigPipe 进行延迟加载
+- 配置页面缓存
+
+## 文档
+
+- 在代码中添加适当的注释
+- 使用 docblocks 记录 API
+- 维护 CHANGELOG 和 README
