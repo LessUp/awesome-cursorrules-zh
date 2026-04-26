@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Awesome Cursor Rules
-  text: 
-  tagline: A curated collection of Cursor AI coding rules<br>Optimized for Chinese developers with bilingual documentation
+  text: English
+  tagline: A curated collection of Cursor AI coding rules<br>Focused on navigation, usage paths, and project governance
   image:
     src: /logo.svg
     alt: Awesome Cursor Rules
@@ -21,135 +21,50 @@ hero:
 
 features:
   - icon: 🎯
-    title: Accurate Translation
-    details: High-quality Chinese translations with accurate technical terminology
+    title: Rule-first navigation
+    details: Start with the right rule instead of scanning the whole repository
   - icon: 📂
-    title: Well Organized
-    details: 43 categories, 119 rule files, organized by technology domain
+    title: Clear paths
+    details: Move from the home page to a category and then to a single rule without friction
   - icon: 🚀
-    title: Ready to Use
-    details: Copy .cursorrules file to project root and start coding immediately
+    title: Ready to apply
+    details: Copy the selected rule into your project root when it fits your stack
   - icon: 🌍
-    title: Bilingual Support
-    details: Complete Simplified Chinese and English documentation
+    title: Bilingual docs
+    details: Chinese and English content stay aligned for easier review and comparison
   - icon: 💡
-    title: Best Practices
-    details: Industry-standard coding guidelines to improve team productivity
+    title: Stable guidance
+    details: Use readable rule text to express team preferences and coding expectations
   - icon: 🤖
-    title: AI Enhanced
-    details: Optimize AI code generation for better project understanding
+    title: Governance-aware
+    details: Keep rules, specs, and contribution flow pointing at the same source of truth
 ---
 
-<script setup>
-const stats = {
-  rules: 119,
-  categories: 43,
-  docs: 568
-}
-</script>
+## What you can do here
 
-## 📊 Project Statistics
+- Browse the rule library by technology domain and find a suitable `.cursorrules` file quickly
+- Check the intended use case, stack, and maintenance boundary for each rule
+- Switch between Chinese and English pages to compare the same content
+- Use the site as a lightweight entry point instead of searching the repository by hand
 
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="stat-number">119</div>
-    <div class="stat-label">Rule Files</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">43</div>
-    <div class="stat-label">Categories</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">568</div>
-    <div class="stat-label">Documents</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">100%</div>
-    <div class="stat-label">Translated</div>
-  </div>
-</div>
+## How to choose a rule
 
-## 🚀 Quick Start
+- Start with the project stack and enter the matching category
+- Prefer rules that are specific enough to apply directly
+- If your project spans multiple layers, begin with the most important one
+- Read the rule notes before copying anything into your project root
 
-### Three Steps to Start
+## Recommended workflow
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/LessUp/awesome-cursorrules-zh.git
+- Open the homepage and jump to the relevant category
+- Read the rule description and confirm it matches your goal
+- Copy `.cursorrules` into the project root as a project-level constraint
+- Adjust the content only when your team needs a different local convention
+- Revisit the site and specs whenever the project scope changes
 
-# 2. Choose rules for your project
-cd awesome-cursorrules-zh
-ls rules/frontend/react/
+## Quality and governance
 
-# 3. Copy to your project
-cp rules/frontend/react/nextjs-typescript/.cursorrules /path/to/your/project/
-```
-
-::: tip 💡 Tip
-In most cases, just copy a `.cursorrules` file to your project root and you're ready to go!
-:::
-
-## 📂 Rule Categories
-
-<div class="category-grid">
-  <a href="./rules/frontend" class="category-card">
-    <div class="category-icon">🌐</div>
-    <div class="category-content">
-      <h3>Frontend</h3>
-      <p>React, Vue, Angular, Svelte, TypeScript</p>
-    </div>
-  </a>
-  <a href="./rules/backend" class="category-card">
-    <div class="category-icon">⚙️</div>
-    <div class="category-content">
-      <h3>Backend</h3>
-      <p>Node.js, Python, Go, Java, PHP</p>
-    </div>
-  </a>
-  <a href="./rules/mobile" class="category-card">
-    <div class="category-icon">📱</div>
-    <div class="category-content">
-      <h3>Mobile</h3>
-      <p>Flutter, React Native, SwiftUI, Android</p>
-    </div>
-  </a>
-  <a href="./rules/ai" class="category-card">
-    <div class="category-icon">🤖</div>
-    <div class="category-content">
-      <h3>AI & Data</h3>
-      <p>Machine Learning, Data Science, MLOps</p>
-    </div>
-  </a>
-</div>
-
-## 🔧 What is .cursorrules?
-
-`.cursorrules` is a project-level configuration file for [Cursor AI](https://cursor.sh/) editor:
-
-| Feature | Description | Example |
-|---------|-------------|---------|
-| **Coding Standards** | Define code style and naming conventions | PascalCase components, camelCase functions |
-| **Tech Stack** | Specify frameworks, libraries, toolchains | React + TypeScript + Tailwind |
-| **Best Practices** | Apply industry standards automatically | Error handling, performance, security |
-| **AI Behavior** | Customize AI code generation style | Detailed comments, functional programming |
-
-## 📚 Popular Rules
-
-| Tech Stack | Rule | Command |
-|------------|------|---------|
-| **Next.js + TypeScript** | nextjs-typescript | `cp rules/frontend/react/nextjs-typescript/.cursorrules ./` |
-| **Vue 3** | composition-api | `cp rules/frontend/vue/composition-api/.cursorrules ./` |
-| **FastAPI** | fastapi-api-example | `cp rules/backend/python/fastapi-api-example/.cursorrules ./` |
-| **Flutter** | flutter-app-expert | `cp rules/mobile/flutter/flutter-app-expert/.cursorrules ./` |
-
-## 🤝 Contributing
-
-Contributions are welcome:
-
-- 🐛 [Report Issues](https://github.com/LessUp/awesome-cursorrules-zh/issues)
-- 🔧 [Submit PRs](https://github.com/LessUp/awesome-cursorrules-zh/pulls)
-- 📝 [Improve Docs](./getting-started)
-
-## 📄 License
-
-[MIT License](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/LICENSE)
+- `zh/` and `en/` are the public content sources, so the site avoids duplicate pages
+- `specs/` carries project governance and `docs/` stays focused on non-published content
+- Validation, build, and contribution flows stay lightweight and trustworthy
+- Before submitting changes, check them against the current maintenance boundary and specs

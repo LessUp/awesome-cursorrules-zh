@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Awesome Cursor Rules
   text: 中文版
-  tagline: 为中文开发者打造的 Cursor AI 编程规则集合<br>A curated collection of Cursor AI coding rules for Chinese developers
+  tagline: 为中文开发者打造的 Cursor AI 编程规则集合<br>以规则导航、使用路径和项目治理为核心
   image:
     src: /logo.svg
     alt: Awesome Cursor Rules
@@ -21,135 +21,50 @@ hero:
 
 features:
   - icon: 🎯
-    title: 精准翻译
-    details: 高质量中文翻译，技术术语准确，让中文开发者无障碍使用
+    title: 规则优先
+    details: 先找适合的规则，再进入项目与技术栈细节
   - icon: 📂
-    title: 结构清晰
-    details: 按技术领域分类，43个分类，119个规则文件，便于快速查找
+    title: 路径清晰
+    details: 从首页、分类页到单个规则文件，保持一致的浏览路径
   - icon: 🚀
-    title: 开箱即用
-    details: 复制 .cursorrules 文件到项目根目录即可开始使用，无需复杂配置
+    title: 即可应用
+    details: 选中规则后，按项目需求复制到根目录即可开始使用
   - icon: 🌍
     title: 双语支持
-    details: 完整的简体中文和英文文档，支持语言切换，服务全球开发者
+    details: 中英文内容同步维护，便于跨团队对照理解
   - icon: 💡
-    title: 最佳实践
-    details: 汇集业界优秀编码规范，帮助团队统一代码风格，提升开发效率
+    title: 稳定规范
+    details: 用可读、可审查的规则文本表达团队偏好
   - icon: 🤖
-    title: AI 增强
-    details: 优化 AI 代码生成质量，让 Cursor AI 更好地理解项目需求
+    title: 面向治理
+    details: 让规则库、规范文档和贡献流程形成统一入口
 ---
 
-<script setup>
-const stats = {
-  rules: 119,
-  categories: 43,
-  docs: 568
-}
-</script>
+## 你能在这里做什么
 
-## 📊 项目统计
+- 浏览按技术领域整理的规则库，快速定位适合项目的 `.cursorrules`
+- 了解每条规则适用的场景、技术栈和维护边界
+- 在中文和英文站点之间切换，对照阅读同一份内容
+- 通过规范化的入口，减少在仓库里逐页寻找信息的成本
 
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="stat-number">119</div>
-    <div class="stat-label">规则文件</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">43</div>
-    <div class="stat-label">技术领域</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">568</div>
-    <div class="stat-label">技术文档</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">100%</div>
-    <div class="stat-label">翻译进度</div>
-  </div>
-</div>
+## 如何选择规则
 
-## 🚀 快速开始
+- 先确定你的项目技术栈，再从对应分类进入
+- 优先选择足够具体、能直接落地的规则，而不是泛化模板
+- 如果项目包含多个技术层，先从最核心的那一层开始
+- 阅读规则文件中的说明，再决定是否复制到项目根目录
 
-### 三步上手
+## 推荐工作流
 
-```bash
-# 1. 克隆规则集仓库
-git clone https://github.com/LessUp/awesome-cursorrules-zh.git
+- 打开首页，进入对应技术分类
+- 阅读规则说明，确认它和你的项目目标一致
+- 将 `.cursorrules` 放入项目根目录，作为项目级约束
+- 按团队需要微调内容，并保持规则可读、可审查
+- 有变更时回到站点和规范文档，确认信息仍然一致
 
-# 2. 选择适合你项目的规则
-cd awesome-cursorrules-zh
-ls rules/frontend/react/
+## 项目质量与规范
 
-# 3. 应用到你的项目
-cp rules/frontend/react/nextjs-typescript/.cursorrules /你的项目路径/
-```
-
-::: tip 💡 提示
-大多数情况下，只需复制一个 `.cursorrules` 文件到项目根目录即可开始使用！
-:::
-
-## 📂 规则分类
-
-<div class="category-grid">
-  <a href="./rules/frontend" class="category-card">
-    <div class="category-icon">🌐</div>
-    <div class="category-content">
-      <h3>前端开发</h3>
-      <p>React, Vue, Angular, Svelte, TypeScript</p>
-    </div>
-  </a>
-  <a href="./rules/backend" class="category-card">
-    <div class="category-icon">⚙️</div>
-    <div class="category-content">
-      <h3>后端开发</h3>
-      <p>Node.js, Python, Go, Java, PHP</p>
-    </div>
-  </a>
-  <a href="./rules/mobile" class="category-card">
-    <div class="category-icon">📱</div>
-    <div class="category-content">
-      <h3>移动开发</h3>
-      <p>Flutter, React Native, SwiftUI, Android</p>
-    </div>
-  </a>
-  <a href="./rules/ai" class="category-card">
-    <div class="category-icon">🤖</div>
-    <div class="category-content">
-      <h3>AI 与数据</h3>
-      <p>机器学习, 数据科学, MLOps</p>
-    </div>
-  </a>
-</div>
-
-## 🔧 什么是 .cursorrules？
-
-`.cursorrules` 是 [Cursor AI](https://cursor.sh/) 编辑器的项目级配置文件，用于：
-
-| 功能 | 说明 | 示例 |
-|------|------|------|
-| **编码规范** | 定义代码风格、命名约定 | PascalCase 组件、camelCase 函数 |
-| **技术栈** | 指定框架、库、工具链 | React + TypeScript + Tailwind |
-| **最佳实践** | 自动应用行业标准 | 错误处理、性能优化、安全策略 |
-| **AI 行为** | 定制 AI 回复和代码生成风格 | 详细注释、函数式编程 |
-
-## 📚 热门规则推荐
-
-| 技术栈 | 规则 | 命令 |
-|--------|------|------|
-| **Next.js + TypeScript** | nextjs-typescript | `cp rules/frontend/react/nextjs-typescript/.cursorrules ./` |
-| **Vue 3** | composition-api | `cp rules/frontend/vue/composition-api/.cursorrules ./` |
-| **FastAPI** | fastapi-api-example | `cp rules/backend/python/fastapi-api-example/.cursorrules ./` |
-| **Flutter** | flutter-app-expert | `cp rules/mobile/flutter/flutter-app-expert/.cursorrules ./` |
-
-## 🤝 贡献
-
-欢迎所有形式的贡献：
-
-- 🐛 [报告问题](https://github.com/LessUp/awesome-cursorrules-zh/issues)
-- 🔧 [改进内容](https://github.com/LessUp/awesome-cursorrules-zh/pulls)
-- 📝 [完善文档](./getting-started)
-
-## 📄 许可证
-
-[MIT License](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/LICENSE)
+- 站点以 `zh/` 和 `en/` 作为公开内容源，避免重复正文
+- `specs/` 承载项目规范与治理约束，`docs/` 主要用于非发布内容
+- 验证、构建和贡献流程保持轻量，优先保证结果可信
+- 如果你准备提交改动，请先确认它是否符合现有规范和维护边界
