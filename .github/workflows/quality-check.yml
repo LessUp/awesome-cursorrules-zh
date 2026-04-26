@@ -96,7 +96,7 @@ jobs:
         run: npm run stats
 
       - name: 上传统计结果
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rules-stats
           path: |
@@ -148,7 +148,7 @@ jobs:
           echo "📄 文件数量: $(find .vitepress/dist -type f | wc -l)"
 
       - name: 上传构建产物
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: vitepress-dist
           path: .vitepress/dist
