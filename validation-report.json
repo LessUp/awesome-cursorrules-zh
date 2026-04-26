@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-17T02:17:44.103Z",
+  "timestamp": "2026-04-17T06:43:02.260Z",
   "summary": {
     "total": 132,
     "valid": 10,
@@ -252,6 +252,25 @@
       "size": 2973,
       "lines": 161,
       "lastModified": "2026-04-16T15:33:06.750Z"
+    },
+    {
+      "file": "rules/backend/elixir/guidelines/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 1853,
+      "lines": 113,
+      "lastModified": "2026-04-15T17:44:24.424Z"
     },
     {
       "file": "rules/backend/elixir/phoenix-docker-setup/.cursorrules",
@@ -976,31 +995,7 @@
       "lastModified": "2026-04-16T15:32:06.312Z"
     },
     {
-      "file": "rules/code-guidelines-cursorrules-prompt-file/.cursorrules",
-      "status": "warning",
-      "issues": [
-        {
-          "rule": "hasRoleDefinition",
-          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
-          "severity": "warning"
-        },
-        {
-          "rule": "hasCodeGuidelines",
-          "message": "缺少代码规范相关内容",
-          "severity": "info"
-        },
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        }
-      ],
-      "size": 1084,
-      "lines": 78,
-      "lastModified": "2026-04-15T17:43:12.221Z"
-    },
-    {
-      "file": "rules/code-pair-interviews/.cursorrules",
+      "file": "rules/cms/drupal-11/.cursorrules",
       "status": "valid",
       "issues": [
         {
@@ -1011,21 +1006,7 @@
       ],
       "size": 463,
       "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.525Z"
-    },
-    {
-      "file": "rules/code-style-consistency-cursorrules-prompt-file/.cursorrules",
-      "status": "valid",
-      "issues": [
-        {
-          "rule": "hasTechStack",
-          "message": "未明确提及技术栈",
-          "severity": "info"
-        }
-      ],
-      "size": 463,
-      "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.509Z"
+      "lastModified": "2026-04-17T02:17:27.505Z"
     },
     {
       "file": "rules/compute/distributed/.cursorrules",
@@ -1055,25 +1036,6 @@
       "size": 176,
       "lines": 17,
       "lastModified": "2026-04-15T16:58:53.238Z"
-    },
-    {
-      "file": "rules/convex-cursorrules-prompt-file/.cursorrules",
-      "status": "valid",
-      "issues": [
-        {
-          "rule": "hasCodeGuidelines",
-          "message": "缺少代码规范相关内容",
-          "severity": "info"
-        },
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        }
-      ],
-      "size": 1690,
-      "lines": 89,
-      "lastModified": "2026-04-15T17:43:39.654Z"
     },
     {
       "file": "rules/data/data-warehouse/.cursorrules",
@@ -1316,6 +1278,20 @@
       "lastModified": "2026-04-15T16:58:53.241Z"
     },
     {
+      "file": "rules/devops/git/conventional-commits/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.517Z"
+    },
+    {
       "file": "rules/devops/github-code-quality/.cursorrules",
       "status": "warning",
       "issues": [
@@ -1503,39 +1479,6 @@
       "lastModified": "2026-04-15T16:58:53.245Z"
     },
     {
-      "file": "rules/dragonruby-best-practices-cursorrules-prompt-file/.cursorrules",
-      "status": "warning",
-      "issues": [
-        {
-          "rule": "hasRoleDefinition",
-          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
-          "severity": "warning"
-        },
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        }
-      ],
-      "size": 1454,
-      "lines": 115,
-      "lastModified": "2026-04-15T17:44:02.651Z"
-    },
-    {
-      "file": "rules/drupal-11-cursorrules-prompt-file/.cursorrules",
-      "status": "valid",
-      "issues": [
-        {
-          "rule": "hasTechStack",
-          "message": "未明确提及技术栈",
-          "severity": "info"
-        }
-      ],
-      "size": 463,
-      "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.505Z"
-    },
-    {
       "file": "rules/edge/ai-inference/.cursorrules",
       "status": "warning",
       "issues": [
@@ -1621,25 +1564,6 @@
       "size": 156,
       "lines": 17,
       "lastModified": "2026-04-15T16:58:53.249Z"
-    },
-    {
-      "file": "rules/elixir-engineer-guidelines-cursorrules-prompt-file/.cursorrules",
-      "status": "valid",
-      "issues": [
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        },
-        {
-          "rule": "hasTechStack",
-          "message": "未明确提及技术栈",
-          "severity": "info"
-        }
-      ],
-      "size": 1853,
-      "lines": 113,
-      "lastModified": "2026-04-15T17:44:24.424Z"
     },
     {
       "file": "rules/emerging-tech/biological-computing/.cursorrules",
@@ -1729,18 +1653,28 @@
       "lastModified": "2026-04-15T16:58:53.249Z"
     },
     {
-      "file": "rules/engineering-ticket-template-cursorrules-prompt-file/.cursorrules",
-      "status": "valid",
+      "file": "rules/frontend/angular/angular-ts-guide/.cursorrules",
+      "status": "warning",
       "issues": [
         {
-          "rule": "hasTechStack",
-          "message": "未明确提及技术栈",
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
           "severity": "info"
         }
       ],
-      "size": 463,
-      "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.533Z"
+      "size": 611,
+      "lines": 36,
+      "lastModified": "2026-04-15T16:58:53.249Z"
     },
     {
       "file": "rules/frontend/angular/angular-typescript/.cursorrules",
@@ -1765,30 +1699,6 @@
       "size": 614,
       "lines": 36,
       "lastModified": "2026-04-15T16:58:53.253Z"
-    },
-    {
-      "file": "rules/frontend/angular/angular-typescript-cursorrules-prompt-file/.cursorrules",
-      "status": "warning",
-      "issues": [
-        {
-          "rule": "hasRoleDefinition",
-          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
-          "severity": "warning"
-        },
-        {
-          "rule": "hasCodeGuidelines",
-          "message": "缺少代码规范相关内容",
-          "severity": "info"
-        },
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        }
-      ],
-      "size": 611,
-      "lines": 36,
-      "lastModified": "2026-04-15T16:58:53.249Z"
     },
     {
       "file": "rules/frontend/angular/angular-typescript-guide/.cursorrules",
@@ -2366,6 +2276,25 @@
       "lastModified": "2026-04-15T16:58:53.271Z"
     },
     {
+      "file": "rules/gaming/dragonruby/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1454,
+      "lines": 115,
+      "lastModified": "2026-04-15T17:44:02.651Z"
+    },
+    {
       "file": "rules/general/code-guidelines/.cursorrules",
       "status": "warning",
       "issues": [
@@ -2390,6 +2319,72 @@
       "lastModified": "2026-04-15T17:13:39.336Z"
     },
     {
+      "file": "rules/general/code-guidelines-comprehensive/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1084,
+      "lines": 78,
+      "lastModified": "2026-04-15T17:43:12.221Z"
+    },
+    {
+      "file": "rules/general/code-review/pair-interviews/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.525Z"
+    },
+    {
+      "file": "rules/general/code-style/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.509Z"
+    },
+    {
+      "file": "rules/general/gherkin-testing/.cursorrules",
+      "status": "valid",
+      "issues": [
+        {
+          "rule": "hasTechStack",
+          "message": "未明确提及技术栈",
+          "severity": "info"
+        }
+      ],
+      "size": 463,
+      "lines": 18,
+      "lastModified": "2026-04-17T02:17:27.529Z"
+    },
+    {
       "file": "rules/general/git-conventions/.cursorrules",
       "status": "warning",
       "issues": [
@@ -2409,7 +2404,7 @@
       "lastModified": "2026-04-15T16:58:53.275Z"
     },
     {
-      "file": "rules/gherkin-style-testing-cursorrules-prompt-file/.cursorrules",
+      "file": "rules/general/ticket-template/.cursorrules",
       "status": "valid",
       "issues": [
         {
@@ -2420,10 +2415,10 @@
       ],
       "size": 463,
       "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.529Z"
+      "lastModified": "2026-04-17T02:17:27.533Z"
     },
     {
-      "file": "rules/git-conventional-commit-messages/.cursorrules",
+      "file": "rules/general/xray-testing/.cursorrules",
       "status": "valid",
       "issues": [
         {
@@ -2434,31 +2429,7 @@
       ],
       "size": 463,
       "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.517Z"
-    },
-    {
-      "file": "rules/github-code-quality-cursorrules-prompt-file/.cursorrules",
-      "status": "warning",
-      "issues": [
-        {
-          "rule": "hasRoleDefinition",
-          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
-          "severity": "warning"
-        },
-        {
-          "rule": "hasBestPractices",
-          "message": "缺少最佳实践建议",
-          "severity": "info"
-        },
-        {
-          "rule": "hasTechStack",
-          "message": "未明确提及技术栈",
-          "severity": "info"
-        }
-      ],
-      "size": 888,
-      "lines": 89,
-      "lastModified": "2026-04-15T17:44:45.775Z"
+      "lastModified": "2026-04-17T02:17:27.509Z"
     },
     {
       "file": "rules/hardware/carbon-chip/.cursorrules",
@@ -3232,18 +3203,47 @@
       "lastModified": "2026-04-16T15:31:43.244Z"
     },
     {
-      "file": "rules/xray-test-case-cursorrules-prompt-file/.cursorrules",
+      "file": "rules/tools/convex/.cursorrules",
       "status": "valid",
       "issues": [
+        {
+          "rule": "hasCodeGuidelines",
+          "message": "缺少代码规范相关内容",
+          "severity": "info"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        }
+      ],
+      "size": 1690,
+      "lines": 89,
+      "lastModified": "2026-04-15T17:43:39.654Z"
+    },
+    {
+      "file": "rules/tools/github-quality/.cursorrules",
+      "status": "warning",
+      "issues": [
+        {
+          "rule": "hasRoleDefinition",
+          "message": "缺少角色定义（未找到 \"you are\", \"role\", \"expert\" 等关键词）",
+          "severity": "warning"
+        },
+        {
+          "rule": "hasBestPractices",
+          "message": "缺少最佳实践建议",
+          "severity": "info"
+        },
         {
           "rule": "hasTechStack",
           "message": "未明确提及技术栈",
           "severity": "info"
         }
       ],
-      "size": 463,
-      "lines": 18,
-      "lastModified": "2026-04-17T02:17:27.509Z"
+      "size": 888,
+      "lines": 89,
+      "lastModified": "2026-04-15T17:44:45.775Z"
     }
   ],
   "categoryStats": {
@@ -3263,8 +3263,8 @@
       "issues": 1
     },
     "backend": {
-      "total": 20,
-      "valid": 0,
+      "total": 21,
+      "valid": 1,
       "issues": 20
     },
     "bio": {
@@ -3283,34 +3283,14 @@
       "issues": 1
     },
     "cms": {
-      "total": 1,
-      "valid": 0,
-      "issues": 1
-    },
-    "code-guidelines-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 0,
-      "issues": 1
-    },
-    "code-pair-interviews": {
-      "total": 1,
+      "total": 2,
       "valid": 1,
-      "issues": 0
-    },
-    "code-style-consistency-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
+      "issues": 1
     },
     "compute": {
       "total": 1,
       "valid": 0,
       "issues": 1
-    },
-    "convex-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
     },
     "data": {
       "total": 3,
@@ -3328,39 +3308,19 @@
       "issues": 2
     },
     "devops": {
-      "total": 11,
-      "valid": 0,
-      "issues": 11
-    },
-    "dragonruby-best-practices-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 0,
-      "issues": 1
-    },
-    "drupal-11-cursorrules-prompt-file": {
-      "total": 1,
+      "total": 12,
       "valid": 1,
-      "issues": 0
+      "issues": 11
     },
     "edge": {
       "total": 3,
       "valid": 0,
       "issues": 3
     },
-    "elixir-engineer-guidelines-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
-    },
     "emerging-tech": {
       "total": 3,
       "valid": 0,
       "issues": 3
-    },
-    "engineering-ticket-template-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
     },
     "frontend": {
       "total": 26,
@@ -3368,29 +3328,14 @@
       "issues": 25
     },
     "gaming": {
-      "total": 1,
-      "valid": 0,
-      "issues": 1
-    },
-    "general": {
       "total": 2,
       "valid": 0,
       "issues": 2
     },
-    "gherkin-style-testing-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
-    },
-    "git-conventional-commit-messages": {
-      "total": 1,
-      "valid": 1,
-      "issues": 0
-    },
-    "github-code-quality-cursorrules-prompt-file": {
-      "total": 1,
-      "valid": 0,
-      "issues": 1
+    "general": {
+      "total": 8,
+      "valid": 5,
+      "issues": 3
     },
     "hardware": {
       "total": 4,
@@ -3457,10 +3402,10 @@
       "valid": 0,
       "issues": 1
     },
-    "xray-test-case-cursorrules-prompt-file": {
-      "total": 1,
+    "tools": {
+      "total": 2,
       "valid": 1,
-      "issues": 0
+      "issues": 1
     }
   }
 }
