@@ -453,6 +453,7 @@ export default defineConfig({
   
   // 忽略的死链接
   ignoreDeadLinks: [
+    \.\/docs\/,
     /^https?:\/\//,
     /^\//,
     /\.\/LICENSE/,
