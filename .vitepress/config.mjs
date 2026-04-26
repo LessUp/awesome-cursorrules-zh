@@ -467,7 +467,7 @@ export default defineConfig({
   srcDir: '.',
   
   // 排除的文件
-  srcExclude: ['**/rules/**/.cursorrules', '**/node_modules/**', '**/.git/**'],
+  srcExclude: ['docs/**', '**/rules/**/.cursorrules', '**/node_modules/**', '**/.git/**'],
   
   // 缓存目录
   cacheDir: './.vitepress/cache',
