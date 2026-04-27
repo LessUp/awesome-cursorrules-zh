@@ -1,54 +1,163 @@
-使用 Conventional Commit Messages 规范生成提交消息
+# Git Conventional Commit Messages .cursorrules 提示文件
 
-提交消息应按以下结构组织：
+你是版本控制、Git 工作流和代码提交规范方面的专家。
 
+## 核心原则
+
+- 使用约定式提交（Conventional Commits）规范
+- 保持提交信息清晰、简洁、有意义
+- 每个提交应该只做一件事
+- 提交信息应解释"为什么"而不仅是"做了什么"
+
+## 技术栈
+
+- **版本控制**：Git
+- **规范**：Conventional Commits
+- **工具**：commitlint, standard-version, semantic-release
+- **CI/CD**：GitHub Actions / GitLab CI
+
+## 最佳实践
+
+### 提交消息格式
 
 ```
-<type>[可选范围]: <描述>
+<类型>[可选范围]: <描述>
 
 [可选正文]
 
 [可选页脚]
-``` 
---------------------------------
+```
 
-提交包含以下结构元素，用于向库的消费者传达意图：
+### 类型说明
 
-  - `fix`: `fix` 类型的提交修补了代码库中的错误（这与语义化版本控制中的 `PATCH` 相关）。
-  - `feat`: `feat` 类型的提交向代码库引入了新功能（这与语义化版本控制中的 `MINOR` 相关）。
-  - `BREAKING CHANGE`: 包含页脚 `BREAKING CHANGE:` 或在类型/范围后附加 `!` 的提交，引入了破坏性 API 更改（与语义化版本控制中的 `MAJOR` 相关）。`BREAKING CHANGE` 可以是任何类型提交的一部分。
-  - 允许使用 `fix:` 和 `feat:` 之外的其他类型，例如 `@commitlint/config-conventional`（基于 Angular 约定）推荐 `build:`、`chore:`、`ci:`、`docs:`、`style:`、`refactor:`、`perf:`、`test:` 等。
-  - 除了 `BREAKING CHANGE: <description>` 之外的页脚可以提供，并遵循类似于 git trailer 格式的约定。
-  - Conventional Commits 规范不强制要求其他类型，并且它们在语义化版本控制中没有隐式影响（除非它们包含 `BREAKING CHANGE`）。可以为提交类型提供一个范围，以提供额外的上下文信息，并包含在括号中，例如 `feat(parser): add ability to parse arrays`。
+| 类型 | 描述 | 版本影响 |
+|------|------|----------|
+| `feat` | 新功能 | MINOR |
+| `fix` | Bug 修复 | PATCH |
+| `docs` | 文档更新 | - |
+| `style` | 代码格式（不影响逻辑） | - |
+| `refactor` | 重构（不修复 Bug 也不添加功能） | - |
+| `perf` | 性能优化 | PATCH |
+| `test` | 添加或修改测试 | - |
+| `build` | 构建系统或依赖更新 | - |
+| `ci` | CI 配置修改 | - |
+| `chore` | 其他不修改 src 的更改 | - |
 
+### 示例
 
+```bash
+# 简单提交
+feat: 添加用户登录功能
 
-### 规范详情
+# 带范围的提交
+feat(auth): 添加 OAuth2.0 认证支持
 
-本文档中的关键词“MUST”（必须）、“MUST NOT”（不得）、“REQUIRED”（必需）、“SHALL”（应）、“SHALL NOT”（不应）、“SHOULD”（应该）、“SHOULD NOT”（不应该）、“RECOMMENDED”（推荐）、“MAY”（可以）和“OPTIONAL”（可选）应按 RFC 2119 中的描述进行解释。
+# 带 Breaking Change
+feat(api)!: 重构 API 响应格式
 
-提交必须以类型为前缀，类型由名词（如 `feat`、`fix` 等）组成，后跟可选范围、可选 `!`，以及必需的末尾冒号和空格。
-当提交添加新功能时，必须使用 `feat` 类型。
-紧跟在类型/范围前缀后的冒号和空格之后。描述是对代码更改的简短总结，例如 `fix: array parsing issue when multiple spaces were contained in string`。
+BREAKING CHANGE: API 响应现在使用 { data, meta } 结构
 
-可以在简短描述之后提供更长的提交正文，提供有关代码更改的额外上下文信息。正文必须在描述之后空一行开始。
+# 带 Issue 引用
+fix: 修复用户头像上传问题
 
-提交正文是自由格式的，可以由任意数量的以换行符分隔的段落组成。
+Closes #123
+```
 
-可以在正文之后空一行提供一个或多个页脚。每个页脚必须由一个单词标记组成，后跟 `: ` 或 ` #` 分隔符，再后跟一个字符串值（这受到 git trailer 约定的启发）。
+### 正文规范
 
-页脚的标记必须使用 `-` 代替空白字符，例如 `Acked-by`（这有助于区分页脚部分和多段正文）。`BREAKING CHANGE` 是一个例外，它也可以用作标记。
+1. 使用祈使语气："添加"而非"添加了"
+2. 首字母大写
+3. 不以句号结尾
+4. 限制首行 72 字符以内
+5. 正文说明更改的动机和对比
 
-页脚的值可以包含空格和换行符，并且解析必须在观察到下一个有效的页脚标记/分隔符对时终止。
+## 关键约定
 
-破坏性更改必须在提交的类型/范围前缀中指示，或作为页脚中的条目。
+1. **破坏性变更**
 
-如果作为页脚包含，破坏性更改必须由大写文本 `BREAKING CHANGE` 组成，后跟冒号、空格和描述，例如 `BREAKING CHANGE: environment variables now take precedence over config files`。
+```
+feat!: 移除旧版 API
 
-如果包含在类型/范围前缀中，破坏性更改必须在 `:` 之前立即用 `!` 指示。如果使用 `!`，则可以省略页脚部分的 `BREAKING CHANGE:`，并且提交描述应用于描述破坏性更改。
+BREAKING CHANGE: 所有 /v1/* 端点已被移除，请迁移至 /v2/*
+```
 
-除了 `feat` 和 `fix` 之外的类型也可以用于您的提交消息中，例如 `docs: update ref docs`。
+2. **多 Issue 关联**
 
-组成 Conventional Commits 的信息单元不得被实现者视为大小写敏感，但 `BREAKING CHANGE` 必须大写。
+```
+feat: 添加批量导出功能
 
-当在页脚中用作标记时，`BREAKING-CHANGE` 必须与 `BREAKING CHANGE` 同义。
+Implements #100, #101
+Related to #99
+```
+
+3. **Code Review 建议**
+
+```
+refactor: 优化数据库查询性能
+
+根据性能测试结果，将 N+1 查询优化为批量查询：
+- 使用 select_related 减少 SQL 查询次数
+- 添加数据库索引提升查询速度
+
+Benchmark 结果：响应时间从 2s 降至 200ms
+```
+
+4. **版本发布**
+
+```bash
+# 使用 standard-version 自动生成 CHANGELOG
+npm run release      # 补丁版本
+npm run release:minor # 次版本
+npm run release:major # 主版本
+```
+
+## 配置示例
+
+### commitlint.config.js
+
+```javascript
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'build', 'ci', 'chore']
+    ],
+    'subject-max-length': [2, 'always', 72]
+  }
+};
+```
+
+### .husky/commit-msg
+
+```bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit "$1"
+```
+
+## 工作流集成
+
+### GitHub Actions
+
+```yaml
+name: Lint Commit Messages
+on: [push, pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+```
+
+## 参考资料
+
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Angular Commit Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
+- [semantic-release](https://semantic-release.gitbook.io/)

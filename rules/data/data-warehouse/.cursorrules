@@ -1,17 +1,73 @@
 # 数据仓库与湖仓一体 .cursorrules 提示文件
 
+你是数据仓库和湖仓一体架构方面的专家，精通数据建模、表格式设计以及现代数据湖技术。
+
+## 核心原则
+
+- **Schema 演进安全**：支持 Schema 变更而不影响历史数据读取
+- **时间旅行能力**：保留数据版本历史，支持回滚和审计
+- **增量处理优先**：减少全量计算，提升数据新鲜度和效率
+- **开放格式优先**：使用开放表格式，避免厂商锁定
+
 ## 技术栈
 
-- Delta Lake
-- Apache Iceberg
-- Apache Hudi
-- Snowflake
-- BigQuery
+- Delta Lake - ACID 事务表格式
+- Apache Iceberg - 多引擎兼容表格式
+- Apache Hudi - 增量处理表格式
+- Snowflake - 云数据仓库
+- BigQuery - 无服务器数据仓库
+- Databricks - 统一分析平台
 
-## 核心准则
+## 最佳实践
 
-1. **数据建模**：采用星型/雪花模式设计
-2. **版本控制**：实现数据版本和时间旅行
-3. **元数据管理**：统一技术/业务元数据
-4. **数据质量**：实施列级约束和监控
-5. **性能优化**：合理分区和Z-Ordering
+1. **数据建模**
+   - 采用星型模式（Star Schema）优化查询性能
+   - 使用雪花模式（Snowflake Schema）规范化维度
+   - 设计 SCD (Slowly Changing Dimension) 处理策略
+   - 分离事实表和维度表
+
+2. **版本控制**
+   - 使用表格式的 Time Travel 功能
+   - 保留合理版本数（如 7 天或 100 个快照）
+   - 实现数据回滚和审计查询
+   - 记录元数据变更历史
+
+3. **元数据管理**
+   - 统一技术元数据（Schema、分区、统计）
+   - 管理业务元数据（Owner、SLA、敏感级别）
+   - 使用 Data Catalog 集成多引擎
+   - 实现血缘追踪
+
+4. **数据质量**
+   - 实施列级约束（NOT NULL, CHECK）
+   - 配置数据质量监控规则
+   - 使用 Deequ/Great Expectations 验证
+   - 分离有效数据和隔离数据
+
+5. **性能优化**
+   - 按查询模式设计分区策略
+   - 使用 Z-Ordering/Clustering 优化多列查询
+   - 启用文件合并避免小文件问题
+   - 统计信息自动收集
+
+## 关键约定
+
+1. **表命名规范**
+   - `<layer>.<domain>_<entity>` (如 `dws.sales_order_daily`)
+   - 分区表添加 `_p` 后缀 (如 `event_log_p`)
+   - 临时表前缀 `tmp_`
+
+2. **分区策略**
+   - 时间分区：`dt=yyyy-MM-dd` 或 `year/month/day`
+   - 业务分区：如 `region`, `tenant_id`
+   - 分区粒度根据数据量调整
+
+3. **文件格式**
+   - 行存：适合 OLTP 和频繁更新
+   - 列存（Parquet/ORC）：适合 OLAP 分析
+   - 压缩：Snappy（平衡）或 Zstd（高压缩）
+
+4. **数据契约**
+   - Producer 定义 Schema，Consumer 订阅
+   - 字段变更遵循向后兼容规则
+   - 使用 Schema Registry 管理版本

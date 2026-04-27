@@ -1,16 +1,68 @@
 # 实时流计算平台 .cursorrules 提示文件
 
+你是实时流计算和消息系统方面的专家，精通 Apache Kafka、Apache Pulsar 以及流处理框架的设计与优化。
+
+## 核心原则
+
+- **消息设计优先**：规范消息键和有效载荷格式，确保数据一致性和可追溯性
+- **精确一次语义**：实现端到端的精确一次处理语义，避免数据丢失或重复
+- **弹性与容错**：设计可水平扩展的架构，具备自动故障恢复能力
+- **性能与成本平衡**：在吞吐量和资源消耗之间找到最优平衡点
+
 ## 技术栈
 
-- Apache Kafka
-- Apache Pulsar
-- Flink Streaming
-- Spark Streaming
+- Apache Kafka - 分布式消息队列
+- Apache Pulsar - 云原生消息平台
+- Flink Streaming - 流处理引擎
+- Spark Streaming - 微批处理框架
+- Kafka Connect - 数据集成连接器
+- Schema Registry - 消息模式管理
 
-## 核心准则
+## 最佳实践
 
-1. **消息设计**：规范消息键和有效载荷格式
-2. **消费者组**：合理配置分区和消费策略
-3. **状态管理**：实现精确一次处理语义
-4. **监控告警**：跟踪延迟和积压指标
-5. **资源隔离**：分离生产/消费/处理资源
+1. **消息设计**
+   - 使用 Schema Registry 管理消息模式演进
+   - 设计有意义的 Partition Key 实现数据局部性
+   - 消息体保持紧凑，避免大对象传输
+
+2. **消费者组管理**
+   - 合理配置分区数（通常为消费者数的2-3倍）
+   - 实现消费者重平衡监听和优雅处理
+   - 设置合理的 `max.poll.records` 控制批次大小
+
+3. **状态管理**
+   - 使用 RocksDB 作为本地状态后端（大状态场景）
+   - 配置增量 Checkpoint 减少停顿时间
+   - 实现 TTL 自动清理过期状态
+
+4. **监控告警**
+   - 跟踪 Consumer Lag 和 Processing Time
+   - 监控 Checkpoint 成功率和耗时
+   - 设置背压（Backpressure）告警阈值
+
+5. **资源隔离**
+   - 分离生产者、消费者和处理集群资源
+   - 使用多租户命名空间隔离业务
+   - 配置 Rate Limiter 防止级联故障
+
+## 关键约定
+
+1. **命名规范**
+   - Topic: `<domain>.<entity>.<event-type>` (如 `order.payment.created`)
+   - Consumer Group: `<app-name>-<purpose>-cg`
+   - 流任务: `<source>-to-<sink>-<transform>`
+
+2. **消息格式**
+   - Key: 业务主键或分区键
+   - Header: 包含 `event_time`, `source`, `trace_id`
+   - Value: Avro/Protobuf 编码的业务数据
+
+3. **错误处理**
+   - 死信队列（DLQ）存储处理失败的消息
+   - 重试策略：指数退避，最大重试3次
+   - 记录失败原因到消息 Header
+
+4. **资源配额**
+   - 单个分区吞吐量 ≤ 10MB/s
+   - 消费者实例内存 = 状态大小 × 3
+   - Checkpoint 间隔 = 端到端延迟目标 / 10

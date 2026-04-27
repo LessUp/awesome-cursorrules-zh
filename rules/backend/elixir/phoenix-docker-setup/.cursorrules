@@ -1,38 +1,162 @@
-充当资深 Elixir 工程师专家。
+# Phoenix Docker Setup .cursorrules 提示文件
 
-技术栈: Elixir, Phoenix, Docker, PostgreSQL, Tailwind CSS, LeftHook, Sobelow, Credo, Ecto, ExUnit, Plug, Phoenix LiveView, Phoenix LiveDashboard, Gettext, Jason, Swoosh, Finch, DNS Cluster, File System Watcher, Release Please, ExCoveralls
+你是 Elixir、Phoenix 框架和容器化部署方面的专家。
 
-- 在编写代码时，你会仔细考虑任何因素或需求，以确保我们已经考虑周全。只有在那之后，你才开始编写代码。
+## 核心原则
 
-- 在回复后，提供三个后续问题，措辞就好像是我在问你一样。以 Q1, Q2, Q3 的粗体格式呈现。这些问题应该发人深省，并能进一步挖掘原始主题。
+- 使用函数式编程范式
+- 遵循 Elixir 编码规范
+- 实现清晰的关注点分离
+- 使用模式匹配处理不同情况
+- 利用管道操作符组合函数
 
-- 如果我的回复以"VV"开头，请给出最简洁、最凝练、最短的答案。
+## 技术栈
 
-## 提交信息指南：
+- **语言**：Elixir
+- **框架**：Phoenix
+- **数据库**：PostgreSQL + Ecto
+- **容器**：Docker / Docker Compose
+- **实时**：Phoenix Channels / LiveView
+- **监控**：Phoenix LiveDashboard
+- **安全**：Sobelow（安全扫描）
 
-- 始终建议使用一个带有可选小写范围的约定式提交信息。遵循以下结构：
-  [可选范围]: [可选正文][可选页脚]
+## 最佳实践
 
-其中：
+### Docker 配置
 
-- **type:** 以下之一：
-  - `build`: 影响构建系统或外部依赖的更改 (例如, Maven, npm)
-  - `chore`: 不修改 src 或测试文件的其他更改
-  - `ci`: 对我们的 CI 配置文件和脚本的更改 (例如, Circle, BrowserStack, SauceLabs)
-  - `docs`: 仅文档更改
-  - `feat`: 一个新功能
-  - `fix`: 一个 bug 修复
-  - `perf`: 提高性能的代码更改
-  - `refactor`: 既不修复 bug 也不添加功能地代码重构
-  - `style`: 不影响代码含义的更改 (空格, 格式化, 缺少分号等)
-  - `test`: 添加缺失的测试或更正现有测试
+```dockerfile
+# 使用多阶段构建
+FROM hexpm/elixir:1.15-erlang-26-alpine AS build
 
-- **scope (可选):** 描述代码库某个部分的名词 (例如, `fluxcd`, `deployment`)。
+WORKDIR /app
+RUN mix local.hex --force && mix local.rebar --force
 
-- **description:** 对更改的简要总结，使用现在时。
+COPY mix.exs mix.lock ./
+RUN mix deps.get --only prod
 
-- **body (可选):** 对更改的更详细解释。
+COPY lib lib
+RUN mix release
 
-- **footer (可选):** 一个或多个以下格式的页脚：
-  - `BREAKING CHANGE: ` (用于重大更改)
-  - `<issue_tracker_id>: ` (例如, `Jira-123: 修复了认证中的 bug`) 
+FROM alpine:3.18
+RUN apk add --no-cache openssl ncurses-libs
+WORKDIR /app
+COPY --from=build /app/_build/prod/rel/myapp ./
+CMD ["bin/myapp", "start"]
+```
+
+### Docker Compose
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgres://user:pass@db:5432/myapp
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+
+volumes:
+  postgres_data:
+```
+
+### Phoenix 项目结构
+
+```
+lib/
+├── my_app/              # 业务逻辑
+│   ├── accounts/        # 上下文模块
+│   │   ├── user.ex      # Schema
+│   │   └── accounts.ex  # 上下文 API
+│   └── application.ex
+├── my_app_web/          # Web 层
+│   ├── controllers/
+│   ├── live/
+│   ├── components/
+│   └── router.ex
+└── my_app_web.ex
+```
+
+### LiveView 示例
+
+```elixir
+defmodule MyAppWeb.UserLive do
+  use MyAppWeb, :live_view
+
+  def mount(_params, _session, socket) do
+    {:ok, assign(socket, users: Accounts.list_users())}
+  end
+
+  def handle_event("delete_user", %{"id" => id}, socket) do
+    user = Accounts.get_user!(id)
+    {:ok, _} = Accounts.delete_user(user)
+    {:noreply, assign(socket, users: Accounts.list_users())}
+  end
+end
+```
+
+## 关键约定
+
+1. **提交消息规范**
+
+```
+<类型>[可选范围]: <描述>
+
+类型：fix, feat, build, chore, ci, docs, perf, refactor, style, test
+描述：用现在时态简要总结更改
+```
+
+2. **Ecto Schema 规范**
+
+```elixir
+defmodule MyApp.Accounts.User do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "users" do
+    field :name, :string
+    field :email, :string
+    field :role, Ecto.Enum, values: [:admin, :user]
+
+    timestamps()
+  end
+
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name, :email, :role])
+    |> validate_required([:name, :email])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+  end
+end
+```
+
+3. **安全检查**
+   - 使用 Sobelow 进行安全扫描
+   - 使用 Credo 进行代码质量检查
+   - 使用 ExCoveralls 监控测试覆盖率
+
+4. **配置管理**
+   - 使用环境变量管理配置
+   - 使用 Release Please 管理版本发布
+   - 区分 dev/staging/prod 环境
+
+## 部署清单
+
+- [ ] 配置 SECRET_KEY_BASE 环境变量
+- [ ] 设置数据库连接字符串
+- [ ] 配置 SSL/TLS 证书
+- [ ] 启用健康检查端点
+- [ ] 配置日志收集
+- [ ] 设置监控告警

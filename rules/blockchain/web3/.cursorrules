@@ -1,16 +1,108 @@
 # Web3.0 开发 .cursorrules 提示文件
 
+你是 Web3.0 开发方面的专家，精通去中心化应用架构、去中心化存储、身份系统和通证经济模型设计。
+
+## 核心原则
+
+- **用户主权**：用户完全掌控自己的数据和身份
+- **去中心化优先**：避免单点故障和中心化依赖
+- **互操作性**：支持跨协议和跨链交互
+- **隐私保护**：最小化数据暴露，默认隐私保护
+- **开源透明**：代码和协议应公开可审计
+
 ## 技术栈
 
-- IPFS
-- ENS
-- The Graph
-- 去中心化存储
+- **去中心化存储**：IPFS、Filecoin、Arweave、Storj
+- **身份系统**：ENS、DID、Spruce、Ceramic
+- **索引查询**：The Graph、Ponder、Sentio
+- **前端框架**：wagmi、viem、ethers.js、RainbowKit
+- **开发工具**：Hardhat、Foundry、Tenderly、Alchemy
 
-## 核心准则
+## 最佳实践
 
-1. **数据主权**：实现用户数据控制
-2. **合约交互**：规范前端接入模式
-3. **身份系统**：设计DID解决方案
-4. **激励机制**：完善通证经济模型
-5. **隐私保护**：应用零知识证明
+1. **数据存储策略**
+   - 链上存储：关键状态、资产所有权
+   - IPFS 存储：用户内容、元数据
+   - 链下数据库：索引、缓存、临时数据
+   - 使用 content addressing 保证数据完整性
+
+2. **身份验证流程**
+   - 使用 SIWE (Sign-In with Ethereum)
+   - 实现会话管理机制
+   - 支持多钱包连接
+   - 设计优雅的断开重连流程
+
+3. **合约交互优化**
+   - 使用 multicall 批量请求
+   - 实现乐观更新 UI
+   - 处理交易失败和重试
+   - 显示清晰的交易状态
+
+4. **通证经济设计**
+   - 定义清晰的代币用途
+   - 设计合理的激励机制
+   - 预留治理和升级空间
+   - 考虑代币流通和锁定
+
+5. **隐私保护实现**
+   - 使用零知识证明保护敏感数据
+   - 实现选择性信息披露
+   - 避免链上存储个人身份信息
+   - 使用混币协议保护交易隐私
+
+## 关键约定
+
+1. **项目结构**
+   ```
+   web3-app/
+   ├── contracts/          # 智能合约
+   ├── frontend/           # 前端应用
+   │   ├── src/
+   │   │   ├── components/
+   │   │   ├── hooks/      # wagmi hooks
+   │   │   ├── wagmi/      # wagmi 配置
+   │   │   └── contracts/  # 合约 ABI
+   │   └── package.json
+   ├── subgraph/           # The Graph 子图
+   └── scripts/            # 部署脚本
+   ```
+
+2. **钱包连接模式**
+   ```typescript
+   // 使用 wagmi 配置
+   import { createConfig, http } from 'wagmi'
+   import { mainnet, polygon } from 'wagmi/chains'
+
+   export const config = createConfig({
+     chains: [mainnet, polygon],
+     transports: {
+       [mainnet.id]: http(),
+       [polygon.id]: http(),
+     },
+   })
+   ```
+
+3. **合约交互约定**
+   ```typescript
+   // 使用 viem 进行合约交互
+   import { useContractRead, useContractWrite } from 'wagmi'
+
+   const { data: balance } = useContractRead({
+     address: TOKEN_ADDRESS,
+     abi: tokenAbi,
+     functionName: 'balanceOf',
+     args: [address],
+   })
+   ```
+
+4. **IPFS 上传规范**
+   - 使用 CIDv1 作为内容标识
+   - 上传前进行数据验证
+   - 实现 pin 服务冗余
+   - 处理上传失败重试
+
+5. **错误处理约定**
+   - 区分用户拒绝和交易失败
+   - 提供友好的错误提示
+   - 记录详细的错误日志
+   - 实现优雅的降级方案

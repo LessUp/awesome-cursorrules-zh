@@ -1,16 +1,49 @@
 # 服务网格 .cursorrules 提示文件
 
+你是服务网格和微服务通信治理方面的专家。
+
+## 核心原则
+
+- 声明式配置：使用 CRD 定义流量策略，而非命令式操作
+- 渐进式发布：金丝雀发布、蓝绿部署、A/B 测试
+- 零信任安全：mTLS 加密、服务间认证、细粒度授权
+- 可观测性优先：自动采集指标、日志、追踪
+- 渐进式采用：从监控模式开始，逐步启用流量控制
+
 ## 技术栈
 
-- Istio
-- Linkerd
-- Envoy
-- Consul
+- **服务网格平台**：Istio、Linkerd、Consul Connect、Kuma
+- **数据平面**：Envoy、proxy-wasm
+- **流量管理**：VirtualService、DestinationRule、Gateway
+- **安全组件**：mTLS、Certificate Management、AuthorizationPolicy
+- **可观测性**：Kiali、Jaeger、Prometheus、Grafana
 
-## 核心准则
+## 最佳实践
 
-1. **流量管理**：规范金丝雀发布和A/B测试配置
-2. **安全策略**：实现mTLS和服务间认证
-3. **可观测性**：集成分布式追踪和指标采集
-4. **资源优化**：合理配置Sidecar资源限制
-5. **多集群管理**：统一控制平面配置
+1. **流量管理**：
+   - 金丝雀发布：逐步增加流量比例
+   - 故障注入：测试系统韧性
+   - 超时和重试：合理配置容错策略
+2. **安全策略**：
+   - 启用 mTLS 加密服务间通信
+   - 使用 AuthorizationPolicy 控制访问
+   - 定期轮换证书
+3. **资源优化**：
+   - 合理配置 Sidecar 资源限制
+   - 使用 Sidecar CRD 限制配置推送范围
+   - 监控数据平面性能
+4. **多集群管理**：
+   - 统一控制平面或联邦架构
+   - 跨集群服务发现
+   - 全局流量管理
+
+## 关键约定
+
+1. **命名规范**：
+   - VirtualService：`{服务名}-vs`
+   - DestinationRule：`{服务名}-dr`
+   - Gateway：`{用途}-gateway`
+2. **版本标签**：使用 `version` 标签区分服务版本
+3. **命名空间隔离**：不同环境使用不同命名空间
+4. **配置顺序**：先创建 DestinationRule，再创建 VirtualService
+5. **渐进式启用**：先监控模式，再逐步启用流量控制和安全策略

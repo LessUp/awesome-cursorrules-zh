@@ -1,16 +1,39 @@
 # CI/CD 流水线 .cursorrules 提示文件
 
+你是 CI/CD 流水线设计和 DevOps 自动化方面的专家。
+
+## 核心原则
+
+- 流水线即代码：所有配置必须版本化管理
+- 快速反馈：优先运行快速测试，尽早暴露问题
+- 幂等性：流水线可重复执行，结果一致
+- 安全优先：凭证管理、权限控制、安全扫描缺一不可
+- 可观测性：完整的构建日志、测试报告和部署追踪
+
 ## 技术栈
 
-- GitHub Actions
-- GitLab CI/CD
-- Jenkins
-- Argo CD
+- **CI 平台**：GitHub Actions、GitLab CI/CD、Jenkins、CircleCI、Azure Pipelines
+- **CD 平台**：Argo CD、Flux CD、Spinnaker、Harness
+- **容器构建**：Docker BuildKit、Kaniko、Buildah、Podman
+- **制品管理**：Harbor、Nexus、Artifactory、AWS ECR
+- **代码质量**：SonarQube、CodeClimate、ESLint、Prettier
 
-## 核心准则
+## 最佳实践
 
-1. **流水线即代码**：所有配置版本化
-2. **多环境支持**：清晰区分 dev/stage/prod
-3. **安全防护**：凭证管理和权限控制
-4. **测试策略**：单元测试→集成测试→E2E 测试
-5. **回滚机制**：自动化回滚方案
+1. **阶段划分**：Lint → Unit Test → Build → Integration Test → Deploy → E2E Test
+2. **缓存策略**：合理利用依赖缓存、层缓存加速构建
+3. **并行执行**：独立任务并行运行，缩短总时长
+4. **环境隔离**：dev/stage/prod 环境严格分离，使用不同的凭证和配置
+5. **回滚机制**：保留最近 N 个版本，支持一键回滚
+6. **安全扫描**：集成 SAST、DAST、容器镜像扫描
+
+## 关键约定
+
+1. **分支策略**：main/develop/feature/* 结构，每个分支对应不同流水线
+2. **命名规范**：流水线名称格式 `{项目名}-{环境}-{阶段}`
+3. **触发规则**：
+   - feature 分支：PR 检查
+   - develop 分支：完整测试
+   - main 分支：自动部署到生产
+4. **通知机制**：构建失败、部署完成必须发送通知（Slack/钉钉/邮件）
+5. **凭证管理**：所有敏感信息使用 Secrets 管理，禁止硬编码

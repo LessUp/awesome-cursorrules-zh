@@ -1,18 +1,105 @@
-你是使用 Swift、SwiftUI 编码的专家。你总是编写可维护和整洁的代码。
-专注于 2024 年 8 月、9 月最新版本的文档和功能。
-你的描述应该简短而精炼。
-不要删除任何注释。
+# SwiftUI 开发 .cursorrules 提示文件
 
-SwiftUI 项目结构:
+你是 Swift 和 SwiftUI 现代化 iOS/macOS 应用开发方面的专家。
 
-主文件夹包含一个 "Sources" 文件夹，其中有：用于主文件的 "App"，分为 "Home" 和 "Profile" 部分及其 ViewModel 的 "Views"，以及用于可重用组件和修饰符的 "Shared"。它包括用于数据模型的 "Models"，用于视图特定逻辑的 "ViewModels"，包含用于网络请求的 "Network" 和用于数据存储的 "Persistence" 的 "Services"，以及用于扩展、常量和辅助工具的 "Utilities"。 "Resources" 文件夹存放用于图片和颜色的 "Assets"，用于本地化字符串的 "Localization"，以及用于自定义字体的 "Fonts"。最后，"Tests" 文件夹包括用于单元测试的 "UnitTests" 和用于 UI 测试的 "UITests"。
+## 核心原则
 
-SwiftUI UI 设计规则:
+- **声明式思维**：拥抱 SwiftUI 声明式编程范式
+- **数据驱动**：State 驱动 UI 更新，单向数据流
+- **平台一致性**：遵循 Apple Human Interface Guidelines
+- **类型安全**：充分利用 Swift 强类型系统
+- **性能优化**：关注视图更新效率和内存管理
 
-使用内置组件：利用 SwiftUI 的原生 UI 元素，如 List、NavigationView、TabView 和 SF Symbols，以获得精致、与 iOS 一致的外观。
+## 技术栈
 
-掌握布局工具：使用 VStack、HStack、ZStack、Spacer 和 Padding 进行响应式设计；使用 LazyVGrid 和 LazyHGrid 创建网格；使用 GeometryReader 实现动态布局。
+- **语言**：Swift 5.9+
+- **UI 框架**：SwiftUI 5+, SwiftData
+- **异步编程**：async/await, Combine
+- **架构**：MVVM, TCA (The Composable Architecture)
+- **网络**：URLSession, Alamofire
+- **本地存储**：SwiftData, Core Data, UserDefaults
+- **导航**：NavigationStack, NavigationSplitView
 
-增添视觉效果：通过使用 .animation() 修饰符，利用阴影、渐变、模糊、自定义形状和动画来增强 UI，以实现平滑过渡。
+## 最佳实践
 
-为交互而设计：结合手势（轻扫、长按）、触觉反馈、清晰的导航和响应式元素，以提高用户参与度和满意度。
+1. **状态管理**
+   - @State：视图私有可变状态
+   - @Binding：父子视图状态共享
+   - @StateObject：视图拥有的 ObservableObject
+   - @ObservedObject：外部传入的 ObservableObject
+   - @EnvironmentObject：全局共享状态
+
+2. **视图设计**
+   - 保持 View 结构体小巧专注
+   - 提取可复用组件到独立文件
+   - 使用 ViewBuilder 组合视图
+   - 正确使用 private 访问控制
+
+3. **布局技术**
+   - VStack/HStack/ZStack 基础布局
+   - LazyVGrid/LazyHGrid 网格布局
+   - GeometryReader 动态布局
+   - .frame() 控制尺寸
+   - .padding() 和 Spacer 控制间距
+
+4. **动画效果**
+   - .animation() 修饰符添加动画
+   - withAnimation {} 显式动画
+   - .transition() 视图切换动画
+   - matchedGeometryEffect 共享元素动画
+
+5. **数据流设计**
+   - MVVM 模式分离视图和业务逻辑
+   - ViewModel 使用 @Published 暴露状态
+   - async/await 处理异步操作
+   - Combine 处理响应式数据流
+
+## 关键约定
+
+1. **项目结构**
+   ```
+   MyApp/
+   ├── App/                    # 应用入口
+   │   ├── MyAppApp.swift
+   │   └── ContentView.swift
+   ├── Views/                  # 视图层
+   │   ├── Home/
+   │   │   ├── HomeView.swift
+   │   │   └── HomeViewModel.swift
+   │   └── Shared/            # 共享组件
+   ├── Models/                 # 数据模型
+   ├── Services/              # 服务层
+   │   ├── Network/
+   │   └── Persistence/
+   ├── ViewModels/            # 视图模型
+   ├── Utilities/             # 工具类
+   │   ├── Extensions/
+   │   └── Constants/
+   └── Resources/             # 资源文件
+       ├── Assets.xcassets
+       └── Localization/
+   ```
+
+2. **命名约定**
+   - 视图：PascalCase + View 后缀 (如 `UserProfileView`)
+   - ViewModel：PascalCase + ViewModel 后缀
+   - 模型：PascalCase (如 `User`)
+   - 服务：PascalCase + Service 后缀
+
+3. **预览约定**
+   ```swift
+   #Preview {
+       UserProfileView(user: .sample)
+   }
+
+   #Preview("Dark Mode") {
+       UserProfileView(user: .sample)
+           .preferredColorScheme(.dark)
+   }
+   ```
+
+4. **测试要求**
+   - ViewModel 单元测试
+   - View 快照测试
+   - async/await 测试使用 XCTestExpectation
+   - UI 测试使用 XCUITest

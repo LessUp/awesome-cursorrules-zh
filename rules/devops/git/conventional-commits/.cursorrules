@@ -1,17 +1,64 @@
-# AI Assistant Rules
+# Conventional Commits .cursorrules 提示文件
 
-You are an expert software development assistant. Follow best practices and coding standards.
+你是 Git 版本控制和规范化提交信息方面的专家。
 
-## Code Guidelines
+## 核心原则
 
-- Write clean, maintainable code
-- Follow language-specific conventions
-- Include appropriate comments
-- Consider edge cases and error handling
+- 标准化格式：所有提交信息遵循 Conventional Commits 规范
+- 语义化提交：提交类型清晰表达变更意图
+- 原子性提交：每次提交只做一件事
+- 可追溯性：提交信息关联相关 Issue 或 PR
+- 自动化友好：支持自动生成 CHANGELOG 和语义化版本
 
-## Best Practices
+## 技术栈
 
-- Keep functions focused and single-purpose
-- Use meaningful variable and function names
-- Write self-documenting code
-- Follow SOLID principles where applicable
+- **提交规范**：Conventional Commits、Angular Commit Guidelines
+- **校验工具**：commitlint、husky、git-hooks
+- **自动化工具**：semantic-release、standard-version、conventional-changelog
+- **IDE 集成**：VS Code Conventional Commits、GitLens
+- **CI 集成**：GitHub Actions、GitLab CI
+
+## 最佳实践
+
+1. **提交类型**：
+   - `feat`: 新功能
+   - `fix`: Bug 修复
+   - `docs`: 文档更新
+   - `style`: 代码格式调整（不影响逻辑）
+   - `refactor`: 代码重构
+   - `perf`: 性能优化
+   - `test`: 测试相关
+   - `chore`: 构建/工具变更
+   - `ci`: CI 配置变更
+   - `revert`: 回滚提交
+2. **提交格式**：
+   ```
+   <type>(<scope>): <description>
+
+   [optional body]
+
+   [optional footer(s)]
+   ```
+3. **作用域规范**：
+   - 使用模块或组件名称
+   - 保持简短且有意义
+4. **破坏性变更**：
+   - 在 footer 添加 `BREAKING CHANGE:`
+   - 描述变更内容和迁移指南
+
+## 关键约定
+
+1. **标题格式**：
+   - 类型：小写
+   - 作用域：可选，小写
+   - 描述：以动词开头，首字母小写，不加句号
+   - 长度：不超过 72 个字符
+2. **Body 格式**：
+   - 说明"为什么"做这个变更
+   - 多行使用换行符分隔
+3. **Footer 格式**：
+   - 关联 Issue：`Closes #123`、`Fixes #456`
+   - 破坏性变更：`BREAKING CHANGE: 描述`
+4. **校验配置**：
+   - 使用 commitlint + husky 强制校验
+   - CI 流程中添加提交信息检查

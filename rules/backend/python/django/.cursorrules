@@ -1,21 +1,25 @@
+# Python Django .cursorrules 提示文件
+
 你是 Django、Python 和 Web 后端开发方面的专家。
+
+## 核心原则
+
+- 严格遵循 MVT（模型-视图-模板）模式
+- 保持关注点分离
+- 将业务逻辑拆分到独立 App
+- 遵循 PEP 8 编码规范
+- 优先考虑安全性和性能
 
 ## 技术栈
 
 - **框架**：Django
 - **语言**：Python
 - **API**：Django REST Framework
-- **数据库**：PostgreSQL/MySQL
-- **缓存**：Redis/Memcached
+- **数据库**：PostgreSQL / MySQL
+- **缓存**：Redis / Memcached
 - **任务队列**：Celery
 
-## 核心原则
-
-### MVT 架构
-
-- 严格遵循 MVT（模型-视图-模板）模式
-- 保持关注点分离
-- 将业务逻辑拆分到独立 App
+## 最佳实践
 
 ### 项目结构
 
@@ -32,62 +36,109 @@ project/
 └── requirements.txt
 ```
 
-## 编码规范
+### 模型定义
 
-### 视图
+```python
+from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-- 使用类视图（CBV）处理复杂视图
-- 简单逻辑可使用函数视图（FBV）
-- 在视图层做异常捕获
-- 定制 404/500 等错误页面
+class User(AbstractUser):
+    phone = models.CharField(max_length=20, blank=True)
 
-### 模型
+    class Meta:
+        db_table = 'users'
 
-- 优先使用 ORM，避免原生 SQL
-- 为关键字段添加数据库索引
-- 使用 Django 内置 User 模型与认证框架
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-### 表单
+    class Meta:
+        db_table = 'products'
+        ordering = ['-created_at']
+```
 
-- 使用 ModelForm / Form 处理表单与验证逻辑
-- 在表单层实现数据验证
+### 视图层
 
-### URL 路由
+```python
+from django.views.generic import ListView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-- 在 urls.py 中定义清晰的 RESTful 路由
-- 使用命名 URL 模式
+class ProductListView(ListView):
+    model = Product
+    template_name = 'products/list.html'
+    context_object_name = 'products'
+    paginate_by = 20
+
+class ProductCreateView(LoginRequiredMixin, CreateView):
+    model = Product
+    fields = ['name', 'price', 'description']
+    template_name = 'products/form.html'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+```
+
+## 关键约定
+
+1. **视图规范**
+   - 使用类视图（CBV）处理复杂视图
+   - 简单逻辑可使用函数视图（FBV）
+   - 在视图层做异常捕获
+   - 定制 404/500 等错误页面
+
+2. **模型规范**
+   - 优先使用 ORM，避免原生 SQL
+   - 为关键字段添加数据库索引
+   - 使用 Django 内置认证框架
+
+3. **表单规范**
+   - 使用 ModelForm / Form 处理表单
+   - 在表单层实现数据验证
+
+4. **URL 路由**
+   - 在 urls.py 中定义清晰的 RESTful 路由
+   - 使用命名 URL 模式
 
 ## 性能优化
 
-### 数据库
+### 数据库查询
 
-- 使用 select_related / prefetch_related 优化关联查询
-- 监控并优化慢查询
-- 使用缓存框架减少数据库压力
+```python
+# 使用 select_related 优化外键查询
+Product.objects.select_related('category').all()
 
-### 异步处理
+# 使用 prefetch_related 优化多对多查询
+Order.objects.prefetch_related('items').all()
 
-- 使用 Celery 处理耗时后台任务
-- 编写异步视图应对 IO 密集型操作
+# 使用 only/defer 限制字段
+Product.objects.only('name', 'price')
+```
 
-### 静态文件
+### 缓存策略
 
-- 通过 WhiteNoise 或 CDN 优化静态文件服务
+```python
+from django.core.cache import cache
 
-## 安全
+def get_products():
+    key = 'products:all'
+    products = cache.get(key)
+    if products is None:
+        products = list(Product.objects.all())
+        cache.set(key, products, 3600)
+    return products
+```
+
+## 安全实践
 
 - 启用 CSRF 保护
-- 防 SQL 注入
-- 防 XSS 攻击
+- 防 SQL 注入（使用 ORM）
+- 防 XSS 攻击（模板自动转义）
 - 定期审计安全配置
 
-## 测试
+## 测试规范
 
-- 使用 unittest/pytest-django 编写测试
+- 使用 unittest / pytest-django 编写测试
 - 编写单元与集成测试确保质量
-
-## 代码风格
-
-- 遵循 PEP 8 命名与代码风格
-- 遵循"约定优于配置"原则
-- 减少样板代码并保持一致性
+- 测试所有业务逻辑和边缘情况

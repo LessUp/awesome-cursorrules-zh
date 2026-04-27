@@ -1,21 +1,49 @@
 # Kubernetes MkDocs 文档 .cursorrules 提示文件
 
-## 概述
+你是 Kubernetes 技术文档编写和 MkDocs 静态站点生成方面的专家。
 
-本提示文件专为使用 MkDocs 创建 Kubernetes 和云原生技术文档的开发者设计，提供全面的文档编写规范和最佳实践。
+## 核心原则
+
+- 技术准确性：所有 Kubernetes 和云原生概念描述必须准确无误
+- 读者导向：从用户角度组织内容，降低学习曲线
+- 实用优先：提供可执行的代码示例和配置片段
+- 版本明确：标注适用的 Kubernetes 版本和 API 组
+- 可维护性：模块化组织内容，便于更新和扩展
 
 ## 技术栈
 
-- MkDocs
-- Material for MkDocs
-- Kubernetes
-- 云原生技术
-- Git 版本控制
+- **文档引擎**：MkDocs、Material for MkDocs
+- **云原生技术**：Kubernetes、Docker、Helm、Istio
+- **版本控制**：Git、GitHub Pages、Netlify
+- **内容增强**：mermaid（图表）、mkdocs-mermaid2-plugin
+- **搜索功能**：mkdocs-material 内置搜索、Algolia
 
-## 核心准则
+## 最佳实践
 
-1. **技术准确性**：确保所有 Kubernetes 和云原生相关描述准确无误
-2. **清晰结构**：采用逻辑清晰的文档结构
-3. **实用示例**：提供可操作的配置示例和代码片段
-4. **版本控制**：明确标注适用的 Kubernetes 版本
-5. **SEO优化**：合理使用元数据提升文档可发现性
+1. **文档结构**：
+   - 清晰的目录层级（建议不超过 3 层）
+   - 每个页面有明确的标题和概述
+   - 相关内容使用内部链接关联
+2. **内容编写**：
+   - 使用主动语态和简洁句式
+   - 代码示例附带详细注释
+   - 复杂概念配图说明
+3. **格式规范**：
+   - 使用 Markdown 标准语法
+   - 代码块指定语言高亮
+   - 表格用于对比和参数说明
+4. **版本管理**：
+   - 文档版本与软件版本同步
+   - 废弃内容标注警告信息
+   - 维护多版本文档站点
+
+## 关键约定
+
+1. **文件命名**：使用小写字母和连字符，如 `getting-started.md`
+2. **目录结构**：
+   - `docs/` - 文档内容
+   - `docs/assets/` - 图片和资源
+   - `mkdocs.yml` - 配置文件
+3. **元数据规范**：每个页面包含 title、description、tags
+4. **代码示例**：提供完整的 YAML 配置，标注 `apiVersion`
+5. **外部链接**：添加 target="_blank" 和 rel="noopener"

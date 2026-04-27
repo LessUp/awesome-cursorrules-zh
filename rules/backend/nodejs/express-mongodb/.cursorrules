@@ -1,4 +1,14 @@
+# Express MongoDB .cursorrules 提示文件
+
 你是 Node.js、Express 和 MongoDB 方面的专家。
+
+## 核心原则
+
+- 遵循 RESTful API 最佳实践
+- 实现清晰的代码组织和模块化
+- 使用适当的 HTTP 方法和状态码
+- 提供一致的 API 响应格式
+- 实现全面的错误处理和日志记录
 
 ## 技术栈
 
@@ -6,75 +16,53 @@
 - **框架**：Express.js
 - **数据库**：MongoDB
 - **ODM**：Mongoose
-- **语言**：JavaScript/TypeScript
+- **语言**：JavaScript / TypeScript
+- **认证**：JWT / Passport.js
 
-## 核心原则
+## 最佳实践
 
-### API 设计
+### 项目结构
 
-- 遵循 RESTful API 最佳实践
-- 使用适当的 HTTP 方法和状态码
-- 实现版本控制（如 `/api/v1/`）
-- 提供清晰的 API 文档
+```
+src/
+├── controllers/    # 请求处理逻辑
+├── models/         # Mongoose 数据模型
+├── routes/         # 路由定义
+├── middleware/     # 自定义中间件
+├── services/       # 业务逻辑层
+├── utils/          # 工具函数
+├── config/         # 配置文件
+└── app.js          # 应用入口
+```
 
-### 代码组织
+### API 设计规范
 
 ```javascript
-// 推荐的项目结构
-src/
-├── controllers/    # 请求处理
-├── models/         # 数据模型
-├── routes/         # 路由定义
-├── middleware/     # 中间件
-├── services/       # 业务逻辑
-├── utils/          # 工具函数
-└── config/         # 配置文件
+// RESTful 端点设计
+// GET    /api/v1/users          获取用户列表
+// GET    /api/v1/users/:id      获取单个用户
+// POST   /api/v1/users          创建用户
+// PUT    /api/v1/users/:id      更新用户
+// DELETE /api/v1/users/:id      删除用户
 ```
 
 ### 错误处理
 
-- 实现全局错误处理中间件
-- 使用自定义错误类
-- 返回一致的错误响应格式
-- 记录所有错误日志
-
-### 输入验证
-
-- 使用 express-validator 或 Joi
-- 验证所有用户输入
-- 清理输入数据
-- 返回清晰的验证错误消息
-
-### 数据库操作
-
-- 使用 Mongoose 模式验证
-- 实现适当的索引
-- 使用事务处理复杂操作
-- 优化查询性能
-
-### 安全
-
-- 使用 helmet 中间件
-- 实现 CORS 策略
-- 使用 rate limiting
-- 输入清理防止注入
-- 敏感数据加密存储
-
-## 编码规范
-
-### 异步处理
-
 ```javascript
-// 使用 async/await
-async function getUser(req, res, next) {
-  try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).json({ error: '用户不存在' });
-    }
-    res.json(user);
-  } catch (error) {
-    next(error);
+// 全局错误处理中间件
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || '服务器内部错误'
+  });
+});
+
+// 自定义错误类
+class AppError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.status = status;
   }
 }
 ```
@@ -97,16 +85,61 @@ res.status(400).json({
 });
 ```
 
+### 异步处理
+
+```javascript
+// 使用 async/await 处理异步操作
+async function getUser(req, res, next) {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: '用户不存在' });
+    }
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+}
+```
+
+## 关键约定
+
+1. **输入验证**
+   - 使用 express-validator 或 Joi
+   - 验证所有用户输入
+   - 清理输入数据防止注入
+
+2. **数据库操作**
+   - 使用 Mongoose 模式验证
+   - 实现适当的索引
+   - 使用事务处理复杂操作
+   - 优化查询性能
+
+3. **安全措施**
+   - 使用 helmet 中间件
+   - 实现 CORS 策略
+   - 使用 rate limiting
+   - 输入清理防止注入
+   - 敏感数据加密存储
+
+4. **命名规范**
+   - 类名：PascalCase
+   - 变量/函数：camelCase
+   - 文件名：kebab-case
+   - 常量：UPPER_SNAKE_CASE
+
 ## 性能优化
 
-- 实现请求缓存
-- 使用连接池
+- 实现请求缓存策略
+- 使用数据库连接池
 - 压缩响应数据
-- 延迟加载和分页
+- 实现分页和延迟加载
+- 使用 Redis 缓存热点数据
 
-## 测试
+## 测试规范
 
-- 编写单元测试和集成测试
-- 使用 Jest 或 Mocha
+- 使用 Jest 或 Mocha 编写测试
+- 为每个控制器和服务编写单元测试
+- 为每个 API 模块编写集成测试
 - 模拟外部依赖
-- 测试错误场景
+- 测试错误场景和边界条件

@@ -1,62 +1,116 @@
-你是 Python、Django 和 FastAPI 方面的专家。
+# Python FastAPI Best Practices .cursorrules 提示文件
 
-## 技术栈
-
-- **框架**：Django / FastAPI
-- **语言**：Python 3.12+
-- **ORM**：Django ORM / SQLAlchemy
-- **验证**：Pydantic
+你是 Python、FastAPI 和可扩展 API 开发方面的专家。
 
 ## 核心原则
 
-### 代码风格
+- 编写简洁、技术性的代码，提供准确的 Python 示例
+- 使用函数式、声明式编程；尽可能避免使用类
+- 倾向于使用迭代和模块化，而不是代码重复
+- 使用带有助动词的描述性变量名（如 is_active, has_permission）
+- 目录和文件名使用小写字母和下划线（如 routers/user_routes.py）
+- 使用"接收一个对象，返回一个对象"（RORO）模式
 
-- 遵循 PEP 8 编码规范
-- 使用类型提示
-- 使用类而不是函数（当适合时）
-- 安装依赖时使用 UV
+## 技术栈
+
+- **框架**：FastAPI
+- **语言**：Python 3.10+
+- **验证**：Pydantic v2
+- **数据库**：asyncpg / aiomysql
+- **ORM**：SQLAlchemy 2.0
+
+## 最佳实践
+
+### 函数规范
+
+```python
+# 对纯函数使用 def
+def calculate_total(items: list[Item]) -> Decimal:
+    return sum(item.price for item in items)
+
+# 对异步操作使用 async def
+async def fetch_user(user_id: int, db: AsyncSession) -> User:
+    return await db.get(User, user_id)
+```
+
+### 类型提示
+
+```python
+from typing import Annotated
+from pydantic import BaseModel, Field
+
+class UserCreate(BaseModel):
+    name: Annotated[str, Field(min_length=1, max_length=100)]
+    email: str
+    age: Annotated[int, Field(ge=0, le=150)]
+```
 
 ### 项目结构
 
 ```
-project/
-├── apps/              # 应用模块
-├── config/            # 配置文件
-├── services/          # 业务逻辑
-├── models/            # 数据模型
-└── api/               # API 端点
+app/
+├── main.py             # 入口文件
+├── routers/            # 路由模块
+│   ├── users.py
+│   └── items.py
+├── models/             # 数据模型
+├── schemas/            # Pydantic 模型
+├── services/           # 业务逻辑
+└── utils/              # 工具函数
 ```
 
-## Django 最佳实践
-
-- 使用类视图（CBV）处理复杂视图
-- 优先使用 ORM，避免原生 SQL
-- 使用 Django 内置 User 模型与认证框架
-- 使用 ModelForm / Form 处理表单与验证
-
-## FastAPI 最佳实践
-
-- 使用 Pydantic 模型进行数据验证
-- 使用依赖注入管理共享资源
-- 实现异步操作提高性能
+### Lifespan 管理
 
 ```python
-from fastapi import FastAPI, Depends
-from pydantic import BaseModel
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # 启动时执行
+    await init_db()
+    yield
+    # 关闭时执行
+    await close_db()
 
-class Item(BaseModel):
-    name: str
-    price: float
-
-@app.post("/items/")
-async def create_item(item: Item):
-    return item
+app = FastAPI(lifespan=lifespan)
 ```
+
+## 关键约定
+
+1. **错误处理**
+   - 在函数开头处理错误和边缘情况
+   - 对错误条件使用提早返回，避免深度嵌套
+   - 将"快乐路径"放在函数末尾
+   - 避免不必要的 `else` 语句
+   - 使用卫语句（guard clauses）处理前置条件
+
+2. **路由规范**
+   - 使用声明式路由定义
+   - 添加明确的返回类型注释
+   - 使用依赖注入管理共享资源
+
+3. **验证规范**
+   - 使用 Pydantic 模型进行输入验证
+   - 对预期错误使用 `HTTPException`
+   - 使用中间件处理意外错误
 
 ## 性能优化
 
-- 使用 select_related / prefetch_related 优化查询
-- 使用缓存减少数据库压力
-- 使用异步处理耗时任务
+- 最小化阻塞式 I/O 操作
+- 使用 Redis 缓存频繁访问的数据
+- 使用 Pydantic 优化序列化
+- 对大型数据集使用延迟加载
+
+## 测试规范
+
+```python
+from fastapi.testclient import TestClient
+
+def test_create_user():
+    response = client.post("/users", json={
+        "name": "Test",
+        "email": "test@example.com"
+    })
+    assert response.status_code == 201
+```

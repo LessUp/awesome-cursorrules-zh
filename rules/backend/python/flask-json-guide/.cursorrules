@@ -1,22 +1,132 @@
-本项目高度依赖我们自定义的 Drawscape Factorio python 模块。
+# Flask JSON API .cursorrules 提示文件
 
-以下是如何使用该模块的代码示例：
+你是 Python、Flask 和 RESTful API 开发方面的专家。
+
+## 核心原则
+
+- 遵循 PEP 8 编码规范
+- 使用类型提示提高代码可读性
+- 保持代码简洁、模块化
+- 优先使用函数式编程风格
+- 实现清晰的错误处理和日志记录
+
+## 技术栈
+
+- **框架**：Flask
+- **语言**：Python 3.10+
+- **数据库**：SQLAlchemy / Flask-SQLAlchemy
+- **验证**：Marshmallow / Pydantic
+- **迁移**：Flask-Migrate
+- **测试**：pytest / Flask-Testing
+
+## 最佳实践
+
+### 项目结构
+
+```
+project/
+├── app/
+│   ├── __init__.py        # 应用工厂
+│   ├── config.py          # 配置文件
+│   ├── models/            # 数据模型
+│   ├── routes/            # 路由蓝图
+│   ├── services/          # 业务逻辑
+│   ├── schemas/           # 序列化模式
+│   └── utils/             # 工具函数
+├── tests/
+├── requirements.txt
+└── run.py
+```
+
+### API 设计
+
+1. 使用蓝图(Blueprint)组织路由
+2. 遵循 RESTful API 设计原则
+3. 返回统一的 JSON 响应格式
+4. 实现适当的 HTTP 状态码
+
+### 代码示例
 
 ```python
-from drawscape_factorio import create as createFactorio
-from drawscape_factorio import importFUE5
+from flask import Flask, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
 
-with open('/path/to/exported-entities.json', 'r') as file:
-    json_data = json.load(file)
-    data = importFUE5(json_data)
-    result = createFactorio(data, {
-        'theme_name': 'default',
-        'color_scheme': 'main',
-        'show_layers': ['assets', 'belts', 'walls', 'rails', 'electrical', 'spaceship']
-    })
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+db = SQLAlchemy(app)
 
-with open(output_file_name, 'w') as f:
-    f.write(result['svg_string'])
+# 统一响应格式
+def api_response(data=None, message='成功', status=200):
+    return jsonify({
+        'success': True,
+        'message': message,
+        'data': data
+    }), status
 
+# RESTful 路由
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    return api_response(data=[u.to_dict() for u in users])
 
-``` 
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    user = User(**data)
+    db.session.add(user)
+    db.session.commit()
+    return api_response(data=user.to_dict(), status=201)
+```
+
+### 错误处理
+
+```python
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({
+        'success': False,
+        'message': '资源未找到'
+    }), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({
+        'success': False,
+        'message': '服务器内部错误'
+    }), 500
+```
+
+## 关键约定
+
+1. **命名规范**
+   - 类名使用 PascalCase
+   - 函数和变量使用 snake_case
+   - 常量使用 UPPER_SNAKE_CASE
+
+2. **配置管理**
+   - 使用环境变量管理敏感配置
+   - 区分开发、测试、生产环境配置
+   - 使用 python-dotenv 加载环境变量
+
+3. **数据库操作**
+   - 使用 SQLAlchemy ORM
+   - 实现数据库迁移管理
+   - 使用事务确保数据一致性
+
+4. **安全实践**
+   - 启用 CSRF 保护
+   - 使用 Flask-JWT-Extended 处理认证
+   - 验证和清理用户输入
+   - 防止 SQL 注入和 XSS 攻击
+
+5. **测试规范**
+   - 使用 pytest 编写测试
+   - 实现单元测试和集成测试
+   - 保持测试覆盖率 > 80%
+
+## 性能优化
+
+- 使用 Flask-Caching 实现缓存
+- 实现数据库查询优化
+- 使用分页处理大量数据
+- 异步处理耗时任务（Celery）

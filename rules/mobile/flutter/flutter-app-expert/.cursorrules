@@ -1,105 +1,99 @@
-// Flutter 应用专家 .cursorrules
+# Flutter 应用开发 .cursorrules 提示文件
 
-// 灵活性说明
+你是 Flutter 和 Dart 跨平台应用开发方面的专家。
 
-// 注意：这是一个推荐的项目结构，但请保持灵活性并适应现有项目结构。
-// 如果项目遵循不同的组织方式，请不要强制应用这些结构模式。
-// 在应用 Flutter 最佳实践的同时，专注于保持与现有项目架构的一致性。
+## 核心原则
 
-// Flutter 最佳实践
+- **跨平台一致性**：一套代码，多平台原生体验
+- **声明式 UI**：拥抱 Flutter 声明式编程范式
+- **状态管理清晰**：使用 BLoC/Cubit 实现可预测状态
+- **类型安全**：充分利用 Dart 强类型和空安全
+- **性能优化**：关注帧率、内存和启动时间
 
-const flutterBestPractices = [
-    "在保持代码整洁原则的同时适应现有项目架构",
-    "使用 Flutter 3.x 特性和 Material 3 设计",
-    "使用 BLoC 模式实现清晰架构",
-    "遵循正确的状态管理原则",
-    "使用适当的依赖注入",
-    "实现正确的错误处理",
-    "遵循平台特定的设计指南",
-    "使用正确的国际化技术",
-];
+## 技术栈
 
-// 项目结构
+- **框架**：Flutter 3.x, Dart 3.x
+- **设计系统**：Material 3, Cupertino
+- **状态管理**：BLoC, Riverpod, Provider
+- **路由**：GoRouter, AutoRoute
+- **依赖注入**：GetIt, Injectable
+- **网络请求**：Dio, Retrofit
+- **本地存储**：Hive, Drift, SharedPreferences
 
-// 注意：这是一个参考结构。请根据项目的现有组织进行调整
+## 最佳实践
 
-const projectStructure = `
-lib/
-  core/
-    constants/    # 常量
-    theme/        # 主题
-    utils/        # 工具
-    widgets/      # 基础组件
-  features/      # 功能模块
-    feature_name/ # 功能名称
-      data/       # 数据层
-        datasources/ # 数据源
-        models/    # 模型
-        repositories/ # 仓库
-      domain/     # 领域层
-        entities/  # 实体
-        repositories/ # 仓库接口
-        usecases/  # 用例
-      presentation/ # 表现层
-        bloc/      # BLoC 逻辑
-        pages/     # 页面
-        widgets/   # 组件
-  l10n/          # 国际化
-  main.dart      # 入口文件
-test/           # 测试
-  unit/         # 单元测试
-  widget/       # 组件测试
-  integration/  # 集成测试
-`;
+1. **架构设计**
+   - 采用 Clean Architecture 分层
+   - 数据层、领域层、表现层分离
+   - 单向数据流模式
+   - 依赖倒置原则
 
-// 编码指南
+2. **状态管理**
+   - BLoC 模式实现业务逻辑
+   - 使用 Equatable 优化状态比较
+   - 正确处理 BlocBuilder/BlocListener
+   - 避免全局状态污染
 
-const codingGuidelines = `
-1. 使用正确的空安全实践
-2. 使用 Either 类型实现正确的错误处理
-3. 遵循正确的命名约定
-4. 使用正确的组件组合
-5. 使用 GoRouter 实现正确的路由
-6. 实现正确的表单验证
-7. 使用 BLoC 遵循正确的状态管理
-8. 使用 GetIt 实现正确的依赖注入
-9. 使用正确的资源管理
-10. 遵循正确的测试实践
-`;
+3. **组件设计**
+   - 保持 Widget 小而专注
+   - 尽可能使用 const 构造函数
+   - 实现正确的组件组合
+   - 提取可复用组件到共享目录
 
-// 组件指南
+4. **错误处理**
+   - 使用 Either 类型处理错误
+   - 实现全局错误捕获
+   - 用户友好的错误提示
+   - 错误日志和监控
 
-const widgetGuidelines = `
-1. 保持组件小巧且专注
-2. 尽可能使用 const 构造函数
-3. 实现正确的组件键
-4. 遵循正确的布局原则
-5. 使用正确的组件生命周期方法
-6. 实现正确的错误边界
-7. 使用正确的性能优化技术
-8. 遵循正确的无障碍访问指南
-`;
+5. **国际化**
+   - 使用 ARB 文件管理翻译
+   -flutter_localizations 集成
+   - 支持 RTL 布局
+   - 动态语言切换
 
-// 性能指南
+## 关键约定
 
-const performanceGuidelines = `
-1. 使用正确的图片缓存
-2. 实现正确的列表视图优化
-3. 使用正确的构建方法优化
-4. 遵循正确的状态管理模式
-5. 实现正确的内存管理
-6. 需要时使用正确的平台通道
-7. 遵循正确的编译优化技术
-`;
+1. **项目结构**
+   ```
+   lib/
+   ├── core/                   # 核心层
+   │   ├── constants/         # 常量定义
+   │   ├── theme/             # 主题配置
+   │   ├── utils/             # 工具函数
+   │   └── widgets/           # 基础组件
+   ├── features/              # 功能模块
+   │   └── feature_name/
+   │       ├── data/          # 数据层
+   │       │   ├── datasources/
+   │       │   ├── models/
+   │       │   └── repositories/
+   │       ├── domain/        # 领域层
+   │       │   ├── entities/
+   │       │   ├── repositories/
+   │       │   └── usecases/
+   │       └── presentation/  # 表现层
+   │           ├── bloc/
+   │           ├── pages/
+   │           └── widgets/
+   ├── l10n/                  # 国际化
+   └── main.dart              # 入口
+   ```
 
-// 测试指南
+2. **命名约定**
+   - 文件：snake_case (如 `user_profile_page.dart`)
+   - 类：PascalCase (如 `UserProfilePage`)
+   - 变量/方法：camelCase (如 `getUserProfile`)
+   - 常量：camelCase 或 lowerCase
 
-const testingTestingGuidelines = `
-1. 为业务逻辑编写单元测试
-2. 为UI组件实现组件测试
-3. 使用集成测试进行功能测试
-4. 实现正确的模拟策略
-5. 使用正确的测试覆盖率工具
-6. 遵循正确的测试命名约定
-7. 实现正确的CI/CD测试
-`;
+3. **编码规范**
+   - 使用 effective_dart linter 规则
+   - 正确使用空安全语法
+   - 避免嵌套过深，提取方法
+   - 使用 cascade 操作符优化代码
+
+4. **测试要求**
+   - 单元测试：业务逻辑和 UseCase
+   - Widget 测试：UI 组件
+   - 集成测试：完整用户流程
+   - 测试覆盖率 > 80%

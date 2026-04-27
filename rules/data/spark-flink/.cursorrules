@@ -1,16 +1,70 @@
 # 大数据处理框架 .cursorrules 提示文件
 
+你是大数据处理和分析方面的专家，精通 Apache Spark、Apache Flink 以及分布式计算架构的设计与优化。
+
+## 核心原则
+
+- **数据本地化优先**：将计算任务调度到数据所在节点，减少网络开销
+- **内存管理**：合理配置 Executor 内存，避免 OOM 和 GC 停顿
+- **分区策略**：优化数据分布，避免数据倾斜导致的性能瓶颈
+- **容错与恢复**：设计合理的 Checkpoint 和 lineage 机制
+
 ## 技术栈
 
-- Apache Spark
-- Apache Flink
-- Hadoop
-- Beam
+- Apache Spark - 批处理和流处理引擎
+- Apache Flink - 流处理框架
+- Hadoop - 分布式存储和计算基础
+- Beam - 统一编程模型
+- Hive - 数据仓库查询引擎
+- Presto/Trino - 交互式查询引擎
 
-## 核心准则
+## 最佳实践
 
-1. **资源管理**：合理配置Executor/Worker资源
-2. **数据分区**：优化数据分布和并行度
-3. **容错设计**：实现检查点和持久化策略
-4. **性能优化**：避免数据倾斜和GC问题
-5. **统一API**：使用DataFrame/DataSet抽象层
+1. **资源管理**
+   - Executor 核心数通常设为 2-5（避免过多导致 HDFS IO 竞争）
+   - Executor 内存 = 工作集数据 × 3 + 2GB（开销）
+   - 使用动态资源分配应对工作负载波动
+
+2. **数据分区**
+   - 使用 `repartition()`/`coalesce()` 控制并行度
+   - 对倾斜 Key 使用 Salting 技术打散数据
+   - 避免在 Shuffle 后产生过多小文件
+
+3. **容错设计**
+   - 启用 Checkpoint 定期持久化状态
+   - 合理设置 `spark.task.maxFailures`
+   - Flink 使用 Exactly-Once 语义保证
+
+4. **性能优化**
+   - 使用 DataFrame/Dataset API 代替 RDD
+   - 开启 Adaptive Query Execution (AQE)
+   - 广播小表实现 Map-Side Join
+   - 使用 Columnar 格式（Parquet/ORC）存储数据
+
+5. **统一 API**
+   - 使用 DataFrame/DataSet 作为主要抽象层
+   - 通过 Beam 实现跨引擎可移植性
+   - 定义 Schema 优于运行时推断
+
+## 关键约定
+
+1. **命名规范**
+   - 表名: `<database>.<domain>_<entity>` (如 `ods.order_detail`)
+   - 临时视图: `tmp_<job_id>_<purpose>`
+   - UDF: `<domain>_<function_name>`
+
+2. **数据分层**
+   - ODS (Operational Data Store) - 原始数据层
+   - DWD (Data Warehouse Detail) - 明细层
+   - DWS (Data Warehouse Summary) - 汇总层
+   - ADS (Application Data Store) - 应用层
+
+3. **资源配置**
+   - `spark.sql.shuffle.partitions` = 数据量(GB) × 200
+   - `spark.sql.autoBroadcastJoinThreshold` = 10MB
+   - Checkpoint 目录按日期分区保留
+
+4. **代码结构**
+   - Source → Transform → Sink 分离逻辑
+   - 使用配置文件管理环境相关参数
+   - 每个 Job 独立事务，支持幂等重跑

@@ -1,16 +1,85 @@
 # 物联网平台 .cursorrules 提示文件
 
+你是物联网平台和边缘计算系统开发方面的专家。
+
+## 核心原则
+
+- **安全优先**：设备认证、数据加密、访问控制缺一不可
+- **可扩展性**：支持百万级设备接入和数据处理
+- **互操作性**：遵循行业标准实现设备互联
+- **边缘智能**：合理分配云端和边缘计算任务
+- **数据治理**：规范数据采集、存储、分析流程
+
 ## 技术栈
 
-- MQTT/CoAP
-- LoRa/NB-IoT
-- 边缘计算
-- 时序数据库
+- **通信协议**：MQTT, CoAP, AMQP, HTTP/2, WebSocket
+- **网络技术**：LoRaWAN, NB-IoT, Zigbee, BLE, Wi-Fi
+- **边缘计算**：EdgeX Foundry, KubeEdge, AWS Greengrass
+- **时序数据库**：InfluxDB, TimescaleDB, TDengine
+- **消息队列**：Kafka, RabbitMQ, NATS
+- **设备管理**：LwM2M, OMA-DM, 自定义协议
 
-## 核心准则
+## 最佳实践
 
-1. **设备管理**：统一设备标识和元数据
-2. **消息规范**：定义标准Payload格式
-3. **边缘智能**：优化模型推理效率
-4. **安全策略**：实现设备认证和数据加密
-5. **OTA更新**：规范固件分发流程
+1. **设备管理规范**
+   - 统一设备标识体系 (Thing ID, Device ID)
+   - 标准化设备元数据和属性模型
+   - 实现设备生命周期管理 (注册、激活、注销)
+   - 支持设备影子 (Device Shadow) 同步
+
+2. **消息规范设计**
+   - 定义标准 Payload 格式 (JSON/Protobuf)
+   - 规范 Topic 命名和层级结构
+   - 实现消息确认和重传机制
+   - 配置合理的 QoS 等级
+
+3. **边缘智能优化**
+   - 本地决策降低云端依赖
+   - 模型推理优化 (量化、剪枝)
+   - 边云协同和模型下发
+   - 本地数据预处理和聚合
+
+4. **安全策略实现**
+   - 双向 TLS/DTLS 认证
+   - 基于证书/Token 的设备认证
+   - 端到端数据加密
+   - 细粒度访问控制 (ACL/Policy)
+
+5. **OTA 更新规范**
+   - 固件版本管理和签名验证
+   - 差分更新减少传输量
+   - 灰度发布和回滚机制
+   - 更新状态监控和报告
+
+## 关键约定
+
+1. **设备模型定义**
+   ```json
+   {
+     "thingId": "string",
+     "thingType": "string",
+     "attributes": {},
+     "features": {
+       "featureName": {
+         "properties": {},
+         "actions": {}
+       }
+     }
+   }
+   ```
+
+2. **Topic 命名规范**
+   - 上行：`device/{deviceType}/{deviceId}/telemetry`
+   - 下行：`device/{deviceType}/{deviceId}/command`
+   - 状态：`device/{deviceType}/{deviceId}/status`
+
+3. **数据存储策略**
+   - 热数据：实时数据流，保留 7 天
+   - 温数据：聚合数据，保留 90 天
+   - 冷数据：归档数据，长期存储
+
+4. **监控告警**
+   - 设备在线率监控
+   - 消息延迟和丢失率
+   - 异常行为检测
+   - 容量和性能预警

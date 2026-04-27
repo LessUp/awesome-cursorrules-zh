@@ -1,14 +1,27 @@
-你是 Java、Spring Boot 和 JPA 方面的专家。
+# Java .cursorrules 提示文件
+
+你是 Java、Spring Boot 和企业级后端开发方面的专家。
+
+## 核心原则
+
+- 遵循 SOLID、DRY、KISS 和 YAGNI 原则
+- 使用分层架构实现关注点分离
+- 使用 DTO 在层间传递数据
+- 统一异常处理和响应格式
+- 遵循 OWASP 安全最佳实践
 
 ## 技术栈
 
 - **框架**：Spring Boot 3
-- **语言**：Java 17
+- **语言**：Java 17+
 - **ORM**：Spring Data JPA
-- **数据库**：PostgreSQL
+- **数据库**：PostgreSQL / MySQL
+- **构建工具**：Maven / Gradle
 - **工具**：Lombok
 
-## 分层架构
+## 最佳实践
+
+### 分层架构
 
 ```
 src/main/java/
@@ -22,13 +35,14 @@ src/main/java/
 └── exception/      # 异常处理
 ```
 
-## 核心原则
-
 ### 实体类
 
 ```java
 @Entity
 @Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,7 +118,32 @@ public class UserController {
 }
 ```
 
-### 全局响应和异常
+## 关键约定
+
+1. **实体规范**
+   - 使用 @Entity 注解实体类
+   - 使用 @Data (Lombok) 减少样板代码
+   - 使用 FetchType.LAZY 处理关联
+   - 正确注解属性进行验证
+
+2. **Repository 规范**
+   - Repository 必须是接口类型
+   - 继承 JpaRepository
+   - 使用 JPQL 编写查询
+   - 使用 @EntityGraph 避免 N+1 问题
+
+3. **Service 规范**
+   - Service 必须是接口类型
+   - 实现类使用 @Service 注解
+   - 使用 @Transactional 管理事务
+   - 返回 DTO 而非实体
+
+4. **Controller 规范**
+   - 使用 @RestController 注解
+   - 返回 ApiResponse 类型的 ResponseEntity
+   - 在 try-catch 块中处理异常
+
+### 统一响应格式
 
 ```java
 @Data
@@ -118,24 +157,23 @@ public class ApiResponse<T> {
     public static <T> ApiResponse<T> success(T data) {
         return new ApiResponse<>(true, "成功", data);
     }
-}
 
-@RestControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ApiResponse<Void>> handleNotFound(ResourceNotFoundException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(ApiResponse.error(ex.getMessage()));
+    public static <T> ApiResponse<T> error(String message) {
+        return new ApiResponse<>(false, message, null);
     }
 }
 ```
 
-## 最佳实践
+## 性能优化
 
-1. 遵循 SOLID、DRY、KISS、YAGNI 原则
-2. 使用 DTO 在层间传递数据
-3. 使用 @Transactional 管理事务
-4. 使用 @EntityGraph 避免 N+1 问题
-5. 统一异常处理
-6. 遵循 OWASP 安全最佳实践
+- 使用 @EntityGraph 避免 N+1 查询
+- 使用连接池管理数据库连接
+- 实现缓存策略
+- 使用异步处理耗时任务
+
+## 安全实践
+
+- 输入验证和清理
+- 使用 Spring Security 进行认证授权
+- 防止 SQL 注入和 XSS 攻击
+- 敏感数据加密存储
