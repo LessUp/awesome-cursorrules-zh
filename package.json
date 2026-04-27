@@ -1,7 +1,12 @@
 {
   "name": "awesome-cursorrules-zh-site",
   "version": "2.1.0",
-  "description": "Awesome Cursor Rules - GitHub Pages Site",
+  "description": "🇨🇳 精选 Cursor AI 编辑器 .cursorrules 规则集合 | Awesome Cursor Rules for Cursor AI Editor",
+  "author": "LessUp",
+  "homepage": "https://awesome-cursorrules-zh.js.org/",
+  "bugs": {
+    "url": "https://github.com/LessUp/awesome-cursorrules-zh/issues"
+  },
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev",
@@ -34,7 +39,11 @@
     "coding-rules",
     "cursorrules",
     "documentation",
-    "vitepress"
+    "vitepress",
+    "chinese",
+    "中文",
+    "cursor-editor",
+    "ai-assistant"
   ],
   "license": "MIT"
 }

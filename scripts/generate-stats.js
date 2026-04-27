@@ -25,15 +25,17 @@ function getFiles(dir, pattern = null) {
     try {
       items = readdirSync(currentDir);
     } catch (e) {
+      console.warn(`Warning: Cannot read directory ${currentDir} - ${e.message}`);
       return;
     }
-    
+
     for (const item of items) {
       const fullPath = join(currentDir, item);
       let stat;
       try {
         stat = statSync(fullPath);
       } catch (e) {
+        console.warn(`Warning: Cannot stat ${fullPath} - ${e.message}`);
         continue;
       }
       
@@ -87,19 +89,21 @@ function getRulesByCategory() {
       try {
         items = readdirSync(dir);
       } catch (e) {
+        console.warn(`Warning: Cannot read directory ${dir} - ${e.message}`);
         return;
       }
-      
+
       for (const item of items) {
         const fullPath = join(dir, item);
         let stat;
         try {
           stat = statSync(fullPath);
         } catch (e) {
+          console.warn(`Warning: Cannot stat ${fullPath} - ${e.message}`);
           continue;
         }
         const relativePath = join(basePath, item);
-        
+
         if (stat.isDirectory()) {
           traverse(fullPath, relativePath);
         } else if (item === '.cursorrules') {
@@ -107,6 +111,7 @@ function getRulesByCategory() {
           try {
             content = readFileSync(fullPath, 'utf-8');
           } catch (e) {
+            console.warn(`Warning: Cannot read ${fullPath} - ${e.message}`);
             content = '';
           }
           const parentDir = dirname(relativePath);
@@ -177,7 +182,7 @@ function getTechStackStats() {
           count++;
         }
       } catch (e) {
-        // 忽略读取错误
+        console.warn(`Warning: Cannot read ${file} - ${e.message}`);
       }
     }
     if (count > 0) {
@@ -222,15 +227,15 @@ async function main() {
       const content = readFileSync(file, 'utf-8');
       const size = content.length;
       const lines = content.split('\n').length;
-      
+
       totalSize += size;
       totalLines += lines;
-      
+
       const relativePath = file.replace(RULES_DIR, 'rules');
       const parts = relativePath.split('/');
       const category = parts[1] || 'unknown';
       const name = parts[parts.length - 2] || 'unnamed';
-      
+
       ruleDetails.push({
         name,
         category,
@@ -239,7 +244,7 @@ async function main() {
         lines
       });
     } catch (e) {
-      // 忽略错误
+      console.warn(`Warning: Cannot read ${file} - ${e.message}`);
     }
   }
   

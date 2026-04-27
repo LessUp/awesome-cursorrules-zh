@@ -101,8 +101,14 @@ function getCursorRulesFiles(dir) {
     
     for (const item of items) {
       const fullPath = resolve(currentDir, item);
-      const stat = statSync(fullPath);
-      
+      let stat;
+      try {
+        stat = statSync(fullPath);
+      } catch (e) {
+        console.warn(`Warning: Cannot stat ${fullPath} - ${e.message}`);
+        continue;
+      }
+
       if (stat.isDirectory()) {
         traverse(fullPath);
       } else if (item === '.cursorrules') {
