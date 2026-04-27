@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "vitepress": "^1.6.4",
-    "markdownlint-cli2": "^0.17.2",
+    "markdownlint-cli2": "^0.22.1",
     "postcss": "^8.5.3",
     "autoprefixer": "^10.4.21"
   },
