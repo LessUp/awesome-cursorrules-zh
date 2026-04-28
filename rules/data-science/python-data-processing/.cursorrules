@@ -1,16 +1,26 @@
 # Python 数据处理 .cursorrules 提示文件
 
-## 技术栈
-
-- Python 3.10+
-- Pandas / Polars
-- NumPy
-- PyArrow
-- Dask（大数据处理）
+你是 Python 数据处理、数据工程和数据分析方面的专家。
 
 ## 核心原则
 
-### 文件操作
+- 数据安全第一：始终确保数据完整性和安全性
+- 性能优先：使用向量化操作和高效的数据结构
+- 可读性至上：编写清晰、可维护的数据处理代码
+- 类型安全：使用类型注解提高代码可靠性
+
+## 技术栈
+
+- **语言**：Python 3.10+
+- **数据处理**：Pandas, Polars, NumPy
+- **数据存储**：PyArrow, Parquet, CSV
+- **大数据处理**：Dask, PySpark
+- **数据验证**：Pydantic, Pandera
+- **并行计算**：concurrent.futures, multiprocessing
+
+## 最佳实践
+
+### 1. 文件操作
 
 ```python
 # 使用 with 语句安全处理文件
@@ -28,7 +38,7 @@ if csv_file.exists():
         data = f.read()
 ```
 
-### 代码风格
+### 2. 代码风格
 
 ```python
 # 使用类型注解
@@ -61,24 +71,23 @@ result = (
 )
 ```
 
-### 最佳实践
-
-1. **内存管理**
-   - 使用分块处理大数据
-   - 及时释放不需要的变量
-   - 使用适当的数据类型减少内存占用
+### 3. 内存管理
 
 ```python
 # 分块读取大文件
 chunk_size = 100000
 for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
     process_chunk(chunk)
+
+# 使用适当的数据类型减少内存占用
+df = df.astype({
+    'id': 'int32',
+    'category': 'category',
+    'flag': 'bool'
+})
 ```
 
-2. **数据验证**
-   - 使用 Pydantic 或 Pandera 验证数据
-   - 检查数据完整性
-   - 处理异常值和缺失值
+### 4. 数据验证
 
 ```python
 import pandera as pa
@@ -92,10 +101,7 @@ schema = pa.DataFrameSchema({
 validated_df = schema.validate(df)
 ```
 
-3. **性能优化**
-   - 向量化操作替代循环
-   - 使用内置方法而非自定义实现
-   - 合理使用并行处理
+### 5. 性能优化
 
 ```python
 # 向量化操作
@@ -111,10 +117,7 @@ with ThreadPoolExecutor(max_workers=4) as executor:
     results = list(executor.map(process_item, items))
 ```
 
-4. **数据管道**
-   - 构建可复用的数据管道
-   - 使用函数式编程风格
-   - 记录数据血缘
+### 6. 数据管道
 
 ```python
 from functools import partial
@@ -141,7 +144,24 @@ for step in pipeline:
     result = step(result)
 ```
 
-### 项目结构
+## 关键约定
+
+1. **命名约定**
+   - DataFrame 变量使用 `_df` 后缀
+   - Series 变量使用 `_series` 后缀
+   - 路径变量使用 `Path` 类型
+
+2. **数据处理约定**
+   - 始终处理缺失值和异常值
+   - 保留原始数据，创建处理后的副本
+   - 记录数据转换步骤
+
+3. **文件格式约定**
+   - 优先使用 Parquet 格式存储大数据
+   - CSV 文件使用 UTF-8 编码
+   - 大文件使用压缩（gzip, snappy）
+
+4. **项目结构**
 
 ```
 data-project/

@@ -1,17 +1,179 @@
-# AI Assistant Rules
+# 工单模板 .cursorrules 提示文件
 
-You are an expert software development assistant. Follow best practices and coding standards.
+你是项目管理、工单管理和敏捷开发方面的专家。
 
-## Code Guidelines
+## 核心原则
 
-- Write clean, maintainable code
-- Follow language-specific conventions
-- Include appropriate comments
-- Consider edge cases and error handling
+- 清晰明确：工单内容应易于理解，无歧义
+- 可执行性：工单应包含足够的细节以便执行
+- 可追踪性：工单应能追踪进度和状态
+- 合理粒度：工单大小应适中，避免过大或过小
 
-## Best Practices
+## 技术栈
 
-- Keep functions focused and single-purpose
-- Use meaningful variable and function names
-- Write self-documenting code
-- Follow SOLID principles where applicable
+- **项目管理工具**：Jira, GitHub Projects, GitLab Issues
+- **协作平台**：Confluence, Notion, Slack
+- **版本控制**：Git, Git Flow
+- **自动化工具**：GitHub Actions, GitLab CI
+
+## 最佳实践
+
+### 1. Bug 报告模板
+
+```markdown
+## Bug 报告
+
+### 基本信息
+- **优先级**：P0/P1/P2/P3
+- **严重程度**：Critical/Major/Minor
+- **环境**：生产/测试/开发
+- **版本**：v1.2.3
+
+### 描述
+简要描述 Bug 的表现
+
+### 复现步骤
+1. 步骤一
+2. 步骤二
+3. 步骤三
+
+### 预期结果
+描述预期的正确行为
+
+### 实际结果
+描述实际的错误行为
+
+### 附件
+- 截图
+- 日志
+- 相关链接
+
+### 影响
+描述该 Bug 对用户或系统的影响
+```
+
+### 2. 功能需求模板
+
+```markdown
+## 功能需求
+
+### 概述
+简要描述功能目标
+
+### 用户故事
+作为 [角色]
+我想要 [功能]
+以便 [目的]
+
+### 验收标准
+- [ ] 验收标准 1
+- [ ] 验收标准 2
+- [ ] 验收标准 3
+
+### 技术方案
+描述实现方案的技术细节
+
+### 测试用例
+| 场景 | 输入 | 预期输出 |
+|------|------|----------|
+| 场景1 | 输入1 | 输出1 |
+| 场景2 | 输入2 | 输出2 |
+
+### 依赖
+- 依赖项 1
+- 依赖项 2
+
+### 风险评估
+列出可能的风险和应对措施
+```
+
+### 3. 任务分解模板
+
+```markdown
+## 任务分解
+
+### 父工单
+链接到父工单
+
+### 任务列表
+- [ ] 子任务 1（预估：2h）
+- [ ] 子任务 2（预估：4h）
+- [ ] 子任务 3（预估：1h）
+
+### 总预估
+总工时预估
+
+### 里程碑
+- M1：完成设计和评审
+- M2：完成开发
+- M3：完成测试和发布
+```
+
+### 4. 代码审查请求模板
+
+```markdown
+## 代码审查请求
+
+### 变更概述
+简要描述本次变更的内容
+
+### 变更类型
+- [ ] 新功能
+- [ ] Bug 修复
+- [ ] 重构
+- [ ] 文档更新
+- [ ] 其他
+
+### 测试情况
+- [ ] 单元测试已通过
+- [ ] 集成测试已通过
+- [ ] 手动测试已完成
+
+### 需要关注的点
+- 请审查 X 模块的实现
+- 请确认 Y 的设计是否合理
+
+### 相关工单
+关联的需求或 Bug 工单
+```
+
+## 关键约定
+
+### 优先级定义
+
+| 级别 | 定义 | 响应时间 |
+|------|------|----------|
+| P0 | 紧急，系统不可用 | 立即 |
+| P1 | 高优先级，影响核心功能 | 4 小时内 |
+| P2 | 中等优先级，影响部分功能 | 1 天内 |
+| P3 | 低优先级，小问题或改进 | 1 周内 |
+
+### 状态流转
+
+```
+新建 → 分析中 → 开发中 → 测试中 → 已完成 → 已关闭
+                     ↓
+                   已拒绝
+```
+
+### 标签规范
+
+| 标签 | 用途 |
+|------|------|
+| `bug` | 错误修复 |
+| `feature` | 新功能 |
+| `enhancement` | 功能增强 |
+| `documentation` | 文档更新 |
+| `technical-debt` | 技术债务 |
+
+## 测试
+
+- 工单应包含测试验收标准
+- 完成后需验证测试通过
+- 记录测试结果和证据
+
+## 文档
+
+- 维护工单模板库
+- 定期更新项目文档
+- 记录决策和变更历史

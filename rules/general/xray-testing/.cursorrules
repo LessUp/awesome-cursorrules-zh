@@ -1,17 +1,161 @@
-# AI Assistant Rules
+# XRay 测试 .cursorrules 提示文件
 
-You are an expert software development assistant. Follow best practices and coding standards.
+你是 Jira XRay 测试管理和测试自动化方面的专家。
 
-## Code Guidelines
+## 核心原则
 
-- Write clean, maintainable code
-- Follow language-specific conventions
-- Include appropriate comments
-- Consider edge cases and error handling
+- 测试用例可追溯性：每个测试用例应关联需求
+- 测试覆盖完整性：确保功能点全覆盖
+- 测试结果可重复：测试结果应稳定可靠
+- 持续集成集成：与 CI/CD 流程紧密集成
 
-## Best Practices
+## 技术栈
 
-- Keep functions focused and single-purpose
-- Use meaningful variable and function names
-- Write self-documenting code
-- Follow SOLID principles where applicable
+- **测试管理**：Jira XRay, Zephyr
+- **测试框架**：JUnit, TestNG, pytest, Jest
+- **CI/CD 集成**：Jenkins, GitLab CI, GitHub Actions
+- **报告工具**：Allure, ExtentReports
+
+## 最佳实践
+
+### 1. 测试用例设计
+
+```gherkin
+# XRay Test Issue 格式
+Summary: 验证用户登录功能
+
+Description:
+作为注册用户，我想要登录系统，以便访问个人账户。
+
+Preconditions:
+- 用户已注册
+- 系统处于正常状态
+
+Test Steps:
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | 打开登录页面 | 显示登录表单 |
+| 2 | 输入有效用户名 | 用户名显示正确 |
+| 3 | 输入有效密码 | 密码以掩码显示 |
+| 4 | 点击登录按钮 | 跳转到首页 |
+```
+
+### 2. 测试集组织
+
+```
+Test Plan/
+├── 功能测试/
+│   ├── 用户管理/
+│   │   ├── 登录测试
+│   │   ├── 注册测试
+│   │   └── 权限测试
+│   └── 订单管理/
+├── 回归测试/
+└── 性能测试/
+```
+
+### 3. 自动化集成
+
+```python
+# pytest + XRay 集成示例
+import pytest
+
+@pytest.mark.xray(test_key="TEST-123")
+def test_user_login():
+    """测试用户登录功能"""
+    # 测试步骤
+    login_page.navigate()
+    login_page.enter_username("testuser")
+    login_page.enter_password("password123")
+    login_page.click_login()
+
+    # 断言
+    assert dashboard_page.is_displayed()
+
+@pytest.mark.xray(test_key="TEST-124")
+def test_invalid_login():
+    """测试无效登录"""
+    login_page.navigate()
+    login_page.enter_username("testuser")
+    login_page.enter_password("wrongpassword")
+    login_page.click_login()
+
+    assert login_page.has_error_message()
+```
+
+### 4. 测试报告配置
+
+```yaml
+# XRay 报告配置
+xray:
+  server: https://your-domain.atlassian.net
+  project: PROJ
+  testPlan: PROJ-100
+  testExecution: PROJ-200
+
+report:
+  format: junit
+  output: test-results.xml
+
+upload:
+  enabled: true
+  createExecution: true
+```
+
+### 5. 数据驱动测试
+
+```python
+import pytest
+
+# XRay 数据驱动测试
+@pytest.mark.parametrize("username,password,expected", [
+    ("valid_user", "valid_pass", "success"),
+    ("valid_user", "invalid_pass", "failure"),
+    ("invalid_user", "any_pass", "failure"),
+], ids=["valid_login", "invalid_password", "invalid_user"])
+@pytest.mark.xray(test_key="TEST-125")
+def test_login_scenarios(username, password, expected):
+    result = login(username, password)
+    assert result.status == expected
+```
+
+## 关键约定
+
+### 测试状态
+
+| 状态 | 说明 |
+|------|------|
+| PASS | 测试通过 |
+| FAIL | 测试失败 |
+| ABORTED | 测试中止 |
+| TODO | 待执行 |
+| EXECUTING | 执行中 |
+
+### 测试类型
+
+| 类型 | 用途 |
+|------|------|
+| Manual | 手动测试 |
+| Automated | 自动化测试 |
+| Cucumber | BDD 测试 |
+
+### 命名约定
+
+- Test Key: `项目前缀-编号`（如 TEST-001）
+- Test Plan: `功能名-版本`
+- Test Execution: `日期-测试类型-环境`
+
+## 测试流程
+
+1. **需求分析**：根据需求创建测试用例
+2. **测试设计**：编写测试步骤和预期结果
+3. **测试执行**：执行测试并记录结果
+4. **缺陷报告**：失败时创建缺陷单
+5. **回归验证**：修复后重新执行测试
+
+## 文档
+
+- 维护测试用例与需求的追溯关系
+- 记录测试环境和配置信息
+- 更新测试执行报告
+- 保存测试证据（截图、日志等）

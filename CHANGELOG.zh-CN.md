@@ -7,6 +7,54 @@
 
 ## [未发布]
 
+## [2.2.0] - 2026-04-28
+
+### 🎉 亮点
+
+- **全面重构**：完整的项目重构和规范化
+- **规则质量提升**：大幅扩充 100+ 个 .cursorrules 文件，改善结构
+- **开发者体验**：添加 ESLint、Prettier、EditorConfig 配置
+- **文档增强**：扩充架构、安装和教程文档
+
+### 📚 文档
+
+#### 新增
+- `specs/` 目录，包含 Spec-Driven Development 模板
+  - 产品需求、RFC、API、数据库、测试模板
+- 扩充 `docs/architecture/`，添加 VitePress 配置和规则组织指南
+- 扩充 `docs/setup/`，添加 Node.js 和编辑器配置指南
+- 扩充 `docs/tutorials/`，添加规则使用、贡献、翻译指南
+
+#### 变更
+- 改进 `CLAUDE.md` 用于 Claude Code 集成
+- 更新 `AGENTS.md` 最新目录结构
+- 增强 `package.json`，添加 author、homepage、bugs 和扩展关键词
+
+### 🔧 基础设施
+
+#### 新增
+- `eslint.config.mjs` - ESLint 配置
+- `.prettierrc` 和 `.prettierignore` - Prettier 配置
+- `.editorconfig` - 跨编辑器配置
+- `.vscode/settings.json` 和 `extensions.json` - VS Code 设置
+
+#### 变更
+- 修复 `scripts/validate-rules.js` 和 `scripts/generate-stats.js` 中的空 catch 块
+- 更新 GitHub 仓库描述和 topics
+
+### 📝 规则文件
+
+#### 变更
+- 扩充 100+ 个 `.cursorrules` 文件，添加：
+  - 角色定义（"你是...专家"）
+  - 核心原则
+  - 技术栈详情
+  - 最佳实践
+  - 关键约定
+- 标准化所有技术领域的格式
+
+---
+
 ## [2.1.0] - 2025-04-16
 
 ### 🎉 亮点

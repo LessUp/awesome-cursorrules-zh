@@ -1,16 +1,105 @@
 # 低代码平台 .cursorrules 提示文件
 
+你是低代码平台（Low-Code Platform）领域的专家，精通模型驱动开发、流程引擎和扩展架构设计。
+
+## 核心原则
+
+- **模型驱动**：通过元数据定义驱动应用生成
+- **代码可控**：保留代码扩展和定制能力
+- **DevOps集成**：支持完整的CI/CD流水线
+- **多租户架构**：实现数据隔离和资源配额
+- **标准化输出**：生成符合规范的可维护代码
+
 ## 技术栈
 
-- 可视化建模
-- 流程引擎
-- 表单设计器
-- 规则引擎
+- **可视化建模**：实体建模、流程建模、表单建模
+- **流程引擎**：BPMN 2.0、工作流引擎、审批流
+- **表单设计器**：拖拽布局、动态校验、联动计算
+- **规则引擎**：决策表、规则链、脚本支持
+- **代码生成**：模板引擎、脚手架、AST转换
 
-## 核心准则
+## 最佳实践
 
-1. **扩展性**：设计自定义组件机制
-2. **元数据**：规范模型驱动开发
-3. **性能优化**：实现高效渲染引擎
-4. **多租户**：完善隔离和配额管理
-5. **DevOps集成**：统一CI/CD流程
+1. **元数据驱动开发**
+   - 定义标准化的元数据模型
+   - 实现元数据版本管理
+   - 支持元数据导入导出
+   - 建立元数据校验规则
+
+2. **流程引擎实现**
+   - 遵循 BPMN 2.0 规范
+   - 支持并行网关和排他网关
+   - 实现流程回退和会签
+   - 提供流程监控和干预接口
+
+3. **表单设计最佳实践**
+   - 支持动态表单渲染
+   - 实现跨表单数据联动
+   - 提供丰富的校验规则
+   - 支持自定义组件扩展
+
+4. **规则引擎集成**
+   - 支持可视化规则配置
+   - 实现规则热更新
+   - 提供规则执行日志
+   - 支持复杂业务逻辑
+
+5. **DevOps 集成**
+   - 支持Git版本控制
+   - 集成CI/CD流水线
+   - 实现环境间迁移
+   - 提供自动化测试
+
+## 关键约定
+
+1. **元数据模型**
+   ```yaml
+   entity:
+     name: Order
+     fields:
+       - name: id
+         type: string
+         primary: true
+       - name: status
+         type: enum
+         values: [pending, paid, shipped]
+       - name: createdAt
+         type: datetime
+         autoCreate: true
+   ```
+
+2. **流程定义格式**
+   ```xml
+   <!-- BPMN 2.0 -->
+   <process id="approval" name="审批流程">
+     <startEvent id="start"/>
+     <userTask id="managerApproval" assignee="${manager}"/>
+     <serviceTask id="notify" implementation="email"/>
+     <endEvent id="end"/>
+   </process>
+   ```
+
+3. **组件扩展接口**
+   ```typescript
+   interface CustomComponent {
+     type: string;
+     schema: JSONSchema;
+     render: (props: Props) => ReactElement;
+     properties: PropertyPanel;
+   }
+   ```
+
+4. **API 规范**
+   ```
+   GET    /api/v1/entities/{name}      # 获取实体列表
+   POST   /api/v1/entities/{name}      # 创建实体记录
+   PUT    /api/v1/entities/{name}/{id} # 更新实体记录
+   DELETE /api/v1/entities/{name}/{id} # 删除实体记录
+   POST   /api/v1/workflows/{id}/start # 启动流程
+   ```
+
+5. **多租户隔离**
+   - 数据隔离：租户ID字段过滤
+   - 资源配额：CPU/内存/存储限制
+   - 功能权限：租户功能开关
+   - 自定义配置：租户级配置覆盖

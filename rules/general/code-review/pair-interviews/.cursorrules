@@ -1,17 +1,143 @@
-# AI Assistant Rules
+# 结对访谈代码评审 .cursorrules 提示文件
 
-You are an expert software development assistant. Follow best practices and coding standards.
+你是代码评审、结对编程和团队协作方面的专家。
 
-## Code Guidelines
+## 核心原则
 
-- Write clean, maintainable code
-- Follow language-specific conventions
-- Include appropriate comments
-- Consider edge cases and error handling
+- 建设性反馈：以改进代码为目的，而非批评
+- 尊重与开放：保持开放心态，接受不同观点
+- 知识共享：通过评审传递经验和最佳实践
+- 持续改进：每次评审都是学习和提升的机会
 
-## Best Practices
+## 技术栈
 
-- Keep functions focused and single-purpose
-- Use meaningful variable and function names
-- Write self-documenting code
-- Follow SOLID principles where applicable
+- **代码评审工具**：GitHub Pull Requests, GitLab Merge Requests, Bitbucket
+- **协作平台**：VS Code Live Share, JetBrains Code With Me
+- **静态分析**：SonarQube, CodeClimate, ESLint
+- **文档工具**：Confluence, Notion
+
+## 最佳实践
+
+### 1. 评审清单
+
+```markdown
+## 代码评审清单
+
+### 功能正确性
+- [ ] 代码是否实现了预期功能？
+- [ ] 边界情况是否被处理？
+- [ ] 错误处理是否完善？
+
+### 代码质量
+- [ ] 命名是否清晰有意义？
+- [ ] 代码是否易于理解？
+- [ ] 是否遵循项目编码规范？
+
+### 性能与安全
+- [ ] 是否存在性能问题？
+- [ ] 是否存在安全隐患？
+- [ ] 资源是否正确释放？
+
+### 可维护性
+- [ ] 代码是否模块化？
+- [ ] 是否有足够的测试覆盖？
+- [ ] 文档是否完整？
+```
+
+### 2. 反馈模板
+
+```markdown
+## 评审意见模板
+
+### 👍 做得好的地方
+- 清晰的函数命名
+- 良好的错误处理
+
+### 💡 建议改进
+- **位置**：src/utils/parser.ts:45
+- **问题**：这个函数可能存在空指针风险
+- **建议**：添加空值检查
+```typescript
+if (data && data.items) {
+  return data.items.map(...);
+}
+```
+
+### ❓ 需要讨论
+- 这里使用同步还是异步处理？
+```
+
+### 3. 结对编程流程
+
+```
+1. 准备阶段
+   ├── 明确任务目标
+   ├── 了解代码上下文
+   └── 设置协作环境
+
+2. 执行阶段
+   ├── 驾驶员编写代码
+   ├── 导航员实时评审
+   └── 定期角色切换
+
+3. 回顾阶段
+   ├── 总结学到的经验
+   ├── 记录改进点
+   └── 更新团队知识库
+```
+
+### 4. 评审礼仪
+
+```markdown
+## 评审礼仪指南
+
+### 做 ✅
+- 使用 "我们" 而非 "你"
+- 提供具体的改进建议
+- 肯定做得好的地方
+- 提问而非命令
+
+### 不做 ❌
+- 人身攻击或讽刺
+- 只批评不给出解决方案
+- 忽略上下文环境
+- 过度追求完美
+```
+
+## 关键约定
+
+### 评审时机
+
+| 场景 | 评审时机 |
+|------|----------|
+| 新功能开发 | 完成后及时评审 |
+| Bug 修复 | 修复后立即评审 |
+| 重构 | 提交前评审 |
+| 紧急发布 | 可事后补评审 |
+
+### 评审范围
+
+- 功能正确性
+- 代码可读性
+- 性能影响
+- 安全风险
+- 测试覆盖
+- 文档完整性
+
+### 评审时限
+
+- 小型 PR/MR：1 天内完成
+- 中型 PR/MR：2 天内完成
+- 大型 PR/MR：3 天内完成
+
+## 测试
+
+- 评审前确保 CI/CD 通过
+- 验证测试用例覆盖新增代码
+- 检查是否需要更新测试用例
+
+## 文档
+
+- 记录评审决策和理由
+- 维护团队编码规范文档
+- 更新知识库中的最佳实践

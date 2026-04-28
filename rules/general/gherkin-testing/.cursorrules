@@ -1,17 +1,148 @@
-# AI Assistant Rules
+# Gherkin 测试 .cursorrules 提示文件
 
-You are an expert software development assistant. Follow best practices and coding standards.
+你是行为驱动开发（BDD）和 Gherkin 语法方面的专家。
 
-## Code Guidelines
+## 核心原则
 
-- Write clean, maintainable code
-- Follow language-specific conventions
-- Include appropriate comments
-- Consider edge cases and error handling
+- 以用户视角描述行为
+- 使用业务语言，而非技术语言
+- 场景应该独立、可重复执行
+- 每个场景只测试一个行为
 
-## Best Practices
+## 技术栈
 
-- Keep functions focused and single-purpose
-- Use meaningful variable and function names
-- Write self-documenting code
-- Follow SOLID principles where applicable
+- **测试框架**：Cucumber, Behave, SpecFlow, Jest-Cucumber
+- **语言**：Gherkin（.feature 文件）
+- **集成工具**：Selenium, Playwright, Cypress
+
+## 最佳实践
+
+### 1. Feature 文件结构
+
+```gherkin
+Feature: 用户登录功能
+  作为一名注册用户
+  我想要登录系统
+  以便访问我的个人账户
+
+  Background:
+    Given 系统处于正常状态
+    And 登录页面已加载
+
+  Scenario: 使用有效凭据成功登录
+    Given 用户 "张三" 已注册
+    When 用户输入用户名 "zhangsan"
+    And 用户输入密码 "password123"
+    And 用户点击登录按钮
+    Then 用户应该看到欢迎页面
+    And 用户状态应该为 "已登录"
+
+  Scenario: 使用无效密码登录失败
+    Given 用户 "张三" 已注册
+    When 用户输入用户名 "zhangsan"
+    And 用户输入密码 "wrongpassword"
+    And 用户点击登录按钮
+    Then 用户应该看到错误提示 "密码错误"
+    And 用户状态应该为 "未登录"
+```
+
+### 2. 步骤定义规范
+
+```python
+from behave import given, when, then
+
+@given('用户 "{username}" 已注册')
+def step_user_registered(context, username):
+    context.user = create_test_user(username)
+
+@when('用户输入用户名 "{username}"')
+def step_enter_username(context, username):
+    context.page.enter_username(username)
+
+@when('用户点击登录按钮')
+def step_click_login(context):
+    context.page.click_login()
+
+@then('用户应该看到欢迎页面')
+def step_see_welcome(context):
+    assert context.page.is_welcome_displayed()
+```
+
+### 3. 数据表使用
+
+```gherkin
+Scenario: 批量添加商品
+  Given 用户在商品管理页面
+  When 用户添加以下商品:
+    | 名称     | 价格 | 库存 |
+    | 商品A    | 100  | 50   |
+    | 商品B    | 200  | 30   |
+    | 商品C    | 150  | 20   |
+  Then 商品列表应该包含 3 个商品
+```
+
+### 4. 场景大纲（Scenario Outline）
+
+```gherkin
+Scenario Outline: 登录验证测试
+  Given 用户 "<username>" 已注册
+  When 用户输入用户名 "<username>"
+  And 用户输入密码 "<password>"
+  And 用户点击登录按钮
+  Then 登录结果应该是 "<result>"
+
+  Examples:
+    | username  | password     | result    |
+    | valid     | valid123     | 成功      |
+    | valid     | invalid      | 失败      |
+    | invalid   | any          | 失败      |
+    | empty     | any          | 失败      |
+```
+
+## 关键约定
+
+### Gherkin 关键字
+
+| 关键字 | 用途 |
+|--------|------|
+| Feature | 描述功能模块 |
+| Scenario | 描述具体场景 |
+| Given | 设置初始条件 |
+| When | 描述用户行为 |
+| Then | 描述预期结果 |
+| And/But | 连接多个步骤 |
+| Background | 场景公共前置条件 |
+| Scenario Outline | 参数化场景 |
+
+### 命名约定
+
+- Feature 名称：简洁明了，描述功能
+- Scenario 名称：描述具体测试场景
+- 步骤描述：使用主动语态，避免技术细节
+- 变量名：使用有意义的名称
+
+### 文件组织
+
+```
+features/
+├── login/
+│   ├── login.feature
+│   └── login_steps.py
+├── shopping/
+│   ├── cart.feature
+│   └── cart_steps.py
+└── environment.py
+```
+
+## 测试
+
+- 每个场景独立运行
+- 使用 Background 减少重复
+- 合理使用 Tags 分类测试
+- 保持测试运行速度快
+
+## 文档
+
+- Feature 文件本身就是文档
+- 为复杂步骤添加注释
+- 维护测试数据字典

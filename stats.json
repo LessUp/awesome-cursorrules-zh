@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-17T05:54:25.112Z",
+  "generatedAt": "2026-04-28T03:06:51.791Z",
   "summary": {
     "totalRules": 132,
     "totalCategories": 32,
-    "totalDocs": 185,
-    "totalLines": 6567,
-    "avgRuleSize": 865
+    "totalDocs": 193,
+    "totalLines": 11892,
+    "avgRuleSize": 1613
   },
   "categories": {
     "ai": {
@@ -14,43 +14,43 @@
         {
           "name": "computer-vision",
           "path": "rules/ai/computer-vision",
-          "size": 189,
-          "lines": 17,
+          "size": 1247,
+          "lines": 42,
           "hasReadme": true
         },
         {
           "name": "edge-ai",
           "path": "rules/ai/edge-ai",
-          "size": 168,
-          "lines": 17,
+          "size": 1100,
+          "lines": 42,
           "hasReadme": true
         },
         {
           "name": "federated-learning",
           "path": "rules/ai/federated-learning",
-          "size": 180,
-          "lines": 17,
+          "size": 1037,
+          "lines": 42,
           "hasReadme": true
         },
         {
           "name": "knowledge-graph",
           "path": "rules/ai/knowledge-graph",
-          "size": 184,
-          "lines": 17,
+          "size": 1075,
+          "lines": 42,
           "hasReadme": true
         },
         {
           "name": "mlops",
           "path": "rules/ai/mlops",
-          "size": 219,
-          "lines": 17,
+          "size": 1111,
+          "lines": 43,
           "hasReadme": true
         },
         {
           "name": "photonic-neural-network",
           "path": "rules/ai/photonic-neural-network",
-          "size": 169,
-          "lines": 17,
+          "size": 1037,
+          "lines": 42,
           "hasReadme": true
         }
       ]
@@ -61,8 +61,8 @@
         {
           "name": "augmented-reality",
           "path": "rules/ar-vr/augmented-reality",
-          "size": 186,
-          "lines": 17,
+          "size": 1136,
+          "lines": 43,
           "hasReadme": true
         }
       ]
@@ -73,8 +73,8 @@
         {
           "name": "rpa",
           "path": "rules/automation/rpa",
-          "size": 171,
-          "lines": 17,
+          "size": 1105,
+          "lines": 43,
           "hasReadme": true
         }
       ]
@@ -85,57 +85,57 @@
         {
           "name": "abp-framework",
           "path": "rules/backend/dotnet/abp-framework",
-          "size": 2973,
-          "lines": 161,
+          "size": 4139,
+          "lines": 191,
           "hasReadme": true
         },
         {
           "name": "guidelines",
           "path": "rules/backend/elixir/guidelines",
-          "size": 1853,
-          "lines": 113,
+          "size": 2708,
+          "lines": 162,
           "hasReadme": true
         },
         {
           "name": "phoenix-docker-setup",
           "path": "rules/backend/elixir/phoenix-docker-setup",
-          "size": 1093,
-          "lines": 38,
+          "size": 2814,
+          "lines": 163,
           "hasReadme": true
         },
         {
           "name": "go",
           "path": "rules/backend/go",
-          "size": 1987,
-          "lines": 129,
+          "size": 3461,
+          "lines": 200,
           "hasReadme": true
         },
         {
           "name": "backend-scalability",
           "path": "rules/backend/go/backend-scalability",
-          "size": 2900,
-          "lines": 132,
+          "size": 3332,
+          "lines": 174,
           "hasReadme": true
         },
         {
           "name": "java",
           "path": "rules/backend/java",
-          "size": 2790,
-          "lines": 142,
+          "size": 3264,
+          "lines": 180,
           "hasReadme": true
         },
         {
           "name": "git-conventional-commit-messages",
           "path": "rules/backend/java/git-conventional-commit-messages",
-          "size": 1974,
-          "lines": 55,
+          "size": 2458,
+          "lines": 164,
           "hasReadme": true
         },
         {
           "name": "springboot-jpa",
           "path": "rules/backend/java/springboot-jpa",
-          "size": 2842,
-          "lines": 88,
+          "size": 3557,
+          "lines": 187,
           "hasReadme": true
         },
         {
@@ -148,57 +148,57 @@
         {
           "name": "es-module-guide",
           "path": "rules/backend/nodejs/es-module-guide",
-          "size": 376,
-          "lines": 26,
+          "size": 2502,
+          "lines": 158,
           "hasReadme": true
         },
         {
           "name": "express-mongodb",
           "path": "rules/backend/nodejs/express-mongodb",
-          "size": 1372,
-          "lines": 113,
+          "size": 2186,
+          "lines": 146,
           "hasReadme": true
         },
         {
           "name": "fullstack-mern-guide",
           "path": "rules/backend/nodejs/fullstack-mern-guide",
-          "size": 795,
-          "lines": 67,
+          "size": 2815,
+          "lines": 155,
           "hasReadme": true
         },
         {
           "name": "nestjs-typescript",
           "path": "rules/backend/nodejs/nestjs-typescript",
-          "size": 1805,
-          "lines": 117,
+          "size": 2572,
+          "lines": 154,
           "hasReadme": true
         },
         {
           "name": "laravel-package-guide",
           "path": "rules/backend/php/laravel-package-guide",
-          "size": 785,
-          "lines": 31,
+          "size": 2863,
+          "lines": 168,
           "hasReadme": true
         },
         {
           "name": "laravel-php-83",
           "path": "rules/backend/php/laravel-php-83",
-          "size": 742,
-          "lines": 28,
+          "size": 3563,
+          "lines": 206,
           "hasReadme": true
         },
         {
           "name": "django",
           "path": "rules/backend/python/django",
-          "size": 1129,
-          "lines": 94,
+          "size": 2627,
+          "lines": 145,
           "hasReadme": true
         },
         {
           "name": "django-best-practices",
           "path": "rules/backend/python/django-best-practices",
-          "size": 1672,
-          "lines": 61,
+          "size": 2622,
+          "lines": 147,
           "hasReadme": true
         },
         {
@@ -211,22 +211,22 @@
         {
           "name": "fastapi-api-example",
           "path": "rules/backend/python/fastapi-api-example",
-          "size": 1591,
-          "lines": 68,
+          "size": 2252,
+          "lines": 126,
           "hasReadme": true
         },
         {
           "name": "fastapi-best-practices",
           "path": "rules/backend/python/fastapi-best-practices",
-          "size": 890,
-          "lines": 63,
+          "size": 2052,
+          "lines": 117,
           "hasReadme": true
         },
         {
           "name": "flask-json-guide",
           "path": "rules/backend/python/flask-json-guide",
-          "size": 572,
-          "lines": 22,
+          "size": 2311,
+          "lines": 133,
           "hasReadme": true
         }
       ]
@@ -237,22 +237,22 @@
         {
           "name": "bioelectronics",
           "path": "rules/bio/bioelectronics",
-          "size": 168,
-          "lines": 17,
+          "size": 1666,
+          "lines": 91,
           "hasReadme": true
         },
         {
           "name": "biological-cpu",
           "path": "rules/bio/biological-cpu",
-          "size": 167,
-          "lines": 17,
+          "size": 1543,
+          "lines": 88,
           "hasReadme": true
         },
         {
           "name": "biosensor-fusion",
           "path": "rules/bio/biosensor-fusion",
-          "size": 170,
-          "lines": 17,
+          "size": 1871,
+          "lines": 95,
           "hasReadme": true
         }
       ]
@@ -263,15 +263,15 @@
         {
           "name": "advanced-protocols",
           "path": "rules/blockchain/advanced-protocols",
-          "size": 192,
-          "lines": 17,
+          "size": 1137,
+          "lines": 74,
           "hasReadme": true
         },
         {
           "name": "smart-contract-security",
           "path": "rules/blockchain/smart-contract-security",
-          "size": 183,
-          "lines": 17,
+          "size": 1867,
+          "lines": 92,
           "hasReadme": true
         },
         {
@@ -284,8 +284,8 @@
         {
           "name": "web3",
           "path": "rules/blockchain/web3",
-          "size": 188,
-          "lines": 17,
+          "size": 2018,
+          "lines": 109,
           "hasReadme": true
         }
       ]
@@ -296,8 +296,8 @@
         {
           "name": "middleware",
           "path": "rules/cloud/middleware",
-          "size": 164,
-          "lines": 17,
+          "size": 1392,
+          "lines": 77,
           "hasReadme": true
         }
       ]
@@ -327,8 +327,8 @@
         {
           "name": "distributed",
           "path": "rules/compute/distributed",
-          "size": 176,
-          "lines": 17,
+          "size": 1321,
+          "lines": 77,
           "hasReadme": true
         }
       ]
@@ -339,22 +339,22 @@
         {
           "name": "data-warehouse",
           "path": "rules/data/data-warehouse",
-          "size": 238,
-          "lines": 18,
+          "size": 1374,
+          "lines": 74,
           "hasReadme": true
         },
         {
           "name": "kafka-pulsar",
           "path": "rules/data/kafka-pulsar",
-          "size": 233,
-          "lines": 17,
+          "size": 1380,
+          "lines": 69,
           "hasReadme": true
         },
         {
           "name": "spark-flink",
           "path": "rules/data/spark-flink",
-          "size": 234,
-          "lines": 17,
+          "size": 1556,
+          "lines": 71,
           "hasReadme": true
         }
       ]
@@ -372,8 +372,8 @@
         {
           "name": "python-data-processing",
           "path": "rules/data-science/python-data-processing",
-          "size": 2847,
-          "lines": 176,
+          "size": 3267,
+          "lines": 196,
           "hasReadme": true
         }
       ]
@@ -384,15 +384,15 @@
         {
           "name": "cloud-native",
           "path": "rules/database/cloud-native",
-          "size": 192,
-          "lines": 17,
+          "size": 1310,
+          "lines": 76,
           "hasReadme": true
         },
         {
           "name": "spatiotemporal",
           "path": "rules/database/spatiotemporal",
-          "size": 187,
-          "lines": 17,
+          "size": 1415,
+          "lines": 78,
           "hasReadme": true
         }
       ]
@@ -403,57 +403,57 @@
         {
           "name": "chaos-engineering",
           "path": "rules/devops/chaos-engineering",
-          "size": 174,
-          "lines": 17,
+          "size": 848,
+          "lines": 37,
           "hasReadme": true
         },
         {
           "name": "ci-cd-pipelines",
           "path": "rules/devops/ci-cd-pipelines",
-          "size": 227,
-          "lines": 17,
+          "size": 962,
+          "lines": 40,
           "hasReadme": true
         },
         {
           "name": "docker-containerization",
           "path": "rules/devops/docker-containerization",
-          "size": 239,
-          "lines": 17,
+          "size": 956,
+          "lines": 43,
           "hasReadme": true
         },
         {
           "name": "conventional-commits",
           "path": "rules/devops/git/conventional-commits",
-          "size": 463,
-          "lines": 18,
+          "size": 1217,
+          "lines": 65,
           "hasReadme": true
         },
         {
           "name": "github-code-quality",
           "path": "rules/devops/github-code-quality",
-          "size": 2364,
-          "lines": 84,
+          "size": 1217,
+          "lines": 53,
           "hasReadme": true
         },
         {
           "name": "kubernetes-mkdocs-documentation",
           "path": "rules/devops/kubernetes/kubernetes-mkdocs-documentation",
-          "size": 352,
-          "lines": 22,
+          "size": 992,
+          "lines": 50,
           "hasReadme": true
         },
         {
           "name": "observability",
           "path": "rules/devops/observability",
-          "size": 512,
-          "lines": 24,
+          "size": 1039,
+          "lines": 54,
           "hasReadme": true
         },
         {
           "name": "prometheus-grafana-monitoring",
           "path": "rules/devops/prometheus-grafana-monitoring",
-          "size": 263,
-          "lines": 17,
+          "size": 1083,
+          "lines": 51,
           "hasReadme": true
         },
         {
@@ -466,22 +466,22 @@
         {
           "name": "serverless",
           "path": "rules/devops/serverless",
-          "size": 229,
-          "lines": 17,
+          "size": 1014,
+          "lines": 47,
           "hasReadme": true
         },
         {
           "name": "service-mesh",
           "path": "rules/devops/service-mesh",
-          "size": 207,
-          "lines": 17,
+          "size": 978,
+          "lines": 50,
           "hasReadme": true
         },
         {
           "name": "terraform-iac",
           "path": "rules/devops/terraform-iac",
-          "size": 474,
-          "lines": 35,
+          "size": 1065,
+          "lines": 54,
           "hasReadme": true
         }
       ]
@@ -492,22 +492,22 @@
         {
           "name": "ai-inference",
           "path": "rules/edge/ai-inference",
-          "size": 161,
-          "lines": 17,
+          "size": 1290,
+          "lines": 76,
           "hasReadme": true
         },
         {
           "name": "computing",
           "path": "rules/edge/computing",
-          "size": 183,
-          "lines": 17,
+          "size": 1174,
+          "lines": 71,
           "hasReadme": true
         },
         {
           "name": "model-compression",
           "path": "rules/edge/model-compression",
-          "size": 156,
-          "lines": 17,
+          "size": 1337,
+          "lines": 78,
           "hasReadme": true
         }
       ]
@@ -518,22 +518,22 @@
         {
           "name": "biological-computing",
           "path": "rules/emerging-tech/biological-computing",
-          "size": 175,
-          "lines": 17,
+          "size": 1168,
+          "lines": 80,
           "hasReadme": true
         },
         {
           "name": "quantum-communication",
           "path": "rules/emerging-tech/quantum-communication",
-          "size": 175,
-          "lines": 17,
+          "size": 1250,
+          "lines": 79,
           "hasReadme": true
         },
         {
           "name": "quantum-computing",
           "path": "rules/emerging-tech/quantum-computing",
-          "size": 192,
-          "lines": 17,
+          "size": 1577,
+          "lines": 85,
           "hasReadme": true
         }
       ]
@@ -731,8 +731,8 @@
         {
           "name": "cloud-gaming",
           "path": "rules/gaming/cloud-gaming",
-          "size": 187,
-          "lines": 17,
+          "size": 1384,
+          "lines": 89,
           "hasReadme": true
         },
         {
@@ -750,36 +750,36 @@
         {
           "name": "code-guidelines",
           "path": "rules/general/code-guidelines",
-          "size": 484,
-          "lines": 44,
+          "size": 1664,
+          "lines": 116,
           "hasReadme": true
         },
         {
           "name": "code-guidelines-comprehensive",
           "path": "rules/general/code-guidelines-comprehensive",
-          "size": 1084,
-          "lines": 78,
+          "size": 2415,
+          "lines": 157,
           "hasReadme": true
         },
         {
           "name": "pair-interviews",
           "path": "rules/general/code-review/pair-interviews",
-          "size": 463,
-          "lines": 18,
+          "size": 1586,
+          "lines": 144,
           "hasReadme": true
         },
         {
           "name": "code-style",
           "path": "rules/general/code-style",
-          "size": 463,
-          "lines": 18,
+          "size": 2176,
+          "lines": 140,
           "hasReadme": true
         },
         {
           "name": "gherkin-testing",
           "path": "rules/general/gherkin-testing",
-          "size": 463,
-          "lines": 18,
+          "size": 2475,
+          "lines": 149,
           "hasReadme": true
         },
         {
@@ -792,15 +792,15 @@
         {
           "name": "ticket-template",
           "path": "rules/general/ticket-template",
-          "size": 463,
-          "lines": 18,
+          "size": 1850,
+          "lines": 180,
           "hasReadme": true
         },
         {
           "name": "xray-testing",
           "path": "rules/general/xray-testing",
-          "size": 463,
-          "lines": 18,
+          "size": 2674,
+          "lines": 162,
           "hasReadme": true
         }
       ]
@@ -811,29 +811,29 @@
         {
           "name": "carbon-chip",
           "path": "rules/hardware/carbon-chip",
-          "size": 168,
-          "lines": 17,
+          "size": 1599,
+          "lines": 92,
           "hasReadme": true
         },
         {
           "name": "neuromorphic-chips",
           "path": "rules/hardware/neuromorphic-chips",
-          "size": 175,
-          "lines": 17,
+          "size": 1738,
+          "lines": 96,
           "hasReadme": true
         },
         {
           "name": "photon-computing",
           "path": "rules/hardware/photon-computing",
-          "size": 169,
-          "lines": 17,
+          "size": 1443,
+          "lines": 91,
           "hasReadme": true
         },
         {
           "name": "superconducting-memory",
           "path": "rules/hardware/superconducting-memory",
-          "size": 170,
-          "lines": 17,
+          "size": 1717,
+          "lines": 99,
           "hasReadme": true
         }
       ]
@@ -844,8 +844,8 @@
         {
           "name": "automation",
           "path": "rules/industrial/automation",
-          "size": 199,
-          "lines": 17,
+          "size": 1153,
+          "lines": 70,
           "hasReadme": true
         }
       ]
@@ -856,22 +856,22 @@
         {
           "name": "digital-twin",
           "path": "rules/iot/digital-twin",
-          "size": 191,
-          "lines": 17,
+          "size": 1240,
+          "lines": 70,
           "hasReadme": true
         },
         {
           "name": "embedded",
           "path": "rules/iot/embedded",
-          "size": 200,
-          "lines": 17,
+          "size": 1429,
+          "lines": 85,
           "hasReadme": true
         },
         {
           "name": "platform",
           "path": "rules/iot/platform",
-          "size": 202,
-          "lines": 17,
+          "size": 1505,
+          "lines": 86,
           "hasReadme": true
         }
       ]
@@ -882,36 +882,36 @@
         {
           "name": "android-jetpack-compose",
           "path": "rules/mobile/android-jetpack-compose",
-          "size": 1534,
-          "lines": 89,
+          "size": 2145,
+          "lines": 100,
           "hasReadme": true
         },
         {
           "name": "flutter-app-expert",
           "path": "rules/mobile/flutter/flutter-app-expert",
-          "size": 1724,
-          "lines": 106,
+          "size": 2009,
+          "lines": 100,
           "hasReadme": true
         },
         {
           "name": "ios-uikit",
           "path": "rules/mobile/ios-uikit",
-          "size": 4471,
-          "lines": 220,
+          "size": 2394,
+          "lines": 116,
           "hasReadme": true
         },
         {
           "name": "react-native-expo",
           "path": "rules/mobile/react-native-expo",
-          "size": 597,
-          "lines": 38,
+          "size": 2063,
+          "lines": 90,
           "hasReadme": true
         },
         {
           "name": "swiftui-guidelines",
           "path": "rules/mobile/swiftui-guidelines",
-          "size": 823,
-          "lines": 18,
+          "size": 2286,
+          "lines": 106,
           "hasReadme": true
         }
       ]
@@ -922,8 +922,8 @@
         {
           "name": "satellite-internet",
           "path": "rules/network/satellite-internet",
-          "size": 168,
-          "lines": 17,
+          "size": 648,
+          "lines": 36,
           "hasReadme": true
         }
       ]
@@ -934,22 +934,22 @@
         {
           "name": "low-code",
           "path": "rules/platform/low-code",
-          "size": 184,
-          "lines": 17,
+          "size": 1888,
+          "lines": 106,
           "hasReadme": true
         },
         {
           "name": "metaverse",
           "path": "rules/platform/metaverse",
-          "size": 182,
-          "lines": 17,
+          "size": 1519,
+          "lines": 96,
           "hasReadme": true
         },
         {
           "name": "no-code",
           "path": "rules/platform/no-code",
-          "size": 174,
-          "lines": 17,
+          "size": 1611,
+          "lines": 100,
           "hasReadme": true
         }
       ]
@@ -960,15 +960,15 @@
         {
           "name": "error-correction",
           "path": "rules/quantum/error-correction",
-          "size": 167,
-          "lines": 17,
+          "size": 674,
+          "lines": 36,
           "hasReadme": true
         },
         {
           "name": "superconducting-computing",
           "path": "rules/quantum/superconducting-computing",
-          "size": 170,
-          "lines": 17,
+          "size": 667,
+          "lines": 36,
           "hasReadme": true
         }
       ]
@@ -979,8 +979,8 @@
         {
           "name": "ros",
           "path": "rules/robotics/ros",
-          "size": 200,
-          "lines": 17,
+          "size": 732,
+          "lines": 36,
           "hasReadme": true
         }
       ]
@@ -991,8 +991,8 @@
         {
           "name": "bioinformatics",
           "path": "rules/science/bioinformatics",
-          "size": 196,
-          "lines": 17,
+          "size": 742,
+          "lines": 36,
           "hasReadme": true
         }
       ]
@@ -1003,36 +1003,36 @@
         {
           "name": "homomorphic-encryption",
           "path": "rules/security/homomorphic-encryption",
-          "size": 175,
-          "lines": 17,
+          "size": 698,
+          "lines": 36,
           "hasReadme": true
         },
         {
           "name": "privacy-computing",
           "path": "rules/security/privacy-computing",
-          "size": 172,
-          "lines": 17,
+          "size": 738,
+          "lines": 36,
           "hasReadme": true
         },
         {
           "name": "secure-multiparty",
           "path": "rules/security/secure-multiparty",
-          "size": 170,
-          "lines": 17,
+          "size": 748,
+          "lines": 36,
           "hasReadme": true
         },
         {
           "name": "service-mesh",
           "path": "rules/security/service-mesh",
-          "size": 171,
-          "lines": 17,
+          "size": 745,
+          "lines": 36,
           "hasReadme": true
         },
         {
           "name": "zero-trust",
           "path": "rules/security/zero-trust",
-          "size": 203,
-          "lines": 17,
+          "size": 775,
+          "lines": 36,
           "hasReadme": true
         }
       ]
@@ -1043,8 +1043,8 @@
         {
           "name": "digital-twin",
           "path": "rules/simulation/digital-twin",
-          "size": 179,
-          "lines": 17,
+          "size": 1599,
+          "lines": 96,
           "hasReadme": true
         }
       ]
@@ -1055,8 +1055,8 @@
         {
           "name": "dna-storage",
           "path": "rules/storage/dna-storage",
-          "size": 172,
-          "lines": 17,
+          "size": 1560,
+          "lines": 94,
           "hasReadme": true
         }
       ]
@@ -1094,37 +1094,37 @@
     }
   },
   "techStack": {
-    "React": 19,
+    "React": 20,
     "Vue": 3,
-    "Angular": 6,
+    "Angular": 7,
     "Svelte": 1,
     "Node.js": 7,
-    "Python": 11,
+    "Python": 25,
     "Go": 2,
     "Rust": 1,
-    "TypeScript": 29,
-    "JavaScript": 5,
-    "Java": 5,
+    "TypeScript": 37,
+    "JavaScript": 8,
+    "Java": 3,
     "PHP": 4,
-    ".NET": 1,
+    ".NET": 2,
     "Flutter": 1,
     "Swift": 2,
     "Kotlin": 2,
-    "Docker": 7,
-    "Kubernetes": 3,
-    "AWS": 3,
+    "Docker": 12,
+    "Kubernetes": 10,
+    "AWS": 8,
     "Terraform": 1,
     "FastAPI": 3,
-    "Django": 3,
+    "Django": 2,
     "Next.js": 8,
-    "Tailwind": 13
+    "Tailwind": 14
   },
   "topRules": [
     {
-      "name": "ios-uikit",
-      "category": "mobile",
-      "size": 4471,
-      "lines": 220
+      "name": "abp-framework",
+      "category": "backend",
+      "size": 4139,
+      "lines": 191
     },
     {
       "name": "springboot-best-practices",
@@ -1133,10 +1133,40 @@
       "lines": 97
     },
     {
-      "name": "abp-framework",
+      "name": "laravel-php-83",
       "category": "backend",
-      "size": 2973,
-      "lines": 161
+      "size": 3563,
+      "lines": 206
+    },
+    {
+      "name": "springboot-jpa",
+      "category": "backend",
+      "size": 3557,
+      "lines": 187
+    },
+    {
+      "name": "go",
+      "category": "backend",
+      "size": 3461,
+      "lines": 200
+    },
+    {
+      "name": "backend-scalability",
+      "category": "backend",
+      "size": 3332,
+      "lines": 174
+    },
+    {
+      "name": "python-data-processing",
+      "category": "data-science",
+      "size": 3267,
+      "lines": 196
+    },
+    {
+      "name": "java",
+      "category": "backend",
+      "size": 3264,
+      "lines": 180
     },
     {
       "name": "foundry",
@@ -1145,40 +1175,10 @@
       "lines": 150
     },
     {
-      "name": "backend-scalability",
+      "name": "laravel-package-guide",
       "category": "backend",
-      "size": 2900,
-      "lines": 132
-    },
-    {
-      "name": "python-data-processing",
-      "category": "data-science",
-      "size": 2847,
-      "lines": 176
-    },
-    {
-      "name": "springboot-jpa",
-      "category": "backend",
-      "size": 2842,
-      "lines": 88
-    },
-    {
-      "name": "java",
-      "category": "backend",
-      "size": 2790,
-      "lines": 142
-    },
-    {
-      "name": "sveltekit-tailwind-typescript-guide",
-      "category": "frontend",
-      "size": 2678,
-      "lines": 149
-    },
-    {
-      "name": "github-code-quality",
-      "category": "devops",
-      "size": 2364,
-      "lines": 84
+      "size": 2863,
+      "lines": 168
     }
   ],
   "recentChanges": []

@@ -24,17 +24,26 @@ your-project/
 
 ### Cursor 设置建议
 
-在 Cursor 设置中配置：
+Cursor 的 AI 模型配置位于设置页面 (Ctrl/Cmd + Shift + J)：
+
+**模型选择：**
+- **Claude 3.5/4 Sonnet** - 推荐用于代码生成和推理
+- **Claude 3.5/4 Opus** - 复杂任务，更强推理能力
+- **GPT-4o** - 通用选择
+- **Gemini 2.0 Flash** - 快速响应
+
+**推荐设置：**
 
 ```json
 {
-  "cursor.aiProvider": "openai",
-  "cursor.model": "gpt-4",
-  "cursor.temperature": 0.7,
   "editor.fontSize": 14,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "cursor.general.enableSmartCopilot": true,
+  "cursor.completion.enable": true
 }
 ```
+
+> **注意**: Cursor 现在使用 `cursor.ai` 命名空间，旧版 `cursor.aiProvider` 和 `cursor.model` 设置已弃用。请在 Cursor 设置界面中直接选择模型。
 
 ### 规则文件生效
 

@@ -28,3 +28,7 @@ temp/
 
 # OMC (oh-my-claudecode)
 .omc/
+
+# Environment files (security)
+.env*
+

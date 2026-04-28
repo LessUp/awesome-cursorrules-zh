@@ -1,6 +1,6 @@
 {
   "name": "awesome-cursorrules-zh-site",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "🇨🇳 精选 Cursor AI 编辑器 .cursorrules 规则集合 | Awesome Cursor Rules for Cursor AI Editor",
   "author": "LessUp",
   "homepage": "https://awesome-cursorrules-zh.js.org/",
@@ -21,12 +21,10 @@
   },
   "devDependencies": {
     "vitepress": "^1.6.4",
-    "markdownlint-cli2": "^0.17.2",
-    "postcss": "^8.5.3",
-    "autoprefixer": "^10.4.21"
+    "markdownlint-cli2": "^0.22.1"
   },
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=22.0.0",
     "npm": ">=9.0.0"
   },
   "repository": {

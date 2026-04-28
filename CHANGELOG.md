@@ -7,6 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-04-28
+
+### 🎉 Highlights
+
+- **Comprehensive Refactor**: Full project restructuring and normalization
+- **Rules Quality Improvement**: Significantly expanded 100+ .cursorrules files with better structure
+- **Developer Experience**: Added ESLint, Prettier, EditorConfig configurations
+- **Documentation Enhancement**: Expanded architecture, setup, and tutorial docs
+
+### 📚 Documentation
+
+#### Added
+- `specs/` directory with Spec-Driven Development templates
+  - Product requirements, RFC, API, Database, Testing templates
+- Expanded `docs/architecture/` with VitePress setup and rules organization guides
+- Expanded `docs/setup/` with Node.js and editor configuration guides
+- Expanded `docs/tutorials/` with using-rules, contributing, and translating guides
+
+#### Changed
+- Improved `CLAUDE.md` for Claude Code integration
+- Updated `AGENTS.md` with latest directory structure
+- Enhanced `package.json` with author, homepage, bugs, and extended keywords
+
+### 🔧 Infrastructure
+
+#### Added
+- `eslint.config.mjs` - ESLint configuration
+- `.prettierrc` and `.prettierignore` - Prettier configuration
+- `.editorconfig` - Cross-editor configuration
+- `.vscode/settings.json` and `extensions.json` - VS Code settings
+
+#### Changed
+- Fixed empty catch blocks in `scripts/validate-rules.js` and `scripts/generate-stats.js`
+- Updated GitHub repository description and topics
+
+### 📝 Rules Files
+
+#### Changed
+- Expanded 100+ `.cursorrules` files with:
+  - Role definitions ("你是...专家")
+  - Core principles
+  - Technology stack details
+  - Best practices
+  - Key conventions
+- Standardized format across all technical domains
+
+---
+
 ## [2.1.0] - 2025-04-16
 
 ### 🎉 Highlights

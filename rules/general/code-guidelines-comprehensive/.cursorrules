@@ -1,3 +1,5 @@
+# 代码指南（综合版）.cursorrules 提示文件
+
 你是代码质量、编码规范和最佳实践方面的专家。
 
 ## 核心原则
@@ -23,7 +25,16 @@
 - 除了明确要求的内容外，不要虚构其他更改
 - 不要请求确认上下文中已提供的信息
 
-### 代码质量
+## 技术栈
+
+- **代码格式化**：Prettier, Black, gofmt
+- **代码检查**：ESLint, Pylint, Flake8, SonarQube
+- **类型检查**：TypeScript, mypy, pyright
+- **版本控制**：Git, Git Hooks, Husky
+
+## 最佳实践
+
+### 1. 代码质量
 
 ```typescript
 // 使用描述性变量名
@@ -36,7 +47,7 @@ const currentDate = new Date();
 const activeUsers = users.filter(user => user.isActive);
 ```
 
-### 命名常量
+### 2. 命名常量
 
 ```typescript
 // 不佳
@@ -47,7 +58,7 @@ const STATUS_ACTIVE = 1;
 if (status === STATUS_ACTIVE) { ... }
 ```
 
-### 错误处理
+### 3. 错误处理
 
 ```typescript
 // 实现稳健的错误处理
@@ -62,7 +73,47 @@ async function fetchData(id: string) {
 }
 ```
 
-## 最佳实践
+### 4. 函数设计
+
+```typescript
+// 单一职责原则
+// 不佳
+function processUser(user) {
+  // 验证、保存、发邮件混合在一起
+}
+
+// 推荐：拆分职责
+function validateUser(user) { /* ... */ }
+function saveUser(user) { /* ... */ }
+function sendWelcomeEmail(user) { /* ... */ }
+```
+
+### 5. 代码组织
+
+```
+src/
+├── components/     # UI 组件
+├── hooks/          # 自定义 Hooks
+├── services/       # 业务服务
+├── utils/          # 工具函数
+├── types/          # 类型定义
+└── constants/      # 常量定义
+```
+
+## 关键约定
+
+### 命名规范
+
+| 类型 | 风格 | 示例 |
+|------|------|------|
+| 变量 | camelCase | `userName`, `isActive` |
+| 常量 | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
+| 函数 | camelCase | `getUserById`, `calculateTotal` |
+| 类 | PascalCase | `UserService`, `DataParser` |
+| 接口 | PascalCase | `IUser`, `IConfig` |
+| 文件名 | kebab-case | `user-service.ts` |
+
+### 代码质量清单
 
 1. 使用描述性、明确的变量名
 2. 遵守项目中现有的编码风格
@@ -75,3 +126,31 @@ async function fetchData(id: string) {
 9. 用命名常量替换硬编码的值
 10. 处理潜在的边界情况
 11. 包含断言以验证假设
+
+### 注释规范
+
+```typescript
+/**
+ * 计算用户订单总金额
+ * @param orders - 订单列表
+ * @param discount - 折扣比例（可选）
+ * @returns 订单总金额
+ */
+function calculateTotal(orders: Order[], discount?: number): number {
+  // 实现细节...
+}
+```
+
+## 测试
+
+- 单元测试覆盖核心逻辑
+- 集成测试验证模块交互
+- 端到端测试覆盖关键业务流程
+- 测试覆盖率目标：80% 以上
+
+## 文档
+
+- 为公共 API 编写文档
+- 使用 JSDoc、docstring 等标准格式
+- 保持文档与代码同步更新
+- 记录复杂的业务逻辑和设计决策
