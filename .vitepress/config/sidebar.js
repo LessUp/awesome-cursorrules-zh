@@ -1,17 +1,4 @@
-/**
- * 共享侧边栏配置
- * 提取中英文侧边栏的共享结构
- */
-
-/**
- * 创建侧边栏配置
- * @param {Object} options - 配置选项
- * @param {Object} options.i18n - 国际化文本
- * @param {string} options.prefix - 链接前缀
- * @param {string} [changelogLink] - 更新日志链接
- * @returns {Object[]}
- */
-export function createSidebarConfig({ i18n, prefix, changelogLink }) {
+export function createSidebarConfig({ i18n, prefix }) {
   const { gettingStarted, userGuide, reference, rules } = i18n.sidebar;
 
   return [
@@ -50,11 +37,8 @@ export function createSidebarConfig({ i18n, prefix, changelogLink }) {
   ];
 }
 
-/**
- * 中文侧边栏配置
- */
 export const sidebarZh = {
-  '/zh/': createSidebarConfig({
+  '/': createSidebarConfig({
     i18n: {
       sidebar: {
         gettingStarted: {
@@ -78,8 +62,7 @@ export const sidebarZh = {
           icon: '📚',
           title: '参考文档',
           items: [
-            { text: 'API 参考', link: 'api-reference' },
-            { text: '更新日志', link: '/changelog-zh' }
+            { text: 'API 参考', link: 'api-reference' }
           ]
         },
         rules: {
@@ -95,57 +78,8 @@ export const sidebarZh = {
         }
       }
     },
-    prefix: '/zh',
-    changelogLink: '/changelog-zh'
+    prefix: ''
   })
 };
 
-/**
- * 英文侧边栏配置
- */
-export const sidebarEn = {
-  '/en/': createSidebarConfig({
-    i18n: {
-      sidebar: {
-        gettingStarted: {
-          icon: '🚀',
-          title: 'Getting Started',
-          items: [
-            { text: 'Introduction', link: '' },
-            { text: 'Quick Start', link: 'getting-started' },
-            { text: 'Installation', link: 'installation-guide' }
-          ]
-        },
-        userGuide: {
-          icon: '📖',
-          title: 'User Guide',
-          items: [
-            { text: 'Best Practices', link: 'best-practices' },
-            { text: 'Troubleshooting', link: 'troubleshooting' }
-          ]
-        },
-        reference: {
-          icon: '📚',
-          title: 'Reference',
-          items: [
-            { text: 'API Reference', link: 'api-reference' },
-            { text: 'Changelog', link: '/changelog' }
-          ]
-        },
-        rules: {
-          icon: '📂',
-          title: 'Rules',
-          items: [
-            { text: 'All Rules', link: 'rules/' },
-            { text: 'Frontend', link: 'rules/frontend' },
-            { text: 'Backend', link: 'rules/backend' },
-            { text: 'Mobile', link: 'rules/mobile' },
-            { text: 'AI & Data', link: 'rules/ai' }
-          ]
-        }
-      }
-    },
-    prefix: '/en',
-    changelogLink: '/changelog'
-  })
-};
+export const sidebarEn = sidebarZh;

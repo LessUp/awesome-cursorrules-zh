@@ -13,7 +13,6 @@ layout: doc
   <div class="home-nav">
     <a href="/getting-started">快速开始</a>
     <a href="https://github.com/LessUp/awesome-cursorrules-zh">GitHub</a>
-    <a href="/en/">English</a>
   </div>
 </div>
 
@@ -34,68 +33,68 @@ layout: doc
   <div class="rule-card">
     <div class="rule-card-title">🎯 前端开发</div>
     <div class="rule-tags">
-      <a href="/rules/frontend/react" class="rule-tag">React</a>
-      <a href="/rules/frontend/vue" class="rule-tag">Vue</a>
-      <a href="/rules/frontend/nextjs" class="rule-tag">Next.js</a>
-      <a href="/rules/frontend/angular" class="rule-tag">Angular</a>
-      <a href="/rules/frontend/svelte" class="rule-tag">Svelte</a>
-      <a href="/rules/frontend/" class="rule-tag-more">+18</a>
+      <span class="rule-tag">React</span>
+      <span class="rule-tag">Vue</span>
+      <span class="rule-tag">Next.js</span>
+      <span class="rule-tag">Angular</span>
+      <span class="rule-tag">Svelte</span>
+      <a href="/rules/frontend" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">⚙️ 后端开发</div>
     <div class="rule-tags">
-      <a href="/rules/backend/nodejs" class="rule-tag">Node.js</a>
-      <a href="/rules/backend/python" class="rule-tag">Python</a>
-      <a href="/rules/backend/go" class="rule-tag">Go</a>
-      <a href="/rules/backend/rust" class="rule-tag">Rust</a>
-      <a href="/rules/backend/fastapi" class="rule-tag">FastAPI</a>
-      <a href="/rules/backend/" class="rule-tag-more">+15</a>
+      <span class="rule-tag">Node.js</span>
+      <span class="rule-tag">Python</span>
+      <span class="rule-tag">Go</span>
+      <span class="rule-tag">Rust</span>
+      <span class="rule-tag">FastAPI</span>
+      <a href="/rules/backend" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">📱 移动开发</div>
     <div class="rule-tags">
-      <a href="/rules/mobile/react-native" class="rule-tag">React Native</a>
-      <a href="/rules/mobile/flutter" class="rule-tag">Flutter</a>
-      <a href="/rules/mobile/swift" class="rule-tag">Swift</a>
-      <a href="/rules/mobile/kotlin" class="rule-tag">Kotlin</a>
-      <a href="/rules/mobile/" class="rule-tag-more">+8</a>
+      <span class="rule-tag">React Native</span>
+      <span class="rule-tag">Flutter</span>
+      <span class="rule-tag">Swift</span>
+      <span class="rule-tag">Kotlin</span>
+      <a href="/rules/mobile" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">🤖 AI / 数据</div>
     <div class="rule-tags">
-      <a href="/rules/ai/llm" class="rule-tag">LLM</a>
-      <a href="/rules/ai/pytorch" class="rule-tag">PyTorch</a>
-      <a href="/rules/ai/tensorflow" class="rule-tag">TensorFlow</a>
-      <a href="/rules/ai/langchain" class="rule-tag">LangChain</a>
-      <a href="/rules/ai/" class="rule-tag-more">+12</a>
+      <span class="rule-tag">LLM</span>
+      <span class="rule-tag">PyTorch</span>
+      <span class="rule-tag">TensorFlow</span>
+      <span class="rule-tag">LangChain</span>
+      <a href="/rules/ai" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">☁️ DevOps / 云</div>
     <div class="rule-tags">
-      <a href="/rules/devops/docker" class="rule-tag">Docker</a>
-      <a href="/rules/devops/kubernetes" class="rule-tag">K8s</a>
-      <a href="/rules/cloud/aws" class="rule-tag">AWS</a>
-      <a href="/rules/devops/terraform" class="rule-tag">Terraform</a>
-      <a href="/rules/devops/" class="rule-tag-more">+10</a>
+      <span class="rule-tag">Docker</span>
+      <span class="rule-tag">K8s</span>
+      <span class="rule-tag">AWS</span>
+      <span class="rule-tag">Terraform</span>
+      <a href="/rules/devops" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">📦 更多领域</div>
     <div class="rule-tags">
-      <a href="/rules/blockchain/" class="rule-tag">区块链</a>
-      <a href="/rules/iot/" class="rule-tag">IoT</a>
-      <a href="/rules/security/" class="rule-tag">安全</a>
-      <a href="/rules/gaming/" class="rule-tag">游戏</a>
-      <a href="/rules/" class="rule-tag-more">+20</a>
+      <span class="rule-tag">区块链</span>
+      <span class="rule-tag">IoT</span>
+      <span class="rule-tag">安全</span>
+      <span class="rule-tag">游戏</span>
+      <a href="/rules/" class="rule-tag-more">查看全部</a>
     </div>
   </div>
 </div>
