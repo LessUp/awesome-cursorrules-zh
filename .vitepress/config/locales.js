@@ -9,7 +9,6 @@
 export const localeZh = {
   label: '简体中文',
   lang: 'zh-CN',
-  link: '/zh/',
   themeConfig: {
     footer: {
       message: '为中文开发者打造的 Cursor AI 编程规则集合',
@@ -44,7 +43,6 @@ export const localeZh = {
 export const localeEn = {
   label: 'English',
   lang: 'en-US',
-  link: '/en/',
   themeConfig: {
     footer: {
       message: 'A curated collection of Cursor AI coding rules for developers',
