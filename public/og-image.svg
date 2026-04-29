@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Cursor Rules social card</title>
+  <desc id="desc">Awesome Cursor Rules. Chinese-first bilingual rule library. OpenSpec-driven maintenance baseline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131a33" />
+      <stop offset="100%" stop-color="#1f2752" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5f67ee" />
+      <stop offset="100%" stop-color="#00d4aa" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="120" r="180" fill="rgba(95, 103, 238, 0.16)" />
+  <circle cx="170" cy="560" r="220" fill="rgba(0, 212, 170, 0.14)" />
+
+  <rect x="88" y="78" width="1024" height="474" rx="28" fill="rgba(9, 14, 30, 0.72)" stroke="rgba(255, 255, 255, 0.12)" />
+
+  <rect x="140" y="142" width="92" height="92" rx="22" fill="url(#brand)" />
+  <text x="186" y="200" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle">CR</text>
+
+  <text x="140" y="298" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">Awesome Cursor Rules</text>
+  <text x="140" y="362" fill="#b8c2ff" font-family="Inter, Arial, sans-serif" font-size="28">Chinese-first bilingual rule library</text>
+  <text x="140" y="410" fill="#d9def9" font-family="Inter, Arial, sans-serif" font-size="28">OpenSpec-driven maintenance baseline</text>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="rgba(255, 255, 255, 0.12)" />
+
+  <text x="140" y="500" fill="#e8ebff" font-family="Inter, Arial, sans-serif" font-size="22">LessUp/awesome-cursorrules-zh</text>
+  <text x="140" y="534" fill="#9eabd8" font-family="Inter, Arial, sans-serif" font-size="18">Rules, specs, and governance aligned around one stable repository baseline.</text>
+</svg>

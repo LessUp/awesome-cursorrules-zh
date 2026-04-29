@@ -2,45 +2,37 @@
 editLink: false
 ---
 
-# 规则分类浏览
+# Browse rule categories
 
-<script setup>
-import { ref, onMounted } from 'vue'
+Use these pages to enter the rule library from the part of the stack that matters most to your project.
 
-const categories = ref([
-  { name: '前端开发', icon: '🌐', desc: 'React, Vue, Angular, Svelte', path: './frontend', count: 30 },
-  { name: '后端开发', icon: '⚙️', desc: 'Node.js, Python, Go, Java', path: './backend', count: 25 },
-  { name: '移动开发', icon: '📱', desc: 'Flutter, React Native', path: './mobile', count: 15 },
-  { name: 'AI/数据', icon: '🤖', desc: 'PyTorch, TensorFlow', path: './ai', count: 24 },
-])
-</script>
+## Core entry points
 
-<div class="category-grid">
-  <a v-for="cat in categories" :key="cat.name" :href="cat.path" class="category-card">
-    <div class="category-icon">{{ cat.icon }}</div>
-    <div class="category-content">
-      <h3>{{ cat.name }}</h3>
-      <p>{{ cat.desc }}</p>
-      <span class="custom-badge badge-new">{{ cat.count }} 规则</span>
-    </div>
-  </a>
-</div>
+- [Frontend rules](/en/rules/frontend)
+- [Backend rules](/en/rules/backend)
+- [Mobile rules](/en/rules/mobile)
+- [AI & Data rules](/en/rules/ai)
 
-## 所有分类
+## Broader library
 
-| 分类 | 路径 | 规则数量 |
-|------|------|----------|
-| 前端 | `rules/frontend/` | 30+ |
-| 后端 | `rules/backend/` | 25+ |
-| 移动端 | `rules/mobile/` | 15+ |
-| AI/ML | `rules/ai/` | 10+ |
-| 数据科学 | `rules/data-science/` | 8+ |
-| DevOps | `rules/devops/` | 8+ |
-| 区块链 | `rules/blockchain/` | 6+ |
-| 安全 | `rules/security/` | 5+ |
+| Category | Repository path | Notes |
+|----------|-----------------|-------|
+| Frontend | `rules/frontend/` | React, Vue, Angular, TypeScript, and related UI tooling |
+| Backend | `rules/backend/` | Node.js, Python, Java, Go, PHP, and server frameworks |
+| Mobile | `rules/mobile/` | Flutter, React Native, iOS, and Android |
+| AI & ML | `rules/ai/` | ML engineering, computer vision, and applied AI |
+| Data Science | `rules/data-science/` | Data analysis and notebook-oriented workflows |
+| DevOps | `rules/devops/` | Containers, infrastructure, CI, and operations |
+| Blockchain | `rules/blockchain/` | Smart contracts and Web3 development |
+| Security | `rules/security/` | Secure coding and review-oriented guidance |
 
-> 💡 提示: 所有规则文件位于项目仓库的 `rules/` 目录下
+> All rule files live in the repository `rules/` directory.
 
-<script>
-// 自动扫描规则目录生成列表
-</script>
+## How to use this section
+
+1. Start from the category that best matches your primary stack.
+2. Open the individual rule page or repository path that fits your project.
+3. Copy the selected `.cursorrules` file into your project root.
+4. Review the text before use so the rule stays readable and team-specific.
+
+The public site is designed to help you navigate the library quickly, while the repository remains the source of truth for the rule files themselves.

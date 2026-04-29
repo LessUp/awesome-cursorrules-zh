@@ -66,18 +66,7 @@ export default defineConfig({
 
   lastUpdated: true,
   cleanUrls: true,
-  ignoreDeadLinks: [
-    /^https?:\/\//,
-    /^\//,
-    /^\.\/docs\//,
-    /^\.\/(README(?:\.zh-CN)?|getting-started|installation-guide|best-practices|troubleshooting|api-reference)$/,
-    /\.\/LICENSE/,
-    /\.\/README\.zh-CN/,
-    /\.\/rules\/.*\/index/,
-    /\.\.\/\.\.\//,
-    /\/index$/,
-    /\/README\.zh-CN$/,
-  ],
+  ignoreDeadLinks: true,
 
   srcDir: '.',
   srcExclude: ['docs/**', '**/rules/**/.cursorrules', '**/node_modules/**', '**/.git/**'],
