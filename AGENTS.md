@@ -15,7 +15,7 @@
 | **版本** | 2.1.0 |
 | **许可证** | MIT |
 | **仓库地址** | https://github.com/LessUp/awesome-cursorrules-zh |
-| **官网** | https://awesome-cursorrules-zh.js.org/ |
+| **官网** | https://lessup.github.io/awesome-cursorrules-zh/ |
 
 ### 项目定位
 

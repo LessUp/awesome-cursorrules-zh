@@ -67,7 +67,8 @@ jobs:
             exit 1
           fi
           
-          if [ ! -f ".vitepress/dist/index.html" ]; then
+          # 检查首页文件（支持 index.html 或 README.html）
+          if [ ! -f ".vitepress/dist/index.html" ] && [ ! -f ".vitepress/dist/README.html" ]; then
             echo "❌ 缺少首页文件"
             exit 1
           fi
