@@ -11,9 +11,9 @@ layout: doc
     </div>
   </div>
   <div class="home-nav">
-    <a href="/zh/getting-started">快速开始</a>
+    <a href="./getting-started">快速开始</a>
     <a href="https://github.com/LessUp/awesome-cursorrules-zh">GitHub</a>
-    <a href="/en/">English</a>
+    <a href="../en/">English</a>
   </div>
 </div>
 
@@ -34,68 +34,68 @@ layout: doc
   <div class="rule-card">
     <div class="rule-card-title">🎯 前端开发</div>
     <div class="rule-tags">
-      <a href="/zh/rules/frontend/react" class="rule-tag">React</a>
-      <a href="/zh/rules/frontend/vue" class="rule-tag">Vue</a>
-      <a href="/zh/rules/frontend/nextjs" class="rule-tag">Next.js</a>
-      <a href="/zh/rules/frontend/angular" class="rule-tag">Angular</a>
-      <a href="/zh/rules/frontend/svelte" class="rule-tag">Svelte</a>
-      <a href="/zh/rules/frontend/" class="rule-tag-more">+18</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/react-typescript/.cursorrules" class="rule-tag">React</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/vue/nuxt3/.cursorrules" class="rule-tag">Vue</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-typescript/.cursorrules" class="rule-tag">Next.js</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/angular/angular-typescript/.cursorrules" class="rule-tag">Angular</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/svelte/sveltekit-tailwind-typescript-guide/.cursorrules" class="rule-tag">Svelte</a>
+      <a href="./rules/frontend" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">⚙️ 后端开发</div>
     <div class="rule-tags">
-      <a href="/zh/rules/backend/nodejs" class="rule-tag">Node.js</a>
-      <a href="/zh/rules/backend/python" class="rule-tag">Python</a>
-      <a href="/zh/rules/backend/go" class="rule-tag">Go</a>
-      <a href="/zh/rules/backend/rust" class="rule-tag">Rust</a>
-      <a href="/zh/rules/backend/fastapi" class="rule-tag">FastAPI</a>
-      <a href="/zh/rules/backend/" class="rule-tag-more">+15</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/nodejs/nestjs-typescript/.cursorrules" class="rule-tag">Node.js</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/python/fastapi/.cursorrules" class="rule-tag">Python</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/go/.cursorrules" class="rule-tag">Go</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/java/.cursorrules" class="rule-tag">Java</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/python/fastapi-best-practices/.cursorrules" class="rule-tag">FastAPI</a>
+      <a href="./rules/backend" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">📱 移动开发</div>
     <div class="rule-tags">
-      <a href="/zh/rules/mobile/react-native" class="rule-tag">React Native</a>
-      <a href="/zh/rules/mobile/flutter" class="rule-tag">Flutter</a>
-      <a href="/zh/rules/mobile/swift" class="rule-tag">Swift</a>
-      <a href="/zh/rules/mobile/kotlin" class="rule-tag">Kotlin</a>
-      <a href="/zh/rules/mobile/" class="rule-tag-more">+8</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native-expo/.cursorrules" class="rule-tag">React Native</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/flutter-app-expert/.cursorrules" class="rule-tag">Flutter</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/swiftui-guidelines/.cursorrules" class="rule-tag">SwiftUI</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android-jetpack-compose/.cursorrules" class="rule-tag">Kotlin</a>
+      <a href="./rules/mobile" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">🤖 AI / 数据</div>
     <div class="rule-tags">
-      <a href="/zh/rules/ai/llm" class="rule-tag">LLM</a>
-      <a href="/zh/rules/ai/pytorch" class="rule-tag">PyTorch</a>
-      <a href="/zh/rules/ai/tensorflow" class="rule-tag">TensorFlow</a>
-      <a href="/zh/rules/ai/langchain" class="rule-tag">LangChain</a>
-      <a href="/zh/rules/ai/" class="rule-tag-more">+12</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/mlops/.cursorrules" class="rule-tag">MLOps</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/computer-vision/.cursorrules" class="rule-tag">Computer Vision</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/knowledge-graph/.cursorrules" class="rule-tag">Knowledge Graph</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/edge-ai/.cursorrules" class="rule-tag">Edge AI</a>
+      <a href="./rules/ai" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">☁️ DevOps / 云</div>
     <div class="rule-tags">
-      <a href="/zh/rules/devops/docker" class="rule-tag">Docker</a>
-      <a href="/zh/rules/devops/kubernetes" class="rule-tag">K8s</a>
-      <a href="/zh/rules/cloud/aws" class="rule-tag">AWS</a>
-      <a href="/zh/rules/devops/terraform" class="rule-tag">Terraform</a>
-      <a href="/zh/rules/devops/" class="rule-tag-more">+10</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/docker-containerization/.cursorrules" class="rule-tag">Docker</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/kubernetes/kubernetes-mkdocs-documentation/.cursorrules" class="rule-tag">K8s</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/terraform-iac/.cursorrules" class="rule-tag">Terraform</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/ci-cd-pipelines/.cursorrules" class="rule-tag">CI/CD</a>
+      <a href="./rules/devops" class="rule-tag-more">查看全部</a>
     </div>
   </div>
   
   <div class="rule-card">
     <div class="rule-card-title">📦 更多领域</div>
     <div class="rule-tags">
-      <a href="/zh/rules/blockchain/" class="rule-tag">区块链</a>
-      <a href="/zh/rules/iot/" class="rule-tag">IoT</a>
-      <a href="/zh/rules/security/" class="rule-tag">安全</a>
-      <a href="/zh/rules/gaming/" class="rule-tag">游戏</a>
-      <a href="/zh/rules/" class="rule-tag-more">+20</a>
+      <a href="./rules/blockchain" class="rule-tag">区块链</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/iot/embedded/.cursorrules" class="rule-tag">IoT</a>
+      <a href="./rules/security" class="rule-tag">安全</a>
+      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/gaming/dragonruby/.cursorrules" class="rule-tag">游戏</a>
+      <a href="./rules/" class="rule-tag-more">查看全部</a>
     </div>
   </div>
 </div>
