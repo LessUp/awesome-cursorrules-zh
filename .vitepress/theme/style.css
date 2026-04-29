@@ -8,37 +8,41 @@
 
 /* === CSS Variables === */
 :root {
-  /* Brand Colors */
-  --vp-c-brand-1: #5f67ee;
-  --vp-c-brand-2: #7b82f1;
-  --vp-c-brand-3: #5f67ee;
-  --vp-c-brand-soft: rgba(95, 103, 238, 0.14);
+  /* Brand Colors - GitHub Style */
+  --vp-c-brand-1: #24292f;
+  --vp-c-brand-2: #57606a;
+  --vp-c-brand-3: #0969da;
+  --vp-c-brand-soft: rgba(9, 105, 218, 0.1);
 
   /* Accent Colors */
-  --vp-c-accent: #00d4aa;
-  --vp-c-accent-soft: rgba(0, 212, 170, 0.14);
+  --vp-c-accent: #0969da;
+  --vp-c-accent-soft: rgba(9, 105, 218, 0.1);
 
   /* Background Colors */
   --vp-c-bg: #ffffff;
-  --vp-c-bg-alt: #f6f6f7;
+  --vp-c-bg-alt: #f6f8fa;
   --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #f6f6f7;
+  --vp-c-bg-soft: #f6f8fa;
 
   /* Text Colors */
-  --vp-c-text-1: rgba(60, 60, 67);
-  --vp-c-text-2: rgba(60, 60, 67, 0.78);
-  --vp-c-text-3: rgba(60, 60, 67, 0.56);
+  --vp-c-text-1: #24292f;
+  --vp-c-text-2: #57606a;
+  --vp-c-text-3: #8b949e;
 
   /* Border Colors */
-  --vp-c-border: rgba(60, 60, 67, 0.12);
-  --vp-c-divider: rgba(60, 60, 67, 0.12);
-  --vp-c-gutter: rgba(60, 60, 67, 0.12);
+  --vp-c-border: #d0d7de;
+  --vp-c-divider: #d0d7de;
+  --vp-c-gutter: #d0d7de;
 
-  /* Hero Section */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(to right, #5f67ee, #00d4aa);
-  --vp-home-hero-image-background-image: linear-gradient(to right, #5f67ee20, #00d4aa20);
-  --vp-home-hero-image-filter: blur(40px);
+  /* Hero Section - Remove gradients */
+  --vp-home-hero-name-color: #24292f;
+  --vp-home-hero-name-background: transparent;
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
+
+  /* Custom Colors for Homepage */
+  --tag-bg: #ddf4ff;
+  --tag-text: #0969da;
 
   /* Custom Spacing */
   --spacing-xs: 8px;
@@ -54,25 +58,27 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
 
-  /* Custom Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
+  /* Custom Transitions - simplified */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
 }
 
 /* === Dark Mode Variables === */
 .dark {
-  --vp-c-bg: #1b1b1f;
-  --vp-c-bg-alt: #161618;
-  --vp-c-bg-elv: #202127;
-  --vp-c-bg-soft: #202127;
+  --vp-c-bg: #0d1117;
+  --vp-c-bg-alt: #161b22;
+  --vp-c-bg-elv: #21262d;
+  --vp-c-bg-soft: #21262d;
 
-  --vp-c-text-1: rgba(255, 255, 245, 0.86);
-  --vp-c-text-2: rgba(235, 235, 245, 0.6);
-  --vp-c-text-3: rgba(235, 235, 245, 0.38);
+  --vp-c-text-1: #c9d1d9;
+  --vp-c-text-2: #8b949e;
+  --vp-c-text-3: #6e7681;
 
-  --vp-c-border: rgba(250, 250, 255, 0.12);
-  --vp-c-divider: rgba(250, 250, 255, 0.12);
-  --vp-c-gutter: rgba(250, 250, 255, 0.12);
+  --vp-c-border: #30363d;
+  --vp-c-divider: #30363d;
+  --vp-c-gutter: #30363d;
+
+  --tag-bg: #1f6feb33;
 }
 
 /* === Hero Section Styling === */
