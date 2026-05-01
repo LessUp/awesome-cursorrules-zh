@@ -1,37 +1,30 @@
-# CLAUDE.md - Claude Code 项目配置
+# CLAUDE.md
 
 > 本文件为 Claude Code CLI 提供项目特定配置和指导。
 
 ## 项目概述
 
-**awesome-cursorrules-zh** 是一个 Cursor AI 编辑器规则集合网站，提供精选的 `.cursorrules` 规则文件，帮助开发者在使用 Cursor AI 时获得更好的代码辅助体验。
+**awesome-cursorrules-zh** 是一个 Cursor AI 编辑器规则集合网站，提供精选的 `.cursorrules` 规则文件。
 
 ## 技术栈
 
 | 技术 | 版本 | 用途 |
 |------|------|------|
-| Node.js | >=18.0.0 | 运行时 |
+| Node.js | >=20.0.0 | 运行时 |
 | VitePress | ^1.6.4 | 静态站点生成 |
-| Vue.js | 3.x | 前端框架 |
-| markdownlint-cli2 | ^0.17.2 | Markdown 检查 |
+| markdownlint-cli2 | ^0.22.1 | Markdown 检查 |
 
 ## 常用命令
 
 ```bash
-# 开发
-npm run docs:dev          # 启动开发服务器
-
-# 构建
-npm run docs:build        # 构建静态站点
-npm run docs:preview      # 预览构建结果
-
-# 质量检查
-npm run lint              # Markdown 格式检查
-npm run lint:fix          # 自动修复格式问题
-npm run validate          # 验证规则文件
-npm run stats             # 生成统计数据
-npm run check             # lint + validate
-npm run ci                # check + build
+npm run dev          # 启动开发服务器
+npm run build        # 构建静态站点
+npm run preview      # 预览构建结果
+npm run lint         # Markdown 格式检查
+npm run lint:fix     # 自动修复格式问题
+npm run validate     # 验证规则文件
+npm run check        # lint + validate
+npm run ci           # check + build
 ```
 
 ## 目录结构
@@ -40,14 +33,12 @@ npm run ci                # check + build
 awesome-cursorrules-zh/
 ├── .vitepress/           # VitePress 配置
 ├── docs/                 # 文档源文件
-│   ├── architecture/     # 架构文档
-│   ├── setup/            # 安装指南
-│   ├── tutorials/        # 使用教程
-│   ├── en/               # 英文文档
-│   └── zh/               # 中文文档
-├── rules/                # 规则文件 (核心)
+│   ├── zh/               # 中文文档
+│   └── en/               # 英文文档
+├── zh/                   # 中文站点页面（符号链接）
+├── en/                   # 英文站点页面（符号链接）
+├── rules/                # 规则文件（核心）
 ├── scripts/              # 工具脚本
-├── specs/                # SDD 规范文档
 ├── AGENTS.md             # AI 助手工作指南
 └── CLAUDE.md             # 本文件
 ```
@@ -60,7 +51,6 @@ awesome-cursorrules-zh/
 2. 编写 `.cursorrules` 文件
 3. 编写 `README.md` 说明
 4. 运行 `npm run validate` 验证
-5. 更新统计数据
 
 ### 文档更新
 
@@ -70,15 +60,7 @@ awesome-cursorrules-zh/
 
 ### 提交规范
 
-使用约定式提交：
-
-```
-feat: 添加新规则
-fix: 修复问题
-docs: 文档更新
-refactor: 重构
-translate: 翻译更新
-```
+使用约定式提交：`feat`/`fix`/`docs`/`chore`/`translate`
 
 ## 规则文件规范
 
@@ -93,7 +75,6 @@ translate: 翻译更新
 
 - 原则1
 - 原则2
-- 原则3
 
 ## 技术栈
 
@@ -104,11 +85,6 @@ translate: 翻译更新
 
 1. 实践1
 2. 实践2
-
-## 关键约定
-
-1. 约定1
-2. 约定2
 ```
 
 ### 质量要求
@@ -128,9 +104,8 @@ translate: 翻译更新
 
 | 工作流 | 触发 | 功能 |
 |--------|------|------|
-| quality-check.yml | push/PR | 质量检查 |
-| security.yml | 定时 | 安全审计 |
-| deploy.yml | push main | 部署 |
+| ci.yml | push/PR | 质量检查 + 构建 |
+| deploy.yml | push main | 部署 GitHub Pages |
 
 ## 注意事项
 
@@ -141,6 +116,5 @@ translate: 翻译更新
 
 ## 相关文档
 
-- [AGENTS.md](./AGENTS.md) - 详细的 AI 助手工作指南
+- [AGENTS.md](./AGENTS.md) - AI 助手工作指南
 - [CONTRIBUTING.md](./CONTRIBUTING.md) - 贡献指南
-- [specs/](./specs/) - Spec-Driven Development 规范

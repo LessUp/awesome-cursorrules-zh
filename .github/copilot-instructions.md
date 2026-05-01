@@ -6,7 +6,7 @@ Cursor AI 编辑器规则集合中文版 - 提供精选的 `.cursorrules` 规则
 
 ## 技术栈
 
-- Node.js 22+
+- Node.js 20+
 - VitePress 1.6+
 - markdownlint-cli2
 
@@ -19,16 +19,16 @@ Cursor AI 编辑器规则集合中文版 - 提供精选的 `.cursorrules` 规则
 ### 文件结构
 
 - `rules/` - 规则文件（核心资产）
-- `zh/` 和 `en/` - 站点正文
-- `public/` - 静态资源
+- `docs/zh/` `docs/en/` - 文档源文件
+- `zh/` `en/` - 站点页面（符号链接）
 - `.vitepress/` - 站点配置
 
 ### 开发命令
 
 ```bash
-npm run docs:dev      # 开发
-npm run docs:build    # 构建
-npm run check         # 质量检查
+npm run dev        # 开发
+npm run build      # 构建
+npm run check      # 质量检查
 ```
 
 ## 注意事项

@@ -1,12 +1,15 @@
 # Dependencies
 node_modules/
-.pnpm-store/
 
 # Build output
 dist/
 .vitepress/dist/
 .vitepress/cache/
 .vitepress/.temp/
+
+# Generated files
+validation-report.json
+stats.json
 
 # IDE
 .vscode/
@@ -25,9 +28,6 @@ npm-debug.log*
 # Runtime
 .cache/
 temp/
-
-# OMC (oh-my-claudecode)
-.omc/
 
 # Environment files (security)
 .env*
