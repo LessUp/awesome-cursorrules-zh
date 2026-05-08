@@ -1,4 +1,6 @@
-export function createNavConfig({ i18n, prefix }) {
+import { rulesNavZh, rulesNavEn } from './generated-nav.js';
+
+export function createNavConfig({ i18n, prefix, rulesNav }) {
   const { home, docs, rules } = i18n.nav;
 
   return [
@@ -13,7 +15,7 @@ export function createNavConfig({ i18n, prefix }) {
     {
       text: rules.title,
       items: [
-        ...rules.items.map(item => ({
+        ...rulesNav.map(item => ({
           text: item.text,
           link: `${prefix}/${item.link}`
         })),
@@ -39,17 +41,34 @@ export const navZh = createNavConfig({
       },
       rules: {
         title: '规则库',
-        items: [
-          { text: '前端开发', link: 'rules/frontend' },
-          { text: '后端开发', link: 'rules/backend' },
-          { text: '移动开发', link: 'rules/mobile' },
-          { text: 'AI/数据', link: 'rules/ai' }
-        ],
         viewAll: '查看全部 →'
       }
     }
   },
-  prefix: ''
+  prefix: '',
+  rulesNav: rulesNavZh
 });
 
-export const navEn = navZh;
+export const navEn = createNavConfig({
+  i18n: {
+    nav: {
+      home: 'Home',
+      docs: {
+        title: 'Docs',
+        items: [
+          { text: 'Getting Started', link: 'getting-started' },
+          { text: 'Installation Guide', link: 'installation-guide' },
+          { text: 'Best Practices', link: 'best-practices' },
+          { text: 'Troubleshooting', link: 'troubleshooting' },
+          { text: 'API Reference', link: 'api-reference' }
+        ]
+      },
+      rules: {
+        title: 'Rules',
+        viewAll: 'View All →'
+      }
+    }
+  },
+  prefix: '/en',
+  rulesNav: rulesNavEn
+});

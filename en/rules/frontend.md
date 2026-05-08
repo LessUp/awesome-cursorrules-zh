@@ -2,63 +2,79 @@
 editLink: false
 ---
 
-# Frontend rules
+# Frontend Rules
 
-Frontend-focused Cursor AI rules for web applications, component systems, and client-side tooling.
-
-## React
-
-| Rule | Description |
-|------|-------------|
-| [react-typescript](/rules/frontend/react/react-typescript/) | React and TypeScript development conventions |
-| [nextjs-typescript](/rules/frontend/react/nextjs-typescript/) | Next.js and TypeScript project rules |
-| [nextjs-basic](/rules/frontend/react/nextjs-basic/) | Baseline Next.js development guidance |
-| [nextjs-tailwind](/rules/frontend/react/nextjs-tailwind/) | Next.js with Tailwind CSS |
-| [nextjs-supabase](/rules/frontend/react/nextjs-supabase/) | Full-stack Next.js and Supabase workflow |
-| [nextjs-14-seo](/rules/frontend/react/nextjs-14-seo/) | Next.js 14 SEO-oriented practices |
-| [nextjs-ui](/rules/frontend/react/nextjs-ui/) | UI-focused Next.js component guidance |
-| [nextjs-react-ts](/rules/frontend/react/nextjs-react-ts/) | Next.js React TypeScript setup conventions |
-| [react-query](/rules/frontend/react/react-query/) | Data fetching with React Query |
-| [react-components](/rules/frontend/react/react-components/) | Reusable React component development |
-| [styled-components](/rules/frontend/react/styled-components/) | Styled Components conventions |
-| [mobx](/rules/frontend/react/mobx/) | MobX state management practices |
-| [chakra-ui](/rules/frontend/react/chakra-ui/) | Chakra UI component usage |
-| [apollo-graphql](/rules/frontend/react/apollo-graphql/) | Apollo GraphQL client conventions |
-
-## Vue
-
-| Rule | Description |
-|------|-------------|
-| [nuxt3](/rules/frontend/vue/nuxt3/) | Nuxt 3 development conventions |
-| [composition-api](/rules/frontend/vue/composition-api/) | Vue Composition API practices |
+Cursor AI programming rules for Frontend.
 
 ## Angular
 
 | Rule | Description |
-|------|-------------|
-| [angular-typescript](/rules/frontend/angular/angular-typescript/) | Angular with TypeScript conventions |
-| [angular-typescript-guide](/rules/frontend/angular/angular-typescript-guide/) | Angular TypeScript implementation guide |
+|------|------|
+| [angular-ts-guide](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/angular/angular-ts-guide/.cursorrules) | 你是一名使用 TypeScript、Angular 18 和 Jest 的 Angular 专家程序员，专注于编写清晰、可读的代码。 |
+| [angular-typescript](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/angular/angular-typescript/.cursorrules) | 你是一位专业的 Angular 程序员，使用 TypeScript、Angular 18 和 Jest，专注于编写清晰、可读的代码。 |
+| [angular-typescript-guide](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/angular/angular-typescript-guide/.cursorrules) | 你是一位使用 TypeScript、Angular 18 和 Jest 的专家级 Angular 程序员，专注于编写清晰、可读的代码。 |
+
+## Chrome Extension
+
+| Rule | Description |
+|------|------|
+| [chrome-extension-dev-js-typescript](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/chrome/chrome-extension-dev-js-typescript/.cursorrules) | 你是一位 Chrome 扩展开发专家，精通 JavaScript、TypeScript、HTML、CSS、Shadcn UI、Radix UI、Tailwind 和 Web API。 |
+
+## micro-frontend
+
+| Rule | Description |
+|------|------|
+| [micro-frontend](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/micro-frontend/.cursorrules) | 微前端架构 .cursorrules 提示文件 |
+
+## React
+
+| Rule | Description |
+|------|------|
+| [apollo-graphql](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/apollo-graphql/.cursorrules) | 你是 React、TypeScript、GraphQL 和 Apollo Client 方面的专家。 |
+| [chakra-ui](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/chakra-ui/.cursorrules) | 你是 React、TypeScript 和 Chakra UI 方面的专家。 |
+| [mobx](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/mobx/.cursorrules) | 你是 React、TypeScript 和 MobX 状态管理方面的专家。 |
+| [nextjs-14-seo](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-14-seo/.cursorrules) | 你是 Next.js 14、React、TypeScript 和 SEO 优化方面的专家。 |
+| [nextjs-basic](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-basic/.cursorrules) | 你是 Next.js、React、TypeScript 和现代 Web 开发方面的专家。 |
+| [nextjs-react-ts](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-react-ts/.cursorrules) | 你是 Next.js 14、React、TypeScript 和现代 Web 开发方面的专家。 |
+| [nextjs-supabase](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-supabase/.cursorrules) | 你是 Next.js、React、TypeScript 和 Supabase 后端服务方面的专家。 |
+| [nextjs-tailwind](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-tailwind/.cursorrules) | 你是 Next.js、React、TypeScript 和 Tailwind CSS 方面的专家。 |
+| [nextjs-typescript](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-typescript/.cursorrules) | 你是 TypeScript、Node.js、Next.js App Router、Drizzle ORM、React、Daisy UI 和 Tailwind 的专家。始终使用 bun 作为包管理器（而不是 npm） |
+| [nextjs-ui](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-ui/.cursorrules) | 你是 Next.js、React 和现代 UI 开发方面的专家。 |
+| [react-components](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/react-components/.cursorrules) | 你是 React、TypeScript 和组件设计方面的专家。 |
+| [react-query](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/react-query/.cursorrules) | // React + React Query .cursorrules (React + React Query .cursorrules) |
+| [react-typescript](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/react-typescript/.cursorrules) | 你是 React 和 TypeScript 方面的专家，专注于生成干净和可读的代码。 |
+| [styled-components](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/styled-components/.cursorrules) | 你是 React、TypeScript 和 Styled Components 方面的专家。 |
+
+## SolidJS
+
+| Rule | Description |
+|------|------|
+| [solidjs-basic-guide](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/solidjs/solidjs-basic-guide/.cursorrules) | // Solid.js 基础设置 .cursorrules |
+
+## Svelte
+
+| Rule | Description |
+|------|------|
+| [sveltekit-tailwind-typescript-guide](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/svelte/sveltekit-tailwind-typescript-guide/.cursorrules) | Modible 项目标准 |
 
 ## TypeScript
 
 | Rule | Description |
-|------|-------------|
-| [conventions](/rules/frontend/typescript/conventions/) | TypeScript coding conventions |
-| [axios](/rules/frontend/typescript/axios/) | Axios HTTP client practices |
-| [vite-tailwind](/rules/frontend/typescript/vite-tailwind/) | Vite and Tailwind CSS setup guidance |
+|------|------|
+| [axios](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/typescript/axios/.cursorrules) | 你是 TypeScript、Axios HTTP 客户端和 API 集成方面的专家。 |
+| [conventions](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/typescript/conventions/.cursorrules) | 你是 TypeScript 和现代 Web 开发方面的专家。 |
+| [vite-tailwind](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/typescript/vite-tailwind/.cursorrules) | 你是 TypeScript、Vite、Vue.js 和 Tailwind CSS 方面的专家。 |
 
-## Other frameworks
+## Vue
 
 | Rule | Description |
-|------|-------------|
-| [solidjs-basic-guide](/rules/frontend/solidjs/solidjs-basic-guide/) | SolidJS starter guidance |
-| [sveltekit-tailwind-typescript-guide](/rules/frontend/svelte/sveltekit-tailwind-typescript-guide/) | SvelteKit, Tailwind, and TypeScript workflow |
-| [micro-frontend](/rules/frontend/micro-frontend/) | Micro-frontend architecture conventions |
-| [chrome-extension-dev-js-typescript](/rules/frontend/chrome/chrome-extension-dev-js-typescript/) | Chrome extension development with JavaScript and TypeScript |
+|------|------|
+| [composition-api](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/vue/composition-api/.cursorrules) | // Vue 3 Composition API .cursorrules |
+| [nuxt3](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/vue/nuxt3/.cursorrules) | 你是高级前端开发人员，也是 Vue 3、Nuxt 3、JavaScript、TypeScript、TailwindCSS、HTML 和 CSS 的专家。你思维缜密，给出细致入微的答案，在推理方面非常出色。你仔细提供准确、事实性、深思熟虑的答案，在推理方面是天才。 |
 
-## How to use
+## Usage
 
-1. Pick the rule that matches your project stack.
-2. Copy the `.cursorrules` file into the project root.
-3. Enable project rules in Cursor AI.
-4. Review and adjust the text only when your team needs a different local convention.
+1. Click the rule link to view the `.cursorrules` file on GitHub
+2. Copy the content to the `.cursorrules` file in your project root
+3. Enable project rules in Cursor AI
+4. Start coding, AI will follow the rules to generate code

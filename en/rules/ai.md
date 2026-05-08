@@ -2,49 +2,49 @@
 editLink: false
 ---
 
-# AI & Data rules
+# AI & Data Rules
 
-Cursor AI rules for machine learning, computer vision, edge deployment, and related AI workflows.
+Cursor AI programming rules for AI & Data.
 
-## Computer vision
-
-| Rule | Description |
-|------|-------------|
-| [computer-vision](/rules/ai/computer-vision/) | Computer vision development conventions |
-
-## Machine learning engineering
+## computer-vision
 
 | Rule | Description |
-|------|-------------|
-| [mlops](/rules/ai/mlops/) | MLOps and ML operations guidance |
+|------|------|
+| [computer-vision](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/computer-vision/.cursorrules) | 计算机视觉 .cursorrules 提示文件 |
 
-## Distributed learning
-
-| Rule | Description |
-|------|-------------|
-| [federated-learning](/rules/ai/federated-learning/) | Federated learning development conventions |
-
-## Edge AI
+## edge-ai
 
 | Rule | Description |
-|------|-------------|
-| [edge-ai](/rules/ai/edge-ai/) | Edge AI deployment guidance |
+|------|------|
+| [edge-ai](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/edge-ai/.cursorrules) | 边缘AI .cursorrules 提示文件 |
 
-## Knowledge graphs
-
-| Rule | Description |
-|------|-------------|
-| [knowledge-graph](/rules/ai/knowledge-graph/) | Knowledge graph construction guidance |
-
-## Emerging topics
+## federated-learning
 
 | Rule | Description |
-|------|-------------|
-| [photonic-neural-network](/rules/ai/photonic-neural-network/) | Photonic neural network guidance |
+|------|------|
+| [federated-learning](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/federated-learning/.cursorrules) | 联邦学习 .cursorrules 提示文件 |
 
-## How to use
+## knowledge-graph
 
-1. Pick the rule that matches your AI workflow.
-2. Copy the `.cursorrules` file into the project root.
-3. Enable project rules in Cursor AI.
-4. Adjust only the parts your team needs to localize or tighten.
+| Rule | Description |
+|------|------|
+| [knowledge-graph](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/knowledge-graph/.cursorrules) | 知识图谱 .cursorrules 提示文件 |
+
+## mlops
+
+| Rule | Description |
+|------|------|
+| [mlops](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/mlops/.cursorrules) | AI 工程化平台 .cursorrules 提示文件 |
+
+## photonic-neural-network
+
+| Rule | Description |
+|------|------|
+| [photonic-neural-network](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/photonic-neural-network/.cursorrules) | 光子神经网络 .cursorrules 提示文件 |
+
+## Usage
+
+1. Click the rule link to view the `.cursorrules` file on GitHub
+2. Copy the content to the `.cursorrules` file in your project root
+3. Enable project rules in Cursor AI
+4. Start coding, AI will follow the rules to generate code

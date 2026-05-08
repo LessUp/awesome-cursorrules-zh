@@ -6,33 +6,35 @@ editLink: false
 
 移动开发相关的 Cursor AI 编程规则集合。
 
-## React Native
+## android-jetpack-compose
 
 | 规则 | 说明 |
 |------|------|
-| [react-native-typescript](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native/react-native-typescript/.cursorrules) | React Native + TypeScript 开发规范 |
-| [expo](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native/expo/.cursorrules) | Expo 开发规范 |
+| [android-jetpack-compose](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android-jetpack-compose/.cursorrules) | Android Jetpack Compose .cursorrules 提示文件 |
 
 ## Flutter
 
 | 规则 | 说明 |
 |------|------|
-| [flutter](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/flutter/.cursorrules) | Flutter 跨平台开发规范 |
-| [dart](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/dart/.cursorrules) | Dart 语言规范 |
+| [flutter-app-expert](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/flutter-app-expert/.cursorrules) | Flutter 应用开发 .cursorrules 提示文件 |
 
-## iOS
-
-| 规则 | 说明 |
-|------|------|
-| [swift](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/ios/swift/.cursorrules) | Swift iOS 开发规范 |
-| [swiftui](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/ios/swiftui/.cursorrules) | SwiftUI 声明式 UI 规范 |
-
-## Android
+## ios-uikit
 
 | 规则 | 说明 |
 |------|------|
-| [kotlin](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android/kotlin/.cursorrules) | Kotlin Android 开发规范 |
-| [jetpack-compose](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android/jetpack-compose/.cursorrules) | Jetpack Compose UI 规范 |
+| [ios-uikit](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/ios-uikit/.cursorrules) | UIKit iOS 开发 .cursorrules 提示文件 |
+
+## react-native-expo
+
+| 规则 | 说明 |
+|------|------|
+| [react-native-expo](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native-expo/.cursorrules) | React Native Expo .cursorrules 提示文件 |
+
+## swiftui-guidelines
+
+| 规则 | 说明 |
+|------|------|
+| [swiftui-guidelines](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/swiftui-guidelines/.cursorrules) | SwiftUI 开发 .cursorrules 提示文件 |
 
 ## 使用方法
 

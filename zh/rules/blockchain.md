@@ -4,28 +4,31 @@ editLink: false
 
 # 区块链规则
 
-区块链和 Web3 相关的 Cursor AI 编程规则集合。
+区块链相关的 Cursor AI 编程规则集合。
 
-## 以太坊
-
-| 规则 | 说明 |
-|------|------|
-| [solidity](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/solidity/.cursorrules) | Solidity 智能合约开发规范 |
-| [hardhat](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/hardhat/.cursorrules) | Hardhat 开发环境规范 |
-| [foundry](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/foundry/.cursorrules) | Foundry 开发工具规范 |
-
-## Web3
+## advanced-protocols
 
 | 规则 | 说明 |
 |------|------|
-| [web3js](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/web3js/.cursorrules) | Web3.js 前端交互规范 |
-| [ethers](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/ethers/.cursorrules) | Ethers.js 库使用规范 |
+| [advanced-protocols](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/advanced-protocols/.cursorrules) | 区块链扩展协议 .cursorrules 提示文件 |
 
-## 其他
+## smart-contract-security
 
 | 规则 | 说明 |
 |------|------|
-| [solana](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/solana/.cursorrules) | Solana 开发规范 |
+| [smart-contract-security](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/smart-contract-security/.cursorrules) | 智能合约安全 .cursorrules 提示文件 |
+
+## solidity
+
+| 规则 | 说明 |
+|------|------|
+| [foundry](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/solidity/foundry/.cursorrules) | Solidity Foundry 开发 .cursorrules 提示文件 |
+
+## web3
+
+| 规则 | 说明 |
+|------|------|
+| [web3](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/blockchain/web3/.cursorrules) | Web3.0 开发 .cursorrules 提示文件 |
 
 ## 使用方法
 

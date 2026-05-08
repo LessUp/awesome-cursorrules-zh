@@ -2,37 +2,49 @@
 editLink: false
 ---
 
-# Browse rule categories
+# All Rules
 
-Use these pages to enter the rule library from the part of the stack that matters most to your project.
+Cursor AI Editor Rules Collection, providing programming rules for **32+** technical fields.
 
-## Core entry points
+## Category Index
 
-- [Frontend rules](/en/rules/frontend)
-- [Backend rules](/en/rules/backend)
-- [Mobile rules](/en/rules/mobile)
-- [AI & Data rules](/en/rules/ai)
+- [AI & Data](/en/rules/ai)
+- [AR/VR](/en/rules/ar-vr)
+- [Automation](/en/rules/automation)
+- [Backend](/en/rules/backend)
+- [Bio](/en/rules/bio)
+- [Blockchain](/en/rules/blockchain)
+- [Cloud](/en/rules/cloud)
+- [CMS](/en/rules/cms)
+- [Compute](/en/rules/compute)
+- [Data](/en/rules/data)
+- [Data Science](/en/rules/data-science)
+- [Database](/en/rules/database)
+- [DevOps](/en/rules/devops)
+- [Edge](/en/rules/edge)
+- [Emerging Tech](/en/rules/emerging-tech)
+- [Frontend](/en/rules/frontend)
+- [Gaming](/en/rules/gaming)
+- [General](/en/rules/general)
+- [Hardware](/en/rules/hardware)
+- [Industrial](/en/rules/industrial)
+- [IoT](/en/rules/iot)
+- [Mobile](/en/rules/mobile)
+- [Network](/en/rules/network)
+- [Platform](/en/rules/platform)
+- [Quantum](/en/rules/quantum)
+- [Robotics](/en/rules/robotics)
+- [Science](/en/rules/science)
+- [Security](/en/rules/security)
+- [Simulation](/en/rules/simulation)
+- [Storage](/en/rules/storage)
+- [Systems](/en/rules/systems)
+- [Tools](/en/rules/tools)
 
-## Broader library
+## Usage
 
-| Category | Repository path | Notes |
-|----------|-----------------|-------|
-| Frontend | `rules/frontend/` | React, Vue, Angular, TypeScript, and related UI tooling |
-| Backend | `rules/backend/` | Node.js, Python, Java, Go, PHP, and server frameworks |
-| Mobile | `rules/mobile/` | Flutter, React Native, iOS, and Android |
-| AI & ML | `rules/ai/` | ML engineering, computer vision, and applied AI |
-| Data Science | `rules/data-science/` | Data analysis and notebook-oriented workflows |
-| DevOps | `rules/devops/` | Containers, infrastructure, CI, and operations |
-| Blockchain | `rules/blockchain/` | Smart contracts and Web3 development |
-| Security | `rules/security/` | Secure coding and review-oriented guidance |
-
-> All rule files live in the repository `rules/` directory.
-
-## How to use this section
-
-1. Start from the category that best matches your primary stack.
-2. Open the individual rule page or repository path that fits your project.
-3. Copy the selected `.cursorrules` file into your project root.
-4. Review the text before use so the rule stays readable and team-specific.
-
-The public site is designed to help you navigate the library quickly, while the repository remains the source of truth for the rule files themselves.
+1. Choose the rule category suitable for your project
+2. Click the rule link to view the `.cursorrules` file on GitHub
+3. Copy the content to the `.cursorrules` file in your project root
+4. Enable project rules in Cursor AI
+5. Start coding, AI will follow the rules to generate code

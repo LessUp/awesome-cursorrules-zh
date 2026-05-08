@@ -1,4 +1,6 @@
-export function createSidebarConfig({ i18n, prefix }) {
+import { rulesSidebarZh, rulesSidebarEn } from './generated-sidebar.js';
+
+export function createSidebarConfig({ i18n, prefix, rulesItems }) {
   const { gettingStarted, userGuide, reference, rules } = i18n.sidebar;
 
   return [
@@ -29,7 +31,7 @@ export function createSidebarConfig({ i18n, prefix }) {
     {
       text: rules.icon + ' ' + rules.title,
       collapsed: false,
-      items: rules.items.map(item => ({
+      items: rulesItems.map(item => ({
         text: item.text,
         link: `${prefix}/${item.link}`
       }))
@@ -67,19 +69,50 @@ export const sidebarZh = {
         },
         rules: {
           icon: '📂',
-          title: '规则集',
-          items: [
-            { text: '全部规则', link: 'rules/' },
-            { text: '前端开发', link: 'rules/frontend' },
-            { text: '后端开发', link: 'rules/backend' },
-            { text: '移动开发', link: 'rules/mobile' },
-            { text: 'AI与数据', link: 'rules/ai' }
-          ]
+          title: '规则集'
         }
       }
     },
-    prefix: ''
+    prefix: '',
+    rulesItems: rulesSidebarZh
   })
 };
 
-export const sidebarEn = sidebarZh;
+export const sidebarEn = {
+  '/en/': createSidebarConfig({
+    i18n: {
+      sidebar: {
+        gettingStarted: {
+          icon: '🚀',
+          title: 'Getting Started',
+          items: [
+            { text: 'Introduction', link: '' },
+            { text: 'Getting Started', link: 'getting-started' },
+            { text: 'Installation Guide', link: 'installation-guide' }
+          ]
+        },
+        userGuide: {
+          icon: '📖',
+          title: 'User Guide',
+          items: [
+            { text: 'Best Practices', link: 'best-practices' },
+            { text: 'Troubleshooting', link: 'troubleshooting' }
+          ]
+        },
+        reference: {
+          icon: '📚',
+          title: 'Reference',
+          items: [
+            { text: 'API Reference', link: 'api-reference' }
+          ]
+        },
+        rules: {
+          icon: '📂',
+          title: 'Rules'
+        }
+      }
+    },
+    prefix: '/en',
+    rulesItems: rulesSidebarEn
+  })
+};

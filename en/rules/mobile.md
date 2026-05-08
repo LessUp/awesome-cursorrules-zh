@@ -2,38 +2,43 @@
 editLink: false
 ---
 
-# Mobile rules
+# Mobile Rules
 
-Mobile-focused Cursor AI rules for Flutter, React Native, iOS, and Android development.
+Cursor AI programming rules for Mobile.
+
+## android-jetpack-compose
+
+| Rule | Description |
+|------|------|
+| [android-jetpack-compose](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android-jetpack-compose/.cursorrules) | Android Jetpack Compose .cursorrules 提示文件 |
 
 ## Flutter
 
 | Rule | Description |
-|------|-------------|
-| [flutter-app-expert](/rules/mobile/flutter/flutter-app-expert/) | Flutter application development conventions |
+|------|------|
+| [flutter-app-expert](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/flutter-app-expert/.cursorrules) | Flutter 应用开发 .cursorrules 提示文件 |
 
-## React Native
-
-| Rule | Description |
-|------|-------------|
-| [react-native-expo](/rules/mobile/react-native-expo/) | React Native Expo development guidance |
-
-## iOS
+## ios-uikit
 
 | Rule | Description |
-|------|-------------|
-| [ios-uikit](/rules/mobile/ios-uikit/) | iOS UIKit development conventions |
-| [swiftui-guidelines](/rules/mobile/swiftui-guidelines/) | SwiftUI development guidelines |
+|------|------|
+| [ios-uikit](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/ios-uikit/.cursorrules) | UIKit iOS 开发 .cursorrules 提示文件 |
 
-## Android
+## react-native-expo
 
 | Rule | Description |
-|------|-------------|
-| [android-jetpack-compose](/rules/mobile/android-jetpack-compose/) | Android Jetpack Compose conventions |
+|------|------|
+| [react-native-expo](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native-expo/.cursorrules) | React Native Expo .cursorrules 提示文件 |
 
-## How to use
+## swiftui-guidelines
 
-1. Pick the rule that matches your mobile stack.
-2. Copy the `.cursorrules` file into the project root.
-3. Enable project rules in Cursor AI.
-4. Keep any local adjustments explicit so the team can review them easily.
+| Rule | Description |
+|------|------|
+| [swiftui-guidelines](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/swiftui-guidelines/.cursorrules) | SwiftUI 开发 .cursorrules 提示文件 |
+
+## Usage
+
+1. Click the rule link to view the `.cursorrules` file on GitHub
+2. Copy the content to the `.cursorrules` file in your project root
+3. Enable project rules in Cursor AI
+4. Start coding, AI will follow the rules to generate code

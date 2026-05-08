@@ -2,38 +2,45 @@
 editLink: false
 ---
 
-# AI / 数据规则
+# AI与数据规则
 
-AI 和数据科学相关的 Cursor AI 编程规则集合。
+AI与数据相关的 Cursor AI 编程规则集合。
 
-## 大语言模型 (LLM)
-
-| 规则 | 说明 |
-|------|------|
-| [llm-prompt](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/llm/prompt/.cursorrules) | LLM Prompt 工程规范 |
-| [langchain](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/langchain/.cursorrules) | LangChain 应用开发规范 |
-
-## 深度学习
+## computer-vision
 
 | 规则 | 说明 |
 |------|------|
-| [pytorch](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/pytorch/.cursorrules) | PyTorch 深度学习框架规范 |
-| [tensorflow](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/tensorflow/.cursorrules) | TensorFlow 开发规范 |
-| [computer-vision](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/computer-vision/.cursorrules) | 计算机视觉开发规范 |
+| [computer-vision](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/computer-vision/.cursorrules) | 计算机视觉 .cursorrules 提示文件 |
 
-## MLOps
+## edge-ai
 
 | 规则 | 说明 |
 |------|------|
-| [mlops](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/mlops/.cursorrules) | MLOps 机器学习运维规范 |
-| [knowledge-graph](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/knowledge-graph/.cursorrules) | 知识图谱开发规范 |
+| [edge-ai](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/edge-ai/.cursorrules) | 边缘AI .cursorrules 提示文件 |
 
-## 其他
+## federated-learning
 
 | 规则 | 说明 |
 |------|------|
-| [federated-learning](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/federated-learning/.cursorrules) | 联邦学习规范 |
-| [edge-ai](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/edge-ai/.cursorrules) | 边缘 AI 开发规范 |
+| [federated-learning](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/federated-learning/.cursorrules) | 联邦学习 .cursorrules 提示文件 |
+
+## knowledge-graph
+
+| 规则 | 说明 |
+|------|------|
+| [knowledge-graph](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/knowledge-graph/.cursorrules) | 知识图谱 .cursorrules 提示文件 |
+
+## mlops
+
+| 规则 | 说明 |
+|------|------|
+| [mlops](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/mlops/.cursorrules) | AI 工程化平台 .cursorrules 提示文件 |
+
+## photonic-neural-network
+
+| 规则 | 说明 |
+|------|------|
+| [photonic-neural-network](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/photonic-neural-network/.cursorrules) | 光子神经网络 .cursorrules 提示文件 |
 
 ## 使用方法
 

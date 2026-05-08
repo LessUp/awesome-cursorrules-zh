@@ -15,7 +15,11 @@
     "lint": "markdownlint-cli2 '**/*.md' '!node_modules/**' --config .markdownlint.json",
     "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' --config .markdownlint.json",
     "validate": "node scripts/validate-rules.js",
-    "check": "npm run lint && npm run validate",
+    "validate:i18n": "node scripts/validate-i18n.js",
+    "generate:index": "node scripts/generate-rule-index.js",
+    "generate:config": "node scripts/generate-config.js",
+    "generate": "npm run generate:index && npm run generate:config",
+    "check": "npm run lint && npm run validate && npm run validate:i18n",
     "ci": "npm run check && npm run build"
   },
   "devDependencies": {
