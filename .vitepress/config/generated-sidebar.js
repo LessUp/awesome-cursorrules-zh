@@ -1,6 +1,7 @@
 /**
  * 自动生成的规则侧边栏配置
  * 由 scripts/generate-config.js 生成
+ * 数据源: scripts/config/categories.js
  * 请勿手动修改
  */
 

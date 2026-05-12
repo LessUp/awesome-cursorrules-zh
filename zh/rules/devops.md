@@ -36,7 +36,7 @@ DevOps相关的 Cursor AI 编程规则集合。
 |------|------|
 | [github-code-quality](https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/github-code-quality/.cursorrules) | GitHub 代码质量 .cursorrules 提示文件 |
 
-## kubernetes
+## Kubernetes
 
 | 规则 | 说明 |
 |------|------|

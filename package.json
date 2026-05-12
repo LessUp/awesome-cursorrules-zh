@@ -20,6 +20,8 @@
     "generate:config": "node scripts/generate-config.js",
     "generate": "npm run generate:index && npm run generate:config",
     "check": "npm run lint && npm run validate && npm run validate:i18n",
+    "build:ci": "npm run check && npm run generate && npm run build",
+    "build:preview": "npm run build:ci && npm run preview",
     "ci": "npm run check && npm run build"
   },
   "devDependencies": {

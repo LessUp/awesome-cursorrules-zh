@@ -30,5 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run repository gates
-        run: npm run ci
+      - name: Run checks
+        run: npm run check
+
+      - name: Build verification
+        run: npm run build
