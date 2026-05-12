@@ -1,109 +1,84 @@
 ---
 layout: home
+hero:
+  name: Awesome Cursor Rules
+  text: 选择语言并自动进入内容站点
+  tagline: 首次访问会根据浏览器语言自动跳转到中文或英文站点。你也可以在下方手动选择语言入口。
+  actions:
+    - theme: brand
+      text: 进入中文站点
+      link: /zh/
+    - theme: alt
+      text: Enter English Site
+      link: /en/
 ---
 
-<div class="home-header">
-  <div class="home-header-left">
-    <div class="home-logo">AC</div>
-    <div>
-      <span class="home-title">Awesome Cursor Rules</span>
-      <span class="home-subtitle">中文版</span>
-    </div>
+<script setup>
+import { onMounted } from 'vue';
+import { useData } from 'vitepress';
+
+const { site } = useData();
+
+function withBase(path) {
+  const base = site.value.base || '/';
+  if (base === '/') {
+    return path;
+  }
+  return `${base.replace(/\/$/, '')}${path}`;
+}
+
+function isRootEntry(pathname) {
+  const base = site.value.base || '/';
+  const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+
+  return normalizedPath === baseWithSlash || pathname === `${baseWithSlash}index.html`;
+}
+
+onMounted(() => {
+  const pathname = location.pathname || '/';
+  if (!isRootEntry(pathname)) {
+    return;
+  }
+
+  const zhPath = withBase('/zh/');
+  const enPath = withBase('/en/');
+  const saved = localStorage.getItem('preferred-locale');
+
+  if (saved === 'zh') {
+    location.replace(zhPath);
+    return;
+  }
+
+  if (saved === 'en') {
+    location.replace(enPath);
+    return;
+  }
+
+  const lang = (navigator.language || '').toLowerCase();
+  const target = lang.startsWith('zh') ? 'zh' : 'en';
+  localStorage.setItem('preferred-locale', target);
+  location.replace(target === 'zh' ? zhPath : enPath);
+});
+</script>
+
+<div class="lang-fallback">
+
+## 手动语言入口 / Manual language selection
+
+如果你在企业网络、严格隐私模式或禁用脚本环境中访问，本页不会自动跳转。请手动进入对应站点。
+
+<div class="lang-fallback-grid">
+  <div class="lang-card">
+    <h3>🇨🇳 中文站点</h3>
+    <p>适合中文开发者，包含完整规则地图、快速上手指南、规则编写模板与常见问题解答。</p>
+    <a class="lang-button primary" :href="withBase('/zh/')">进入中文站点</a>
   </div>
-  <div class="home-nav">
-    <a href="./getting-started">快速开始</a>
-    <a href="https://github.com/LessUp/awesome-cursorrules-zh">GitHub</a>
-    <a href="./zh/">中文</a>
-    <a href="./en/">English</a>
+  <div class="lang-card">
+    <h3>🇺🇸 English site</h3>
+    <p>Includes full bilingual docs, curated rule navigation, practical usage patterns, and contribution workflow.</p>
+    <a class="lang-button" :href="withBase('/en/')">Enter English Site</a>
   </div>
 </div>
 
-<div class="home-intro-row">
-  <div class="home-intro">
-    Cursor AI 编辑器的 .cursorrules 规则集合。每个规则定义特定技术栈的编码规范、最佳实践和项目约束，帮助 AI 助手更好地理解你的项目。
-  </div>
-  <div class="home-stats">
-    <span><strong>128+</strong> 规则</span>
-    <span><strong>32+</strong> 分类</span>
-    <span><strong>11+</strong> 文档</span>
-  </div>
-</div>
-
-## 规则地图
-
-<div class="rules-map">
-  <div class="rule-card">
-    <div class="rule-card-title">🎯 前端开发</div>
-    <div class="rule-tags">
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/react-typescript/.cursorrules" class="rule-tag">React</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/vue/nuxt3/.cursorrules" class="rule-tag">Vue</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/react/nextjs-typescript/.cursorrules" class="rule-tag">Next.js</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/angular/angular-typescript/.cursorrules" class="rule-tag">Angular</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/frontend/svelte/sveltekit-tailwind-typescript-guide/.cursorrules" class="rule-tag">Svelte</a>
-      <a href="./zh/rules/frontend" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-  
-  <div class="rule-card">
-    <div class="rule-card-title">⚙️ 后端开发</div>
-    <div class="rule-tags">
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/nodejs/nestjs-typescript/.cursorrules" class="rule-tag">Node.js</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/python/fastapi/.cursorrules" class="rule-tag">Python</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/go/.cursorrules" class="rule-tag">Go</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/java/.cursorrules" class="rule-tag">Java</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/backend/python/fastapi-best-practices/.cursorrules" class="rule-tag">FastAPI</a>
-      <a href="./zh/rules/backend" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-  
-  <div class="rule-card">
-    <div class="rule-card-title">📱 移动开发</div>
-    <div class="rule-tags">
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/react-native-expo/.cursorrules" class="rule-tag">React Native</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/flutter/flutter-app-expert/.cursorrules" class="rule-tag">Flutter</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/swiftui-guidelines/.cursorrules" class="rule-tag">SwiftUI</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/mobile/android-jetpack-compose/.cursorrules" class="rule-tag">Kotlin</a>
-      <a href="./zh/rules/mobile" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-  
-  <div class="rule-card">
-    <div class="rule-card-title">🤖 AI / 数据</div>
-    <div class="rule-tags">
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/mlops/.cursorrules" class="rule-tag">MLOps</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/computer-vision/.cursorrules" class="rule-tag">Computer Vision</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/knowledge-graph/.cursorrules" class="rule-tag">Knowledge Graph</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/ai/edge-ai/.cursorrules" class="rule-tag">Edge AI</a>
-      <a href="./zh/rules/ai" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-  
-  <div class="rule-card">
-    <div class="rule-card-title">☁️ DevOps / 云</div>
-    <div class="rule-tags">
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/docker-containerization/.cursorrules" class="rule-tag">Docker</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/kubernetes/kubernetes-mkdocs-documentation/.cursorrules" class="rule-tag">K8s</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/terraform-iac/.cursorrules" class="rule-tag">Terraform</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/devops/ci-cd-pipelines/.cursorrules" class="rule-tag">CI/CD</a>
-      <a href="./zh/rules/devops" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-  
-  <div class="rule-card">
-    <div class="rule-card-title">📦 更多领域</div>
-    <div class="rule-tags">
-      <a href="./zh/rules/blockchain" class="rule-tag">区块链</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/iot/embedded/.cursorrules" class="rule-tag">IoT</a>
-      <a href="./zh/rules/security" class="rule-tag">安全</a>
-      <a href="https://github.com/LessUp/awesome-cursorrules-zh/blob/master/rules/gaming/dragonruby/.cursorrules" class="rule-tag">游戏</a>
-      <a href="./zh/rules/" class="rule-tag-more">查看全部</a>
-    </div>
-  </div>
-</div>
-
-<div class="quick-start">
-  <div class="quick-start-title">快速使用</div>
-  <div class="quick-start-content">
-    选择规则 → 复制 .cursorrules 到项目根目录 → 在 Cursor 中使用
-  </div>
 </div>

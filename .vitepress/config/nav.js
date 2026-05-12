@@ -1,232 +1,180 @@
-import { rulesNavZh, rulesNavEn } from './generated-nav.js';
+const CATEGORY_NAMES = {
+  zh: {
+    frontend: '前端开发',
+    backend: '后端开发',
+    mobile: '移动开发',
+    ai: 'AI 与数据',
+    devops: 'DevOps',
+    cloud: '云服务',
+    security: '安全',
+    database: '数据库',
+    data: '数据工程',
+    'data-science': '数据科学',
+    edge: '边缘计算',
+    'emerging-tech': '新兴技术',
+    robotics: '机器人',
+    automation: '自动化',
+    science: '科学',
+    bio: '生物',
+    quantum: '量子',
+    simulation: '仿真',
+    blockchain: '区块链',
+    iot: '物联网',
+    gaming: '游戏开发',
+    'ar-vr': 'AR/VR',
+    industrial: '工业',
+    cms: 'CMS',
+    hardware: '硬件',
+    network: '网络',
+    storage: '存储',
+    compute: '计算',
+    systems: '系统',
+    platform: '平台',
+    tools: '工具',
+    general: '通用'
+  },
+  en: {
+    frontend: 'Frontend',
+    backend: 'Backend',
+    mobile: 'Mobile',
+    ai: 'AI & Data',
+    devops: 'DevOps',
+    cloud: 'Cloud',
+    security: 'Security',
+    database: 'Database',
+    data: 'Data Engineering',
+    'data-science': 'Data Science',
+    edge: 'Edge',
+    'emerging-tech': 'Emerging Tech',
+    robotics: 'Robotics',
+    automation: 'Automation',
+    science: 'Science',
+    bio: 'Bio',
+    quantum: 'Quantum',
+    simulation: 'Simulation',
+    blockchain: 'Blockchain',
+    iot: 'IoT',
+    gaming: 'Gaming',
+    'ar-vr': 'AR/VR',
+    industrial: 'Industrial',
+    cms: 'CMS',
+    hardware: 'Hardware',
+    network: 'Network',
+    storage: 'Storage',
+    compute: 'Compute',
+    systems: 'Systems',
+    platform: 'Platform',
+    tools: 'Tools',
+    general: 'General'
+  }
+};
 
-/**
- * 分类分组定义
- * 用于将 32 个分类按领域分组显示
- */
 const CATEGORY_GROUPS = {
   zh: [
     {
-      text: '热门领域',
-      items: ['frontend', 'backend', 'mobile', 'ai']
+      text: '核心开发',
+      categories: ['frontend', 'backend', 'mobile', 'ai']
     },
     {
-      text: 'DevOps & 云',
-      items: ['devops', 'cloud', 'security']
+      text: '工程与平台',
+      categories: ['devops', 'cloud', 'security', 'database', 'data']
     },
     {
-      text: '数据 & AI',
-      items: ['data-science', 'data', 'database']
+      text: '智能与科学',
+      categories: ['data-science', 'edge', 'emerging-tech', 'robotics', 'automation', 'science', 'bio', 'quantum', 'simulation']
     },
     {
-      text: '更多领域',
-      items: ['blockchain', 'iot', 'gaming', 'ar-vr', 'hardware', 'tools', 'general']
+      text: '行业与基础设施',
+      categories: ['blockchain', 'iot', 'gaming', 'ar-vr', 'industrial', 'cms', 'hardware', 'network', 'storage', 'compute', 'systems', 'platform']
+    },
+    {
+      text: '通用能力',
+      categories: ['tools', 'general']
     }
   ],
   en: [
     {
-      text: 'Popular',
-      items: ['frontend', 'backend', 'mobile', 'ai']
+      text: 'Core Development',
+      categories: ['frontend', 'backend', 'mobile', 'ai']
     },
     {
-      text: 'DevOps & Cloud',
-      items: ['devops', 'cloud', 'security']
+      text: 'Engineering & Platform',
+      categories: ['devops', 'cloud', 'security', 'database', 'data']
     },
     {
-      text: 'Data & AI',
-      items: ['data-science', 'data', 'database']
+      text: 'Intelligence & Science',
+      categories: ['data-science', 'edge', 'emerging-tech', 'robotics', 'automation', 'science', 'bio', 'quantum', 'simulation']
     },
     {
-      text: 'More',
-      items: ['blockchain', 'iot', 'gaming', 'ar-vr', 'hardware', 'tools', 'general']
+      text: 'Industry & Infra',
+      categories: ['blockchain', 'iot', 'gaming', 'ar-vr', 'industrial', 'cms', 'hardware', 'network', 'storage', 'compute', 'systems', 'platform']
+    },
+    {
+      text: 'General Capability',
+      categories: ['tools', 'general']
     }
   ]
 };
 
-/**
- * 分类中文名称映射
- */
-const CATEGORY_NAMES_ZH = {
-  frontend: '前端开发',
-  backend: '后端开发',
-  mobile: '移动开发',
-  ai: 'AI与数据',
-  'data-science': '数据科学',
-  devops: 'DevOps',
-  blockchain: '区块链',
-  security: '安全',
-  cloud: '云服务',
-  database: '数据库',
-  iot: '物联网',
-  gaming: '游戏开发',
-  'ar-vr': 'AR/VR',
-  hardware: '硬件',
-  tools: '工具',
-  general: '通用',
-  data: '数据',
-  edge: '边缘计算',
-  'emerging-tech': '新兴技术',
-  robotics: '机器人',
-  automation: '自动化',
-  platform: '平台',
-  systems: '系统',
-  network: '网络',
-  storage: '存储',
-  compute: '计算',
-  science: '科学',
-  bio: '生物',
-  quantum: '量子',
-  simulation: '仿真',
-  industrial: '工业',
-  cms: 'CMS'
-};
-
-const CATEGORY_NAMES_EN = {
-  frontend: 'Frontend',
-  backend: 'Backend',
-  mobile: 'Mobile',
-  ai: 'AI & Data',
-  'data-science': 'Data Science',
-  devops: 'DevOps',
-  blockchain: 'Blockchain',
-  security: 'Security',
-  cloud: 'Cloud',
-  database: 'Database',
-  iot: 'IoT',
-  gaming: 'Gaming',
-  'ar-vr': 'AR/VR',
-  hardware: 'Hardware',
-  tools: 'Tools',
-  general: 'General',
-  data: 'Data',
-  edge: 'Edge',
-  'emerging-tech': 'Emerging Tech',
-  robotics: 'Robotics',
-  automation: 'Automation',
-  platform: 'Platform',
-  systems: 'Systems',
-  network: 'Network',
-  storage: 'Storage',
-  compute: 'Compute',
-  science: 'Science',
-  bio: 'Bio',
-  quantum: 'Quantum',
-  simulation: 'Simulation',
-  industrial: 'Industrial',
-  cms: 'CMS'
-};
-
-/**
- * 创建分组导航配置
- */
-function createGroupedNav(groups, categoryNames, linkPrefix) {
-  return groups.map(group => ({
+function createRuleGroups(lang, prefix) {
+  return CATEGORY_GROUPS[lang].map(group => ({
     text: group.text,
-    items: group.items.map(cat => ({
-      text: categoryNames[cat] || cat,
-      link: `${linkPrefix}/${cat}`,
-      activeMatch: `/${linkPrefix}/${cat}`
+    items: group.categories.map(category => ({
+      text: CATEGORY_NAMES[lang][category] || category,
+      link: `/${prefix}/rules/${category}`,
+      activeMatch: `^/${prefix}/rules/${category}`
     }))
   }));
 }
 
-export function createNavConfig({ i18n, rulesNav }) {
-  const { home, docs, rules } = i18n.nav;
-
-  return [
-    { text: home, link: '/' },
-    {
-      text: docs.title,
-      items: docs.items.map(item => ({
-        text: item.text,
-        link: `/${item.link}`,
-        activeMatch: `/${item.link}`
-      }))
-    },
-    {
-      text: rules.title,
-      items: [
-        ...rulesNav,
-        { text: rules.viewAll, link: '/zh/rules/' }
-      ]
-    }
-  ];
-}
-
-/**
- * 创建带分组的导航配置
- */
-export function createGroupedNavConfig({ i18n, linkPrefix, categoryNames, groups }) {
-  const { home, docs, rules } = i18n.nav;
-
-  const groupedItems = createGroupedNav(groups, categoryNames, linkPrefix);
-
-  return [
-    { text: home, link: '/' },
-    {
-      text: docs.title,
-      items: docs.items.map(item => ({
-        text: item.text,
-        link: `/${item.link}`,
-        activeMatch: `/${item.link}`
-      }))
-    },
-    {
-      text: rules.title,
-      items: [
-        ...groupedItems,
-        { text: rules.viewAll, link: `/${linkPrefix}/rules/` }
-      ]
-    }
-  ];
-}
-
-export const navZh = createGroupedNavConfig({
-  i18n: {
-    nav: {
-      home: '首页',
-      docs: {
-        title: '文档',
-        items: [
-          { text: '快速开始', link: 'zh/getting-started' },
-          { text: '安装指南', link: 'zh/installation-guide' },
-          { text: '最佳实践', link: 'zh/best-practices' },
-          { text: '故障排除', link: 'zh/troubleshooting' },
-          { text: 'API 参考', link: 'zh/api-reference' }
-        ]
-      },
-      rules: {
-        title: '规则库',
-        viewAll: '查看全部 →'
-      }
-    }
+export const navZh = [
+  { text: '首页', link: '/zh/' },
+  {
+    text: '文档',
+    items: [
+      { text: '快速开始', link: '/zh/getting-started', activeMatch: '^/zh/getting-started' },
+      { text: '安装指南', link: '/zh/installation-guide', activeMatch: '^/zh/installation-guide' },
+      { text: '最佳实践', link: '/zh/best-practices', activeMatch: '^/zh/best-practices' },
+      { text: '故障排除', link: '/zh/troubleshooting', activeMatch: '^/zh/troubleshooting' },
+      { text: 'API 参考', link: '/zh/api-reference', activeMatch: '^/zh/api-reference' },
+      { text: '常见问题', link: '/zh/faq', activeMatch: '^/zh/faq' },
+      { text: '规则模板指南', link: '/zh/guides/rule-template', activeMatch: '^/zh/guides/' },
+      { text: '贡献指南', link: '/zh/contributing', activeMatch: '^/zh/contributing' },
+      { text: '更新日志', link: '/zh/changelog', activeMatch: '^/zh/changelog' }
+    ]
   },
-  linkPrefix: 'zh',
-  categoryNames: CATEGORY_NAMES_ZH,
-  groups: CATEGORY_GROUPS.zh
-});
-
-export const navEn = createGroupedNavConfig({
-  i18n: {
-    nav: {
-      home: 'Home',
-      docs: {
-        title: 'Docs',
-        items: [
-          { text: 'Getting Started', link: 'en/getting-started' },
-          { text: 'Installation Guide', link: 'en/installation-guide' },
-          { text: 'Best Practices', link: 'en/best-practices' },
-          { text: 'Troubleshooting', link: 'en/troubleshooting' },
-          { text: 'API Reference', link: 'en/api-reference' }
-        ]
-      },
-      rules: {
-        title: 'Rules',
-        viewAll: 'View All →'
-      }
-    }
+  {
+    text: '规则库',
+    items: [
+      ...createRuleGroups('zh', 'zh'),
+      { text: '查看全部规则 →', link: '/zh/rules/' }
+    ]
   },
-  linkPrefix: 'en',
-  categoryNames: CATEGORY_NAMES_EN,
-  groups: CATEGORY_GROUPS.en
-});
+  { text: 'GitHub', link: 'https://github.com/LessUp/awesome-cursorrules-zh' }
+];
+
+export const navEn = [
+  { text: 'Home', link: '/en/' },
+  {
+    text: 'Docs',
+    items: [
+      { text: 'Getting started', link: '/en/getting-started', activeMatch: '^/en/getting-started' },
+      { text: 'Installation guide', link: '/en/installation-guide', activeMatch: '^/en/installation-guide' },
+      { text: 'Best practices', link: '/en/best-practices', activeMatch: '^/en/best-practices' },
+      { text: 'Troubleshooting', link: '/en/troubleshooting', activeMatch: '^/en/troubleshooting' },
+      { text: 'API reference', link: '/en/api-reference', activeMatch: '^/en/api-reference' },
+      { text: 'FAQ', link: '/en/faq', activeMatch: '^/en/faq' },
+      { text: 'Rule template guide', link: '/en/guides/rule-template', activeMatch: '^/en/guides/' },
+      { text: 'Contributing', link: '/en/contributing', activeMatch: '^/en/contributing' },
+      { text: 'Changelog', link: '/en/changelog', activeMatch: '^/en/changelog' }
+    ]
+  },
+  {
+    text: 'Rules',
+    items: [
+      ...createRuleGroups('en', 'en'),
+      { text: 'View all rules →', link: '/en/rules/' }
+    ]
+  },
+  { text: 'GitHub', link: 'https://github.com/LessUp/awesome-cursorrules-zh' }
+];

@@ -4,17 +4,23 @@ import llmstxt from 'vitepress-plugin-llms';
 import { navZh, navEn } from './config/nav.js';
 import { sidebarZh, sidebarEn } from './config/sidebar.js';
 
+const rawBase = process.env.VITEPRESS_BASE;
+const base = rawBase
+  ? rawBase.startsWith('/')
+    ? rawBase.endsWith('/') ? rawBase : `${rawBase}/`
+    : `/${rawBase}/`
+  : '/awesome-cursorrules-zh/';
+
 export default withMermaid(defineConfig({
+  base,
   title: 'Awesome Cursor Rules',
   description: '为中文开发者打造的 Cursor AI 编程规则集合',
-  base: process.env.VITEPRESS_BASE || '/awesome-cursorrules-zh/',
 
-  // 多语言配置
   locales: {
     root: {
       label: '简体中文',
       lang: 'zh-CN',
-      link: '/',
+      link: '/zh/',
       themeConfig: {
         nav: navZh,
         sidebar: sidebarZh,
@@ -59,7 +65,11 @@ export default withMermaid(defineConfig({
         darkModeSwitchTitle: '切换到深色模式',
         sidebarMenuLabel: '菜单',
         returnToTopLabel: '回到顶部',
-        langMenuLabel: '多语言'
+        langMenuLabel: '多语言',
+        footer: {
+          message: 'Cursor 规则库与工程实践知识库',
+          copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
+        }
       }
     },
     en: {
@@ -95,7 +105,11 @@ export default withMermaid(defineConfig({
         darkModeSwitchTitle: 'Switch to dark theme',
         sidebarMenuLabel: 'Menu',
         returnToTopLabel: 'Return to top',
-        langMenuLabel: 'Languages'
+        langMenuLabel: 'Languages',
+        footer: {
+          message: 'A practical playbook for Cursor rules and engineering workflows',
+          copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
+        }
       }
     }
   },
@@ -106,13 +120,8 @@ export default withMermaid(defineConfig({
     ],
     logo: '/logo.svg',
     siteTitle: false,
-    footer: {
-      message: '为中文开发者打造的 Cursor AI 编程规则集合',
-      copyright: 'Copyright © 2024-2025 Awesome Cursor Rules Contributors | MIT License'
-    }
   },
 
-  // Vite 插件配置
   vite: {
     plugins: [llmstxt()]
   },
