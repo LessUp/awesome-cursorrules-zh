@@ -22,12 +22,12 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  NODE_VERSION: 20
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,27 +35,42 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: "20"
           cache: npm
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Set VitePress base
+        shell: bash
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${BASE_PATH}" ]]; then
+            base="/"
+          else
+            base="${BASE_PATH%/}/"
+          fi
+          echo "VITEPRESS_BASE=${base}" >> "$GITHUB_ENV"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build for deployment
+        env:
+          VITEPRESS_BASE: ${{ env.VITEPRESS_BASE }}
         run: npm run build:ci
+
+      - name: Add .nojekyll
+        run: touch .vitepress/dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

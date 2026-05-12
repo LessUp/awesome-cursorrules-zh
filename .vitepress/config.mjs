@@ -5,7 +5,7 @@ import { sidebarZh } from './config/sidebar.js';
 export default defineConfig({
   title: 'Awesome Cursor Rules',
   description: '为中文开发者打造的 Cursor AI 编程规则集合',
-  base: '/awesome-cursorrules-zh/',
+  base: process.env.VITEPRESS_BASE || '/awesome-cursorrules-zh/',
   lang: 'zh-CN',
 
   themeConfig: {
