@@ -16,17 +16,22 @@
     "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' --config .markdownlint.json",
     "validate": "node scripts/validate-rules.js",
     "validate:i18n": "node scripts/validate-i18n.js",
+    "check-links": "node scripts/check-links.js",
     "generate:index": "node scripts/generate-rule-index.js",
     "generate:config": "node scripts/generate-config.js",
     "generate": "npm run generate:index && npm run generate:config",
+    "inject-stats": "node scripts/inject-stats.js",
     "check": "npm run lint && npm run validate && npm run validate:i18n",
+    "check:full": "npm run check && npm run check-links",
     "build:ci": "npm run check && npm run generate && npm run build",
     "build:preview": "npm run build:ci && npm run preview",
     "ci": "npm run check && npm run build"
   },
   "devDependencies": {
+    "markdownlint-cli2": "^0.22.1",
     "vitepress": "^1.6.4",
-    "markdownlint-cli2": "^0.22.1"
+    "vitepress-plugin-llms": "^1.12.2",
+    "vitepress-plugin-mermaid": "^2.0.17"
   },
   "engines": {
     "node": ">=20.0.0",

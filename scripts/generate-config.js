@@ -74,12 +74,12 @@ function generateNavConfig(existingCategories) {
 
   const zhItems = navCategories.map(cat => ({
     text: getCategoryName(cat, 'zh'),
-    link: `rules/${cat}`
+    link: `zh/rules/${cat}`
   }));
 
   const enItems = navCategories.map(cat => ({
     text: getCategoryName(cat, 'en'),
-    link: `rules/${cat}`
+    link: `en/rules/${cat}`
   }));
 
   return `/**
@@ -106,10 +106,10 @@ function generateSidebarConfig(existingCategories) {
     .filter(cat => existingCategories.includes(cat));
 
   const zhItems = [
-    { text: '全部规则', link: 'rules/' },
+    { text: '全部规则', link: 'zh/rules/' },
     ...sortedCategories.map(cat => ({
       text: getCategoryName(cat, 'zh'),
-      link: `rules/${cat}`
+      link: `zh/rules/${cat}`
     }))
   ];
 
@@ -117,7 +117,7 @@ function generateSidebarConfig(existingCategories) {
     { text: 'All Rules', link: 'en/rules/' },
     ...sortedCategories.map(cat => ({
       text: getCategoryName(cat, 'en'),
-      link: `rules/${cat}`
+      link: `en/rules/${cat}`
     }))
   ];
 

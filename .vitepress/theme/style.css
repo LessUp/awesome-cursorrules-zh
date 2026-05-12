@@ -8,41 +8,41 @@
 
 /* === CSS Variables === */
 :root {
-  /* Brand Colors - GitHub Style */
-  --vp-c-brand-1: #24292f;
-  --vp-c-brand-2: #57606a;
-  --vp-c-brand-3: #0969da;
-  --vp-c-brand-soft: rgba(9, 105, 218, 0.1);
+  /* Brand Colors - Indigo/AI Style */
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-3: #a5b4fc;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
 
   /* Accent Colors */
-  --vp-c-accent: #0969da;
-  --vp-c-accent-soft: rgba(9, 105, 218, 0.1);
+  --vp-c-accent: #6366f1;
+  --vp-c-accent-soft: rgba(99, 102, 241, 0.14);
 
   /* Background Colors */
   --vp-c-bg: #ffffff;
-  --vp-c-bg-alt: #f6f8fa;
+  --vp-c-bg-alt: #f8fafc;
   --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #f6f8fa;
+  --vp-c-bg-soft: #f1f5f9;
 
   /* Text Colors */
-  --vp-c-text-1: #24292f;
-  --vp-c-text-2: #57606a;
-  --vp-c-text-3: #8b949e;
+  --vp-c-text-1: #1e293b;
+  --vp-c-text-2: #475569;
+  --vp-c-text-3: #94a3b8;
 
   /* Border Colors */
-  --vp-c-border: #d0d7de;
-  --vp-c-divider: #d0d7de;
-  --vp-c-gutter: #d0d7de;
+  --vp-c-border: #e2e8f0;
+  --vp-c-divider: #e2e8f0;
+  --vp-c-gutter: #e2e8f0;
 
   /* Hero Section - Remove gradients */
-  --vp-home-hero-name-color: #24292f;
+  --vp-home-hero-name-color: #6366f1;
   --vp-home-hero-name-background: transparent;
   --vp-home-hero-image-background-image: none;
   --vp-home-hero-image-filter: none;
 
   /* Custom Colors for Homepage */
-  --tag-bg: #ddf4ff;
-  --tag-text: #0969da;
+  --tag-bg: rgba(99, 102, 241, 0.1);
+  --tag-text: #6366f1;
 
   /* Custom Spacing */
   --spacing-xs: 8px;
@@ -65,20 +65,25 @@
 
 /* === Dark Mode Variables === */
 .dark {
-  --vp-c-bg: #0d1117;
-  --vp-c-bg-alt: #161b22;
-  --vp-c-bg-elv: #21262d;
-  --vp-c-bg-soft: #21262d;
+  --vp-c-brand-1: #818cf8;
+  --vp-c-brand-2: #a5b4fc;
+  --vp-c-brand-3: #c7d2fe;
 
-  --vp-c-text-1: #c9d1d9;
-  --vp-c-text-2: #8b949e;
-  --vp-c-text-3: #6e7681;
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #1e293b;
+  --vp-c-bg-elv: #334155;
+  --vp-c-bg-soft: #1e293b;
 
-  --vp-c-border: #30363d;
-  --vp-c-divider: #30363d;
-  --vp-c-gutter: #30363d;
+  --vp-c-text-1: #f1f5f9;
+  --vp-c-text-2: #94a3b8;
+  --vp-c-text-3: #64748b;
 
-  --tag-bg: #1f6feb33;
+  --vp-c-border: #334155;
+  --vp-c-divider: #334155;
+  --vp-c-gutter: #334155;
+
+  --tag-bg: rgba(129, 140, 248, 0.15);
+  --tag-text: #a5b4fc;
 }
 
 /* === Hero Section Styling - Simplified === */
@@ -531,14 +536,36 @@
 }
 
 .rule-card {
+  position: relative;
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-border);
-  border-radius: 6px;
+  border-radius: var(--radius-lg);
   padding: var(--spacing-md);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 渐变顶边 */
+.rule-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .rule-card:hover {
-  border-color: var(--vp-c-brand-3);
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15);
+}
+
+.rule-card:hover::before {
+  opacity: 1;
 }
 
 .rule-card-title {
@@ -558,23 +585,28 @@
   font-size: 12px;
   color: var(--tag-text);
   text-decoration: none;
-  padding: 3px 8px;
+  padding: 4px 10px;
   background: var(--tag-bg);
-  border-radius: 4px;
+  border-radius: 100px;
+  transition: all 0.2s ease;
 }
 
 .rule-tag:hover {
-  background: var(--vp-c-brand-soft);
+  background: var(--vp-c-brand-1);
+  color: white;
+  transform: scale(1.02);
 }
 
 .rule-tag-more {
   font-size: 12px;
   color: var(--vp-c-text-2);
   text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s ease;
 }
 
 .rule-tag-more:hover {
-  color: var(--vp-c-brand-3);
+  color: var(--vp-c-brand-1);
 }
 
 /* Quick Start */

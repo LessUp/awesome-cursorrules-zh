@@ -23,9 +23,9 @@ layout: home
     Cursor AI 编辑器的 .cursorrules 规则集合。每个规则定义特定技术栈的编码规范、最佳实践和项目约束，帮助 AI 助手更好地理解你的项目。
   </div>
   <div class="home-stats">
-    <span><strong>132+</strong> 规则</span>
+    <span><strong>128+</strong> 规则</span>
     <span><strong>32+</strong> 分类</span>
-    <span><strong>190+</strong> 文档</span>
+    <span><strong>11+</strong> 文档</span>
   </div>
 </div>
 

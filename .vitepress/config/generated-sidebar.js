@@ -8,135 +8,135 @@
 export const rulesSidebarZh = [
   {
     "text": "全部规则",
-    "link": "rules/"
+    "link": "zh/rules/"
   },
   {
     "text": "前端开发",
-    "link": "rules/frontend"
+    "link": "zh/rules/frontend"
   },
   {
     "text": "后端开发",
-    "link": "rules/backend"
+    "link": "zh/rules/backend"
   },
   {
     "text": "移动开发",
-    "link": "rules/mobile"
+    "link": "zh/rules/mobile"
   },
   {
     "text": "AI与数据",
-    "link": "rules/ai"
+    "link": "zh/rules/ai"
   },
   {
     "text": "数据科学",
-    "link": "rules/data-science"
+    "link": "zh/rules/data-science"
   },
   {
     "text": "DevOps",
-    "link": "rules/devops"
+    "link": "zh/rules/devops"
   },
   {
     "text": "区块链",
-    "link": "rules/blockchain"
+    "link": "zh/rules/blockchain"
   },
   {
     "text": "安全",
-    "link": "rules/security"
+    "link": "zh/rules/security"
   },
   {
     "text": "云服务",
-    "link": "rules/cloud"
+    "link": "zh/rules/cloud"
   },
   {
     "text": "数据库",
-    "link": "rules/database"
+    "link": "zh/rules/database"
   },
   {
     "text": "物联网",
-    "link": "rules/iot"
+    "link": "zh/rules/iot"
   },
   {
     "text": "游戏开发",
-    "link": "rules/gaming"
+    "link": "zh/rules/gaming"
   },
   {
     "text": "AR/VR",
-    "link": "rules/ar-vr"
+    "link": "zh/rules/ar-vr"
   },
   {
     "text": "机器人",
-    "link": "rules/robotics"
+    "link": "zh/rules/robotics"
   },
   {
     "text": "自动化",
-    "link": "rules/automation"
+    "link": "zh/rules/automation"
   },
   {
     "text": "工具",
-    "link": "rules/tools"
+    "link": "zh/rules/tools"
   },
   {
     "text": "通用",
-    "link": "rules/general"
+    "link": "zh/rules/general"
   },
   {
     "text": "平台",
-    "link": "rules/platform"
+    "link": "zh/rules/platform"
   },
   {
     "text": "系统",
-    "link": "rules/systems"
+    "link": "zh/rules/systems"
   },
   {
     "text": "网络",
-    "link": "rules/network"
+    "link": "zh/rules/network"
   },
   {
     "text": "存储",
-    "link": "rules/storage"
+    "link": "zh/rules/storage"
   },
   {
     "text": "计算",
-    "link": "rules/compute"
+    "link": "zh/rules/compute"
   },
   {
     "text": "硬件",
-    "link": "rules/hardware"
+    "link": "zh/rules/hardware"
   },
   {
     "text": "科学",
-    "link": "rules/science"
+    "link": "zh/rules/science"
   },
   {
     "text": "生物",
-    "link": "rules/bio"
+    "link": "zh/rules/bio"
   },
   {
     "text": "量子",
-    "link": "rules/quantum"
+    "link": "zh/rules/quantum"
   },
   {
     "text": "仿真",
-    "link": "rules/simulation"
+    "link": "zh/rules/simulation"
   },
   {
     "text": "工业",
-    "link": "rules/industrial"
+    "link": "zh/rules/industrial"
   },
   {
     "text": "CMS",
-    "link": "rules/cms"
+    "link": "zh/rules/cms"
   },
   {
     "text": "数据",
-    "link": "rules/data"
+    "link": "zh/rules/data"
   },
   {
     "text": "边缘计算",
-    "link": "rules/edge"
+    "link": "zh/rules/edge"
   },
   {
     "text": "新兴技术",
-    "link": "rules/emerging-tech"
+    "link": "zh/rules/emerging-tech"
   }
 ];
 
@@ -147,130 +147,130 @@ export const rulesSidebarEn = [
   },
   {
     "text": "Frontend",
-    "link": "rules/frontend"
+    "link": "en/rules/frontend"
   },
   {
     "text": "Backend",
-    "link": "rules/backend"
+    "link": "en/rules/backend"
   },
   {
     "text": "Mobile",
-    "link": "rules/mobile"
+    "link": "en/rules/mobile"
   },
   {
     "text": "AI & Data",
-    "link": "rules/ai"
+    "link": "en/rules/ai"
   },
   {
     "text": "Data Science",
-    "link": "rules/data-science"
+    "link": "en/rules/data-science"
   },
   {
     "text": "DevOps",
-    "link": "rules/devops"
+    "link": "en/rules/devops"
   },
   {
     "text": "Blockchain",
-    "link": "rules/blockchain"
+    "link": "en/rules/blockchain"
   },
   {
     "text": "Security",
-    "link": "rules/security"
+    "link": "en/rules/security"
   },
   {
     "text": "Cloud",
-    "link": "rules/cloud"
+    "link": "en/rules/cloud"
   },
   {
     "text": "Database",
-    "link": "rules/database"
+    "link": "en/rules/database"
   },
   {
     "text": "IoT",
-    "link": "rules/iot"
+    "link": "en/rules/iot"
   },
   {
     "text": "Gaming",
-    "link": "rules/gaming"
+    "link": "en/rules/gaming"
   },
   {
     "text": "AR/VR",
-    "link": "rules/ar-vr"
+    "link": "en/rules/ar-vr"
   },
   {
     "text": "Robotics",
-    "link": "rules/robotics"
+    "link": "en/rules/robotics"
   },
   {
     "text": "Automation",
-    "link": "rules/automation"
+    "link": "en/rules/automation"
   },
   {
     "text": "Tools",
-    "link": "rules/tools"
+    "link": "en/rules/tools"
   },
   {
     "text": "General",
-    "link": "rules/general"
+    "link": "en/rules/general"
   },
   {
     "text": "Platform",
-    "link": "rules/platform"
+    "link": "en/rules/platform"
   },
   {
     "text": "Systems",
-    "link": "rules/systems"
+    "link": "en/rules/systems"
   },
   {
     "text": "Network",
-    "link": "rules/network"
+    "link": "en/rules/network"
   },
   {
     "text": "Storage",
-    "link": "rules/storage"
+    "link": "en/rules/storage"
   },
   {
     "text": "Compute",
-    "link": "rules/compute"
+    "link": "en/rules/compute"
   },
   {
     "text": "Hardware",
-    "link": "rules/hardware"
+    "link": "en/rules/hardware"
   },
   {
     "text": "Science",
-    "link": "rules/science"
+    "link": "en/rules/science"
   },
   {
     "text": "Bio",
-    "link": "rules/bio"
+    "link": "en/rules/bio"
   },
   {
     "text": "Quantum",
-    "link": "rules/quantum"
+    "link": "en/rules/quantum"
   },
   {
     "text": "Simulation",
-    "link": "rules/simulation"
+    "link": "en/rules/simulation"
   },
   {
     "text": "Industrial",
-    "link": "rules/industrial"
+    "link": "en/rules/industrial"
   },
   {
     "text": "CMS",
-    "link": "rules/cms"
+    "link": "en/rules/cms"
   },
   {
     "text": "Data",
-    "link": "rules/data"
+    "link": "en/rules/data"
   },
   {
     "text": "Edge",
-    "link": "rules/edge"
+    "link": "en/rules/edge"
   },
   {
     "text": "Emerging Tech",
-    "link": "rules/emerging-tech"
+    "link": "en/rules/emerging-tech"
   }
 ];

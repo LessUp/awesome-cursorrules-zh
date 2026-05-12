@@ -8,69 +8,69 @@
 export const rulesNavZh = [
   {
     "text": "前端开发",
-    "link": "rules/frontend"
+    "link": "zh/rules/frontend"
   },
   {
     "text": "后端开发",
-    "link": "rules/backend"
+    "link": "zh/rules/backend"
   },
   {
     "text": "移动开发",
-    "link": "rules/mobile"
+    "link": "zh/rules/mobile"
   },
   {
     "text": "AI与数据",
-    "link": "rules/ai"
+    "link": "zh/rules/ai"
   },
   {
     "text": "数据科学",
-    "link": "rules/data-science"
+    "link": "zh/rules/data-science"
   },
   {
     "text": "DevOps",
-    "link": "rules/devops"
+    "link": "zh/rules/devops"
   },
   {
     "text": "区块链",
-    "link": "rules/blockchain"
+    "link": "zh/rules/blockchain"
   },
   {
     "text": "安全",
-    "link": "rules/security"
+    "link": "zh/rules/security"
   }
 ];
 
 export const rulesNavEn = [
   {
     "text": "Frontend",
-    "link": "rules/frontend"
+    "link": "en/rules/frontend"
   },
   {
     "text": "Backend",
-    "link": "rules/backend"
+    "link": "en/rules/backend"
   },
   {
     "text": "Mobile",
-    "link": "rules/mobile"
+    "link": "en/rules/mobile"
   },
   {
     "text": "AI & Data",
-    "link": "rules/ai"
+    "link": "en/rules/ai"
   },
   {
     "text": "Data Science",
-    "link": "rules/data-science"
+    "link": "en/rules/data-science"
   },
   {
     "text": "DevOps",
-    "link": "rules/devops"
+    "link": "en/rules/devops"
   },
   {
     "text": "Blockchain",
-    "link": "rules/blockchain"
+    "link": "en/rules/blockchain"
   },
   {
     "text": "Security",
-    "link": "rules/security"
+    "link": "en/rules/security"
   }
 ];
