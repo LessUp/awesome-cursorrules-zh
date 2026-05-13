@@ -276,6 +276,14 @@ export default withMermaid(defineConfig({
     siteTitle: false,
   },
 
+  head: [
+    [
+      'script',
+      {},
+      `(function(){var p=location.pathname;if(p==='/'||p===''){var l=navigator.language||navigator.userLanguage||'';location.replace(l.startsWith('zh')?'/zh/':'/en/');}})();`
+    ]
+  ],
+
   vite: {
     plugins: [llmstxt()]
   },
