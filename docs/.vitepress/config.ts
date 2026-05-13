@@ -123,13 +123,23 @@ export default withMermaid(defineConfig({
       description: '为中文开发者打造的 Cursor AI 编程规则集合',
       themeConfig: {
         nav: [
-          { text: '指南', link: '/zh/getting-started', activeMatch: '/zh/getting-started' },
+          { text: '指南', link: '/zh/getting-started', activeMatch: '/zh/(getting-started|installation-guide|best-practices|troubleshooting|guides/)' },
           { text: '规则库', link: '/zh/rules/', activeMatch: '/zh/rules/' },
-          { text: '最佳实践', link: '/zh/best-practices' },
-          { text: '常见问题', link: '/zh/faq' },
-          { text: '贡献指南', link: '/zh/contributing' },
+          { text: '地图', link: '/zh/maps/', activeMatch: '/zh/maps/' },
+          { text: '资源', link: '/zh/resources/', activeMatch: '/zh/resources/' },
+          { text: '哲学', link: '/zh/philosophy', activeMatch: '/zh/philosophy' },
+          { text: 'FAQ', link: '/zh/faq' },
         ],
         sidebar: {
+          '/zh/maps/': [
+            { text: '地图', items: [{ text: '知识与技能地图', link: '/zh/maps/' }] },
+          ],
+          '/zh/resources/': [
+            { text: '资源', items: [{ text: '精选资源', link: '/zh/resources/' }] },
+          ],
+          '/zh/philosophy': [
+            { text: '哲学', items: [{ text: '项目哲学', link: '/zh/philosophy' }] },
+          ],
           '/zh/': [
             {
               text: '开始使用',
@@ -203,13 +213,23 @@ export default withMermaid(defineConfig({
       description: 'A curated collection of Cursor AI rules for developers',
       themeConfig: {
         nav: [
-          { text: 'Guides', link: '/en/getting-started', activeMatch: '/en/getting-started' },
+          { text: 'Guides', link: '/en/getting-started', activeMatch: '/en/(getting-started|installation-guide|best-practices|troubleshooting|guides/)' },
           { text: 'Rules', link: '/en/rules/', activeMatch: '/en/rules/' },
-          { text: 'Best Practices', link: '/en/best-practices' },
+          { text: 'Maps', link: '/en/maps/', activeMatch: '/en/maps/' },
+          { text: 'Resources', link: '/en/resources/', activeMatch: '/en/resources/' },
+          { text: 'Philosophy', link: '/en/philosophy', activeMatch: '/en/philosophy' },
           { text: 'FAQ', link: '/en/faq' },
-          { text: 'Contributing', link: '/en/contributing' },
         ],
         sidebar: {
+          '/en/maps/': [
+            { text: 'Maps', items: [{ text: 'Knowledge and Skill Maps', link: '/en/maps/' }] },
+          ],
+          '/en/resources/': [
+            { text: 'Resources', items: [{ text: 'Curated Resources', link: '/en/resources/' }] },
+          ],
+          '/en/philosophy': [
+            { text: 'Philosophy', items: [{ text: 'Project Philosophy', link: '/en/philosophy' }] },
+          ],
           '/en/': [
             {
               text: 'Getting Started',
