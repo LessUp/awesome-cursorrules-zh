@@ -3,9 +3,8 @@ node_modules/
 
 # Build output
 dist/
-.vitepress/dist/
-.vitepress/cache/
-.vitepress/.temp/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
 
 # Generated files
 validation-report.json
@@ -34,4 +33,3 @@ temp/
 
 # Claude Code CLI plans (project-local)
 ~/
-

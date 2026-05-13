@@ -1,33 +1,50 @@
-:root {
-  --vp-font-family-base: "Plus Jakarta Sans", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --vp-font-family-mono: "JetBrains Mono", "Fira Code", "SFMono-Regular", ui-monospace, monospace;
+/**
+ * Awesome Cursor Rules - VitePress Custom Styles
+ * 保留绿色系配色 + 首页丰富组件样式
+ */
 
+/* === CSS Variables === */
+:root {
+  /* Brand Colors - Green */
   --vp-c-brand-1: #0f7a66;
   --vp-c-brand-2: #13947d;
   --vp-c-brand-3: #4ab39f;
   --vp-c-brand-soft: rgba(15, 122, 102, 0.14);
 
+  /* Accent Colors */
   --vp-c-accent: #d17a00;
   --vp-c-accent-soft: rgba(209, 122, 0, 0.16);
 
+  /* Background Colors */
   --vp-c-bg: #ffffff;
   --vp-c-bg-alt: #f6f8f7;
   --vp-c-bg-elv: #ffffff;
   --vp-c-bg-soft: #eff4f2;
 
+  /* Text Colors */
   --vp-c-text-1: #162521;
   --vp-c-text-2: #3a5149;
   --vp-c-text-3: #64766f;
 
+  /* Border Colors */
   --vp-c-border: #d4e2dc;
   --vp-c-divider: #d4e2dc;
   --vp-c-gutter: #d4e2dc;
 
+  /* Hero Section */
   --vp-home-hero-name-color: #0f7a66;
   --vp-home-hero-name-background: transparent;
   --vp-home-hero-image-background-image: none;
   --vp-home-hero-image-filter: none;
 
+  /* Custom Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Custom Border Radius */
   --landing-radius-sm: 10px;
   --landing-radius-md: 16px;
   --landing-radius-lg: 24px;
@@ -35,6 +52,7 @@
   --landing-shadow-md: 0 20px 60px rgba(17, 53, 44, 0.12);
 }
 
+/* === Dark Mode Variables === */
 .dark {
   --vp-c-brand-1: #3cc6aa;
   --vp-c-brand-2: #2fb296;
@@ -61,10 +79,12 @@
   --landing-shadow-md: 0 22px 64px rgba(0, 0, 0, 0.35);
 }
 
+/* === Base Styles === */
 body {
-  font-family: var(--vp-font-family-base);
+  font-family: "Plus Jakarta Sans", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
+/* === Navigation === */
 .VPNav {
   border-bottom: 1px solid var(--vp-c-border);
   background: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
@@ -82,6 +102,7 @@ body {
   color: var(--vp-c-brand-1);
 }
 
+/* === Hero Section === */
 .VPHero {
   position: relative;
   padding: calc(var(--vp-nav-height) + 60px) 24px 56px;
@@ -170,6 +191,7 @@ body {
   display: none;
 }
 
+/* === Features === */
 .VPFeatures {
   padding: 8px 24px 12px;
 }
@@ -201,6 +223,7 @@ body {
   line-height: 1.7;
 }
 
+/* === Content === */
 .VPDoc {
   padding: 26px 24px 92px;
 }
@@ -274,6 +297,7 @@ body {
   background: color-mix(in srgb, var(--vp-c-accent-soft) 34%, transparent);
 }
 
+/* === Footer === */
 .VPFooter {
   border-top: 1px solid var(--vp-c-border);
   background: var(--vp-c-bg-alt);
@@ -284,6 +308,7 @@ body {
   color: var(--vp-c-text-3);
 }
 
+/* === Homepage Components === */
 .landing-shell {
   width: min(1100px, 100%);
   margin: 8px auto 80px;
@@ -327,17 +352,9 @@ body {
   animation: landingRise 0.55s ease both;
 }
 
-.kpi-card:nth-child(2) {
-  animation-delay: 0.05s;
-}
-
-.kpi-card:nth-child(3) {
-  animation-delay: 0.1s;
-}
-
-.kpi-card:nth-child(4) {
-  animation-delay: 0.15s;
-}
+.kpi-card:nth-child(2) { animation-delay: 0.05s; }
+.kpi-card:nth-child(3) { animation-delay: 0.1s; }
+.kpi-card:nth-child(4) { animation-delay: 0.15s; }
 
 .kpi-value {
   font-size: clamp(24px, 3vw, 34px);
@@ -543,54 +560,7 @@ body {
   border-color: var(--vp-c-brand-2);
 }
 
-.lang-fallback {
-  width: min(900px, 100%);
-  margin: 18px auto 74px;
-  padding: 0 16px;
-}
-
-.lang-fallback-grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.lang-card {
-  border: 1px solid var(--vp-c-border);
-  border-radius: var(--landing-radius-md);
-  padding: 18px;
-  background: var(--vp-c-bg);
-  box-shadow: var(--landing-shadow-sm);
-}
-
-.lang-card h3 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.lang-card p {
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.75;
-}
-
-.lang-button {
-  margin-top: 14px;
-  display: inline-flex;
-  padding: 9px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--vp-c-border);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.lang-button.primary {
-  border-color: color-mix(in srgb, var(--vp-c-brand-2) 60%, var(--vp-c-border) 40%);
-  background: linear-gradient(120deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
-  color: #ffffff;
-}
-
+/* Mermaid Diagrams */
 .VPDoc div[class*="language-mermaid"] {
   border-radius: 18px;
   border: 1px solid var(--vp-c-border);
@@ -601,7 +571,7 @@ body {
 
 .VPDoc div[class*="language-mermaid"] pre,
 .VPDoc div[class*="language-mermaid"] code {
-  font-family: var(--vp-font-family-mono);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 
 .VPDoc .mermaid {
@@ -613,18 +583,19 @@ body {
   height: auto;
 }
 
+/* Animation */
 @keyframes landingRise {
   from {
     opacity: 0;
     transform: translateY(14px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Responsive */
 @media (max-width: 1100px) {
   .landing-kpis,
   .pathway-grid,
@@ -655,8 +626,7 @@ body {
 @media (max-width: 760px) {
   .landing-kpis,
   .pathway-grid,
-  .knowledge-grid,
-  .lang-fallback-grid {
+  .knowledge-grid {
     grid-template-columns: 1fr;
   }
 

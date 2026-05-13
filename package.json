@@ -1,6 +1,6 @@
 {
-  "name": "awesome-cursorrules-zh-site",
-  "version": "2.3.0",
+  "name": "awesome-cursorrules-zh",
+  "version": "3.0.0",
   "description": "🇨🇳 精选 Cursor AI 编辑器 .cursorrules 规则集合 | Awesome Cursor Rules for Cursor AI Editor",
   "author": "LessUp",
   "homepage": "https://awesome-cursorrules-zh.js.org/",
@@ -9,29 +9,14 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview",
-    "lint": "markdownlint-cli2 '**/*.md' '!node_modules/**' --config .markdownlint.json",
-    "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' --config .markdownlint.json",
-    "validate": "node scripts/validate-rules.js",
-    "validate:i18n": "node scripts/validate-i18n.js",
-    "check-links": "node scripts/check-links.js",
-    "generate:index": "node scripts/generate-rule-index.js",
-    "generate:config": "node scripts/generate-config.js",
-    "generate": "npm run generate:index && npm run generate:config",
-    "inject-stats": "node scripts/inject-stats.js",
-    "check": "npm run lint && npm run validate && npm run validate:i18n",
-    "check:full": "npm run check && npm run check-links",
-    "build:ci": "npm run check && npm run generate && npm run build",
-    "build:preview": "npm run build:ci && npm run preview",
-    "ci": "npm run check && npm run build"
+    "docs:dev": "cd docs && npm run dev",
+    "docs:build": "cd docs && npm run build",
+    "docs:preview": "cd docs && npm run preview",
+    "lint": "markdownlint-cli2 '**/*.md' '!node_modules/**' '!docs/node_modules/**' --config .markdownlint.json",
+    "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' '!docs/node_modules/**' --config .markdownlint.json"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.22.1",
-    "vitepress": "^1.6.4",
-    "vitepress-plugin-llms": "^1.12.2",
-    "vitepress-plugin-mermaid": "^2.0.17"
+    "markdownlint-cli2": "^0.22.1"
   },
   "engines": {
     "node": ">=20.0.0",

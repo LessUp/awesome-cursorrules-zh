@@ -1,16 +1,12 @@
-name: Deploy GitHub Pages
+name: Docs (GitHub Pages)
 
 on:
   push:
     branches: [main, master]
     paths:
-      - '*.md'
-      - 'zh/**'
-      - 'en/**'
-      - '.vitepress/**'
-      - 'public/**'
-      - 'rules/**'
-      - 'package*.json'
+      - 'docs/**'
+      - '.github/workflows/docs-pages.yml'
+      - '.github/workflows/ci-docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +32,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: docs/node_modules
+          key: ${{ runner.os }}-docs-node-modules-${{ hashFiles('docs/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-docs-node-modules-
 
       - name: Configure GitHub Pages
         id: pages
@@ -56,20 +59,22 @@ jobs:
           echo "VITEPRESS_BASE=${base}" >> "$GITHUB_ENV"
 
       - name: Install dependencies
-        run: npm ci
+        working-directory: docs
+        run: npm install --no-package-lock
 
       - name: Build for deployment
+        working-directory: docs
         env:
           VITEPRESS_BASE: ${{ env.VITEPRESS_BASE }}
-        run: npm run build:ci
+        run: npm run build
 
       - name: Add .nojekyll
-        run: touch .vitepress/dist/.nojekyll
+        run: touch docs/.vitepress/dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist
+          path: docs/.vitepress/dist
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -1,1 +1,0 @@
-../docs/en/faq.md

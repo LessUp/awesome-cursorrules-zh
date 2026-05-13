@@ -1,0 +1,42 @@
+name: CI (docs)
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ci-docs.yml'
+      - '.github/workflows/docs-pages.yml'
+      - 'docs/**'
+  push:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/ci-docs.yml'
+      - '.github/workflows/docs-pages.yml'
+      - 'docs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: docs/node_modules
+          key: ${{ runner.os }}-docs-node-modules-${{ hashFiles('docs/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-docs-node-modules-
+
+      - name: Install dependencies
+        working-directory: docs
+        run: npm install --no-package-lock
+
+      - name: Build verification
+        working-directory: docs
+        run: npm run build

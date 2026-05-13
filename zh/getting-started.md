@@ -1,1 +1,0 @@
-../docs/zh/getting-started.md

@@ -1,1 +1,0 @@
-../../docs/en/guides/rule-template.md
