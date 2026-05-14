@@ -80,6 +80,14 @@ test('zh rules landing page points readers back to decision and architecture con
   assert.match(rulesIndex, /composition-patterns\.md/);
 });
 
+test('composition patterns page links back to the executive context pages', () => {
+  const page = read('docs/zh/rules/composition-patterns.md');
+
+  assert.match(page, /\[决策者摘要\]\(\.\.\/whitepaper\/decision-brief\)/);
+  assert.match(page, /\[站点蓝图\]\(\.\.\/architecture\/blueprint\)/);
+  assert.match(page, /\[采用路径\]\(\.\.\/playbook\/adoption-path\)/);
+});
+
 test('Chinese IA content keeps the existing overview and blueprint labels across narrative pages', () => {
   const decisionBrief = read('docs/zh/whitepaper/decision-brief.md');
   const overview = read('docs/zh/whitepaper/overview.md');

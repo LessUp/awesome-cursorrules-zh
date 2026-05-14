@@ -2,6 +2,12 @@
 
 本页帮助你先判断应该验证哪一组规则，再进入具体分类页面。
 
+## 返回执行语境
+
+- [决策者摘要](../whitepaper/decision-brief)
+- [站点蓝图](../architecture/blueprint)
+- [采用路径](../playbook/adoption-path)
+
 ## 基础组合
 
 - 通用 + 主技术栈
