@@ -40,6 +40,9 @@ test('shared atlas defines zh navigation for the whitepaper-exhibition IA', () =
   ]) {
     assert.match(atlas, new RegExp(route.replaceAll('/', '\\/')));
   }
+
+  assert.match(atlas, /text: '组合模式'/);
+  assert.match(atlas, /\/zh\/rules\/composition-patterns/);
 });
 
 test('config consumes the shared atlas model while keeping edit links and locale redirect intact', () => {
@@ -65,6 +68,16 @@ test('new Chinese IA entry pages exist', () => {
   ]) {
     assert.equal(exists(file), true, `${file} should exist`);
   }
+});
+
+test('zh rules landing page points readers back to decision and architecture context', () => {
+  const rulesIndex = read('docs/zh/rules/index.md');
+
+  for (const phrase of ['证据库', '规则组合', '升级路径', '采用路径', '架构图谱']) {
+    assert.match(rulesIndex, new RegExp(phrase));
+  }
+
+  assert.match(rulesIndex, /composition-patterns\.md/);
 });
 
 test('Chinese IA content keeps the existing overview and blueprint labels across narrative pages', () => {

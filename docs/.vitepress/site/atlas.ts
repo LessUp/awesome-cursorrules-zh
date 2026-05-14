@@ -177,7 +177,7 @@ export const zhSidebar = {
     {
       text: '规则证据库',
       items: [
-        { text: '全部规则', link: '/zh/rules/' },
+        { text: '证据库首页', link: '/zh/rules/' },
         { text: '组合模式', link: '/zh/rules/composition-patterns' },
       ],
     },

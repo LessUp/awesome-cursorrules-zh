@@ -22,7 +22,7 @@ export default withMermaid(defineConfig({
       lang: 'zh-CN',
       link: '/zh/',
       title: 'Awesome Cursor Rules Atlas',
-      description: 'Cursor 规则知识图谱、技术白皮书与架构展示站',
+      description: 'Cursor 白皮书、架构图谱与规则证据库展示站',
       themeConfig: {
         nav: zhNav,
         sidebar: zhSidebar,
@@ -51,7 +51,7 @@ export default withMermaid(defineConfig({
         returnToTopLabel: '回到顶部',
         langMenuLabel: '多语言',
         footer: {
-          message: '以白皮书、架构图谱与操作方法论重构 Cursor 规则知识站',
+          message: '以白皮书、架构图谱、采用路径与规则证据库重构 Cursor 规则知识站',
           copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
         }
       }
