@@ -154,6 +154,41 @@ test('zh homepage reads like an executive brief instead of a rule atlas', () => 
   }
 });
 
+test('new English IA entry pages exist', () => {
+  for (const file of [
+    'docs/en/whitepaper/decision-brief.md',
+    'docs/en/architecture/information-graph.md',
+    'docs/en/playbook/role-paths.md',
+    'docs/en/rules/composition-patterns.md',
+  ]) {
+    assert.equal(exists(file), true, `${file} should exist`);
+  }
+});
+
+test('en homepage mirrors the new shell with concise copy', () => {
+  const homepage = read('docs/en/index.md');
+
+  for (const section of ['ExecutiveHero', 'MetricBand', 'DecisionMatrix', 'ArchitectureSnapshot', 'EvidenceBand']) {
+    assert.match(homepage, new RegExp(section));
+  }
+
+  assert.match(homepage, /tech leads/i);
+  assert.match(homepage, /evidence library/i);
+});
+
+test('English rules framing treats rules as the evidence layer', () => {
+  const rulesIndex = read('docs/en/rules/index.md');
+  const compositionPatterns = read('docs/en/rules/composition-patterns.md');
+
+  for (const phrase of ['evidence layer', 'composition patterns', 'upgrade path']) {
+    assert.match(rulesIndex, new RegExp(phrase, 'i'));
+  }
+
+  assert.match(compositionPatterns, /\[Decision Brief\]\(\.\.\/whitepaper\/decision-brief\)/);
+  assert.match(compositionPatterns, /\[Site Blueprint\]\(\.\.\/architecture\/blueprint\)/);
+  assert.match(compositionPatterns, /\[Adoption Path\]\(\.\.\/playbook\/adoption-path\)/);
+});
+
 test('theme index registers the whitepaper presentation components', () => {
   const themeIndex = read('docs/.vitepress/theme/index.ts');
   const styleIndex = read('docs/.vitepress/theme/style.css');

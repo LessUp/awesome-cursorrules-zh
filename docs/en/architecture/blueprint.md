@@ -1,24 +1,40 @@
 # Site Blueprint
 
-## Architecture goal
+This page explains how the whitepaper-style shell is organized so the project does not fall back into being only a rule catalog.
 
-The redesign is meant to establish a durable information architecture:
+## Why the blueprint matters
 
-1. home explains the project position,
-2. navigation maps to knowledge domains,
-3. rules remain the asset atlas instead of the entire site,
-4. external links become part of the user journey.
+The architecture view tells tech leads, architects, and platform teams where each kind of content belongs.
+That boundary is what keeps the site coherent as it grows.
 
-## Four-layer structure
+## Four-layer chain
 
 ```mermaid
-flowchart TB
-    A[Rule asset layer<br/>rules/] --> B[Knowledge orchestration<br/>whitepaper / architecture / playbook / resources]
-    B --> C[Presentation layer<br/>home / nav / sidebar / theme]
-    C --> D[Publishing layer<br/>VitePress + GitHub Pages]
+flowchart LR
+    A[Rule asset layer\nrules/] --> B[Narrative layer\nwhitepaper / architecture / playbook]
+    B --> C[Presentation layer\nVitePress nav / sidebar / components]
+    C --> D[Publishing layer\nGitHub Pages]
+    D --> E[Evidence and reference layer\nrules pages / upstream docs]
 ```
 
-## Why the kimi-cli framework influence works
+## Responsibilities by layer
 
-The kimi-cli docs structure is clean, compact, and content-forward.  
-This site adopts that framing while pushing harder on whitepaper and architecture content.
+1. **Rule asset layer** keeps the canonical rule corpus.
+2. **Narrative layer** explains value, structure, and action in order.
+3. **Presentation layer** turns that story into a compact executive shell.
+4. **Publishing layer** gives the project a stable public surface.
+5. **Evidence layer** connects rules and external references back to the decision flow.
+
+## How to use it
+
+1. Confirm the value case in the [Decision Brief](../whitepaper/decision-brief).
+2. Read the [Information Graph](./information-graph) to see how pages connect.
+3. Map the [Adoption Path](../playbook/adoption-path) to your own team.
+4. Use the [Rules Evidence Library](../rules/) as validation, not as the first stop.
+
+<SectionCallout
+  title="Blueprint principle"
+  body="Value belongs in whitepaper pages, structure belongs in architecture pages, action belongs in the playbook, and proof belongs in the evidence library."
+  href="./information-graph"
+  label="View the information graph"
+/>

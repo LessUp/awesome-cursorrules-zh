@@ -120,7 +120,7 @@ export const zhNav = [
 
 export const enNav = [
   { text: 'Project Thesis', link: '/en/' },
-  { text: 'Whitepaper', link: '/en/whitepaper/overview', activeMatch: '/en/whitepaper/' },
+  { text: 'Whitepaper', link: '/en/whitepaper/decision-brief', activeMatch: '/en/whitepaper/' },
   { text: 'Architecture Atlas', link: '/en/architecture/blueprint', activeMatch: '/en/architecture/' },
   { text: 'Adoption Paths', link: '/en/playbook/adoption-path', activeMatch: '/en/playbook/' },
   { text: 'Rules Evidence', link: '/en/rules/', activeMatch: '/en/rules/' },
@@ -203,7 +203,8 @@ export const enSidebar = {
     {
       text: 'Whitepaper',
       items: [
-        { text: 'Overview', link: '/en/whitepaper/overview' },
+        { text: 'Decision Brief', link: '/en/whitepaper/decision-brief' },
+        { text: 'Project Overview', link: '/en/whitepaper/overview' },
         { text: 'Adoption Model', link: '/en/whitepaper/adoption-model' },
       ],
     },
@@ -212,6 +213,7 @@ export const enSidebar = {
     {
       text: 'Architecture',
       items: [
+        { text: 'Information Graph', link: '/en/architecture/information-graph' },
         { text: 'Site Blueprint', link: '/en/architecture/blueprint' },
         { text: 'Content System', link: '/en/architecture/content-system' },
       ],
@@ -222,6 +224,7 @@ export const enSidebar = {
       text: 'Playbook',
       items: [
         { text: 'Adoption Path', link: '/en/playbook/adoption-path' },
+        { text: 'Role Paths', link: '/en/playbook/role-paths' },
         { text: 'Operating Model', link: '/en/playbook/operating-model' },
         { text: 'Getting Started', link: '/en/getting-started' },
         { text: 'Best Practices', link: '/en/best-practices' },
@@ -243,8 +246,11 @@ export const enSidebar = {
   ],
   '/en/rules/': [
     {
-      text: 'Rule Atlas',
-      items: [{ text: 'All Rules', link: '/en/rules/' }],
+      text: 'Rules Evidence Library',
+      items: [
+        { text: 'Evidence Library Home', link: '/en/rules/' },
+        { text: 'Composition Patterns', link: '/en/rules/composition-patterns' },
+      ],
     },
     ...createRuleSidebarGroups('en'),
   ],
@@ -253,10 +259,10 @@ export const enSidebar = {
       text: 'Overview',
       items: [
         { text: 'Home', link: '/en/' },
-        { text: 'Whitepaper', link: '/en/whitepaper/overview' },
-        { text: 'Architecture', link: '/en/architecture/blueprint' },
+        { text: 'Decision Brief', link: '/en/whitepaper/decision-brief' },
+        { text: 'Information Graph', link: '/en/architecture/information-graph' },
         { text: 'Adoption Path', link: '/en/playbook/adoption-path' },
-        { text: 'Rules', link: '/en/rules/' },
+        { text: 'Rules Evidence', link: '/en/rules/' },
         { text: 'Resource Network', link: '/en/resources/ecosystem' },
       ],
     },

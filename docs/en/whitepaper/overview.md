@@ -1,28 +1,34 @@
 # Project Overview
 
-## Why rebuild the site as a whitepaper
+This page expands the homepage into a concise narrative: why the project matters,
+how the system is organized, and how to start without getting lost in the catalog.
 
-The core value of this project is not the pages themselves. It is the growing rule asset library in `rules/`.  
-If GitHub Pages only repeats the directory tree, users see “many rules” but still do not know:
+## Why adopt this structure
 
-1. why rules matter more than ad-hoc prompting,
-2. how to choose the right starting point,
-3. how teams should govern rule changes,
-4. how this repository connects to the wider Cursor ecosystem.
+The long-term value is not "132+ `.cursorrules` files" by itself.
+It is the ability to turn repeated engineering judgment into a shared system that teams can review and reuse.
 
-That is why the site is reframed as a **technical whitepaper**, **architecture showcase**, and **operational guide**.
+## How the site is organized
 
-## Who the site serves
-
-| Role | Main question | Best first stop |
+| Layer | Main area | Purpose |
 | --- | --- | --- |
-| Individual developer | How do I get value quickly? | [Adoption Path](../playbook/adoption-path.md) |
-| Tech lead | How do I align a team? | [Adoption Model](./adoption-model.md) |
-| Platform / DevEx | How do I turn rules into organizational assets? | [Site Blueprint](../architecture/blueprint.md) |
-| Contributor | How should the content evolve? | [Operating Model](../playbook/operating-model.md) |
+| Whitepaper | `docs/en/whitepaper/*` | Explain the investment case and reading order |
+| Architecture | `docs/en/architecture/*` | Explain structure, boundaries, and information flow |
+| Playbook | `docs/en/playbook/*` | Translate the shell into phased action |
+| Evidence | `rules/` and `docs/en/rules/*` | Provide rule samples, composition guidance, and proof |
 
-## Core claims
+The English surface stays shorter than Chinese, but it follows the same IA so readers can move between them without relearning the structure.
 
-- Rules are engineering assets, not disposable add-ons.
-- Rules need context, governance, and examples to be useful.
-- A documentation site should explain the system, not just list files.
+## How to begin
+
+1. Read the [Decision Brief](./decision-brief) to validate the value case.
+2. Continue to the [Site Blueprint](../architecture/blueprint) and [Information Graph](../architecture/information-graph).
+3. Use the [Adoption Path](../playbook/adoption-path) and [Role Paths](../playbook/role-paths) to decide rollout steps.
+4. Enter the [Rules Evidence Library](../rules/) only after that framing is clear.
+
+<SectionCallout
+  title="Overview takeaway"
+  body="The homepage should orient tech leads first; the evidence library is most useful after value and structure are already understood."
+  href="../playbook/adoption-path"
+  label="Continue to adoption"
+/>

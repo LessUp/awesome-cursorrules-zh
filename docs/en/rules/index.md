@@ -2,18 +2,49 @@
 editLink: false
 ---
 
-# Rule Atlas
+# Rules Evidence Library
 
-This page is the **asset map** of the project.  
-The whitepaper explains intent, the architecture pages explain structure, the playbook explains action, and this page lists the rule domains you can actually use.
+This area is the evidence layer behind the homepage, whitepaper, architecture,
+and playbook pages.
+Use it to validate rule combinations, samples, and upgrade path signals after the shell has already established the context.
 
 ## Recommended reading order
 
-1. If you need guidance first, read [Adoption Path](../playbook/adoption-path.md).
-2. If you want to understand the redesign structure, read [Site Blueprint](../architecture/blueprint.md).
-3. Once you know your stack, return here and enter through the relevant category.
+1. Read the [Decision Brief](../whitepaper/decision-brief)
+2. Continue to the [Site Blueprint](../architecture/blueprint)
+3. Use [Composition Patterns](./composition-patterns) before entering categories
 
-## Category Index
+<EvidenceBand
+  title="Treat `rules/` as evidence, not as the opening pitch"
+  intro="Start with the decision and architecture context, then use rule samples to confirm which combination fits your team."
+  :items="[
+    {
+      value: 'Base pattern',
+      label: 'General + primary stack',
+      detail: 'Use a small starting combination before you add specialized layers.'
+    },
+    {
+      value: 'Expansion pattern',
+      label: 'Primary stack + security / data / platform',
+      detail: 'Add adjacent constraints when delivery complexity starts to rise.'
+    },
+    {
+      value: 'Upgrade path',
+      label: 'Rules → team baseline',
+      detail: 'When the same guidance repeats, promote it into project-specific rules and governance.'
+    }
+  ]"
+/>
+
+## Evidence entry points
+
+- [Composition Patterns](./composition-patterns): decide whether you need a base pattern, an expansion pattern, or a governance upgrade.
+- [Adoption Path](../playbook/adoption-path): reconnect the evidence library to rollout phases.
+- [Site Blueprint](../architecture/blueprint): see how the evidence layer supports the wider shell.
+
+## Category index
+
+Use the categories below when you need concrete rule samples:
 
 - [Frontend](/en/rules/frontend)
 - [Backend](/en/rules/backend)
@@ -47,9 +78,3 @@ The whitepaper explains intent, the architecture pages explain structure, the pl
 - [Data](/en/rules/data)
 - [Edge](/en/rules/edge)
 - [Emerging Tech](/en/rules/emerging-tech)
-
-## How to use this page
-
-1. Start with the main stack, then add specialized domains only when they solve a concrete need.
-2. Prefer smaller rule combinations first and validate them in a real coding loop.
-3. If a repeated instruction keeps appearing in your workflow, move it into your own project rule set.
