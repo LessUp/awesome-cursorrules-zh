@@ -87,3 +87,16 @@ test('homepage copy does not claim removed legacy entry points still route into 
   assert.doesNotMatch(zhHome, /旧的地图、哲学、资源入口仍会导向新的 Atlas 结构/);
   assert.doesNotMatch(enHome, /legacy map, philosophy, and resource entry points still route into the new Atlas structure/i);
 });
+
+test('theme index registers the whitepaper presentation components', () => {
+  const themeIndex = read('docs/.vitepress/theme/index.ts');
+  const styleIndex = read('docs/.vitepress/theme/style.css');
+
+  assert.match(themeIndex, /app\.component\('ExecutiveHero'/);
+  assert.match(themeIndex, /app\.component\('DecisionMatrix'/);
+  assert.match(themeIndex, /app\.component\('EvidenceBand'/);
+
+  for (const sheet of ['tokens.css', 'layout.css', 'components.css', 'content.css']) {
+    assert.match(styleIndex, new RegExp(sheet.replace('.', '\\.')));
+  }
+});
