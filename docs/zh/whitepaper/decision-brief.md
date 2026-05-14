@@ -33,13 +33,13 @@
 
 | 角色 | 第一站 | 第二站 | 第三站 |
 | --- | --- | --- | --- |
-| 技术负责人 | [白皮书总览](./overview) | [采用路径](../playbook/adoption-path) | [规则证据库](../rules/) |
-| 架构师 | [架构蓝图](../architecture/blueprint) | [信息图谱](../architecture/information-graph) | [角色路径](../playbook/role-paths) |
-| 平台 / DevEx | [架构蓝图](../architecture/blueprint) | [采用路径](../playbook/adoption-path) | [规则证据库](../rules/) |
+| 技术负责人 | [决策者摘要](./decision-brief) | [项目总览](./overview) | [采用路径](../playbook/adoption-path) |
+| 架构师 | [站点蓝图](../architecture/blueprint) | [信息图谱](../architecture/information-graph) | [角色路径](../playbook/role-paths) |
+| 平台 / DevEx | [站点蓝图](../architecture/blueprint) | [采用路径](../playbook/adoption-path) | [规则证据库](../rules/) |
 
 <SectionCallout
   title="下一步"
-  body="如果你只读一页，请先把价值判断读完；如果你要推动团队采用，请继续看架构蓝图和采用路径。"
+  body="如果你只读一页，请先把价值判断读完；如果你要推动团队采用，请继续看站点蓝图和采用路径。"
   href="../architecture/blueprint"
-  label="继续查看架构蓝图"
+  label="继续查看站点蓝图"
 />

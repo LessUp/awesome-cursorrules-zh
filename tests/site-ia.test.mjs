@@ -67,6 +67,26 @@ test('new Chinese IA entry pages exist', () => {
   }
 });
 
+test('Chinese IA content keeps the existing overview and blueprint labels', () => {
+  const decisionBrief = read('docs/zh/whitepaper/decision-brief.md');
+  const overview = read('docs/zh/whitepaper/overview.md');
+  const blueprint = read('docs/zh/architecture/blueprint.md');
+
+  assert.match(
+    decisionBrief,
+    /\| 技术负责人 \| \[决策者摘要\]\(\.\/decision-brief\) \| \[项目总览\]\(\.\/overview\) \| \[采用路径\]\(\.\.\/playbook\/adoption-path\) \|/,
+  );
+  assert.match(decisionBrief, /站点蓝图/);
+  assert.doesNotMatch(decisionBrief, /\[白皮书总览\]\(\.\/overview\)/);
+
+  assert.match(overview, /^# 项目总览$/m);
+  assert.match(overview, /\[站点蓝图\]\(\.\.\/architecture\/blueprint\)/);
+  assert.doesNotMatch(overview, /^# 白皮书总览$/m);
+
+  assert.match(blueprint, /^# 站点蓝图$/m);
+  assert.doesNotMatch(blueprint, /^# 架构蓝图$/m);
+});
+
 test('legacy compatibility bridge pages are removed from both locales', () => {
   for (const file of [
     'docs/zh/maps/index.md',

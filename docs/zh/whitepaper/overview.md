@@ -1,4 +1,4 @@
-# 白皮书总览
+# 项目总览
 
 本页把首页的 executive brief 展开成完整叙事：先解释为什么值得采用，再说明系统如何组织，最后给出可执行的启动方式。
 
@@ -36,7 +36,7 @@
 建议按照“判断价值 → 确认结构 → 选择路径 → 查看证据”的顺序推进：
 
 1. 先读 [决策者摘要](./decision-brief)，确认它是否符合你的组织目标。
-2. 再读 [架构蓝图](../architecture/blueprint) 与 [信息图谱](../architecture/information-graph)，理解系统边界。
+2. 再读 [站点蓝图](../architecture/blueprint) 与 [信息图谱](../architecture/information-graph)，理解系统边界。
 3. 然后进入 [采用路径](../playbook/adoption-path) 与 [角色路径](../playbook/role-paths)，选择你的行动方案。
 4. 最后再进入 [规则证据库](../rules/)，把需要的规则样本带回仓库。
 
