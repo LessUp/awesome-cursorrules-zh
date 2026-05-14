@@ -2,9 +2,16 @@
 editLink: false
 ---
 
-# All Rules
+# Rule Atlas
 
-Cursor AI Editor Rules Collection, providing programming rules for **32+** technical fields.
+This page is the **asset map** of the project.  
+The whitepaper explains intent, the architecture pages explain structure, the playbook explains action, and this page lists the rule domains you can actually use.
+
+## Recommended reading order
+
+1. If you need guidance first, read [Adoption Path](../playbook/adoption-path.md).
+2. If you want to understand the redesign structure, read [Site Blueprint](../architecture/blueprint.md).
+3. Once you know your stack, return here and enter through the relevant category.
 
 ## Category Index
 
@@ -41,10 +48,8 @@ Cursor AI Editor Rules Collection, providing programming rules for **32+** techn
 - [Edge](/en/rules/edge)
 - [Emerging Tech](/en/rules/emerging-tech)
 
-## Usage
+## How to use this page
 
-1. Choose the rule category suitable for your project
-2. Click the rule link to view the `.cursorrules` file on GitHub
-3. Copy the content to the `.cursorrules` file in your project root
-4. Enable project rules in Cursor AI
-5. Start coding, AI will follow the rules to generate code
+1. Start with the main stack, then add specialized domains only when they solve a concrete need.
+2. Prefer smaller rule combinations first and validate them in a real coding loop.
+3. If a repeated instruction keeps appearing in your workflow, move it into your own project rule set.

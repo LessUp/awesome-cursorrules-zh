@@ -1,29 +1,5 @@
 ---
 layout: home
-hero:
-  name: Awesome Cursor Rules 中文站
-  text: Cursor 规则库 + 实战知识库
-  tagline: 不只是规则清单。这里提供 132 条规则的精华组合、团队落地方法、排错路径和可复用模板，帮助你稳定提升 Cursor AI 的代码质量。
-  actions:
-    - theme: brand
-      text: 3 分钟开始使用
-      link: /zh/getting-started
-    - theme: alt
-      text: 浏览全部规则
-      link: /zh/rules/
-    - theme: alt
-      text: English
-      link: /en/
-features:
-  - title: 一键匹配技术栈
-    details: 按前端、后端、移动、AI、DevOps 等 32 个分类定位规则，减少试错。
-    icon: 🎯
-  - title: 团队级可维护
-    details: 支持根目录 + 子目录分层规则，让单体仓库和多服务仓库都能稳定协作。
-    icon: 🧩
-  - title: 开箱即用 + 可扩展
-    details: 先复制现成规则，再按项目约束增量扩写，快速形成自己的规则资产。
-    icon: 🚀
 ---
 
 <script setup>
@@ -34,207 +10,200 @@ onMounted(() => {
 });
 </script>
 
-<div class="landing-shell">
-
-## 核心指标
-
-<div class="landing-kpis">
-  <div class="kpi-card">
-    <div class="kpi-value">132+</div>
-    <div class="kpi-label">规则文件</div>
-    <p>覆盖主流开发场景与专业领域，支持从新项目到遗留系统演进。</p>
+<div class="home-shell">
+  <div class="home-header">
+    <div class="home-header-left">
+      <div class="home-logo">AR</div>
+      <div>
+        <span class="home-title">Awesome Cursor Rules Atlas</span>
+        <span class="home-subtitle">技术白皮书 / 架构展示站</span>
+      </div>
+    </div>
+    <div class="home-nav">
+      <a href="./whitepaper/overview">白皮书</a>
+      <a href="./architecture/blueprint">架构</a>
+      <a href="./resources/ecosystem">资源</a>
+      <a href="../en/">English</a>
+    </div>
   </div>
-  <div class="kpi-card">
-    <div class="kpi-value">32</div>
-    <div class="kpi-label">技术分类</div>
-    <p>从前后端、移动端到安全、量子、仿真，分类明确，检索高效。</p>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-value">2</div>
-    <div class="kpi-label">语言站点</div>
-    <p>中英文文档并行维护，适合跨语言团队协作与知识共享。</p>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-value">1</div>
-    <div class="kpi-label">标准流程</div>
-    <p>从选型、落地到维护闭环，减少“规则很多但不会用”的落差。</p>
-  </div>
-</div>
 
-## 规则落地路线图
+  <div class="home-intro-row">
+    <div class="home-intro">
+      <div class="home-kicker">技术白皮书 / 架构展示站</div>
+      <h1>把 Cursor 规则从文件收藏夹，升级为可运营的工程知识系统。</h1>
+      <p>
+        这里不再只是 README 的复述，而是围绕规则资产、采用路径、架构方法和外部资源所构建的知识站。
+        你可以把它当成组织级 Cursor 规则实践手册：先理解为什么、再理解怎么做，最后找到下一步可以直接使用的模板与链接。
+      </p>
+    </div>
+    <div class="home-stats">
+      <span><strong>132+</strong> 规则资产</span>
+      <span><strong>32+</strong> 技术领域</span>
+      <span><strong>双语</strong> 知识站点</span>
+      <span><strong>长期主义</strong> 架构设计</span>
+    </div>
+  </div>
 
-<div class="diagram-panel">
-  <p>建议按下面这条路径推进，让规则从“看起来很强”变成“每天都能稳定产出”。</p>
+## 站点定位
+
+  <div class="feature-map">
+    <div class="feature-card">
+      <div class="feature-card-title">白皮书视角</div>
+      <div class="feature-card-desc">
+        解释项目为什么存在、适合谁使用，以及如何把规则从“灵感”变成“工程资产”。
+      </div>
+      <div class="feature-tags">
+        <a href="./whitepaper/overview" class="feature-tag">项目总览</a>
+        <a href="./whitepaper/adoption-model" class="feature-tag">采用模型</a>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-title">架构展示</div>
+      <div class="feature-card-desc">
+        展示规则库、文档层、GitHub Pages 发布层与资源链接层之间的关系，而不是只堆页面。
+      </div>
+      <div class="feature-tags">
+        <a href="./architecture/blueprint" class="feature-tag">站点蓝图</a>
+        <a href="./architecture/content-system" class="feature-tag">内容系统</a>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-title">方法论沉淀</div>
+      <div class="feature-card-desc">
+        把个人使用经验、团队落地策略和治理方式拆成可执行步骤，方便复用和持续演进。
+      </div>
+      <div class="feature-tags">
+        <a href="./playbook/adoption-path" class="feature-tag">采用路径</a>
+        <a href="./playbook/operating-model" class="feature-tag">运行模型</a>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-title">资源网络</div>
+      <div class="feature-card-desc">
+        汇总官方文档、上游仓库、提示工程资料和相关工具，形成一个真正有延展性的入口。
+      </div>
+      <div class="feature-tags">
+        <a href="./resources/ecosystem" class="feature-tag">生态资源</a>
+        <a href="./resources/extended-reading" class="feature-tag">延伸阅读</a>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-title">规则地图</div>
+      <div class="feature-card-desc">
+        保留规则分类浏览能力，但把它纳入整体知识架构，而不是让它成为站点的唯一内容。
+      </div>
+      <div class="feature-tags">
+        <a href="./rules/" class="feature-tag">全部规则</a>
+        <a href="./rules/frontend" class="feature-tag">前端</a>
+        <a href="./rules/backend" class="feature-tag">后端</a>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-title">长期演进</div>
+      <div class="feature-card-desc">
+        允许你激进重构导航、主题和内容结构，以长期收益优先，而不是被旧页面兼容性绑住。
+      </div>
+      <div class="feature-tags">
+        <a href="./changelog" class="feature-tag">更新日志</a>
+        <a href="./contributing" class="feature-tag">贡献指南</a>
+      </div>
+    </div>
+  </div>
+
+## 规则采用路径
+
+  <div class="path-grid">
+    <div class="path-card">
+      <div class="path-index">01</div>
+      <h3>识别项目形态</h3>
+      <p>先判断你面对的是个人项目、团队仓库、单体仓还是多包仓，这会决定规则边界和治理方式。</p>
+    </div>
+    <div class="path-card">
+      <div class="path-index">02</div>
+      <h3>选择基础规则</h3>
+      <p>用通用规则 + 主技术栈规则做骨架，再按安全、数据、基础设施等领域叠加专业约束。</p>
+    </div>
+    <div class="path-card">
+      <div class="path-index">03</div>
+      <h3>沉淀组织知识</h3>
+      <p>把你的命名规范、目录约束、测试要求和架构决策写回规则文件，形成组织自己的知识资产。</p>
+    </div>
+    <div class="path-card">
+      <div class="path-index">04</div>
+      <h3>建立评审闭环</h3>
+      <p>让规则与 PR、代码评审和版本演进绑定，而不是停留在“复制一份 .cursorrules 就结束”的层面。</p>
+    </div>
+  </div>
+
+## 架构视图
+
+  <div class="blueprint-panel">
+    <p>新的 GitHub Pages 被设计成知识站，而不是静态清单。核心是把规则、文档、方法论与资源链接组织成四层结构。</p>
 
 ```mermaid
 flowchart LR
-    A[识别项目形态<br/>单项目 / 多包仓库 / 团队协作] --> B[选择基础规则<br/>general + 主技术栈]
-    B --> C[叠加领域规则<br/>DevOps / Security / Data]
-    C --> D[写入 .cursorrules<br/>根目录或子目录]
-    D --> E[在 Cursor 验证<br/>命名 / 架构 / 测试建议]
-    E --> F[团队版本化维护<br/>PR 评审 + 定期更新]
+    A[规则资产层<br/>rules/] --> B[知识编排层<br/>whitepaper / architecture / playbook / resources]
+    B --> C[展示层<br/>VitePress navigation + home modules + sidebars]
+    C --> D[发布层<br/>GitHub Pages]
+    D --> E[外部资源层<br/>Cursor docs / upstream repo / ecosystem links]
 ```
 
-</div>
-
-## 精华规则组合（可直接抄作业）
-
-<table class="combo-table">
-  <thead>
-    <tr>
-      <th>场景</th>
-      <th>推荐组合</th>
-      <th>为什么有效</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Web 全栈（React）</td>
-      <td><code>nextjs-typescript</code> + <code>fastapi-best-practices</code></td>
-      <td>前后端都强调类型与接口边界，避免上下游风格断裂。</td>
-    </tr>
-    <tr>
-      <td>Vue 中后台</td>
-      <td><code>nuxt3</code> + <code>code-guidelines</code></td>
-      <td>先用框架规则保证产出，再用通用规范统一团队编码习惯。</td>
-    </tr>
-    <tr>
-      <td>移动端跨平台</td>
-      <td><code>react-native-expo</code> / <code>flutter-app-expert</code></td>
-      <td>减少样板代码分歧，提升组件组织与状态管理一致性。</td>
-    </tr>
-    <tr>
-      <td>AI 工程化</td>
-      <td><code>mlops</code> + <code>python-data-processing</code></td>
-      <td>把实验代码和工程代码连接起来，兼顾可复现与可部署。</td>
-    </tr>
-    <tr>
-      <td>云原生交付</td>
-      <td><code>docker-containerization</code> + <code>terraform-iac</code> + <code>ci-cd-pipelines</code></td>
-      <td>开发、部署、自动化链路同源，减少环境偏差。</td>
-    </tr>
-    <tr>
-      <td>安全敏感系统</td>
-      <td><code>zero-trust</code> + <code>smart-contract-security</code></td>
-      <td>把安全约束提前到编码阶段，而不是上线前补洞。</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="chip-row">
-  <a class="chip-link" href="/zh/rules/frontend">前端</a>
-  <a class="chip-link" href="/zh/rules/backend">后端</a>
-  <a class="chip-link" href="/zh/rules/mobile">移动</a>
-  <a class="chip-link" href="/zh/rules/ai">AI</a>
-  <a class="chip-link" href="/zh/rules/devops">DevOps</a>
-  <a class="chip-link" href="/zh/rules/security">安全</a>
-  <a class="chip-link" href="/zh/rules/data-science">数据科学</a>
-  <a class="chip-link" href="/zh/rules/blockchain">区块链</a>
-</div>
-
-## 三条升级路径
-
-<div class="pathway-grid">
-  <div class="pathway-card">
-    <h3>路径 A：个人项目快速起飞</h3>
-    <p>先选 1 条主规则，确保 Cursor 输出稳定，然后再逐步补充项目定制约束。</p>
-    <a href="/zh/getting-started">查看快速开始 →</a>
   </div>
-  <div class="pathway-card">
-    <h3>路径 B：团队规范统一</h3>
-    <p>将 <code>.cursorrules</code> 纳入版本控制，配合代码评审和模板，减少风格分叉。</p>
-    <a href="/zh/best-practices">查看最佳实践 →</a>
-  </div>
-  <div class="pathway-card">
-    <h3>路径 C：沉淀组织知识</h3>
-    <p>把你们的架构决策和踩坑经验写入规则模板，形成可复用的团队资产。</p>
-    <a href="/zh/guides/rule-template">查看规则模板 →</a>
-  </div>
-</div>
 
-## 规则知识干货
+  <div class="matrix-grid">
+    <div class="matrix-card">
+      <h3>资产源</h3>
+      <p><code>rules/</code> 继续作为权威规则资产源，文档站只做解释、导航和组织，不直接复制资产职责。</p>
+    </div>
+    <div class="matrix-card">
+      <h3>知识编排</h3>
+      <p>白皮书解释定位，架构页解释结构，方法论页给出操作路径，资源页打开生态连接。</p>
+    </div>
+    <div class="matrix-card">
+      <h3>发布界面</h3>
+      <p>采用接近 kimi-cli 的轻量框架：首页像产品概览，侧边栏按内容域分组，避免导航过深。</p>
+    </div>
+    <div class="matrix-card">
+      <h3>反馈回路</h3>
+      <p>通过更新日志、贡献指南和规则模板，把用户贡献重新送回资产层，形成持续生长的知识回路。</p>
+    </div>
+  </div>
 
-<div class="knowledge-grid">
-  <div class="knowledge-card">
-    <h3>先约束，再生成</h3>
-    <p>把命名、目录、接口约束写在规则前半段，比事后让 AI “重写一遍”更高效。</p>
-    <a class="knowledge-link" href="/zh/best-practices">实践细则 →</a>
-  </div>
-  <div class="knowledge-card">
-    <h3>分层写规则</h3>
-    <p>根目录写通用规范，子目录写领域细则，避免一个文件承载全部上下文而失控。</p>
-    <a class="knowledge-link" href="/zh/getting-started">配置方法 →</a>
-  </div>
-  <div class="knowledge-card">
-    <h3>示例比形容词更有用</h3>
-    <p>“应该优雅”这类描述可执行性很弱，建议提供正反示例和可检查的标准。</p>
-    <a class="knowledge-link" href="/zh/guides/rule-template">模板示例 →</a>
-  </div>
-  <div class="knowledge-card">
-    <h3>冲突规则及时拆分</h3>
-    <p>若一个规则同时服务前端和后端，常导致建议摇摆。按模块拆分能显著提升稳定性。</p>
-    <a class="knowledge-link" href="/zh/troubleshooting">排错入口 →</a>
-  </div>
-  <div class="knowledge-card">
-    <h3>把规则当产品迭代</h3>
-    <p>每次版本升级后回顾 AI 产出，删除失效约束，补充新技术边界，持续优化。</p>
-    <a class="knowledge-link" href="/zh/changelog">查看更新日志 →</a>
-  </div>
-  <div class="knowledge-card">
-    <h3>团队 onboarding 标准件</h3>
-    <p>新成员先读规则，再写代码，可以显著缩短熟悉项目风格与架构的时间。</p>
-    <a class="knowledge-link" href="/zh/contributing">贡献与协作 →</a>
-  </div>
-</div>
+## 精选资源
 
-## 常见问题速查
-
-<table class="quick-fix-table">
-  <thead>
-    <tr>
-      <th>症状</th>
-      <th>优先动作</th>
-      <th>状态</th>
-      <th>入口</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AI 不遵循规则</td>
-      <td>确认 <code>.cursorrules</code> 在项目根目录并重启 Cursor。</td>
-      <td><span class="status-ok">高优先</span></td>
-      <td><a href="/zh/faq">FAQ</a></td>
-    </tr>
-    <tr>
-      <td>建议风格前后不一致</td>
-      <td>检查是否混用了语义冲突的多份规则。</td>
-      <td><span class="status-ok">高优先</span></td>
-      <td><a href="/zh/troubleshooting">故障排除</a></td>
-    </tr>
-    <tr>
-      <td>团队每个人输出差异大</td>
-      <td>将规则纳入仓库并在 PR 中同步审查。</td>
-      <td><span class="status-ok">建议执行</span></td>
-      <td><a href="/zh/contributing">协作指南</a></td>
-    </tr>
-    <tr>
-      <td>想新增内部专用规则</td>
-      <td>基于模板创建并先在小范围项目试运行。</td>
-      <td><span class="status-warn">先灰度</span></td>
-      <td><a href="/zh/guides/rule-template">模板指南</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="cta-panel">
-  <h3>准备把规则用到真实项目了吗？</h3>
-  <p>从你最常用的技术栈开始，复制一条规则、跑一轮开发任务、再按结果迭代。通常一到两次迭代后，AI 产出质量会有明显提升。</p>
-  <div class="cta-actions">
-    <a class="cta-button primary" href="/zh/getting-started">现在开始</a>
-    <a class="cta-button" href="/zh/rules/">查看规则地图</a>
-    <a class="cta-button" href="/zh/guides/rule-template">编写团队模板</a>
-    <a class="cta-button" href="https://github.com/LessUp/awesome-cursorrules-zh">访问 GitHub</a>
+  <div class="resource-grid">
+    <div class="resource-card">
+      <h3>官方与上游</h3>
+      <ul>
+        <li><a href="https://cursor.sh/" target="_blank" rel="noreferrer">Cursor 官方站点</a></li>
+        <li><a href="https://docs.cursor.com/" target="_blank" rel="noreferrer">Cursor Docs</a></li>
+        <li><a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank" rel="noreferrer">Awesome Cursor Rules 上游仓库</a></li>
+      </ul>
+    </div>
+    <div class="resource-card">
+      <h3>站点内部关键入口</h3>
+      <ul>
+        <li><a href="./whitepaper/overview">项目总览：为什么要做这个站</a></li>
+        <li><a href="./architecture/blueprint">站点蓝图：为什么这样设计</a></li>
+        <li><a href="./playbook/adoption-path">采用路径：如何在真实项目里落地</a></li>
+      </ul>
+    </div>
+    <div class="resource-card">
+      <h3>扩展阅读</h3>
+      <ul>
+        <li><a href="./resources/ecosystem">工具与生态资源索引</a></li>
+        <li><a href="./resources/extended-reading">提示工程、文档工程与知识库建设参考</a></li>
+        <li><a href="./rules/">规则分类总览</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
+  <div class="quick-start">
+    <div class="quick-start-title">建议的起步动作</div>
+    <div class="quick-start-content">
+      先读 <a href="./whitepaper/overview">项目总览</a> 与 <a href="./playbook/adoption-path">采用路径</a>，再进入
+      <a href="./rules/">规则库</a> 找到适合你栈的规则组合；如果你负责团队或平台，再继续看
+      <a href="./architecture/blueprint">架构蓝图</a> 与 <a href="./resources/ecosystem">资源网络</a>。
+    </div>
+  </div>
 </div>
