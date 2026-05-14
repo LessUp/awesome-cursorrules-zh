@@ -15,10 +15,10 @@
 
 | 角色 | 先读什么 | 再读什么 | 最后进入哪里 |
 | --- | --- | --- | --- |
-| 技术负责人 | [决策者摘要](../whitepaper/decision-brief) | [白皮书总览](../whitepaper/overview) | [采用路径](./adoption-path) |
-| 架构师 | [架构蓝图](../architecture/blueprint) | [信息图谱](../architecture/information-graph) | [规则证据库](../rules/) |
-| 平台负责人 | [架构蓝图](../architecture/blueprint) | [采用路径](./adoption-path) | [规则证据库](../rules/) |
-| 贡献者 | [白皮书总览](../whitepaper/overview) | [信息图谱](../architecture/information-graph) | [规则证据库](../rules/) |
+| 技术负责人 | [决策者摘要](../whitepaper/decision-brief) | [项目总览](../whitepaper/overview) | [采用路径](./adoption-path) |
+| 架构师 | [站点蓝图](../architecture/blueprint) | [信息图谱](../architecture/information-graph) | [规则证据库](../rules/) |
+| 平台负责人 | [站点蓝图](../architecture/blueprint) | [采用路径](./adoption-path) | [规则证据库](../rules/) |
+| 贡献者 | [项目总览](../whitepaper/overview) | [信息图谱](../architecture/information-graph) | [规则证据库](../rules/) |
 
 每个角色都从价值或结构开始，只有在认知路径完成之后，才进入规则证据库查看样本与细节。
 
@@ -27,7 +27,7 @@
 你可以直接按角色执行下面的第一步动作：
 
 1. **技术负责人**：把首页和决策者摘要当作 15 分钟 briefing，先判断是否值得推动试点。
-2. **架构师**：拿架构蓝图和信息图谱梳理 `rules/`、文档与发布面之间的关系。
+2. **架构师**：拿站点蓝图和信息图谱梳理 `rules/`、文档与发布面之间的关系。
 3. **平台负责人**：根据采用路径设计试点节奏和治理回路。
 4. **贡献者**：先理解系统叙事，再向规则证据库补充高质量样本。
 

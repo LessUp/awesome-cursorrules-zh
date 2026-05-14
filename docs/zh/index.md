@@ -17,7 +17,7 @@ onMounted(() => {
   primary-href="./whitepaper/decision-brief"
   primary-label="先看决策者摘要"
   secondary-href="./architecture/blueprint"
-  secondary-label="查看架构图谱"
+  secondary-label="查看站点蓝图"
 />
 
 <MetricBand
@@ -55,7 +55,7 @@ onMounted(() => {
 
 <ArchitectureSnapshot
   title="从资产源到发布面的四层快照"
-  summary="白皮书展厅型首页的任务，是把资产、叙事、发布和证据放进同一条解释链路，而不是只展示数量。"
+  summary="白皮书展厅型首页的任务，是把项目总览、站点蓝图、发布和证据放进同一条解释链路，而不是只展示数量。"
   :layers="[
     {
       label: '规则资产层 · rules/',
@@ -100,7 +100,7 @@ onMounted(() => {
 
 <SectionCallout
   title="建议阅读顺序"
-  body="先读决策者摘要，再进入架构蓝图与信息图谱，随后查看采用路径和角色路径，最后把 rules/ 当作证据库使用。"
+  body="先读决策者摘要，再进入项目总览、站点蓝图与信息图谱，随后查看采用路径和角色路径，最后把 rules/ 当作证据库使用。"
   href="./whitepaper/decision-brief"
   label="按白皮书顺序开始"
 />

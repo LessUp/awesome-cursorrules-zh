@@ -18,8 +18,8 @@
 
 ```mermaid
 flowchart LR
-    A[首页 / 决策者摘要] --> B[白皮书总览]
-    B --> C[架构蓝图]
+    A[首页 / 决策者摘要] --> B[项目总览]
+    B --> C[站点蓝图]
     C --> D[信息图谱]
     D --> E[采用路径]
     E --> F[角色路径]
@@ -41,8 +41,8 @@ flowchart LR
 
 最有效的使用方式不是随意跳转，而是按图谱顺序推进：
 
-1. 从 [决策者摘要](../whitepaper/decision-brief) 与 [白皮书总览](../whitepaper/overview) 开始，先完成价值判断。
-2. 继续阅读 [架构蓝图](./blueprint)，理解内容分层。
+1. 从 [决策者摘要](../whitepaper/decision-brief) 与 [项目总览](../whitepaper/overview) 开始，先完成价值判断。
+2. 继续阅读 [站点蓝图](./blueprint)，理解内容分层。
 3. 再进入 [采用路径](../playbook/adoption-path) 与 [角色路径](../playbook/role-paths)，选择行动方案。
 4. 最后使用 [规则证据库](../rules/) 和资源网络验证、扩展你的方案。
 
