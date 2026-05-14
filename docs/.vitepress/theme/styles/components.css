@@ -11,7 +11,7 @@
 .section-callout {
   border: 1px solid var(--vp-c-border);
   border-radius: var(--radius-md);
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-soft);
   box-shadow: var(--shadow-sm);
 }
 
