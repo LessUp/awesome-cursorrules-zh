@@ -123,7 +123,7 @@ export const enNav = [
   { text: 'Whitepaper', link: '/en/whitepaper/decision-brief', activeMatch: '/en/whitepaper/' },
   { text: 'Architecture Atlas', link: '/en/architecture/blueprint', activeMatch: '/en/architecture/' },
   { text: 'Adoption Paths', link: '/en/playbook/adoption-path', activeMatch: '/en/playbook/' },
-  { text: 'Rules Evidence', link: '/en/rules/', activeMatch: '/en/rules/' },
+  { text: 'Rules Evidence Library', link: '/en/rules/', activeMatch: '/en/rules/' },
   { text: 'Resource Network', link: '/en/resources/ecosystem', activeMatch: '/en/resources/' },
 ];
 
@@ -262,7 +262,7 @@ export const enSidebar = {
         { text: 'Decision Brief', link: '/en/whitepaper/decision-brief' },
         { text: 'Information Graph', link: '/en/architecture/information-graph' },
         { text: 'Adoption Path', link: '/en/playbook/adoption-path' },
-        { text: 'Rules Evidence', link: '/en/rules/' },
+        { text: 'Rules Evidence Library', link: '/en/rules/' },
         { text: 'Resource Network', link: '/en/resources/ecosystem' },
       ],
     },

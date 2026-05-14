@@ -19,4 +19,4 @@ Docs-as-code, information architecture, and content design systems are directly 
 - For intent: [Project Overview](../whitepaper/overview.md)
 - For structure: [Site Blueprint](../architecture/blueprint.md)
 - For action: [Adoption Path](../playbook/adoption-path.md)
-- For assets: [Rule Atlas](../rules/index.md)
+- For assets: [Rules Evidence Library](../rules/index.md)

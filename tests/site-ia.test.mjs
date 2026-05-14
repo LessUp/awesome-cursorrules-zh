@@ -189,6 +189,25 @@ test('English rules framing treats rules as the evidence layer', () => {
   assert.match(compositionPatterns, /\[Adoption Path\]\(\.\.\/playbook\/adoption-path\)/);
 });
 
+test('English IA keeps overview-first CTA and current rules evidence library labels', () => {
+  const decisionBrief = read('docs/en/whitepaper/decision-brief.md');
+  const extendedReading = read('docs/en/resources/extended-reading.md');
+  const atlas = read('docs/.vitepress/site/atlas.ts');
+
+  assert.match(
+    decisionBrief,
+    /body="If the organizational case is valid, continue into the overview and architecture pages before choosing rule combinations\."/,
+  );
+  assert.match(decisionBrief, /href="\.\/overview"/);
+  assert.match(decisionBrief, /label="Continue to the overview"/);
+
+  assert.match(extendedReading, /\[Rules Evidence Library\]\(\.\.\/rules\/index\.md\)/);
+  assert.doesNotMatch(extendedReading, /\[Rule Atlas\]\(\.\.\/rules\/index\.md\)/);
+
+  assert.doesNotMatch(atlas, /text: 'Rules Evidence'/);
+  assert.match(atlas, /text: 'Rules Evidence Library'/);
+});
+
 test('theme index registers the whitepaper presentation components', () => {
   const themeIndex = read('docs/.vitepress/theme/index.ts');
   const styleIndex = read('docs/.vitepress/theme/style.css');

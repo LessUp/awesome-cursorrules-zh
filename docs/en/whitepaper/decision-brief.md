@@ -29,6 +29,6 @@ reusable, and expandable knowledge system.
 <SectionCallout
   title="Next step"
   body="If the organizational case is valid, continue into the overview and architecture pages before choosing rule combinations."
-  href="../architecture/blueprint"
-  label="Continue to the blueprint"
+  href="./overview"
+  label="Continue to the overview"
 />
