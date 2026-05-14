@@ -88,6 +88,18 @@ test('homepage copy does not claim removed legacy entry points still route into 
   assert.doesNotMatch(enHome, /legacy map, philosophy, and resource entry points still route into the new Atlas structure/i);
 });
 
+test('zh homepage reads like an executive brief instead of a rule atlas', () => {
+  const homepage = read('docs/zh/index.md');
+
+  for (const section of ['ExecutiveHero', 'MetricBand', 'DecisionMatrix', 'ArchitectureSnapshot', 'EvidenceBand']) {
+    assert.match(homepage, new RegExp(section));
+  }
+
+  for (const phrase of ['技术负责人', '架构师', '工程知识系统', '证据库']) {
+    assert.match(homepage, new RegExp(phrase));
+  }
+});
+
 test('theme index registers the whitepaper presentation components', () => {
   const themeIndex = read('docs/.vitepress/theme/index.ts');
   const styleIndex = read('docs/.vitepress/theme/style.css');
