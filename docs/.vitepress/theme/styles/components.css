@@ -161,7 +161,7 @@
   margin-top: 24px;
 }
 
-.button {
+.hero-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,17 +174,17 @@
   transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 }
 
-.button:hover {
+.hero-button:hover {
   transform: translateY(-1px);
 }
 
-.button--brand {
+.hero-button--brand {
   background: linear-gradient(120deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
   color: #fff;
   box-shadow: 0 12px 26px rgba(53, 87, 255, 0.24);
 }
 
-.button--secondary {
+.hero-button--secondary {
   border-color: var(--vp-c-border);
   background: color-mix(in srgb, var(--vp-c-bg) 78%, transparent);
   color: var(--vp-c-text-1);

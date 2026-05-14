@@ -91,10 +91,20 @@ test('homepage copy does not claim removed legacy entry points still route into 
 test('theme index registers the whitepaper presentation components', () => {
   const themeIndex = read('docs/.vitepress/theme/index.ts');
   const styleIndex = read('docs/.vitepress/theme/style.css');
+  const componentStyles = read('docs/.vitepress/theme/styles/components.css');
 
-  assert.match(themeIndex, /app\.component\('ExecutiveHero'/);
-  assert.match(themeIndex, /app\.component\('DecisionMatrix'/);
-  assert.match(themeIndex, /app\.component\('EvidenceBand'/);
+  for (const component of [
+    'ExecutiveHero',
+    'MetricBand',
+    'DecisionMatrix',
+    'ArchitectureSnapshot',
+    'EvidenceBand',
+    'SectionCallout',
+  ]) {
+    assert.match(themeIndex, new RegExp(`app\\.component\\('${component}'`));
+  }
+
+  assert.doesNotMatch(componentStyles, /^\.button(?:\b|--|:|\s|\{)/m);
 
   for (const sheet of ['tokens.css', 'layout.css', 'components.css', 'content.css']) {
     assert.match(styleIndex, new RegExp(sheet.replace('.', '\\.')));

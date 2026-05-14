@@ -16,8 +16,8 @@ defineProps<{
     <h1>{{ title }}</h1>
     <p class="executive-hero__summary">{{ summary }}</p>
     <div class="executive-hero__actions">
-      <a class="button button--brand" :href="primaryHref">{{ primaryLabel }}</a>
-      <a class="button button--secondary" :href="secondaryHref">{{ secondaryLabel }}</a>
+      <a class="hero-button hero-button--brand" :href="primaryHref">{{ primaryLabel }}</a>
+      <a class="hero-button hero-button--secondary" :href="secondaryHref">{{ secondaryLabel }}</a>
     </div>
   </section>
 </template>
