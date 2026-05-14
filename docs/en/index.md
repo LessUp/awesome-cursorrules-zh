@@ -37,7 +37,7 @@ onMounted(() => {
         implementation, and end with reusable references you can apply in real teams.
       </p>
       <p>
-        For returning visitors, legacy map, philosophy, and resource entry points still route into the new Atlas structure.
+        Start from the current whitepaper, architecture, playbook, and resource sections directly rather than relying on removed legacy entry pages.
       </p>
     </div>
     <div class="home-stats">

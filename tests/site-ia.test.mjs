@@ -79,3 +79,11 @@ test('legacy compatibility bridge pages are removed from both locales', () => {
     assert.equal(exists(file), false, `${file} should be removed`);
   }
 });
+
+test('homepage copy does not claim removed legacy entry points still route into Atlas', () => {
+  const zhHome = read('docs/zh/index.md');
+  const enHome = read('docs/en/index.md');
+
+  assert.doesNotMatch(zhHome, /旧的地图、哲学、资源入口仍会导向新的 Atlas 结构/);
+  assert.doesNotMatch(enHome, /legacy map, philosophy, and resource entry points still route into the new Atlas structure/i);
+});
