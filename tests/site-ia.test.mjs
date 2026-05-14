@@ -206,6 +206,10 @@ test('English IA keeps overview-first CTA and current rules evidence library lab
 
   assert.doesNotMatch(atlas, /text: 'Rules Evidence'/);
   assert.match(atlas, /text: 'Rules Evidence Library'/);
+  assert.match(
+    atlas,
+    /\/en\/rules\/': \[\s*\{\s*text: 'Rules Evidence Library',\s*items: \[\s*\{ text: 'Rules Evidence Library', link: '\/en\/rules\/' \}/s,
+  );
 });
 
 test('theme index registers the whitepaper presentation components', () => {

@@ -248,7 +248,7 @@ export const enSidebar = {
     {
       text: 'Rules Evidence Library',
       items: [
-        { text: 'Evidence Library Home', link: '/en/rules/' },
+        { text: 'Rules Evidence Library', link: '/en/rules/' },
         { text: 'Composition Patterns', link: '/en/rules/composition-patterns' },
       ],
     },
