@@ -36,6 +36,9 @@ onMounted(() => {
         adoption paths, architectural thinking, and curated ecosystem links. Start with intent, move into
         implementation, and end with reusable references you can apply in real teams.
       </p>
+      <p>
+        For returning visitors, legacy map, philosophy, and resource entry points still route into the new Atlas structure.
+      </p>
     </div>
     <div class="home-stats">
       <span><strong>132+</strong> rule assets</span>
