@@ -1,20 +1,21 @@
 .Layout {
   background:
-    radial-gradient(circle at top right, rgba(87, 116, 255, 0.08), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(19, 182, 123, 0.06), transparent 24%),
-    var(--vp-c-bg);
+    radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent), transparent 26%),
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--vp-c-accent) 10%, transparent), transparent 22%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 44%, var(--vp-c-bg)), var(--vp-c-bg));
 }
 
 .VPNav {
   border-bottom: 1px solid var(--vp-c-border);
-  background: color-mix(in srgb, var(--vp-c-bg) 90%, transparent);
+  background: color-mix(in srgb, var(--vp-c-bg) 86%, transparent);
   backdrop-filter: blur(18px);
 }
 
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .VPNavBarMenuLink.active,
@@ -23,123 +24,87 @@
 }
 
 .VPLocalSearchBox .shell {
-  border-radius: 18px;
+  border-radius: 22px;
   box-shadow: var(--shadow-md);
 }
 
 .VPSidebar {
-  padding: 24px 16px 96px;
+  padding: 28px 18px 108px;
 }
 
 .VPSidebarGroup {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .VPSidebarGroup .title {
-  padding: 10px 14px;
+  padding: 8px 0 10px;
   color: var(--vp-c-text-3);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
+.VPSidebarItem .item {
+  padding-inline: 0;
+}
+
 .VPSidebarItem .text {
-  border-radius: 10px;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  border-radius: 12px;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .VPSidebarItem .text:hover {
-  background: var(--vp-c-bg-soft);
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 44%, transparent);
   color: var(--vp-c-brand-1);
+  transform: translateX(2px);
 }
 
 .VPSidebarItem.is-active .text {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-  font-weight: 600;
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 72%, transparent);
+  color: var(--vp-c-text-1);
+  font-weight: 700;
 }
 
-.VPHero {
-  padding: calc(var(--vp-nav-height) + 52px) 24px 56px;
+.VPHero,
+.VPDoc,
+.VPFeatures {
+  padding-inline: 24px;
 }
 
 .VPHero .container,
-.VPFeatures .container,
-.VPDoc .container {
+.VPDoc .container,
+.VPFeatures .container {
   max-width: var(--shell-max-width);
 }
 
-.VPHero .name {
-  font-size: clamp(36px, 5vw, 60px);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-  font-weight: 800;
-}
-
-.VPHero .text {
-  font-size: clamp(16px, 2vw, 24px);
-  line-height: 1.3;
-  color: var(--vp-c-text-1);
-}
-
-.VPHero .tagline {
-  max-width: 760px;
-  margin-top: 14px;
-  color: var(--vp-c-text-2);
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.VPHero .actions {
-  margin-top: 24px;
-  gap: 12px;
-}
-
-.VPHero .VPButton {
-  border-radius: 999px;
-  font-weight: 700;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.VPHero .VPButton.medium.brand {
-  border: none;
-  background: linear-gradient(120deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
-  box-shadow: 0 12px 26px rgba(53, 87, 255, 0.24);
-}
-
-.VPHero .VPButton.medium.alt {
-  border-color: var(--vp-c-border);
-  background: color-mix(in srgb, var(--vp-c-bg) 78%, transparent);
-  color: var(--vp-c-text-1);
-}
-
-.VPHero .VPButton:hover {
-  transform: translateY(-1px);
-}
-
-.VPHero .image {
-  display: none;
-}
-
-.VPFeatures {
-  padding: 0 24px 16px;
-}
-
 .VPDoc {
-  padding: 30px 24px 96px;
+  padding-top: 38px;
+  padding-bottom: 112px;
 }
 
 .VPDoc .content {
-  max-width: 780px;
+  max-width: var(--copy-max-width);
+}
+
+.VPDoc.has-aside .content-container {
+  gap: 42px;
 }
 
 .VPFooter {
   border-top: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg-alt);
+  background: color-mix(in srgb, var(--surface-2) 62%, var(--vp-c-bg-alt));
 }
 
 .VPFooter .message,
 .VPFooter .copyright {
   color: var(--vp-c-text-3);
+}
+
+@media (max-width: 959px) {
+  .VPDoc,
+  .VPHero,
+  .VPFeatures {
+    padding-inline: 18px;
+  }
 }

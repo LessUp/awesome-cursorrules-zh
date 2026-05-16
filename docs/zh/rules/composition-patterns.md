@@ -4,9 +4,9 @@
 
 ## 返回执行语境
 
-- [决策者摘要](../whitepaper/decision-brief)
-- [站点蓝图](../architecture/blueprint)
-- [采用路径](../playbook/adoption-path)
+- [项目使命](../introduction/mission)
+- [系统总览](../architecture/system-overview)
+- [学院路径](../academy/learning-path)
 
 ## 基础组合
 

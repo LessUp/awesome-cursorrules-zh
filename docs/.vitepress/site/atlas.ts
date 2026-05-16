@@ -110,64 +110,72 @@ function createRuleSidebarGroups(lang: 'zh' | 'en') {
 }
 
 export const zhNav = [
-  { text: '项目主张', link: '/zh/' },
-  { text: '白皮书', link: '/zh/whitepaper/decision-brief', activeMatch: '/zh/whitepaper/' },
-  { text: '架构图谱', link: '/zh/architecture/blueprint', activeMatch: '/zh/architecture/' },
-  { text: '采用路径', link: '/zh/playbook/adoption-path', activeMatch: '/zh/playbook/' },
-  { text: '规则证据库', link: '/zh/rules/', activeMatch: '/zh/rules/' },
-  { text: '资源网络', link: '/zh/resources/ecosystem', activeMatch: '/zh/resources/' },
+  { text: '项目导读', link: '/zh/introduction/mission', activeMatch: '/zh/introduction/' },
+  { text: '学院路径', link: '/zh/academy/learning-path', activeMatch: '/zh/academy/' },
+  { text: '架构设计', link: '/zh/architecture/system-overview', activeMatch: '/zh/architecture/' },
+  { text: '实施指南', link: '/zh/guides/team-onboarding', activeMatch: '/zh/guides/' },
+  { text: '规则索引', link: '/zh/rules/', activeMatch: '/zh/rules/' },
+  { text: '研究引用', link: '/zh/research/references', activeMatch: '/zh/research/' },
 ];
 
 export const enNav = [
-  { text: 'Project Thesis', link: '/en/' },
-  { text: 'Whitepaper', link: '/en/whitepaper/decision-brief', activeMatch: '/en/whitepaper/' },
-  { text: 'Architecture Atlas', link: '/en/architecture/blueprint', activeMatch: '/en/architecture/' },
-  { text: 'Adoption Paths', link: '/en/playbook/adoption-path', activeMatch: '/en/playbook/' },
-  { text: 'Rules Evidence Library', link: '/en/rules/', activeMatch: '/en/rules/' },
-  { text: 'Resource Network', link: '/en/resources/ecosystem', activeMatch: '/en/resources/' },
+  { text: 'Introduction', link: '/en/introduction/mission', activeMatch: '/en/introduction/' },
+  { text: 'Academy', link: '/en/academy/learning-path', activeMatch: '/en/academy/' },
+  { text: 'Architecture', link: '/en/architecture/system-overview', activeMatch: '/en/architecture/' },
+  { text: 'Guides', link: '/en/guides/team-onboarding', activeMatch: '/en/guides/' },
+  { text: 'Rules Index', link: '/en/rules/', activeMatch: '/en/rules/' },
+  { text: 'Research', link: '/en/research/references', activeMatch: '/en/research/' },
 ];
 
 export const zhSidebar = {
-  '/zh/whitepaper/': [
+  '/zh/introduction/': [
     {
-      text: '白皮书',
+      text: '项目导读',
       items: [
-        { text: '决策者摘要', link: '/zh/whitepaper/decision-brief' },
-        { text: '项目总览', link: '/zh/whitepaper/overview' },
-        { text: '采用模型', link: '/zh/whitepaper/adoption-model' },
+        { text: '项目使命', link: '/zh/introduction/mission' },
+        { text: '读者地图', link: '/zh/introduction/reader-map' },
+      ],
+    },
+  ],
+  '/zh/academy/': [
+    {
+      text: '学院路径',
+      items: [
+        { text: '学院路径', link: '/zh/academy/learning-path' },
+        { text: '维护者课程', link: '/zh/academy/maintainer-curriculum' },
       ],
     },
   ],
   '/zh/architecture/': [
     {
-      text: '架构图谱',
+      text: '架构设计',
       items: [
-        { text: '信息图谱', link: '/zh/architecture/information-graph' },
+        { text: '系统总览', link: '/zh/architecture/system-overview' },
         { text: '站点蓝图', link: '/zh/architecture/blueprint' },
+        { text: '信息图谱', link: '/zh/architecture/information-graph' },
         { text: '内容系统', link: '/zh/architecture/content-system' },
       ],
     },
   ],
-  '/zh/playbook/': [
+  '/zh/guides/': [
     {
-      text: '采用路径',
+      text: '实施指南',
       items: [
-        { text: '采用路径', link: '/zh/playbook/adoption-path' },
-        { text: '角色路径', link: '/zh/playbook/role-paths' },
-        { text: '运行模型', link: '/zh/playbook/operating-model' },
+        { text: '团队接入', link: '/zh/guides/team-onboarding' },
+        { text: '规则模板指南', link: '/zh/guides/rule-template' },
         { text: '快速开始', link: '/zh/getting-started' },
         { text: '最佳实践', link: '/zh/best-practices' },
         { text: '故障排除', link: '/zh/troubleshooting' },
-        { text: '规则模板指南', link: '/zh/guides/rule-template' },
       ],
     },
   ],
-  '/zh/resources/': [
+  '/zh/research/': [
     {
-      text: '资源网络',
+      text: '研究引用',
       items: [
-        { text: '生态资源', link: '/zh/resources/ecosystem' },
-        { text: '延伸阅读', link: '/zh/resources/extended-reading' },
+        { text: '参考文献', link: '/zh/research/references' },
+        { text: '相关开源项目探究', link: '/zh/resources/ecosystem' },
+        { text: '演进思考', link: '/zh/resources/extended-reading' },
         { text: '更新日志', link: '/zh/changelog' },
         { text: '贡献指南', link: '/zh/contributing' },
       ],
@@ -175,9 +183,9 @@ export const zhSidebar = {
   ],
   '/zh/rules/': [
     {
-      text: '规则证据库',
+      text: '规则索引',
       items: [
-        { text: '证据库首页', link: '/zh/rules/' },
+        { text: '规则索引', link: '/zh/rules/' },
         { text: '组合模式', link: '/zh/rules/composition-patterns' },
       ],
     },
@@ -185,27 +193,36 @@ export const zhSidebar = {
   ],
   '/zh/': [
     {
-      text: '项目主张',
+      text: '总览',
       items: [
         { text: '首页', link: '/zh/' },
-        { text: '决策者摘要', link: '/zh/whitepaper/decision-brief' },
-        { text: '信息图谱', link: '/zh/architecture/information-graph' },
-        { text: '采用路径', link: '/zh/playbook/adoption-path' },
-        { text: '规则证据库', link: '/zh/rules/' },
-        { text: '资源网络', link: '/zh/resources/ecosystem' },
+        { text: '项目使命', link: '/zh/introduction/mission' },
+        { text: '学院路径', link: '/zh/academy/learning-path' },
+        { text: '系统总览', link: '/zh/architecture/system-overview' },
+        { text: '团队接入', link: '/zh/guides/team-onboarding' },
+        { text: '规则索引', link: '/zh/rules/' },
+        { text: '研究引用', link: '/zh/research/references' },
       ],
     },
   ],
 };
 
 export const enSidebar = {
-  '/en/whitepaper/': [
+  '/en/introduction/': [
     {
-      text: 'Whitepaper',
+      text: 'Introduction',
       items: [
-        { text: 'Decision Brief', link: '/en/whitepaper/decision-brief' },
-        { text: 'Project Overview', link: '/en/whitepaper/overview' },
-        { text: 'Adoption Model', link: '/en/whitepaper/adoption-model' },
+        { text: 'Project Mission', link: '/en/introduction/mission' },
+        { text: 'Reader Map', link: '/en/introduction/reader-map' },
+      ],
+    },
+  ],
+  '/en/academy/': [
+    {
+      text: 'Academy',
+      items: [
+        { text: 'Academy Path', link: '/en/academy/learning-path' },
+        { text: 'Maintainer Curriculum', link: '/en/academy/maintainer-curriculum' },
       ],
     },
   ],
@@ -213,32 +230,32 @@ export const enSidebar = {
     {
       text: 'Architecture',
       items: [
-        { text: 'Information Graph', link: '/en/architecture/information-graph' },
+        { text: 'System Overview', link: '/en/architecture/system-overview' },
         { text: 'Site Blueprint', link: '/en/architecture/blueprint' },
+        { text: 'Information Graph', link: '/en/architecture/information-graph' },
         { text: 'Content System', link: '/en/architecture/content-system' },
       ],
     },
   ],
-  '/en/playbook/': [
+  '/en/guides/': [
     {
-      text: 'Playbook',
+      text: 'Guides',
       items: [
-        { text: 'Adoption Path', link: '/en/playbook/adoption-path' },
-        { text: 'Role Paths', link: '/en/playbook/role-paths' },
-        { text: 'Operating Model', link: '/en/playbook/operating-model' },
+        { text: 'Team Onboarding', link: '/en/guides/team-onboarding' },
+        { text: 'Rule Template Guide', link: '/en/guides/rule-template' },
         { text: 'Getting Started', link: '/en/getting-started' },
         { text: 'Best Practices', link: '/en/best-practices' },
         { text: 'Troubleshooting', link: '/en/troubleshooting' },
-        { text: 'Rule Template Guide', link: '/en/guides/rule-template' },
       ],
     },
   ],
-  '/en/resources/': [
+  '/en/research/': [
     {
-      text: 'Resource Network',
+      text: 'Research',
       items: [
-        { text: 'Ecosystem', link: '/en/resources/ecosystem' },
-        { text: 'Extended Reading', link: '/en/resources/extended-reading' },
+        { text: 'References', link: '/en/research/references' },
+        { text: 'Open Source Survey', link: '/en/resources/ecosystem' },
+        { text: 'Evolution Notes', link: '/en/resources/extended-reading' },
         { text: 'Changelog', link: '/en/changelog' },
         { text: 'Contributing', link: '/en/contributing' },
       ],
@@ -246,9 +263,9 @@ export const enSidebar = {
   ],
   '/en/rules/': [
     {
-      text: 'Rules Evidence Library',
+      text: 'Rules Index',
       items: [
-        { text: 'Rules Evidence Library', link: '/en/rules/' },
+        { text: 'Rules Index', link: '/en/rules/' },
         { text: 'Composition Patterns', link: '/en/rules/composition-patterns' },
       ],
     },
@@ -259,11 +276,12 @@ export const enSidebar = {
       text: 'Overview',
       items: [
         { text: 'Home', link: '/en/' },
-        { text: 'Decision Brief', link: '/en/whitepaper/decision-brief' },
-        { text: 'Information Graph', link: '/en/architecture/information-graph' },
-        { text: 'Adoption Path', link: '/en/playbook/adoption-path' },
-        { text: 'Rules Evidence Library', link: '/en/rules/' },
-        { text: 'Resource Network', link: '/en/resources/ecosystem' },
+        { text: 'Project Mission', link: '/en/introduction/mission' },
+        { text: 'Academy Path', link: '/en/academy/learning-path' },
+        { text: 'System Overview', link: '/en/architecture/system-overview' },
+        { text: 'Team Onboarding', link: '/en/guides/team-onboarding' },
+        { text: 'Rules Index', link: '/en/rules/' },
+        { text: 'Research', link: '/en/research/references' },
       ],
     },
   ],

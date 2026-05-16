@@ -4,9 +4,9 @@ This page helps you decide which rule combination to validate before browsing ca
 
 ## Return to the executive context
 
-- [Decision Brief](../whitepaper/decision-brief)
-- [Site Blueprint](../architecture/blueprint)
-- [Adoption Path](../playbook/adoption-path)
+- [Project Mission](../introduction/mission)
+- [System Overview](../architecture/system-overview)
+- [Academy Path](../academy/learning-path)
 
 ## Base pattern
 
@@ -22,4 +22,4 @@ This page helps you decide which rule combination to validate before browsing ca
 
 - Repeated instructions should become project-specific rules.
 - Repeated review boundaries are a signal to formalize a team baseline.
-- Governance belongs in the shell and playbook, while rule pages remain the evidence layer.
+- Governance belongs in the academy and guide layers, while rule pages remain the evidence layer.

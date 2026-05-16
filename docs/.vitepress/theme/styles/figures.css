@@ -1,0 +1,63 @@
+.figure-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.signal-figure {
+  width: 100%;
+  height: auto;
+  color: var(--vp-c-text-1);
+}
+
+.signal-figure__frame {
+  fill: color-mix(in srgb, var(--surface-1) 78%, transparent);
+  stroke: color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-border));
+}
+
+.signal-figure__line {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.signal-figure__line--soft {
+  stroke: color-mix(in srgb, var(--vp-c-border) 78%, transparent);
+  stroke-width: 2;
+}
+
+.signal-figure__line--primary {
+  stroke: var(--figure-primary);
+  stroke-width: 4;
+}
+
+.signal-figure__line--accent {
+  stroke: var(--figure-accent);
+  stroke-width: 4;
+}
+
+.signal-figure__point {
+  stroke: color-mix(in srgb, var(--surface-1) 80%, transparent);
+  stroke-width: 6;
+}
+
+.signal-figure__point--primary {
+  fill: var(--figure-primary);
+}
+
+.signal-figure__point--accent {
+  fill: var(--figure-accent);
+}
+
+.signal-figure__point--cite {
+  fill: var(--figure-cite);
+}
+
+.signal-figure__label text {
+  fill: currentColor;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.signal-figure__caption text {
+  fill: color-mix(in srgb, currentColor 64%, transparent);
+  font-size: 16px;
+}

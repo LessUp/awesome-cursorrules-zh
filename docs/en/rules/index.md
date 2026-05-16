@@ -4,19 +4,19 @@ editLink: false
 
 # Rules Evidence Library
 
-This area is the evidence layer behind the homepage, whitepaper, architecture,
-and playbook pages.
+This area is the evidence layer behind the introduction, academy, architecture,
+guides, and research pages.
 Use it to validate rule combinations, samples, and upgrade path signals after the shell has already established the context.
 
 ## Recommended reading order
 
-1. Read the [Decision Brief](../whitepaper/decision-brief)
-2. Continue to the [Site Blueprint](../architecture/blueprint)
+1. Read the [Project Mission](../introduction/mission)
+2. Continue to the [System Overview](../architecture/system-overview)
 3. Use [Composition Patterns](./composition-patterns) before entering categories
 
 <EvidenceBand
   title="Treat `rules/` as evidence, not as the opening pitch"
-  intro="Start with the decision and architecture context, then use rule samples to confirm which combination fits your team."
+  intro="Start with the introduction, academy, and research context, then use rule samples to confirm which combination fits your team."
   :items="[
     {
       value: 'Base pattern',
@@ -39,8 +39,8 @@ Use it to validate rule combinations, samples, and upgrade path signals after th
 ## Evidence entry points
 
 - [Composition Patterns](./composition-patterns): decide whether you need a base pattern, an expansion pattern, or a governance upgrade.
-- [Adoption Path](../playbook/adoption-path): reconnect the evidence library to rollout phases.
-- [Site Blueprint](../architecture/blueprint): see how the evidence layer supports the wider shell.
+- [Academy Path](../academy/learning-path): reconnect the evidence library to role-based learning paths.
+- [Research References](../research/references): see why the evidence layer sits behind the wider shell.
 
 ## Category index
 

@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import llmstxt from 'vitepress-plugin-llms'
 import { zhNav, enNav, zhSidebar, enSidebar } from './site/atlas'
+import { siteFacts } from './site/facts'
 
 const rawBase = process.env.VITEPRESS_BASE
 const base = rawBase
@@ -13,16 +14,16 @@ const basePath = base === '/' ? '' : base.replace(/\/$/, '')
 
 export default withMermaid(defineConfig({
   base,
-  title: 'Awesome Cursor Rules Atlas',
-  description: 'Cursor rules knowledge atlas, technical whitepaper, and architecture showcase',
+  title: 'Awesome Cursor Rules Academy',
+  description: `Technical whitepaper, architecture showcase, and research library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
 
   locales: {
     zh: {
       label: '简体中文',
       lang: 'zh-CN',
       link: '/zh/',
-      title: 'Awesome Cursor Rules Atlas',
-      description: 'Cursor 白皮书、架构图谱与规则证据库展示站',
+      title: 'Awesome Cursor Rules Academy',
+      description: `面向技术负责人与高级开发者的 Cursor 白皮书、架构展厅与研究引文库，覆盖 ${siteFacts.ruleCount}+ 条规则资产与 ${siteFacts.domainCount}+ 个领域`,
       themeConfig: {
         nav: zhNav,
         sidebar: zhSidebar,
@@ -51,7 +52,7 @@ export default withMermaid(defineConfig({
         returnToTopLabel: '回到顶部',
         langMenuLabel: '多语言',
         footer: {
-          message: '以白皮书、架构图谱、采用路径与规则证据库重构 Cursor 规则知识站',
+          message: `以 ${siteFacts.ruleCount}+ 条规则资产、${siteFacts.domainCount}+ 个技术领域重构为白皮书、学院与研究站`,
           copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
         }
       }
@@ -60,8 +61,8 @@ export default withMermaid(defineConfig({
       label: 'English',
       lang: 'en-US',
       link: '/en/',
-      title: 'Awesome Cursor Rules Atlas',
-      description: 'Cursor rule atlas, technical whitepaper, and architecture showcase',
+      title: 'Awesome Cursor Rules Academy',
+      description: `Technical whitepaper, architecture showcase, and research library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
       themeConfig: {
         nav: enNav,
         sidebar: enSidebar,
@@ -80,7 +81,7 @@ export default withMermaid(defineConfig({
         returnToTopLabel: 'Return to top',
         langMenuLabel: 'Languages',
         footer: {
-          message: 'Reframing the project as a whitepaper, architecture atlas, and operational guide for Cursor rules',
+          message: `Reframing ${siteFacts.ruleCount}+ rule assets across ${siteFacts.domainCount}+ domains as a whitepaper, academy, and research library`,
           copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
         }
       }
@@ -102,7 +103,7 @@ export default withMermaid(defineConfig({
       'meta',
       {
         name: 'theme-color',
-        content: '#3557ff'
+        content: '#3f5ef7'
       }
     ],
     [

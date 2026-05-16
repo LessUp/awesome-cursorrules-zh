@@ -4,18 +4,18 @@ editLink: false
 
 # 规则证据库
 
-本区不是首页主叙事，而是白皮书、架构图谱和采用路径背后的证据层。
+本区不是首页主叙事，而是项目导读、学院路径、架构设计与研究引用背后的证据层。
 当你需要验证判断、挑选规则组合或规划升级路径时，再回到这座证据库。
 
 ## 推荐阅读顺序
 
-1. 先看 [决策者摘要](../whitepaper/decision-brief.md)
-2. 再看 [架构图谱](../architecture/blueprint.md)
+1. 先看 [项目使命](../introduction/mission.md)
+2. 再看 [系统总览](../architecture/system-overview.md)
 3. 最后按 [规则组合模式](./composition-patterns.md) 和分类索引进入具体规则
 
 <EvidenceBand
   title="把 rules/ 当作证据层，而不是首页目录"
-  intro="先用白皮书和采用路径完成判断，再用规则样本验证团队需要的约束组合。"
+  intro="先用项目导读、学院路径和研究引用完成判断，再用规则样本验证团队需要的约束组合。"
   :items="[
     {
       value: '基础组合',
@@ -38,8 +38,8 @@ editLink: false
 ## 证据入口
 
 - [规则组合模式](./composition-patterns.md)：先判断基础组合、升级组合与治理升级信号。
-- [采用路径](../playbook/adoption-path.md)：回到角色与阶段视角，确认当前该启用哪一层约束。
-- [架构图谱](../architecture/blueprint.md)：理解规则证据库如何支撑整站叙事，而不是替代叙事。
+- [学院路径](../academy/learning-path.md)：回到角色与阶段视角，确认当前该启用哪一层约束。
+- [研究引用](../research/references.md)：查看方法论与相关项目，理解规则索引为什么被放在证据层。
 
 ## 分类索引
 

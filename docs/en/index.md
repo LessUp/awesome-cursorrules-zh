@@ -4,115 +4,140 @@ layout: home
 
 <script setup>
 import { onMounted } from 'vue';
+import { siteFacts } from '../.vitepress/site/facts';
 
 onMounted(() => {
   localStorage.setItem('preferred-locale', 'en');
 });
 </script>
 
-<ExecutiveHero
-  kicker="Technical Whitepaper / Architecture Showcase"
-  title="Turn Cursor rules into an organizational knowledge system"
-  summary="A Chinese-first site for tech leads and architects, with English following the same IA."
-  primary-href="./whitepaper/decision-brief"
-  primary-label="Read the decision brief"
-  secondary-href="./architecture/blueprint"
-  secondary-label="View the architecture"
-/>
+<div class="home-shell">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
+    <SignalPill label="Technical whitepaper" />
+    <SignalPill label="Architecture showcase" />
+    <SignalPill label="Research references" />
+  </div>
 
-<MetricBand
-  :items="[
-    {
-      label: 'Rule assets',
-      value: '132+',
-      detail: 'The rules stay intact, but the homepage now frames them as evidence rather than the whole story.'
-    },
-    {
-      label: 'Coverage',
-      value: '32+',
-      detail: 'Frontend, backend, data, platform, and governance examples remain available for follow-up reading.'
-    },
-    {
-      label: 'Reading posture',
-      value: 'Tech Lead First',
-      detail: 'English gives tech leads a concise shell while the fuller narrative remains Chinese-first.'
-    }
-  ]"
-/>
+  <WhitepaperHero
+    kicker="Technical Whitepaper / Architecture Showcase / Research References"
+    title="Make Cursor rules read like a reviewed engineering academy"
+    summary="This surface leads with thesis, system design, learning paths, and research references so the rules index becomes evidence instead of the only story."
+    :indicators="[
+      { label: 'Rule assets', value: `${siteFacts.ruleCount}+` },
+      { label: 'Domains', value: `${siteFacts.domainCount}+` },
+      { label: 'Locales', value: `${siteFacts.localeCount}` }
+    ]"
+    primary-href="./introduction/mission"
+    primary-label="Read the mission"
+    secondary-href="./architecture/system-overview"
+    secondary-label="View the system"
+  />
 
-<DecisionMatrix
-  title="Make the value, structure, and rollout call before browsing rules"
-  intro="This homepage is intentionally thin. It helps tech leads judge whether the library should be treated as an engineering asset before moving into the rules evidence library."
-  :options="[
-    {
-      fit: 'Value call',
-      title: 'Treat rules as reusable knowledge',
-      summary: 'If rules stay as one-off prompts, teams cannot review, reuse, or compound what they learn.',
-      considerations: 'The shell therefore leads with organizational value instead of a category atlas.'
-    },
-    {
-      fit: 'Structure call',
-      title: 'Understand the system boundary',
-      summary: 'Architects need to see how rules, narrative pages, and publishing layers reinforce each other.',
-      considerations: 'The English pages mirror the Chinese IA without duplicating every paragraph.'
-    },
-    {
-      fit: 'Execution call',
-      title: 'Use the evidence library after alignment',
-      summary: 'Once value and structure are clear, use the rules area to validate combinations, examples, and upgrade signals.',
-      considerations: 'That keeps the evidence library in a supporting role instead of making it the homepage default.'
-    }
-  ]"
-/>
+  <NarrativeRail
+    title="A technical whitepaper needs a deliberate reading order"
+    intro="Start with mission and reader framing, continue into academy and architecture, then validate the case through the rules index and research references."
+    :stages="[
+      {
+        index: '01',
+        title: 'Introduction',
+        body: 'Use the mission and reader map to understand why the project is positioned as a knowledge asset, not a category index.',
+        href: './introduction/reader-map',
+        label: 'Open the reader map'
+      },
+      {
+        index: '02',
+        title: 'Academy',
+        body: 'Role-based learning paths turn the site into a guided curriculum for reviewers, architects, and maintainers.',
+        href: './academy/learning-path',
+        label: 'Enter the academy'
+      },
+      {
+        index: '03',
+        title: 'Research',
+        body: 'Rules stay in the evidence layer while research references explain the documentation and architecture choices behind the presentation.',
+        href: './research/references',
+        label: 'Browse references'
+      }
+    ]"
+  />
 
-<ArchitectureSnapshot
-  title="Four layers connect the shell to the evidence"
-  summary="The English homepage stays brief, but it still shows how rule assets, narrative pages, publishing, and evidence reinforce each other."
-  :layers="[
-    {
-      label: 'Rule asset layer · rules/',
-      detail: 'The canonical corpus of rule assets stays in the repository.'
-    },
-    {
-      label: 'Narrative layer · whitepaper / architecture / playbook',
-      detail: 'These pages explain value, structure, and rollout before category browsing begins.'
-    },
-    {
-      label: 'Presentation layer · VitePress / GitHub Pages',
-      detail: 'Shared navigation, sidebars, and homepage components create the executive shell.'
-    },
-    {
-      label: 'Evidence layer · rules pages / ecosystem',
-      detail: 'Rule samples and references validate the decision after the shell frames it.'
-    }
-  ]"
-/>
+  <SystemShowcase
+    title="The implementation changed, not only the copy"
+    summary="The docs layer now syncs repository facts before build, exposes a stronger IA, and uses theme-aware figures so light and dark mode stay equally legible."
+    :nodes="[
+      {
+        eyebrow: 'Source Assets',
+        title: 'Rules remain canonical',
+        detail: 'Repository facts are derived from the rule corpus instead of being hand-maintained in the homepage copy.'
+      },
+      {
+        eyebrow: 'Narrative Shell',
+        title: 'Introduction, academy, architecture, guides',
+        detail: 'The new IA helps senior readers build a mental model before they inspect individual rule pages.'
+      },
+      {
+        eyebrow: 'Publishing Layer',
+        title: 'VitePress plus generated site facts',
+        detail: 'The build now follows a kimi-cli-like sync step, but the shell is rewritten for a more editorial and research-driven surface.'
+      },
+      {
+        eyebrow: 'Evidence Layer',
+        title: 'Rules index and research references',
+        detail: 'The evidence layer validates the thesis instead of competing with it for the first screen.'
+      }
+    ]"
+  />
 
-<EvidenceBand
-  title="The rules section is the evidence library, not the opening pitch"
-  intro="Read the brief, confirm the architecture, then use rules and resources as supporting proof."
-  :items="[
-    {
-      value: 'Decision-first',
-      label: 'Reading order',
-      detail: 'Start with the brief and overview before sampling rule pages.'
-    },
-    {
-      value: 'Role-based',
-      label: 'Adoption paths',
-      detail: 'Tech leads, architects, and platform teams can enter through different paths without breaking the shared IA.'
-    },
-    {
-      value: 'Evidence library',
-      label: 'Rules and references',
-      detail: 'Composition patterns, rule categories, and ecosystem links help validate the decision after the shell does its job.'
-    }
-  ]"
-/>
+  <CurriculumDeck
+    title="Academy paths map the site to real reviewer roles"
+    intro="The English shell stays concise, but it still makes the reading logic explicit."
+    :tracks="[
+      {
+        name: 'Interviewer path',
+        audience: 'Fast pass',
+        outcome: 'Judge rigor, structure, and depth in a few screens.',
+        steps: ['Read the mission', 'Inspect the system overview', 'Use research references and the rules index as proof']
+      },
+      {
+        name: 'Architect path',
+        audience: 'Architecture pass',
+        outcome: 'See how assets, narrative pages, theme layers, and publication reinforce each other.',
+        steps: ['Review the system overview', 'Open the academy path', 'Check composition patterns and content system pages']
+      },
+      {
+        name: 'Maintainer path',
+        audience: 'Maintainer pass',
+        outcome: 'Understand how to update assets, narrative pages, facts, and bilingual structure together.',
+        steps: ['Open the maintainer curriculum', 'Follow the team onboarding guide', 'Use research references to shape later iterations']
+      }
+    ]"
+  />
 
-<SectionCallout
-  title="Suggested reading order"
-  body="Start with the decision brief, continue through the overview and site blueprint, then use adoption paths, role paths, and the rules evidence library as follow-through."
-  href="./whitepaper/decision-brief"
-  label="Start with the brief"
-/>
+  <CitationLedger
+    title="Research references make the project read like a dossier"
+    intro="These references justify the information architecture and publishing posture, rather than acting as decorative outbound links."
+    :entries="[
+      {
+        kind: 'Framework',
+        title: 'Diátaxis Documentation Framework',
+        note: 'A useful reference for separating explanation, guidance, and reference material inside a technical docs system.',
+        href: 'https://diataxis.fr/',
+        label: 'Open framework'
+      },
+      {
+        kind: 'Open Source',
+        title: 'MoonshotAI / kimi-cli',
+        note: 'The local baseline for docs engineering patterns, adapted here into a more whitepaper-like and visually committed shell.',
+        href: 'https://github.com/MoonshotAI/kimi-cli',
+        label: 'Open repository'
+      },
+      {
+        kind: 'Book',
+        title: 'The Architecture of Open Source Applications',
+        note: 'A reminder that mature projects should publish not only capabilities, but also structure, trade-offs, and implementation boundaries.',
+        href: 'https://aosabook.org/en/index.html',
+        label: 'Open book'
+      }
+    ]"
+  />
+</div>

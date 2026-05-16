@@ -1,69 +1,71 @@
 :root {
-  --vp-c-brand-1: #3557ff;
-  --vp-c-brand-2: #5774ff;
-  --vp-c-brand-3: #7c95ff;
-  --vp-c-brand-soft: rgba(53, 87, 255, 0.14);
-
-  --vp-c-accent: #13b67b;
-  --vp-c-accent-soft: rgba(19, 182, 123, 0.16);
-
-  --vp-c-bg: #ffffff;
-  --vp-c-bg-alt: #f6f8fd;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #eef2ff;
-
-  --vp-c-text-1: #16203a;
-  --vp-c-text-2: #48536f;
-  --vp-c-text-3: #6f7a94;
-
-  --vp-c-border: #dde3f3;
-  --vp-c-divider: #dde3f3;
-  --vp-c-gutter: #dde3f3;
-
-  --vp-home-hero-name-color: #3557ff;
+  --vp-c-brand-1: oklch(0.58 0.19 269);
+  --vp-c-brand-2: oklch(0.64 0.16 255);
+  --vp-c-brand-3: oklch(0.71 0.12 250);
+  --vp-c-brand-soft: oklch(0.95 0.03 262);
+  --vp-c-accent: oklch(0.66 0.14 198);
+  --vp-c-accent-soft: oklch(0.95 0.03 205);
+  --vp-c-warning-1: oklch(0.73 0.14 76);
+  --vp-c-bg: oklch(0.985 0.006 255);
+  --vp-c-bg-alt: oklch(0.965 0.01 255);
+  --vp-c-bg-elv: oklch(0.995 0.004 255);
+  --vp-c-bg-soft: oklch(0.948 0.015 258);
+  --vp-c-text-1: oklch(0.24 0.03 259);
+  --vp-c-text-2: oklch(0.42 0.02 255);
+  --vp-c-text-3: oklch(0.56 0.018 252);
+  --vp-c-border: oklch(0.88 0.012 256);
+  --vp-c-divider: oklch(0.88 0.012 256);
+  --vp-c-gutter: oklch(0.88 0.012 256);
+  --surface-1: oklch(0.99 0.004 255);
+  --surface-2: oklch(0.963 0.012 258);
+  --surface-3: oklch(0.94 0.018 258);
+  --figure-primary: oklch(0.6 0.19 269);
+  --figure-accent: oklch(0.68 0.13 198);
+  --figure-cite: oklch(0.72 0.15 76);
+  --shell-max-width: 1180px;
+  --copy-max-width: 72ch;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --shadow-sm: 0 12px 36px color-mix(in srgb, var(--vp-c-text-1) 8%, transparent);
+  --shadow-md: 0 28px 80px color-mix(in srgb, var(--vp-c-text-1) 10%, transparent);
+  --transition-fast: 0.2s ease;
+  --home-grid-gap: clamp(20px, 2vw, 32px);
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
   --vp-home-hero-name-background: transparent;
   --vp-home-hero-image-background-image: none;
   --vp-home-hero-image-filter: none;
-
-  --tag-bg: rgba(53, 87, 255, 0.1);
-  --tag-text: #3557ff;
-  --shell-max-width: 1120px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --shadow-sm: 0 8px 24px rgba(27, 41, 93, 0.08);
-  --shadow-md: 0 20px 60px rgba(27, 41, 93, 0.12);
-  --transition-fast: 0.18s ease;
 }
 
 .dark {
-  --vp-c-brand-1: #7c95ff;
-  --vp-c-brand-2: #98adff;
-  --vp-c-brand-3: #b8c5ff;
-  --vp-c-brand-soft: rgba(124, 149, 255, 0.18);
-
-  --vp-c-accent: #3fd4a1;
-  --vp-c-accent-soft: rgba(63, 212, 161, 0.16);
-
-  --vp-c-bg: #0f1424;
-  --vp-c-bg-alt: #141b30;
-  --vp-c-bg-elv: #18203a;
-  --vp-c-bg-soft: #202947;
-
-  --vp-c-text-1: #edf2ff;
-  --vp-c-text-2: #bac5e6;
-  --vp-c-text-3: #92a0c7;
-
-  --vp-c-border: #2a355b;
-  --vp-c-divider: #2a355b;
-  --vp-c-gutter: #2a355b;
-
-  --tag-bg: rgba(124, 149, 255, 0.14);
-  --tag-text: #a9bbff;
-  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.28);
-  --shadow-md: 0 22px 72px rgba(0, 0, 0, 0.36);
+  --vp-c-brand-1: oklch(0.75 0.13 268);
+  --vp-c-brand-2: oklch(0.8 0.1 252);
+  --vp-c-brand-3: oklch(0.84 0.08 240);
+  --vp-c-brand-soft: oklch(0.31 0.04 262);
+  --vp-c-accent: oklch(0.78 0.11 198);
+  --vp-c-accent-soft: oklch(0.3 0.04 206);
+  --vp-c-warning-1: oklch(0.8 0.12 80);
+  --vp-c-bg: oklch(0.16 0.018 262);
+  --vp-c-bg-alt: oklch(0.2 0.018 260);
+  --vp-c-bg-elv: oklch(0.23 0.02 258);
+  --vp-c-bg-soft: oklch(0.28 0.024 258);
+  --vp-c-text-1: oklch(0.93 0.015 255);
+  --vp-c-text-2: oklch(0.8 0.015 252);
+  --vp-c-text-3: oklch(0.67 0.014 250);
+  --vp-c-border: oklch(0.36 0.016 255);
+  --vp-c-divider: oklch(0.36 0.016 255);
+  --vp-c-gutter: oklch(0.36 0.016 255);
+  --surface-1: oklch(0.2 0.018 260);
+  --surface-2: oklch(0.24 0.02 258);
+  --surface-3: oklch(0.29 0.022 258);
+  --figure-primary: oklch(0.77 0.12 268);
+  --figure-accent: oklch(0.79 0.11 198);
+  --figure-cite: oklch(0.82 0.12 80);
+  --shadow-sm: 0 12px 36px color-mix(in srgb, oklch(0.06 0.01 255) 54%, transparent);
+  --shadow-md: 0 30px 82px color-mix(in srgb, oklch(0.04 0.008 255) 62%, transparent);
 }
 
+html,
 body {
-  font-family: 'Plus Jakarta Sans', 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }

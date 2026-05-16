@@ -1,9 +1,9 @@
 ---
 layout: home
 hero:
-  name: Awesome Cursor Rules Atlas
-  text: 白皮书 / Architecture / Playbook
-  tagline: 面向中文开发者的 Cursor 规则知识图谱与架构展示站。
+  name: Awesome Cursor Rules Academy
+  text: Technical Whitepaper / Architecture / Research
+  tagline: 面向高级开发者的 Cursor 规则白皮书、学院路径与研究展示站。
   actions:
     - theme: brand
       text: 进入中文站
