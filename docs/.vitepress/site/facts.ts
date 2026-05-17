@@ -28,6 +28,5 @@ export const siteFacts = {
       "category": "ai",
       "count": 6
     }
-  ],
-  "generatedAt": "2026-05-16T16:11:12.173Z"
+  ]
 } as const

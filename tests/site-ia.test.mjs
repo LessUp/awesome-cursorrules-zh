@@ -18,12 +18,14 @@ function exists(relativePath) {
 
 test('docs package syncs generated site facts before dev and build, aligned with the kimi-cli docs workflow', () => {
   const docsPackage = read('docs/package.json');
+  const factsFile = read('docs/.vitepress/site/facts.ts');
 
   assert.match(docsPackage, /"sync": "node scripts\/sync-site-facts\.mjs"/);
   assert.match(docsPackage, /"dev": "npm run sync && vitepress dev"/);
   assert.match(docsPackage, /"build": "npm run sync && vitepress build"/);
   assert.equal(exists('docs/scripts/sync-site-facts.mjs'), true, 'docs/scripts/sync-site-facts.mjs should exist');
   assert.equal(exists('docs/.vitepress/site/facts.ts'), true, 'docs/.vitepress/site/facts.ts should exist');
+  assert.doesNotMatch(factsFile, /generatedAt/);
 });
 
 test('config keeps locale redirect and consumes both atlas navigation and generated site facts', () => {
