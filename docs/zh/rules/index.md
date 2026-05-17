@@ -35,6 +35,10 @@ editLink: false
   ]"
 />
 
+## 智能规则推荐
+
+<RuleDecisionTree />
+
 ## 证据入口
 
 - [规则组合模式](./composition-patterns.md)：先判断基础组合、升级组合与治理升级信号。
@@ -45,23 +49,47 @@ editLink: false
 
 需要具体规则样本时，再按分类进入：
 
-- [前端开发](/zh/rules/frontend)
-- [后端开发](/zh/rules/backend)
-- [移动开发](/zh/rules/mobile)
-- [AI 与数据](/zh/rules/ai)
+### 核心开发
+
+| 领域 | 规则数 | 说明 |
+|------|--------|------|
+| [前端开发](/zh/rules/frontend) | 26+ | React、Vue、Angular、Svelte 等 |
+| [后端开发](/zh/rules/backend) | 21+ | Node.js、Python、Go、Rust、Java 等 |
+| [移动开发](/zh/rules/mobile) | 6+ | React Native、Flutter、iOS、Android |
+| [AI 与数据](/zh/rules/ai) | 6+ | LLM、机器学习、NLP |
+
+### 工程与平台
+
+| 领域 | 规则数 | 说明 |
+|------|--------|------|
+| [DevOps](/zh/rules/devops) | 12+ | Docker、Kubernetes、CI/CD |
+| [云服务](/zh/rules/cloud) | 8+ | AWS、GCP、Azure |
+| [安全](/zh/rules/security) | 8+ | 认证、加密、审计 |
+| [数据库](/zh/rules/database) | 6+ | SQL、NoSQL、ORM |
+
+### 通用能力
+
+| 领域 | 规则数 | 说明 |
+|------|--------|------|
+| [通用](/zh/rules/general) | 8+ | Git、测试、文档 |
+| [工具](/zh/rules/tools) | 4+ | ESLint、Prettier、构建工具 |
+
+### 行业与基础设施
+
+| 领域 | 规则数 | 说明 |
+|------|--------|------|
+| [区块链](/zh/rules/blockchain) | 4+ | 智能合约、DeFi |
+| [物联网](/zh/rules/iot) | 4+ | 嵌入式、边缘计算 |
+| [游戏开发](/zh/rules/gaming) | 4+ | Unity、Unreal |
+| [AR/VR](/zh/rules/ar-vr) | 3+ | XR、元宇宙 |
+
+### 其他领域
+
 - [数据科学](/zh/rules/data-science)
-- [DevOps](/zh/rules/devops)
-- [区块链](/zh/rules/blockchain)
-- [安全](/zh/rules/security)
-- [云服务](/zh/rules/cloud)
-- [数据库](/zh/rules/database)
-- [物联网](/zh/rules/iot)
-- [游戏开发](/zh/rules/gaming)
-- [AR/VR](/zh/rules/ar-vr)
+- [数据](/zh/rules/data)
+- [边缘计算](/zh/rules/edge)
 - [机器人](/zh/rules/robotics)
 - [自动化](/zh/rules/automation)
-- [工具](/zh/rules/tools)
-- [通用](/zh/rules/general)
 - [平台](/zh/rules/platform)
 - [系统](/zh/rules/systems)
 - [网络](/zh/rules/network)
@@ -74,6 +102,4 @@ editLink: false
 - [仿真](/zh/rules/simulation)
 - [工业](/zh/rules/industrial)
 - [CMS](/zh/rules/cms)
-- [数据](/zh/rules/data)
-- [边缘计算](/zh/rules/edge)
 - [新兴技术](/zh/rules/emerging-tech)

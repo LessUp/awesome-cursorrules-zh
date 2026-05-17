@@ -36,6 +36,10 @@ Use it to validate rule combinations, samples, and upgrade path signals after th
   ]"
 />
 
+## Smart Rule Recommendation
+
+<RuleDecisionTree />
+
 ## Evidence entry points
 
 - [Composition Patterns](./composition-patterns): decide whether you need a base pattern, an expansion pattern, or a governance upgrade.
@@ -46,23 +50,47 @@ Use it to validate rule combinations, samples, and upgrade path signals after th
 
 Use the categories below when you need concrete rule samples:
 
-- [Frontend](/en/rules/frontend)
-- [Backend](/en/rules/backend)
-- [Mobile](/en/rules/mobile)
-- [AI & Data](/en/rules/ai)
+### Core Development
+
+| Domain | Rules | Description |
+|--------|-------|-------------|
+| [Frontend](/en/rules/frontend) | 26+ | React, Vue, Angular, Svelte |
+| [Backend](/en/rules/backend) | 21+ | Node.js, Python, Go, Rust, Java |
+| [Mobile](/en/rules/mobile) | 6+ | React Native, Flutter, iOS, Android |
+| [AI & Data](/en/rules/ai) | 6+ | LLM, ML, NLP |
+
+### Engineering & Platform
+
+| Domain | Rules | Description |
+|--------|-------|-------------|
+| [DevOps](/en/rules/devops) | 12+ | Docker, Kubernetes, CI/CD |
+| [Cloud](/en/rules/cloud) | 8+ | AWS, GCP, Azure |
+| [Security](/en/rules/security) | 8+ | Auth, Encryption, Audit |
+| [Database](/en/rules/database) | 6+ | SQL, NoSQL, ORM |
+
+### General Capabilities
+
+| Domain | Rules | Description |
+|--------|-------|-------------|
+| [General](/en/rules/general) | 8+ | Git, Testing, Documentation |
+| [Tools](/en/rules/tools) | 4+ | ESLint, Prettier, Build Tools |
+
+### Industry & Infrastructure
+
+| Domain | Rules | Description |
+|--------|-------|-------------|
+| [Blockchain](/en/rules/blockchain) | 4+ | Smart Contracts, DeFi |
+| [IoT](/en/rules/iot) | 4+ | Embedded, Edge Computing |
+| [Gaming](/en/rules/gaming) | 4+ | Unity, Unreal |
+| [AR/VR](/en/rules/ar-vr) | 3+ | XR, Metaverse |
+
+### Other Domains
+
 - [Data Science](/en/rules/data-science)
-- [DevOps](/en/rules/devops)
-- [Blockchain](/en/rules/blockchain)
-- [Security](/en/rules/security)
-- [Cloud](/en/rules/cloud)
-- [Database](/en/rules/database)
-- [IoT](/en/rules/iot)
-- [Gaming](/en/rules/gaming)
-- [AR/VR](/en/rules/ar-vr)
+- [Data](/en/rules/data)
+- [Edge](/en/rules/edge)
 - [Robotics](/en/rules/robotics)
 - [Automation](/en/rules/automation)
-- [Tools](/en/rules/tools)
-- [General](/en/rules/general)
 - [Platform](/en/rules/platform)
 - [Systems](/en/rules/systems)
 - [Network](/en/rules/network)
@@ -75,6 +103,4 @@ Use the categories below when you need concrete rule samples:
 - [Simulation](/en/rules/simulation)
 - [Industrial](/en/rules/industrial)
 - [CMS](/en/rules/cms)
-- [Data](/en/rules/data)
-- [Edge](/en/rules/edge)
 - [Emerging Tech](/en/rules/emerging-tech)
