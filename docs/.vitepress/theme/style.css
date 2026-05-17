@@ -1,5 +1,573 @@
-@import './styles/tokens.css';
-@import './styles/layout.css';
-@import './styles/components.css';
-@import './styles/content.css';
-@import './styles/figures.css';
+/* ============================================
+   Awesome Cursor Rules Academy - Style System
+   Modern CSS Architecture with Cascade Layers
+   ============================================ */
+
+/* Layer Declaration - Order defines priority */
+@layer reset, tokens, fonts, base, layout, components, utilities, overrides;
+
+/* ============================================
+   Layer: Reset
+   ============================================ */
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  form,
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+/* ============================================
+   Layer: Design Tokens
+   ============================================ */
+@layer tokens {
+  :root {
+    /* === Brand Colors (OKLCH - 11-step scale) === */
+    --vp-c-brand-50: oklch(0.98 0.02 269);
+    --vp-c-brand-100: oklch(0.95 0.04 269);
+    --vp-c-brand-200: oklch(0.90 0.08 269);
+    --vp-c-brand-300: oklch(0.82 0.12 269);
+    --vp-c-brand-400: oklch(0.72 0.16 269);
+    --vp-c-brand-500: oklch(0.62 0.18 269);
+    --vp-c-brand-600: oklch(0.52 0.17 269);
+    --vp-c-brand-700: oklch(0.44 0.15 269);
+    --vp-c-brand-800: oklch(0.36 0.12 269);
+    --vp-c-brand-900: oklch(0.28 0.08 269);
+    --vp-c-brand-950: oklch(0.20 0.05 269);
+
+    /* Primary Brand Colors (VitePress compatibility) */
+    --vp-c-brand-1: oklch(0.58 0.19 269);
+    --vp-c-brand-2: oklch(0.64 0.16 255);
+    --vp-c-brand-3: oklch(0.71 0.12 250);
+    --vp-c-brand-soft: oklch(0.95 0.03 262);
+
+    /* Accent Colors */
+    --vp-c-accent: oklch(0.66 0.14 198);
+    --vp-c-accent-soft: oklch(0.95 0.03 205);
+    --vp-c-warning-1: oklch(0.73 0.14 76);
+
+    /* Background Colors */
+    --vp-c-bg: oklch(0.985 0.006 255);
+    --vp-c-bg-alt: oklch(0.965 0.01 255);
+    --vp-c-bg-elv: oklch(0.995 0.004 255);
+    --vp-c-bg-soft: oklch(0.948 0.015 258);
+
+    /* Text Colors */
+    --vp-c-text-1: oklch(0.24 0.03 259);
+    --vp-c-text-2: oklch(0.42 0.02 255);
+    --vp-c-text-3: oklch(0.56 0.018 252);
+
+    /* Border Colors */
+    --vp-c-border: oklch(0.88 0.012 256);
+    --vp-c-divider: oklch(0.88 0.012 256);
+    --vp-c-gutter: oklch(0.88 0.012 256);
+
+    /* Surface Colors */
+    --surface-1: oklch(0.99 0.004 255);
+    --surface-2: oklch(0.963 0.012 258);
+    --surface-3: oklch(0.94 0.018 258);
+
+    /* === Figure Tokens (SVG/Graphics) === */
+    --figure-stroke-primary: oklch(0.58 0.19 269);
+    --figure-stroke-accent: oklch(0.66 0.14 198);
+    --figure-stroke-soft: oklch(0.72 0.15 76);
+    --figure-fill-surface: oklch(0.99 0.004 255);
+    --figure-fill-surface-alt: oklch(0.96 0.012 258);
+    --figure-text-label: oklch(0.24 0.03 269);
+    --figure-text-caption: oklch(0.42 0.02 255);
+    --figure-glow-primary: transparent;
+    --figure-glow-accent: transparent;
+
+    /* Legacy Figure Tokens (compatibility) */
+    --figure-primary: oklch(0.6 0.19 269);
+    --figure-accent: oklch(0.68 0.13 198);
+    --figure-cite: oklch(0.72 0.15 76);
+
+    /* === Shadow System === */
+    --shadow-xs: 0 4px 12px color-mix(in srgb, var(--vp-c-text-1) 4%, transparent);
+    --shadow-sm: 0 12px 36px color-mix(in srgb, var(--vp-c-text-1) 8%, transparent);
+    --shadow-md: 0 28px 80px color-mix(in srgb, var(--vp-c-text-1) 10%, transparent);
+    --shadow-lg: 0 48px 120px color-mix(in srgb, var(--vp-c-text-1) 12%, transparent);
+    --shadow-xl: 0 72px 180px color-mix(in srgb, var(--vp-c-text-1) 14%, transparent);
+
+    /* Glow Shadows */
+    --shadow-glow-brand: 0 0 40px color-mix(in srgb, var(--vp-c-brand-500) 30%, transparent);
+    --shadow-glow-accent: 0 0 40px color-mix(in srgb, var(--vp-c-accent) 30%, transparent);
+
+    /* === Spacing === */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    /* === Layout === */
+    --shell-max-width: 1180px;
+    --copy-max-width: 72ch;
+    --home-grid-gap: clamp(20px, 2vw, 32px);
+
+    /* === Border Radius === */
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-full: 999px;
+
+    /* === Animation Duration === */
+    --duration-instant: 50ms;
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --duration-slower: 600ms;
+
+    /* === Animation Easing === */
+    --ease-linear: linear;
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-fast: 0.2s ease;
+
+    /* === VitePress Hero Overrides === */
+    --vp-home-hero-name-color: var(--vp-c-brand-1);
+    --vp-home-hero-name-background: transparent;
+    --vp-home-hero-image-background-image: none;
+    --vp-home-hero-image-filter: none;
+  }
+
+  /* === Dark Mode === */
+  .dark {
+    /* Brand Colors */
+    --vp-c-brand-1: oklch(0.75 0.13 268);
+    --vp-c-brand-2: oklch(0.8 0.1 252);
+    --vp-c-brand-3: oklch(0.84 0.08 240);
+    --vp-c-brand-soft: oklch(0.31 0.04 262);
+
+    /* Accent Colors */
+    --vp-c-accent: oklch(0.78 0.11 198);
+    --vp-c-accent-soft: oklch(0.3 0.04 206);
+    --vp-c-warning-1: oklch(0.8 0.12 80);
+
+    /* Background Colors */
+    --vp-c-bg: oklch(0.16 0.018 262);
+    --vp-c-bg-alt: oklch(0.2 0.018 260);
+    --vp-c-bg-elv: oklch(0.23 0.02 258);
+    --vp-c-bg-soft: oklch(0.28 0.024 258);
+
+    /* Text Colors */
+    --vp-c-text-1: oklch(0.93 0.015 255);
+    --vp-c-text-2: oklch(0.8 0.015 252);
+    --vp-c-text-3: oklch(0.67 0.014 250);
+
+    /* Border Colors */
+    --vp-c-border: oklch(0.36 0.016 255);
+    --vp-c-divider: oklch(0.36 0.016 255);
+    --vp-c-gutter: oklch(0.36 0.016 255);
+
+    /* Surface Colors */
+    --surface-1: oklch(0.2 0.018 260);
+    --surface-2: oklch(0.24 0.02 258);
+    --surface-3: oklch(0.29 0.022 258);
+
+    /* Figure Tokens - Enhanced for visibility */
+    --figure-stroke-primary: oklch(0.78 0.14 268);
+    --figure-stroke-accent: oklch(0.82 0.12 198);
+    --figure-stroke-soft: oklch(0.84 0.13 80);
+    --figure-fill-surface: oklch(0.22 0.02 260);
+    --figure-fill-surface-alt: oklch(0.28 0.024 258);
+    --figure-text-label: oklch(0.93 0.015 255);
+    --figure-text-caption: oklch(0.78 0.014 252);
+    --figure-glow-primary: oklch(0.58 0.19 269 / 0.4);
+    --figure-glow-accent: oklch(0.66 0.14 198 / 0.4);
+
+    /* Legacy Figure Tokens */
+    --figure-primary: oklch(0.77 0.12 268);
+    --figure-accent: oklch(0.79 0.11 198);
+    --figure-cite: oklch(0.82 0.12 80);
+
+    /* Shadows - Darker for dark mode */
+    --shadow-sm: 0 12px 36px color-mix(in srgb, oklch(0.06 0.01 255) 54%, transparent);
+    --shadow-md: 0 30px 82px color-mix(in srgb, oklch(0.04 0.008 255) 62%, transparent);
+  }
+}
+
+/* ============================================
+   Layer: Fonts
+   ============================================ */
+@layer fonts {
+  /* Inter - Primary UI Font */
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Cal Sans - Display Font */
+  @font-face {
+    font-family: 'Cal Sans';
+    src: url('/fonts/CalSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* JetBrains Mono - Monospace Font */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Font Family Variables */
+  :root {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-display: 'Cal Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+}
+
+/* ============================================
+   Layer: Base
+   ============================================ */
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   Layer: Layout
+   ============================================ */
+@layer layout {
+  .Layout {
+    background:
+      radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent), transparent 26%),
+      radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--vp-c-accent) 10%, transparent), transparent 22%),
+      linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 44%, var(--vp-c-bg)), var(--vp-c-bg));
+  }
+
+  .VPNav {
+    border-bottom: 1px solid var(--vp-c-border);
+    background: color-mix(in srgb, var(--vp-c-bg) 86%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .VPNavBarMenuLink,
+  .VPNavBarMenuGroup .button {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .VPNavBarMenuLink.active,
+  .VPNavBarMenuGroup.open .button {
+    color: var(--vp-c-brand-1);
+  }
+
+  .VPLocalSearchBox .shell {
+    border-radius: 22px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .VPSidebar {
+    padding: 28px 18px 108px;
+  }
+
+  .VPSidebarGroup {
+    margin-bottom: 18px;
+  }
+
+  .VPSidebarGroup .title {
+    padding: 8px 0 10px;
+    color: var(--vp-c-text-3);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .VPSidebarItem .item {
+    padding-inline: 0;
+  }
+
+  .VPSidebarItem .text {
+    border-radius: 12px;
+    transition: background var(--duration-fast) var(--ease-out-expo),
+                color var(--duration-fast) var(--ease-out-expo),
+                transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .VPSidebarItem .text:hover {
+    background: color-mix(in srgb, var(--vp-c-brand-soft) 44%, transparent);
+    color: var(--vp-c-brand-1);
+    transform: translateX(2px);
+  }
+
+  .VPSidebarItem.is-active .text {
+    background: color-mix(in srgb, var(--vp-c-brand-soft) 72%, transparent);
+    color: var(--vp-c-text-1);
+    font-weight: 700;
+  }
+
+  .VPHero,
+  .VPDoc,
+  .VPFeatures {
+    padding-inline: 24px;
+  }
+
+  .VPHero .container,
+  .VPDoc .container,
+  .VPFeatures .container {
+    max-width: var(--shell-max-width);
+  }
+
+  .VPDoc {
+    padding-top: 38px;
+    padding-bottom: 112px;
+  }
+
+  .VPDoc .content {
+    max-width: var(--copy-max-width);
+  }
+
+  .VPDoc.has-aside .content-container {
+    gap: 42px;
+  }
+
+  .VPFooter {
+    border-top: 1px solid var(--vp-c-border);
+    background: color-mix(in srgb, var(--surface-2) 62%, var(--vp-c-bg-alt));
+  }
+
+  .VPFooter .message,
+  .VPFooter .copyright {
+    color: var(--vp-c-text-3);
+  }
+
+  /* Container Query Support with Fallback */
+  @supports (container-type: inline-size) {
+    .whitepaper-hero,
+    .system-showcase,
+    .curriculum-deck,
+    .citation-ledger {
+      container-type: inline-size;
+    }
+  }
+
+  /* Media Query Fallback */
+  @supports not (container-type: inline-size) {
+    @media (max-width: 768px) {
+      .whitepaper-hero,
+      .curriculum-deck__track,
+      .citation-ledger__row,
+      .system-showcase__rail {
+        grid-template-columns: 1fr;
+      }
+
+      .whitepaper-hero__signals {
+        grid-template-columns: 1fr;
+      }
+
+      .narrative-rail__stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  @media (max-width: 959px) {
+    .VPDoc,
+    .VPHero,
+    .VPFeatures {
+      padding-inline: 18px;
+    }
+  }
+}
+
+/* ============================================
+   Layer: Components
+   ============================================ */
+@layer components {
+  /* Import component styles */
+  @import './styles/components.css';
+  @import './styles/figures.css';
+}
+
+/* ============================================
+   Layer: Utilities
+   ============================================ */
+@layer utilities {
+  /* Glass Card Effect */
+  .glass-card {
+    background: color-mix(in srgb, var(--surface-1) 70%, transparent);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid color-mix(in srgb, var(--vp-c-border) 50%, transparent);
+    box-shadow: var(--shadow-sm),
+                inset 0 1px 0 color-mix(in srgb, var(--surface-1) 30%, transparent);
+  }
+
+  /* Glow Border Effect */
+  .glow-border {
+    position: relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--vp-c-brand-500), var(--vp-c-accent));
+    opacity: 0.3;
+    z-index: -1;
+    filter: blur(8px);
+    transition: opacity var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .glow-border:hover::before {
+    opacity: 0.5;
+  }
+
+  /* Grid Texture Background */
+  .grid-texture {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--vp-c-border) 30%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--vp-c-border) 30%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Interactive Card */
+  .interactive-card {
+    transition: transform var(--duration-normal) var(--ease-out-expo),
+                box-shadow var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ============================================
+   Layer: Overrides
+   ============================================ */
+@layer overrides {
+  /* VitePress theme overrides for consistency */
+  .VPButton.brand {
+    background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+    border-color: transparent;
+  }
+
+  .VPButton.brand:hover {
+    background: linear-gradient(135deg, var(--vp-c-brand-2), var(--vp-c-brand-3));
+  }
+}

@@ -1,3 +1,9 @@
+/* ============================================
+   Component Styles - Shared component styles
+   Note: Most components now use scoped styles
+   This file provides shared base styles
+   ============================================ */
+
 .home-shell {
   width: min(var(--shell-max-width), 100%);
   margin: 0 auto 84px;
@@ -12,22 +18,18 @@
 
 .section-heading h2 {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(28px, 3vw, 38px);
   letter-spacing: -0.03em;
+  color: var(--vp-c-text-1);
 }
 
-.section-heading p,
-.whitepaper-hero__summary,
-.narrative-rail__content p,
-.system-showcase__node p,
-.curriculum-deck__track p,
-.citation-ledger__body p,
-.signal-pill,
-.section-callout__body {
+.section-heading p {
   color: var(--vp-c-text-2);
   line-height: 1.82;
 }
 
+/* Signal Pill - Shared badge style */
 .signal-pill {
   display: inline-flex;
   align-items: center;
@@ -36,18 +38,29 @@
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-border));
   border-radius: 999px;
   background: color-mix(in srgb, var(--vp-c-brand-soft) 64%, transparent);
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
+  color: var(--vp-c-brand-1);
+  transition: background var(--duration-fast) var(--ease-out-expo);
 }
 
-.whitepaper-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
-  gap: var(--home-grid-gap);
-  align-items: stretch;
-  margin-bottom: 56px;
+.signal-pill:hover {
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 80%, transparent);
 }
 
+/* Shared text styles */
+.whitepaper-hero__summary,
+.narrative-rail__content p,
+.system-showcase__node p,
+.curriculum-deck__track p,
+.citation-ledger__body p,
+.section-callout__body {
+  color: var(--vp-c-text-2);
+  line-height: 1.82;
+}
+
+/* Base card styles */
 .whitepaper-hero__copy,
 .whitepaper-hero__figure,
 .system-showcase__canvas,
@@ -56,14 +69,11 @@
 .narrative-rail__stage {
   border: 1px solid var(--vp-c-border);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--surface-1) 94%, transparent), color-mix(in srgb, var(--surface-2) 88%, var(--surface-1)));
+  background: var(--surface-1);
   box-shadow: var(--shadow-sm);
 }
 
-.whitepaper-hero__copy {
-  padding: clamp(26px, 3vw, 40px);
-}
-
+/* Eyebrow/Kicker styles */
 .whitepaper-hero__kicker,
 .system-showcase__eyebrow,
 .curriculum-deck__audience,
@@ -71,52 +81,14 @@
 .narrative-rail__index {
   margin: 0;
   color: var(--vp-c-brand-1);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.whitepaper-hero h1 {
-  margin: 14px 0 16px;
-  font-size: clamp(40px, 6vw, 76px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
-}
-
-.whitepaper-hero__signals {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.whitepaper-hero__signal {
-  padding-top: 12px;
-  border-top: 1px solid var(--vp-c-border);
-}
-
-.whitepaper-hero__signal strong {
-  display: block;
-  color: var(--vp-c-text-1);
-  font-size: clamp(22px, 2.8vw, 32px);
-  line-height: 1.05;
-}
-
-.whitepaper-hero__signal span {
-  display: block;
-  margin-top: 6px;
-  color: var(--vp-c-text-3);
-  font-size: 13px;
-}
-
-.whitepaper-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
+/* Hero link styles */
 .hero-link {
   display: inline-flex;
   align-items: center;
@@ -125,13 +97,17 @@
   padding: 0 18px;
   border: 1px solid var(--vp-c-border);
   border-radius: 999px;
+  font-family: var(--font-sans);
   font-weight: 700;
   text-decoration: none;
-  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--duration-fast) var(--ease-out-expo),
+              background var(--duration-fast) var(--ease-out-expo),
+              border-color var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
 }
 
 .hero-link:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .hero-link--primary {
@@ -140,15 +116,22 @@
   color: var(--vp-c-text-1);
 }
 
+.hero-link--primary:hover {
+  box-shadow: var(--shadow-glow-brand);
+  border-color: var(--vp-c-brand-1);
+}
+
 .hero-link--secondary {
   background: transparent;
   color: var(--vp-c-text-2);
 }
 
-.whitepaper-hero__figure {
-  padding: 18px;
+.hero-link--secondary:hover {
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  color: var(--vp-c-text-1);
 }
 
+/* Section margins */
 .narrative-rail,
 .system-showcase,
 .curriculum-deck,
@@ -156,86 +139,33 @@
   margin-top: 42px;
 }
 
-.narrative-rail__list {
-  display: grid;
-  gap: 14px;
-}
-
-.narrative-rail__stage {
-  display: grid;
-  grid-template-columns: 94px minmax(0, 1fr);
-  gap: 18px;
-  padding: 22px;
-}
-
+/* Shared heading styles */
 .narrative-rail__content h3,
 .system-showcase__node h3,
 .curriculum-deck__track h3,
 .citation-ledger__body h3 {
   margin: 6px 0 10px;
+  font-family: var(--font-display);
   font-size: 22px;
   line-height: 1.22;
+  color: var(--vp-c-text-1);
 }
 
+/* Link styles */
 .narrative-rail__content a,
 .citation-ledger__row a {
   color: var(--vp-c-brand-1);
   font-weight: 700;
   text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
 }
 
-.system-showcase__canvas {
-  padding: 24px;
+.narrative-rail__content a:hover,
+.citation-ledger__row a:hover {
+  color: var(--vp-c-brand-2);
 }
 
-.system-showcase__rail {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.system-showcase__node {
-  min-height: 220px;
-  padding: 20px 18px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-border) 76%, transparent);
-  border-radius: var(--radius-md);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 72%, transparent), color-mix(in srgb, var(--surface-3) 44%, transparent));
-}
-
-.curriculum-deck__tracks {
-  display: grid;
-  gap: 16px;
-}
-
-.curriculum-deck__track {
-  display: grid;
-  grid-template-columns: minmax(240px, 0.45fr) minmax(0, 1fr);
-  gap: 20px;
-  padding: 24px;
-}
-
-.curriculum-deck__track ol {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.curriculum-deck__track li + li {
-  margin-top: 10px;
-}
-
-.citation-ledger__rows {
-  display: grid;
-  gap: 12px;
-}
-
-.citation-ledger__row {
-  display: grid;
-  grid-template-columns: 110px minmax(0, 1fr) auto;
-  gap: 18px;
-  align-items: start;
-  padding: 22px;
-}
-
+/* Responsive fallbacks */
 @media (max-width: 959px) {
   .whitepaper-hero,
   .curriculum-deck__track,
