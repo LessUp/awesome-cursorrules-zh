@@ -1,22 +1,33 @@
+/* ============================================
+   Figure Styles - SVG Graphics System
+   Enhanced for perfect light/dark mode support
+   ============================================ */
+
+/* === Figure Container === */
 .figure-panel {
   position: relative;
   overflow: hidden;
 }
 
+/* === Base SVG Figure === */
 .signal-figure {
   width: 100%;
   height: auto;
-  color: var(--vp-c-text-1);
+  color: var(--figure-text-label);
 }
 
+/* === Frame/Background === */
 .signal-figure__frame {
-  fill: color-mix(in srgb, var(--surface-1) 78%, transparent);
-  stroke: color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-border));
+  fill: color-mix(in srgb, var(--figure-fill-surface) 78%, transparent);
+  stroke: color-mix(in srgb, var(--figure-stroke-primary) 18%, var(--vp-c-border));
+  stroke-width: 2;
 }
 
+/* === Lines === */
 .signal-figure__line {
   fill: none;
   stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .signal-figure__line--soft {
@@ -25,39 +36,215 @@
 }
 
 .signal-figure__line--primary {
-  stroke: var(--figure-primary);
+  stroke: var(--figure-stroke-primary);
   stroke-width: 4;
+  filter: drop-shadow(0 0 4px var(--figure-glow-primary));
 }
 
 .signal-figure__line--accent {
-  stroke: var(--figure-accent);
+  stroke: var(--figure-stroke-accent);
   stroke-width: 4;
+  filter: drop-shadow(0 0 4px var(--figure-glow-accent));
 }
 
+.signal-figure__line--cite {
+  stroke: var(--figure-stroke-soft);
+  stroke-width: 3;
+}
+
+/* === Points/Circles === */
 .signal-figure__point {
-  stroke: color-mix(in srgb, var(--surface-1) 80%, transparent);
+  stroke: color-mix(in srgb, var(--figure-fill-surface) 80%, transparent);
   stroke-width: 6;
+  transition: transform var(--duration-normal) var(--ease-spring);
 }
 
 .signal-figure__point--primary {
-  fill: var(--figure-primary);
+  fill: var(--figure-stroke-primary);
+  filter: drop-shadow(0 0 8px var(--figure-glow-primary));
 }
 
 .signal-figure__point--accent {
-  fill: var(--figure-accent);
+  fill: var(--figure-stroke-accent);
+  filter: drop-shadow(0 0 8px var(--figure-glow-accent));
 }
 
 .signal-figure__point--cite {
-  fill: var(--figure-cite);
+  fill: var(--figure-stroke-soft);
 }
 
+/* === Labels === */
 .signal-figure__label text {
-  fill: currentColor;
+  fill: var(--figure-text-label);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* === Captions === */
+.signal-figure__caption text {
+  fill: var(--figure-text-caption);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* === Arrows === */
+.signal-figure__arrow {
+  fill: none;
+  stroke: var(--figure-stroke-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  marker-end: url(#arrowhead);
+  filter: drop-shadow(0 0 6px var(--figure-glow-accent));
+}
+
+/* === Architecture Diagram Styles === */
+.arch-diagram {
+  width: 100%;
+  height: auto;
+}
+
+.arch-diagram__layer {
+  fill: var(--figure-fill-surface);
+  stroke: var(--figure-stroke-primary);
+  stroke-width: 2;
+  transition: fill var(--duration-normal) var(--ease-out-expo);
+}
+
+.arch-diagram__layer:hover {
+  fill: color-mix(in srgb, var(--figure-fill-surface) 80%, var(--figure-stroke-primary));
+}
+
+.arch-diagram__label {
+  fill: var(--figure-text-label);
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
 }
 
-.signal-figure__caption text {
-  fill: color-mix(in srgb, currentColor 64%, transparent);
-  font-size: 16px;
+.arch-diagram__desc {
+  fill: var(--figure-text-caption);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.arch-diagram__connector {
+  stroke: var(--figure-stroke-accent);
+  stroke-width: 3;
+  stroke-dasharray: 8 4;
+  animation: flow 2s linear infinite;
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* === Decision Tree Diagram === */
+.decision-diagram {
+  width: 100%;
+  height: auto;
+}
+
+.decision-diagram__node {
+  fill: var(--figure-fill-surface);
+  stroke: var(--figure-stroke-primary);
+  stroke-width: 2;
+  rx: 12;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.decision-diagram__node:hover {
+  fill: color-mix(in srgb, var(--figure-fill-surface) 70%, var(--figure-stroke-primary));
+  stroke-width: 3;
+}
+
+.decision-diagram__node--active {
+  fill: color-mix(in srgb, var(--figure-fill-surface) 60%, var(--figure-stroke-primary));
+  stroke: var(--figure-stroke-accent);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 12px var(--figure-glow-accent));
+}
+
+.decision-diagram__label {
+  fill: var(--figure-text-label);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.decision-diagram__edge {
+  fill: none;
+  stroke: var(--figure-stroke-soft);
+  stroke-width: 2;
+  transition: stroke var(--duration-fast) var(--ease-out-expo);
+}
+
+.decision-diagram__edge--active {
+  stroke: var(--figure-stroke-accent);
+  stroke-width: 3;
+}
+
+/* === Enhanced Dark Mode Support === */
+.dark .signal-figure__frame {
+  stroke: color-mix(in srgb, var(--figure-stroke-primary) 30%, var(--vp-c-border));
+}
+
+.dark .signal-figure__line--soft {
+  stroke: color-mix(in srgb, var(--vp-c-border) 60%, transparent);
+}
+
+.dark .signal-figure__point {
+  stroke-width: 4;
+}
+
+/* === Themed SVG Wrapper === */
+.themed-svg {
+  color: var(--figure-text-label);
+  transition: filter var(--duration-normal) var(--ease-out-expo);
+}
+
+.themed-svg--dark {
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* === Interactive Figure Animations === */
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px var(--figure-glow-primary));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px var(--figure-glow-primary));
+  }
+}
+
+.signal-figure__point--animated {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 640px) {
+  .signal-figure__label text {
+    font-size: 14px;
+  }
+
+  .signal-figure__caption text {
+    font-size: 12px;
+  }
+
+  .arch-diagram__label {
+    font-size: 14px;
+  }
+
+  .arch-diagram__desc {
+    font-size: 12px;
+  }
 }
