@@ -81,7 +81,7 @@ const svgClasses = computed(() => [
         :x="100"
         :y="76 + i * 95"
         text-anchor="middle"
-        fill="white"
+        :fill="isDark ? 'white' : 'var(--figure-fill-surface)'"
         font-family="var(--font-display)"
         font-size="20"
         font-weight="700"

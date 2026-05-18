@@ -111,23 +111,32 @@ function createRuleSidebarGroups(lang: 'zh' | 'en') {
 
 export const zhNav = [
   { text: '项目导读', link: '/zh/introduction/mission', activeMatch: '/zh/introduction/' },
+  { text: '技术白皮书', link: '/zh/whitepaper/performance', activeMatch: '/zh/whitepaper/' },
   { text: '学院路径', link: '/zh/academy/learning-path', activeMatch: '/zh/academy/' },
   { text: '架构设计', link: '/zh/architecture/system-overview', activeMatch: '/zh/architecture/' },
-  { text: '实施指南', link: '/zh/guides/team-onboarding', activeMatch: '/zh/guides/' },
   { text: '规则索引', link: '/zh/rules/', activeMatch: '/zh/rules/' },
   { text: '研究引用', link: '/zh/research/references', activeMatch: '/zh/research/' },
 ];
 
 export const enNav = [
   { text: 'Introduction', link: '/en/introduction/mission', activeMatch: '/en/introduction/' },
+  { text: 'Whitepaper', link: '/en/whitepaper/performance', activeMatch: '/en/whitepaper/' },
   { text: 'Academy', link: '/en/academy/learning-path', activeMatch: '/en/academy/' },
   { text: 'Architecture', link: '/en/architecture/system-overview', activeMatch: '/en/architecture/' },
-  { text: 'Guides', link: '/en/guides/team-onboarding', activeMatch: '/en/guides/' },
   { text: 'Rules Index', link: '/en/rules/', activeMatch: '/en/rules/' },
   { text: 'Research', link: '/en/research/references', activeMatch: '/en/research/' },
 ];
 
 export const zhSidebar = {
+  '/zh/whitepaper/': [
+    {
+      text: '技术白皮书',
+      items: [
+        { text: '性能分析', link: '/zh/whitepaper/performance' },
+        { text: '设计决策', link: '/zh/whitepaper/design-decisions' },
+      ],
+    },
+  ],
   '/zh/introduction/': [
     {
       text: '项目导读',
@@ -143,6 +152,7 @@ export const zhSidebar = {
       items: [
         { text: '学院路径', link: '/zh/academy/learning-path' },
         { text: '维护者课程', link: '/zh/academy/maintainer-curriculum' },
+        { text: '企业案例研究', link: '/zh/academy/case-studies/enterprise-adoption' },
       ],
     },
   ],
@@ -174,6 +184,7 @@ export const zhSidebar = {
       text: '研究引用',
       items: [
         { text: '参考文献', link: '/zh/research/references' },
+        { text: 'Prompt 工程解读', link: '/zh/research/papers/prompt-engineering' },
         { text: '相关开源项目探究', link: '/zh/resources/ecosystem' },
         { text: '演进思考', link: '/zh/resources/extended-reading' },
         { text: '更新日志', link: '/zh/changelog' },
@@ -208,6 +219,15 @@ export const zhSidebar = {
 };
 
 export const enSidebar = {
+  '/en/whitepaper/': [
+    {
+      text: 'Whitepaper',
+      items: [
+        { text: 'Performance Analysis', link: '/en/whitepaper/performance' },
+        { text: 'Design Decisions', link: '/en/whitepaper/design-decisions' },
+      ],
+    },
+  ],
   '/en/introduction/': [
     {
       text: 'Introduction',
@@ -223,6 +243,7 @@ export const enSidebar = {
       items: [
         { text: 'Academy Path', link: '/en/academy/learning-path' },
         { text: 'Maintainer Curriculum', link: '/en/academy/maintainer-curriculum' },
+        { text: 'Enterprise Case Study', link: '/en/academy/case-studies/enterprise-adoption' },
       ],
     },
   ],
@@ -254,6 +275,7 @@ export const enSidebar = {
       text: 'Research',
       items: [
         { text: 'References', link: '/en/research/references' },
+        { text: 'Prompt Engineering Deep Dive', link: '/en/research/papers/prompt-engineering' },
         { text: 'Open Source Survey', link: '/en/resources/ecosystem' },
         { text: 'Evolution Notes', link: '/en/resources/extended-reading' },
         { text: 'Changelog', link: '/en/changelog' },

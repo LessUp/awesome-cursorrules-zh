@@ -1,4 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
+import 'virtual:uno.css'
 import './style.css'
 import ExecutiveHero from './components/ExecutiveHero.vue'
 import MetricBand from './components/MetricBand.vue'
@@ -17,6 +18,7 @@ import ReferenceCard from './components/ReferenceCard.vue'
 import ArchitectureDiagram from './components/ArchitectureDiagram.vue'
 import RuleDecisionTree from './components/RuleDecisionTree.vue'
 import RuleCard from './components/RuleCard.vue'
+import ThemedLogo from './components/ThemedLogo.vue'
 
 export default {
   ...DefaultTheme,
@@ -38,6 +40,7 @@ export default {
     app.component('ArchitectureDiagram', ArchitectureDiagram)
     app.component('RuleDecisionTree', RuleDecisionTree)
     app.component('RuleCard', RuleCard)
+    app.component('ThemedLogo', ThemedLogo)
 
     // Legacy Components (kept for backward compatibility)
     app.component('ExecutiveHero', ExecutiveHero)

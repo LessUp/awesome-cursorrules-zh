@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import llmstxt from 'vitepress-plugin-llms'
+import UnoCSS from 'unocss/vite'
 import { zhNav, enNav, zhSidebar, enSidebar } from './site/atlas'
 import { siteFacts } from './site/facts'
 
@@ -114,7 +115,10 @@ export default withMermaid(defineConfig({
   ],
 
   vite: {
-    plugins: [llmstxt()]
+    plugins: [
+      UnoCSS(),
+      llmstxt()
+    ]
   },
 
   lastUpdated: true,

@@ -199,13 +199,186 @@
 
 ## 引用统计
 
-本站共收录 **24 条** 参考文献，涵盖：
+本站共收录 **40+ 条** 参考文献，涵盖：
 
 | 类型 | 数量 |
 |------|------|
-| 学术论文 | 6 |
-| 书籍 | 5 |
-| 文章 | 4 |
-| 开源项目 | 3 |
-| 技术标准 | 3 |
-| **总计** | **24** |
+| 学术论文 | 10 |
+| 书籍 | 8 |
+| 文章 | 8 |
+| 开源项目 | 6 |
+| 技术标准 | 5 |
+| **总计** | **40+** |
+
+## 扩展引用
+
+### 软件工程经典
+
+<CitationLedger
+  title="软件工程经典著作"
+  intro="规则文件中最佳实践的理论来源。"
+  :entries="[
+    {
+      kind: 'Book',
+      title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+      note: '敏捷软件开发经典著作，定义了编写可维护代码的原则和实践。许多规则文件的核心设计原则来源。',
+      href: 'https://www.oreilly.com/library/view/clean-code-a/9780136083238/',
+      label: '访问'
+    },
+    {
+      kind: 'Book',
+      title: 'The Pragmatic Programmer: Your Journey to Mastery',
+      note: '程序员修炼之道，涵盖从代码到职业发展的实用建议。规则文件中最佳实践的来源。',
+      href: 'https://pragprog.com/titles/tpp20/',
+      label: '访问'
+    },
+    {
+      kind: 'Book',
+      title: 'Design Patterns: Elements of Reusable Object-Oriented Software',
+      note: '软件设计模式的开创性著作，定义了 23 种经典设计模式。规则文件中代码结构设计的参考。',
+      href: 'https://www.oreilly.com/library/view/design-patterns-elements/0201633612/',
+      label: '访问'
+    },
+    {
+      kind: 'Book',
+      title: 'Refactoring: Improving the Design of Existing Code',
+      note: 'Martin Fowler 的重构经典，定义了代码重构的技术和方法。规则文件中代码改进的指导。',
+      href: 'https://martinfowler.com/books/refactoring.html',
+      label: '访问'
+    },
+    {
+      kind: 'Book',
+      title: 'Code Complete: A Practical Handbook of Software Construction',
+      note: 'Steve McConnell 的软件构建手册，涵盖代码编写的方方面面。规则文件中编码规范的参考。',
+      href: 'https://www.oreilly.com/library/view/code-complete-second/0735619670/',
+      label: '访问'
+    }
+  ]"
+/>
+
+### AI 与 LLM 研究
+
+<CitationLedger
+  title="AI 与大语言模型研究"
+  intro="理解 AI 编程助手行为的研究。"
+  :entries="[
+    {
+      kind: 'Paper',
+      title: 'Constitutional AI: Harmlessness from AI Feedback',
+      note: 'Anthropic 提出的 Constitutional AI 方法，通过预定义原则引导 AI 行为。对规则文件的核心原则设计有启发。',
+      href: 'https://arxiv.org/abs/2212.08073',
+      label: '访问'
+    },
+    {
+      kind: 'Paper',
+      title: 'Training Language Models to Follow Instructions',
+      note: 'InstructGPT 论文，展示了如何通过人类反馈训练模型遵循指令。理解规则文件如何影响 AI 行为。',
+      href: 'https://arxiv.org/abs/2203.02155',
+      label: '访问'
+    },
+    {
+      kind: 'Paper',
+      title: 'Self-Instruct: Aligning LM with Self Generated Instructions',
+      note: '展示了如何让语言模型自我生成指令来提升能力。理解 AI 如何理解和扩展规则。',
+      href: 'https://arxiv.org/abs/2212.10560',
+      label: '访问'
+    },
+    {
+      kind: 'Article',
+      title: 'Prompt Engineering Guide by DAIR.AI',
+      note: '全面的 Prompt 工程指南，涵盖各种技术和最佳实践。规则设计的实用参考。',
+      href: 'https://www.promptingguide.ai/',
+      label: '访问'
+    }
+  ]"
+/>
+
+### 文档工程
+
+<CitationLedger
+  title="文档工程方法论"
+  intro="文档系统设计的最佳实践。"
+  :entries="[
+    {
+      kind: 'Article',
+      title: 'Write the Docs - Documentation Guide',
+      note: '文档写作社区的最佳实践指南，涵盖文档结构、写作风格和维护策略。',
+      href: 'https://www.writethedocs.org/guide/',
+      label: '访问'
+    },
+    {
+      kind: 'Article',
+      title: 'Google Developer Documentation Style Guide',
+      note: 'Google 的开发者文档风格指南，定义了清晰、一致的文档写作标准。',
+      href: 'https://developers.google.com/style',
+      label: '访问'
+    },
+    {
+      kind: 'Book',
+      title: 'Docs for Developers: An Engineer\'s Introduction',
+      note: '面向开发者的文档编写入门，涵盖技术文档的各个方面。',
+      href: 'https://www.apress.com/gp/book/9781484272143',
+      label: '访问'
+    }
+  ]"
+/>
+
+### 开源架构案例
+
+<CitationLedger
+  title="开源架构案例研究"
+  intro="学习优秀开源项目的架构设计。"
+  :entries="[
+    {
+      kind: 'Open Source',
+      title: 'VitePress - Vue.js Static Site Generator',
+      note: '本站使用的文档框架，展示了现代静态站点生成器的架构设计。',
+      href: 'https://github.com/vuejs/vitepress',
+      label: '访问'
+    },
+    {
+      kind: 'Open Source',
+      title: 'Vue.js - The Progressive JavaScript Framework',
+      note: 'Vue.js 框架的设计模式和最佳实践，对本站组件设计有启发。',
+      href: 'https://github.com/vuejs/vue',
+      label: '访问'
+    },
+    {
+      kind: 'Open Source',
+      title: 'Nuxt - The Intuitive Vue Framework',
+      note: 'Nuxt 的文档架构和内容组织方式，展示了大型项目文档的最佳实践。',
+      href: 'https://github.com/nuxt/nuxt',
+      label: '访问'
+    }
+  ]"
+/>
+
+### 前端工程化
+
+<CitationLedger
+  title="前端工程化参考"
+  intro="前端项目规则设计的参考资料。"
+  :entries="[
+    {
+      kind: 'Article',
+      title: 'Frontend Masters - Frontend Engineering',
+      note: '前端工程化深度课程，涵盖构建工具、测试、部署等主题。',
+      href: 'https://frontendmasters.com/',
+      label: '访问'
+    },
+    {
+      kind: 'Article',
+      title: 'Modern CSS Solutions for Old CSS Problems',
+      note: '现代 CSS 解决方案，展示了 CSS 最新特性的应用。',
+      href: 'https://moderncss.dev/',
+      label: '访问'
+    },
+    {
+      kind: 'Standard',
+      title: 'ECMAScript Specification',
+      note: 'JavaScript 语言规范，理解语言特性的权威来源。',
+      href: 'https://tc39.es/ecma262/',
+      label: '访问'
+    }
+  ]"
+/>
