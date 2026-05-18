@@ -29,7 +29,7 @@ const svgClasses = computed(() => [
 </script>
 
 <template>
-  <svg :class="svgClasses" viewBox="0 0 800 420" role="img" aria-label="系统架构图">
+  <svg :class="svgClasses" viewBox="0 0 800 460" role="img" aria-label="系统架构图">
     <defs>
       <!-- Gradient for layers -->
       <linearGradient id="layer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -53,13 +53,13 @@ const svgClasses = computed(() => [
     </defs>
 
     <!-- Background -->
-    <rect x="10" y="10" width="780" height="400" rx="20" fill="var(--figure-fill-surface)" stroke="var(--figure-stroke-primary)" stroke-width="1" opacity="0.3"/>
+    <rect x="10" y="10" width="780" height="440" rx="20" fill="var(--figure-fill-surface)" stroke="var(--figure-stroke-primary)" stroke-width="1" opacity="0.3"/>
 
     <!-- Layer rectangles -->
     <g v-for="(layer, i) in layers" :key="layer.name">
       <rect
         :x="50"
-        :y="30 + i * 95"
+        :y="30 + i * 104"
         width="700"
         height="80"
         rx="12"
@@ -70,7 +70,7 @@ const svgClasses = computed(() => [
       <!-- Layer icon circle -->
       <circle
         :cx="100"
-        :cy="70 + i * 95"
+        :cy="70 + i * 104"
         r="28"
         fill="url(#layer-gradient)"
         filter="url(#glow)"
@@ -79,7 +79,7 @@ const svgClasses = computed(() => [
       <!-- Layer number -->
       <text
         :x="100"
-        :y="76 + i * 95"
+        :y="76 + i * 104"
         text-anchor="middle"
         :fill="isDark ? 'white' : 'var(--figure-fill-surface)'"
         font-family="var(--font-display)"
@@ -92,7 +92,7 @@ const svgClasses = computed(() => [
       <!-- Layer name (English) -->
       <text
         :x="150"
-        :y="60 + i * 95"
+        :y="60 + i * 104"
         class="arch-diagram__label"
       >
         {{ layer.name }}
@@ -101,7 +101,7 @@ const svgClasses = computed(() => [
       <!-- Layer name (Chinese) -->
       <text
         :x="150"
-        :y="82 + i * 95"
+        :y="82 + i * 104"
         class="arch-diagram__label-zh"
       >
         {{ layer.nameZh }}
@@ -110,7 +110,7 @@ const svgClasses = computed(() => [
       <!-- Layer description -->
       <text
         :x="150"
-        :y="100 + i * 95"
+        :y="100 + i * 104"
         class="arch-diagram__desc"
       >
         {{ layer.desc }}
@@ -119,13 +119,13 @@ const svgClasses = computed(() => [
 
     <!-- Connection arrows -->
     <g class="arch-diagram__connections">
-      <path d="M400 110 L400 125" class="arch-diagram__arrow" />
-      <path d="M400 205 L400 220" class="arch-diagram__arrow" />
-      <path d="M400 300 L400 315" class="arch-diagram__arrow" />
+      <path d="M400 110 L400 134" class="arch-diagram__arrow" />
+      <path d="M400 214 L400 238" class="arch-diagram__arrow" />
+      <path d="M400 318 L400 342" class="arch-diagram__arrow" />
     </g>
 
     <!-- Title -->
-    <text x="400" y="400" text-anchor="middle" class="arch-diagram__title">
+    <text x="400" y="440" text-anchor="middle" class="arch-diagram__title">
       Awesome Cursor Rules Academy · 四层系统架构
     </text>
   </svg>
