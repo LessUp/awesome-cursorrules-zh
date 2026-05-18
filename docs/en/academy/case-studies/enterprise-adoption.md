@@ -41,6 +41,7 @@ This document shares practical experience of enterprise-level team adopting Awes
 **Pilot Team**: Frontend team (10 people)
 
 **Results**:
+
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
 | AI code acceptance rate | 28% | 42% | +50% |

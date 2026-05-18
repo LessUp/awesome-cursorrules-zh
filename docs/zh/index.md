@@ -13,130 +13,120 @@ onMounted(() => {
 
 <div class="home-shell">
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
-    <SignalPill label="项目白皮书" />
-    <SignalPill label="架构展厅" />
-    <SignalPill label="研究引用" />
+    <SignalPill label="系统架构白皮书" />
+    <SignalPill label="规则编排算法" />
+    <SignalPill label="性能与证据" />
+    <SignalPill label="参考与演进" />
   </div>
 
   <WhitepaperHero
-    kicker="Technical Whitepaper / Architecture Showcase / Research Library"
-    title="把 Cursor Rules 做成可审阅的工程知识学院"
-    summary="这个站点不再用规则数量争取注意力，而是用清晰的论点、系统总览、学院路径和研究引用证明项目的长期价值。"
+    kicker="System Architecture Whitepaper / Rule Orchestration Algorithm / Evidence Dossier"
+    title="把 Cursor Rules 重构成可审阅、可论证、可引用的工程研究门户"
+    summary="这个首页不再只是入口页，而是整个项目的总论：先说明系统如何组织，再解释规则编排算法如何工作，最后给出性能、证据和参考资料，让严苛审稿人也能快速建立信任。"
     :indicators="[
       { label: '规则资产', value: `${siteFacts.ruleCount}+` },
       { label: '覆盖领域', value: `${siteFacts.domainCount}+` },
-      { label: '双语路径', value: `${siteFacts.localeCount}` }
+      { label: '高密度领域', value: `${siteFacts.coverageBuckets[0]?.count ?? 0}` }
     ]"
-    primary-href="./introduction/mission"
-    primary-label="先读项目使命"
-    secondary-href="./architecture/system-overview"
-    secondary-label="查看系统总览"
+    primary-href="./architecture/system-overview"
+    primary-label="进入系统架构"
+    secondary-href="./algorithms/overview"
+    secondary-label="查看算法机制"
   />
 
-  <NarrativeRail
-    title="先建立判断，再进入证据"
-    intro="建议按一条收敛路径阅读：先看项目使命，确认为什么值得关注；再看学院路径与架构设计，理解系统如何成立；最后把规则索引和研究引用当作证据层。"
+  <SignalGrid
+    eyebrow="Thesis Signals"
+    title="先立论，再展开系统、方法、证据与参考资料"
+    intro="首页负责回答四个问题：仓库到底在组织什么、系统架构是否成立、规则编排算法是否自洽、性能与证据是否足以支撑长期价值。"
+    :items="[
+      {
+        label: '规则资产',
+        value: `${siteFacts.ruleCount}+`,
+        detail: '所有页面、图示与论点都回到 rules/ 这个权威资产源。'
+      },
+      {
+        label: '知识覆盖',
+        value: `${siteFacts.domainCount}+`,
+        detail: '通过高密度与长尾领域并存的结构证明仓库不是单点技巧集合。'
+      },
+      {
+        label: '演进阶段',
+        value: `${siteFacts.timelineSignals.length}`,
+        detail: '从资产策展、叙事编排到证据发布，整个流程都被显式建模。'
+      }
+    ]"
+  />
+
+  <TopologyMap
+    eyebrow="System Topology"
+    title="系统架构白皮书：把仓库结构翻译成可解释的发布系统"
+    summary="站点不再依赖静态文案维持专业感，而是通过资产层、快照层、信息架构层、呈现层和发布层形成真正可审阅的工程结构。"
+    :layers="[
+      { name: '资产层', detail: 'rules/ 作为唯一事实源，避免首页指标与仓库真实状态脱节。' },
+      { name: '快照层', detail: 'sync-site-facts.mjs 生成结构化站点快照，为页面和图示提供同一份数据源。' },
+      { name: '信息架构层', detail: '导读、系统架构、算法机制、性能白皮书、参考与演进、规则证据形成稳定阅读链路。' },
+      { name: '呈现层', detail: '主题组件把指标、拓扑图、编排流水线和引文矩阵变成统一视觉语言。' },
+      { name: '发布层', detail: 'VitePress 与 GitHub Pages 输出最终的白皮书界面和证据库。' }
+    ]"
+  />
+
+  <PipelineCanvas
+    eyebrow="Method"
+    title="规则编排算法不是黑盒，而是一条可解释流水线"
+    summary="算法章节解释项目如何把离散的规则资产转化为分类、组合、升级路径与发布证据，避免站点沦为只会陈列数量的资源列表。"
     :stages="[
+      { name: '发现', detail: '递归扫描 rules/，识别规则资产与分类边界。' },
+      { name: '归类', detail: '将规则映射为覆盖桶、头部领域和长尾知识面。' },
+      { name: '编排', detail: '把规则组合模式、决策树与阅读路径组织成可执行的算法说明。' },
+      { name: '发布', detail: '把系统结构、性能与参考资料统一发布为证据化界面。' }
+    ]"
+  />
+
+  <SignalGrid
+    eyebrow="Performance & Evidence"
+    title="性能与证据不是附录，而是项目可信度的主体"
+    intro="这里的性能既包括构建链路，也包括导航效率、维护复杂度、图示可靠性和内容密度。真正的高级感来自于可解释和可验证，而不是夸张的动效。"
+    :items="[
       {
-        index: '01',
-        title: '项目导读',
-        body: '先用项目使命和读者地图确认这是不是一个值得深入的工程知识系统。',
-        href: './introduction/reader-map',
-        label: '查看读者地图'
+        label: '高密度领域',
+        value: `${siteFacts.coverageBuckets[0]?.count ?? 0}`,
+        detail: '头部领域承担方法论展示，形成可快速审阅的强信号。'
       },
       {
-        index: '02',
-        title: '学院路径',
-        body: '把面试官、架构师、维护者放入不同的学习路径，降低理解门槛。',
-        href: './academy/learning-path',
-        label: '进入学院路径'
+        label: '中密度领域',
+        value: `${siteFacts.coverageBuckets[1]?.count ?? 0}`,
+        detail: '中层覆盖证明仓库具备扩展性，而不是只围绕少量热点技术。'
       },
       {
-        index: '03',
-        title: '证据与研究',
-        body: '把 rules/ 作为证据层，同时把相关文档方法论、上游仓库和演进思考组织成研究引用。',
-        href: './research/references',
-        label: '浏览研究引用'
+        label: '长尾领域',
+        value: `${siteFacts.coverageBuckets[2]?.count ?? 0}`,
+        detail: '长尾知识面为项目提供更强的研究价值和引用价值。'
       }
     ]"
   />
 
-  <SystemShowcase
-    title="系统总览，不只是换一层皮"
-    summary="工程化层面对齐 kimi-cli docs 的思路：构建前同步站点事实、显式组织导航与侧边栏、让主题组件服务于内容叙事，而不是堆装饰。"
-    :nodes="[
-      {
-        eyebrow: 'Source Assets',
-        title: 'rules/ 作为权威资产源',
-        detail: '所有计数和领域覆盖都从规则资产自动提取，避免首页指标与真实仓库脱节。'
-      },
-      {
-        eyebrow: 'Narrative Shell',
-        title: '导读、学院、架构、指南',
-        detail: '目录树从简单分类切换为白皮书式解释链路，先帮助读者完成判断。'
-      },
-      {
-        eyebrow: 'Publishing Layer',
-        title: 'VitePress 主题与生成事实',
-        detail: '主题令牌、可视化组件和同步脚本共同定义站点的一致性与可维护性。'
-      },
-      {
-        eyebrow: 'Evidence Layer',
-        title: '规则索引与研究引用',
-        detail: '规则页负责证据，研究页负责背书，避免首页继续像一个目录生成器。'
-      }
-    ]"
-  />
-
-  <CurriculumDeck
-    title="学院路径，用角色组织阅读深度"
-    intro="不同读者不必共享同一条导航起点，但他们最终会汇入同一套系统认识。"
-    :tracks="[
-      {
-        name: '面试官 / 审阅者路径',
-        audience: 'Fast pass',
-        outcome: '在最短时间内判断项目是否具备结构、深度和持续演进能力。',
-        steps: ['从项目使命理解站点为什么不再是规则目录', '看系统总览确认工程化与发布策略', '用研究引用和规则索引做交叉验证']
-      },
-      {
-        name: '架构师路径',
-        audience: 'Architecture pass',
-        outcome: '理解资产源、叙事层、主题层和研究层如何形成闭环。',
-        steps: ['先看系统总览与站点蓝图', '再看学院路径确认不同角色的进入顺序', '最后评估规则组合模式与内容系统']
-      },
-      {
-        name: '维护者路径',
-        audience: 'Maintainer pass',
-        outcome: '明确如何新增规则、更新叙事页面、校验指标并保持双语一致。',
-        steps: ['从维护者课程掌握更新顺序', '用团队接入指南保持贡献流程统一', '将研究引用作为长期演进的参考索引']
-      }
-    ]"
-  />
-
-  <CitationLedger
-    title="研究引用，把项目拉到白皮书语境"
-    intro="这里不是装饰性友情链接，而是为文档结构、发布策略和开源项目定位提供方法论背书。"
+  <DossierMatrix
+    eyebrow="References & Evolution"
+    title="参考与演进：用学术与开源对照抬高整个项目的可信度"
+    intro="不是堆外链，而是明确每一种方法论、上游开源项目和参考文献分别影响了本站的哪一层设计。"
     :entries="[
       {
-        kind: 'Framework',
-        title: 'Diátaxis Documentation Framework',
-        note: '将教程、操作指南、解释与参考资料拆开，为本站的导读、学院、指南和研究区提供结构启发。',
-        href: 'https://diataxis.fr/',
-        label: '查看框架'
+        subject: 'Documentation Method',
+        source: 'Diátaxis',
+        adopted: '吸收其解释、指南、参考资料分层思路，避免全站只有一种写法。',
+        advance: '进一步收敛成导读、系统架构、算法机制、性能白皮书与规则证据的阅读路径。'
       },
       {
-        kind: 'Open Source',
-        title: 'MoonshotAI / kimi-cli',
-        note: '参考其 VitePress 工程组织与 docs 同步策略，并将其演化为更重叙事与视觉的白皮书型外壳。',
-        href: 'https://github.com/MoonshotAI/kimi-cli',
-        label: '查看仓库'
+        subject: 'Docs Engineering',
+        source: 'MoonshotAI / kimi-cli',
+        adopted: '继承构建前同步 docs 数据的工程思路。',
+        advance: '把同步数据升级为支撑拓扑图、性能页和引文矩阵的白皮书级快照。'
       },
       {
-        kind: 'Book',
-        title: 'The Architecture of Open Source Applications',
-        note: '提醒项目展示不应只停留在功能清单，而要公开解释系统结构与边界。',
-        href: 'https://aosabook.org/en/index.html',
-        label: '查看书籍'
+        subject: 'Open Source Framing',
+        source: 'AOSA + 同类仓库对照',
+        adopted: '强调开源项目不仅要列能力，还要解释结构、边界与权衡。',
+        advance: '将 rules/ 从单纯目录升级为“规则证据库”，让参考与演进成为长期护城河。'
       }
     ]"
   />

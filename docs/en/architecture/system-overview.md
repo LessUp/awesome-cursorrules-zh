@@ -1,46 +1,68 @@
 # System Overview
 
-`Awesome Cursor Rules Academy` is not only a visual refresh. It is a full content and publication pipeline.
+The site is no longer just a polished landing page. It is a system architecture whitepaper that explains how repository assets become an evidence-driven publication surface.
 
-<SystemShowcase
-  title="Four layers turn repository facts into a whitepaper-grade presentation"
-  summary="Rule assets, generated site facts, narrative routes, and theme-aware publishing all work together as one system."
-  :nodes="[
-    {
-      eyebrow: 'Asset Layer',
-      title: 'Rule assets and category corpus',
-      detail: 'The rule files stay canonical, and the rules index remains the evidence layer.'
-    },
-    {
-      eyebrow: 'Sync Layer',
-      title: 'Generated site facts before build',
-      detail: 'Rule counts, domain coverage, and top categories are refreshed before dev and build so the shell never drifts from the repository.'
-    },
-    {
-      eyebrow: 'Narrative Layer',
-      title: 'Introduction, academy, architecture, guides',
-      detail: 'The new IA explains why the project matters before readers move into implementation detail.'
-    },
-    {
-      eyebrow: 'Publishing Layer',
-      title: 'Theme components and GitHub Pages',
-      detail: 'Theme-aware figures, citation surfaces, and editorial components carry the project outward through GitHub Pages.'
-    }
+<TopologyMap
+  eyebrow="Five-Layer System"
+  title="A five-layer system turns the repository into a review-grade publication surface"
+  summary="Each layer has one explicit job so the corpus, the site shell, and the GitHub Pages output remain aligned."
+  :layers="[
+    { name: 'Asset Layer', detail: 'rules/ stays canonical and defines the evidence boundary.' },
+    { name: 'Snapshot Layer', detail: 'sync-site-facts.mjs produces categoryDistribution, coverageBuckets, and qualitySignals.' },
+    { name: 'IA Layer', detail: 'Introduction, architecture, algorithms, performance, references, and evidence form the reading order.' },
+    { name: 'Presentation Layer', detail: 'SignalGrid, TopologyMap, PipelineCanvas, and DossierMatrix expose metrics and arguments.' },
+    { name: 'Publishing Layer', detail: 'VitePress and GitHub Pages publish the final whitepaper shell and its publish evidence.' }
   ]"
 />
 
+## The five-layer system
+
+### 1. Asset layer
+
+- **Job:** keep the rule corpus canonical.
+- **Location:** `rules/`
+- **Why it matters:** every metric, evidence page, and claim must be traceable to repository state.
+
+### 2. Snapshot layer
+
+- **Job:** translate repository state into structured data.
+- **Location:** `docs/scripts/sync-site-facts.mjs`, `docs/.vitepress/site/facts.ts`
+- **Why it matters:** the snapshot layer keeps metrics, diagrams, and dossiers consistent instead of hand-maintained.
+
+### 3. IA layer
+
+- **Job:** decide the shortest review path for senior readers.
+- **Location:** `docs/.vitepress/site/atlas.ts`
+- **Why it matters:** the site now explains context first, then architecture, then the rule orchestration flow, and only then the evidence corpus.
+
+### 4. Presentation layer
+
+- **Job:** render a coherent visual language for topology, pipeline, evidence, and references.
+- **Location:** `docs/.vitepress/theme/`
+- **Why it matters:** figure tokens remove the old light/dark SVG fragility and make the diagrams reusable across chapters.
+
+### 5. Publishing layer
+
+- **Job:** publish the final reading experience.
+- **Location:** `docs/.vitepress/config.ts`
+- **Why it matters:** the publishing layer keeps structure, metadata, and GitHub Pages output aligned without inventing new facts.
+
 ## Engineering decisions
 
-### Sync facts before VitePress runs
+### Repository assets outrank page copy
 
-Following a kimi-cli-like docs workflow, the site now generates build facts before `vitepress dev` and `vitepress build`. That keeps the homepage and configuration grounded in source assets.
+The rule corpus is not supporting material. It is the upstream source that drives metrics, diagrams, and the evidence layer.
 
-### Components exist to clarify the system
+### The snapshot layer outranks static metrics
 
-The theme now uses components with distinct narrative roles:
+The site now carries `categoryDistribution`, `coverageBuckets`, `qualitySignals`, and `timelineSignals`. That lets the architecture, performance, and references chapters share one factual base.
 
-- **WhitepaperHero** for thesis and reading direction
-- **NarrativeRail** for reading order
-- **SystemShowcase** for structural explanation
-- **CurriculumDeck** for role-specific paths
-- **CitationLedger** for research framing
+### Rule orchestration must be explainable
+
+Instead of stopping at a category index, the site documents the rule orchestration logic that turns isolated assets into review paths, composition patterns, and publish evidence.
+
+## Continue reading
+
+1. [Algorithms Overview](../algorithms/overview)
+2. [Performance Analysis](../whitepaper/performance)
+3. [References](../research/references)

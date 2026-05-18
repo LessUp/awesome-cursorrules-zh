@@ -1,35 +1,33 @@
-# 延伸阅读
+# 演进思考
 
-## 主题一：如何构建高质量规则
+这页专门记录还没有被完全解决、但已经清晰浮现的演进问题。
 
-建议重点关注以下问题：
+## 演进问题一：快照层的粒度
 
-1. 规则是否可执行，而不是口号化描述。
-2. 规则是否清楚声明了边界和例外。
-3. 规则是否能和项目目录结构、测试策略、架构分层共同工作。
+当前快照层已经输出分类分布、覆盖桶和质量信号，但还可以继续研究：
 
-## 主题二：如何让规则成为组织资产
+- 是否补充更细粒度的规则质量信号
+- 是否记录规则组合之间的关联强度
+- 是否支持更强的跨页面数据复用
 
-延伸阅读时，推荐重点关注：
+## 演进问题二：算法章节的可视化深度
 
-- Developer Experience / DevEx
-- Architecture Decision Records
-- Engineering playbooks
-- Team onboarding systems
+规则编排算法已经可读，但还可以继续增强：
 
-## 主题三：如何设计知识站点
+- 更丰富的升级路径图
+- 更细的决策树分支
+- 更强的场景化组合说明
 
-本项目这次重构的另一个重点，是把 GitHub Pages 从“展示页”升级为“知识站”。  
-如果你也在做类似事情，可以关注：
+## 演进问题三：竞品与证据库联动
 
-- Docs-as-code
-- Knowledge architecture
-- Information architecture
-- Content design systems
+未来可以把竞品分析和规则证据库做得更紧：
+
+- 让竞品对照直接对应到规则组合模式
+- 让参考文献与证据页形成更强的交叉引用
+- 让审稿人更容易看到“本站到底多推进了一步”
 
 ## 站点内的下一跳
 
-- 想理解项目定位：去看 [项目总览](../whitepaper/overview.md)
-- 想理解结构：去看 [站点蓝图](../architecture/blueprint.md)
-- 想实际落地：去看 [采用路径](../playbook/adoption-path.md)
-- 想浏览资产：去看 [规则总览](../rules/index.md)
+- [参考与演进](../research/references)
+- [性能白皮书](../whitepaper/performance)
+- [规则证据库](../rules/index.md)

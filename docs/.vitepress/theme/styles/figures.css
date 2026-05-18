@@ -9,6 +9,18 @@
   overflow: hidden;
 }
 
+.figure-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(color-mix(in srgb, var(--figure-grid) 42%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--figure-grid) 42%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
 /* === Base SVG Figure === */
 .signal-figure {
   width: 100%;
@@ -214,6 +226,52 @@
 
 .themed-svg--dark {
   filter: brightness(1.05) contrast(1.02);
+}
+
+.topology-map__figure {
+  width: 100%;
+  height: auto;
+  color: var(--figure-ink-strong);
+}
+
+.topology-map__layer {
+  fill: var(--figure-surface);
+  stroke: var(--figure-border);
+  stroke-width: 2;
+}
+
+.topology-map__point {
+  filter: drop-shadow(0 0 10px var(--figure-glow-primary));
+}
+
+.topology-map__index,
+.topology-map__label {
+  fill: var(--figure-ink-strong);
+  font-family: var(--font-display);
+}
+
+.topology-map__index {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.topology-map__label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.topology-map__detail {
+  fill: var(--figure-ink-soft);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.topology-map__link {
+  fill: none;
+  stroke: var(--figure-stroke-accent);
+  stroke-width: 3;
+  stroke-dasharray: 10 6;
+  animation: flow 2s linear infinite;
 }
 
 /* === Interactive Figure Animations === */

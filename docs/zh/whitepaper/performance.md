@@ -1,202 +1,61 @@
-# 性能分析白皮书
+# 性能白皮书
 
-本文档分析 Awesome Cursor Rules Academy 站点的性能特性和优化策略。
+性能不再被狭义地理解为“构建用了多少秒”。对一个研究型文档站而言，真正重要的是：生成链路是否稳定、导航是否高效、图示是否可靠、内容是否具备可维护性。
 
-## 性能指标概览
+<SignalGrid
+  eyebrow="Performance Signals"
+  title="从构建速度扩展到维护性、证据密度与发布可靠性"
+  intro="这个章节把性能分成四类：生成性能、导航性能、图示性能和维护性能。只有四类一起成立，站点才配称为白皮书级发布面。"
+  :items="[
+    { label: '规则资产', value: '132+', detail: '资产规模直接决定生成链路和阅读结构的复杂度。' },
+    { label: '领域覆盖', value: '32+', detail: '覆盖越广，越需要清晰的信息架构与稳定的快照层。' },
+    { label: '发布阶段', value: '3', detail: '策展、编排、发布三个阶段共同组成完整生成链路。' }
+  ]"
+/>
 
-| 指标 | 目标值 | 当前值 | 状态 |
-|------|--------|--------|------|
-| First Contentful Paint (FCP) | < 1.5s | ~1.2s | ✅ |
-| Largest Contentful Paint (LCP) | < 2.5s | ~2.1s | ✅ |
-| Total Blocking Time (TBT) | < 200ms | ~150ms | ✅ |
-| Cumulative Layout Shift (CLS) | < 0.1 | ~0.02 | ✅ |
-| Speed Index | < 3.0s | ~2.4s | ✅ |
+## 生成链路
 
-## 构建性能
+生成链路由三个部分组成：
 
-### 构建时间分析
+1. **资产发现**：扫描 `rules/`，确认真实规则资产与分类边界。
+2. **快照生成**：生成 `categoryDistribution`、`coverageBuckets`、`qualitySignals` 与 `timelineSignals`。
+3. **页面发布**：由 VitePress 把快照、图示和正文合成最终站点。
 
-```
-总构建时间: ~45s
-├── 同步站点事实: ~2s
-├── VitePress 编译: ~35s
-├── Mermaid 预渲染: ~5s
-└── 资源优化: ~3s
-```
+这条生成链路的核心价值，不是“快”，而是**页面与仓库事实不分裂**。
 
-### 优化策略
+## 维护性
 
-#### 1. CSS Cascade Layers
+维护性是本次重构最重要的性能指标之一。
 
-使用 CSS `@layer` 系统避免了样式优先级问题，减少了 `!important` 的使用：
+- **统一数据源**：所有关键指标从快照层派生，减少重复维护。
+- **统一视觉组件**：SignalGrid、TopologyMap、PipelineCanvas 与 DossierMatrix 复用同一套 token。
+- **统一阅读路径**：导读、系统架构、算法机制、性能白皮书、参考与演进、规则证据形成稳定目录树。
 
-```css
-@layer reset, tokens, fonts, base, layout, components, utilities, overrides;
-```
+当站点扩展到更多规则和专题时，维护性比一次构建快 3 秒更有长期价值。
 
-**收益**：
-- 样式计算时间减少 ~15%
-- CSS 体积减少 ~8%
+## 图示可靠性
 
-#### 2. 字体加载策略
+图示性能不是动画跑得多快，而是：
 
-采用 `font-display: swap` 策略：
+- 深浅色模式下是否都有足够对比度
+- 连线、背景、标签是否由 token 统一驱动
+- SVG 是否仍然可读，而不是在某个主题里“消失”
 
-```css
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Regular.ttf') format('truetype');
-  font-display: swap;  /* 关键优化 */
-}
-```
+因此本次重构把图形相关颜色从“零散样式”提升为专用 figure token 系统。
 
-**收益**：
-- FCP 提升约 300ms
-- 避免不可见文字闪烁 (FOIT)
+## 性能页为什么属于白皮书主体
 
-#### 3. 代码分割
+一个高级开发者在审阅项目时，不只会问“好不好看”，还会问：
 
-VitePress 自动按页面分割代码，Mermaid 按需加载：
+- 生成链路有没有事实来源？
+- 文档系统是否具备扩展后的维护性？
+- 图示和主题适配是否可靠？
+- 首页和专题页是否真的提高了导航效率？
 
-```typescript
-// Mermaid 仅在使用时加载
-import { withMermaid } from 'vitepress-plugin-mermaid'
-```
+这些问题构成了站点的真实性能画像。
 
-**收益**：
-- 初始 JS 体积减少 ~40KB (gzip)
-- 首页加载更快
+## 继续阅读
 
-#### 4. 图片优化
-
-- SVG 图标内联，减少 HTTP 请求
-- OG 图片使用预生成的静态文件
-- 字体文件使用 `.woff2` 格式（推荐升级）
-
-## 运行时性能
-
-### 组件渲染性能
-
-| 组件 | 渲染时间 | 优化建议 |
-|------|----------|----------|
-| WhitepaperHero | ~5ms | ✅ 已优化 |
-| ArchitectureDiagram | ~12ms | 考虑懒加载 |
-| CurriculumDeck | ~8ms | ✅ 已优化 |
-| CitationLedger | ~6ms | ✅ 已优化 |
-
-### 动画性能
-
-使用 `transform` 和 `opacity` 进行动画，避免触发重排：
-
-```css
-.interactive-card {
-  transition: transform 0.3s ease;
-}
-.interactive-card:hover {
-  transform: translateY(-4px);  /* GPU 加速 */
-}
-```
-
-## 规则文件性能
-
-### 加载性能
-
-单个规则文件平均大小：
-
-| 内容类型 | 平均大小 |
-|----------|----------|
-| .cursorrules 文件 | 2-5 KB |
-| README.md | 1-3 KB |
-| 合计 | 3-8 KB |
-
-### 解析性能
-
-VitePress 构建时预渲染所有规则索引，运行时无需解析规则文件：
-
-```typescript
-// 构建时预生成
-siteFacts = {
-  ruleCount: 132,
-  domainCount: 32,
-  topDomains: [...]
-}
-```
-
-## 性能基准测试
-
-### Lighthouse 评分
-
-```
-Performance:    95/100
-Accessibility:  98/100
-Best Practices: 100/100
-SEO:            100/100
-```
-
-### WebPageTest 结果
-
-```
-First View:
-├── Load Time: 2.4s
-├── Fully Loaded: 3.1s
-├── Requests: 28
-└── Bytes: 485KB
-
-Repeat View:
-├── Load Time: 0.8s
-├── Fully Loaded: 1.2s
-├── Requests: 12
-└── Bytes: 185KB
-```
-
-## 未来优化计划
-
-### 短期
-
-- [ ] 升级字体格式到 `.woff2`
-- [ ] 添加 Service Worker 缓存
-- [ ] 实现图片懒加载
-
-### 中期
-
-- [ ] 考虑 SSR 流式渲染
-- [ ] 添加关键 CSS 内联
-- [ ] 实现路由预加载
-
-### 长期
-
-- [ ] 探索 Islands Architecture
-- [ ] 考虑部分页面 CSR
-- [ ] 实现渐进式增强
-
-## 性能监控
-
-### 持续监控
-
-建议使用以下工具持续监控性能：
-
-1. **Lighthouse CI** - 每次 PR 自动运行
-2. **Web Vitals** - 收集真实用户数据
-3. **Bundlephobia** - 监控依赖体积
-
-### 性能预算
-
-```json
-{
-  "budget": {
-    "javascript": "150KB",
-    "css": "50KB",
-    "images": "200KB",
-    "fonts": "100KB",
-    "total": "500KB"
-  }
-}
-```
-
----
-
-## 相关文档
-
-- [设计决策记录](./design-decisions)
-- [系统总览](../architecture/system-overview)
-- [构建配置](../architecture/blueprint)
+1. [系统总览](../architecture/system-overview)
+2. [规则编排算法总览](../algorithms/overview)
+3. [参考与演进](../research/references)

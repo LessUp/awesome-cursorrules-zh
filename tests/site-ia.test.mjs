@@ -44,35 +44,43 @@ test('config keeps locale redirect and consumes both atlas navigation and genera
   assert.match(config, /location\.replace\(\(basePath \|\| ''\) \+ \(locale\.startsWith\('zh'\) \? '\/zh\/' : '\/en\/'\)\)/);
 });
 
-test('shared atlas defines the new academy-whitepaper IA for both locales', () => {
+test('generated site facts include whitepaper-ready distribution and quality signals', () => {
+  const facts = read('docs/.vitepress/site/facts.ts');
+
+  for (const field of ['categoryDistribution', 'coverageBuckets', 'qualitySignals', 'timelineSignals']) {
+    assert.match(facts, new RegExp(`"${field}"`));
+  }
+});
+
+test('shared atlas defines the whitepaper reading path for both locales', () => {
   const atlas = read('docs/.vitepress/site/atlas.ts');
 
-  for (const label of ['项目导读', '学院路径', '架构设计', '实施指南', '规则索引', '研究引用']) {
+  for (const label of ['导读', '系统架构', '算法机制', '性能白皮书', '参考与演进', '规则证据']) {
     assert.match(atlas, new RegExp(`text: '${label}'`));
   }
 
-  for (const label of ['Introduction', 'Academy', 'Architecture', 'Guides', 'Rules Index', 'Research']) {
+  for (const label of ['Introduction', 'Architecture', 'Algorithms', 'Performance', 'References', 'Evidence']) {
     assert.match(atlas, new RegExp(`text: '${label}'`));
   }
 
   for (const route of [
     '/zh/introduction/mission',
-    '/zh/academy/learning-path',
     '/zh/architecture/system-overview',
-    '/zh/guides/team-onboarding',
+    '/zh/algorithms/overview',
+    '/zh/whitepaper/performance',
     '/zh/rules/',
     '/zh/research/references',
     '/en/introduction/mission',
-    '/en/academy/learning-path',
     '/en/architecture/system-overview',
-    '/en/guides/team-onboarding',
+    '/en/algorithms/overview',
+    '/en/whitepaper/performance',
     '/en/rules/',
     '/en/research/references',
   ]) {
     assert.match(atlas, new RegExp(route.replaceAll('/', '\\/')));
   }
 
-  for (const legacy of ['项目主张', '白皮书', '采用路径', '资源网络', 'Project Thesis', 'Whitepaper', 'Adoption Paths', 'Resource Network']) {
+  for (const legacy of ['学院路径', '实施指南', 'Academy', 'Guides', 'Project Thesis', 'Adoption Paths', 'Resource Network']) {
     assert.doesNotMatch(atlas, new RegExp(`text: '${legacy}'`));
   }
 });
@@ -81,6 +89,7 @@ test('new Chinese IA entry pages exist', () => {
   for (const file of [
     'docs/zh/introduction/mission.md',
     'docs/zh/introduction/reader-map.md',
+    'docs/zh/algorithms/overview.md',
     'docs/zh/academy/learning-path.md',
     'docs/zh/academy/maintainer-curriculum.md',
     'docs/zh/architecture/system-overview.md',
@@ -110,14 +119,14 @@ test('composition patterns page links back to the new narrative context pages', 
   assert.match(page, /\[学院路径\]\(\.\.\/academy\/learning-path\)/);
 });
 
-test('zh homepage reads like a research-grade project introduction instead of an atlas shell', () => {
+test('zh homepage reads like a technical thesis with topology, pipeline, and dossier sections', () => {
   const homepage = read('docs/zh/index.md');
 
-  for (const section of ['WhitepaperHero', 'NarrativeRail', 'SystemShowcase', 'CurriculumDeck', 'CitationLedger']) {
+  for (const section of ['SignalGrid', 'TopologyMap', 'PipelineCanvas', 'DossierMatrix']) {
     assert.match(homepage, new RegExp(section));
   }
 
-  for (const phrase of ['项目白皮书', '架构展厅', '学院路径', '研究引用']) {
+  for (const phrase of ['系统架构白皮书', '规则编排算法', '性能与证据', '参考与演进']) {
     assert.match(homepage, new RegExp(phrase));
   }
 });
@@ -126,6 +135,7 @@ test('new English IA entry pages exist', () => {
   for (const file of [
     'docs/en/introduction/mission.md',
     'docs/en/introduction/reader-map.md',
+    'docs/en/algorithms/overview.md',
     'docs/en/academy/learning-path.md',
     'docs/en/academy/maintainer-curriculum.md',
     'docs/en/architecture/system-overview.md',
@@ -137,15 +147,51 @@ test('new English IA entry pages exist', () => {
   }
 });
 
-test('en homepage mirrors the new shell with concise whitepaper framing', () => {
+test('architecture and algorithm chapters explain the topology and orchestration pipeline', () => {
+  const zhArchitecture = read('docs/zh/architecture/system-overview.md');
+  const zhAlgorithms = read('docs/zh/algorithms/overview.md');
+  const enArchitecture = read('docs/en/architecture/system-overview.md');
+  const enAlgorithms = read('docs/en/algorithms/overview.md');
+
+  for (const phrase of ['五层系统', '快照层', '规则编排算法', '发布证据']) {
+    assert.match(`${zhArchitecture}\n${zhAlgorithms}`, new RegExp(phrase));
+  }
+
+  for (const phrase of ['five-layer system', 'snapshot layer', 'rule orchestration', 'publish evidence']) {
+    assert.match(`${enArchitecture}\n${enAlgorithms}`, new RegExp(phrase, 'i'));
+  }
+});
+
+test('performance and references chapters describe maintainability, competitors, and evolution', () => {
+  const zhBundle = [
+    read('docs/zh/whitepaper/performance.md'),
+    read('docs/zh/research/references.md'),
+    read('docs/zh/resources/extended-reading.md'),
+  ].join('\n');
+  const enBundle = [
+    read('docs/en/whitepaper/performance.md'),
+    read('docs/en/research/references.md'),
+    read('docs/en/resources/extended-reading.md'),
+  ].join('\n');
+
+  for (const phrase of ['维护性', '生成链路', '竞品', '演进问题']) {
+    assert.match(zhBundle, new RegExp(phrase));
+  }
+
+  for (const phrase of ['maintainability', 'generation pipeline', 'competitor', 'evolution questions']) {
+    assert.match(enBundle, new RegExp(phrase, 'i'));
+  }
+});
+
+test('en homepage mirrors the thesis shell with topology, pipeline, and dossier sections', () => {
   const homepage = read('docs/en/index.md');
 
-  for (const section of ['WhitepaperHero', 'NarrativeRail', 'SystemShowcase', 'CurriculumDeck', 'CitationLedger']) {
+  for (const section of ['SignalGrid', 'TopologyMap', 'PipelineCanvas', 'DossierMatrix']) {
     assert.match(homepage, new RegExp(section));
   }
 
-  assert.match(homepage, /technical whitepaper/i);
-  assert.match(homepage, /research references/i);
+  assert.match(homepage, /system architecture whitepaper/i);
+  assert.match(homepage, /rule orchestration algorithm/i);
 });
 
 test('English rules framing treats rules as the evidence layer in the new IA', () => {
@@ -161,30 +207,26 @@ test('English rules framing treats rules as the evidence layer in the new IA', (
   assert.match(compositionPatterns, /\[Academy Path\]\(\.\.\/academy\/learning-path\)/);
 });
 
-test('theme index registers the new presentation components and stylesheet stack', () => {
+test('theme index registers the whitepaper presentation components and figure tokens', () => {
   const themeIndex = read('docs/.vitepress/theme/index.ts');
   const styleIndex = read('docs/.vitepress/theme/style.css');
   const componentStyles = read('docs/.vitepress/theme/styles/components.css');
-  const tokens = read('docs/.vitepress/theme/styles/tokens.css');
+  const figureStyles = read('docs/.vitepress/theme/styles/figures.css');
 
   for (const component of [
-    'WhitepaperHero',
-    'NarrativeRail',
-    'SystemShowcase',
-    'CurriculumDeck',
-    'CitationLedger',
-    'SignalPill',
+    'SignalGrid',
+    'TopologyMap',
+    'PipelineCanvas',
+    'DossierMatrix',
   ]) {
     assert.match(themeIndex, new RegExp(`app\\.component\\('${component}'`));
   }
 
   assert.doesNotMatch(componentStyles, /border-left\s*:/);
   assert.doesNotMatch(componentStyles, /border-right\s*:/);
-  assert.match(tokens, /oklch\(/);
-
-  for (const sheet of ['tokens.css', 'layout.css', 'components.css', 'content.css', 'figures.css']) {
-    assert.match(styleIndex, new RegExp(sheet.replace('.', '\\.')));
-  }
+  assert.match(styleIndex, /--figure-surface:/);
+  assert.match(styleIndex, /--figure-border:/);
+  assert.match(figureStyles, /--figure-ink-strong|var\(--figure-text-label\)/);
 });
 
 test('SVG assets use theme-aware color hooks instead of hardcoded black or white fills', () => {

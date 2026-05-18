@@ -28,5 +28,201 @@ export const siteFacts = {
       "category": "ai",
       "count": 6
     }
+  ],
+  "categoryDistribution": [
+    {
+      "category": "frontend",
+      "count": 26,
+      "ratio": 0.197
+    },
+    {
+      "category": "backend",
+      "count": 21,
+      "ratio": 0.1591
+    },
+    {
+      "category": "devops",
+      "count": 12,
+      "ratio": 0.0909
+    },
+    {
+      "category": "general",
+      "count": 8,
+      "ratio": 0.0606
+    },
+    {
+      "category": "data",
+      "count": 7,
+      "ratio": 0.053
+    },
+    {
+      "category": "ai",
+      "count": 6,
+      "ratio": 0.0455
+    },
+    {
+      "category": "mobile",
+      "count": 5,
+      "ratio": 0.0379
+    },
+    {
+      "category": "security",
+      "count": 5,
+      "ratio": 0.0379
+    },
+    {
+      "category": "blockchain",
+      "count": 4,
+      "ratio": 0.0303
+    },
+    {
+      "category": "hardware",
+      "count": 4,
+      "ratio": 0.0303
+    },
+    {
+      "category": "bio",
+      "count": 3,
+      "ratio": 0.0227
+    },
+    {
+      "category": "edge",
+      "count": 3,
+      "ratio": 0.0227
+    },
+    {
+      "category": "emerging-tech",
+      "count": 3,
+      "ratio": 0.0227
+    },
+    {
+      "category": "iot",
+      "count": 3,
+      "ratio": 0.0227
+    },
+    {
+      "category": "platform",
+      "count": 3,
+      "ratio": 0.0227
+    },
+    {
+      "category": "cms",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "data-science",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "database",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "gaming",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "quantum",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "tools",
+      "count": 2,
+      "ratio": 0.0152
+    },
+    {
+      "category": "ar-vr",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "automation",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "cloud",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "compute",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "industrial",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "network",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "robotics",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "science",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "simulation",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "storage",
+      "count": 1,
+      "ratio": 0.0076
+    },
+    {
+      "category": "systems",
+      "count": 1,
+      "ratio": 0.0076
+    }
+  ],
+  "coverageBuckets": [
+    {
+      "label": "High-density domains",
+      "count": 4
+    },
+    {
+      "label": "Mid-density domains",
+      "count": 6
+    },
+    {
+      "label": "Long-tail domains",
+      "count": 22
+    }
+  ],
+  "qualitySignals": {
+    "dominantCategory": "frontend",
+    "dominantCategoryCount": 26,
+    "curatedSurfaceCount": 10,
+    "longTailCategoryCount": 17
+  },
+  "timelineSignals": [
+    {
+      "phase": "Asset curation",
+      "focus": "Normalize the rules corpus into a stable taxonomy."
+    },
+    {
+      "phase": "Narrative orchestration",
+      "focus": "Translate repository structure into explainable architecture and algorithm chapters."
+    },
+    {
+      "phase": "Evidence publication",
+      "focus": "Render metrics, references, and diagrams through the VitePress shell."
+    }
   ]
 } as const

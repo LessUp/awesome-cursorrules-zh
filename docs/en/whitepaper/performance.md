@@ -1,103 +1,52 @@
-# Performance Analysis Whitepaper
+# Performance Whitepaper
 
-This document analyzes the performance characteristics and optimization strategies of the Awesome Cursor Rules Academy site.
+Performance is no longer treated as raw build time alone. For a research-grade publication surface, the meaningful questions are whether the generation pipeline is stable, the reading path is efficient, the figures are reliable, and the shell remains maintainable.
 
-## Performance Metrics Overview
+<SignalGrid
+  eyebrow="Performance Signals"
+  title="Expand performance beyond build time into maintainability and evidence reliability"
+  intro="This chapter frames performance across four dimensions: generation, navigation, figure reliability, and maintainability."
+  :items="[
+    { label: 'Rule assets', value: '132+', detail: 'Corpus scale drives the complexity of the publication system.' },
+    { label: 'Domains', value: '32+', detail: 'Breadth requires a more disciplined IA and snapshot layer.' },
+    { label: 'Phases', value: '3', detail: 'Curation, orchestration, and publication define the generation pipeline.' }
+  ]"
+/>
 
-| Metric | Target | Current | Status |
-|--------|--------|---------|--------|
-| First Contentful Paint (FCP) | < 1.5s | ~1.2s | ✅ |
-| Largest Contentful Paint (LCP) | < 2.5s | ~2.1s | ✅ |
-| Total Blocking Time (TBT) | < 200ms | ~150ms | ✅ |
-| Cumulative Layout Shift (CLS) | < 0.1 | ~0.02 | ✅ |
-| Speed Index | < 3.0s | ~2.4s | ✅ |
+## Generation pipeline
 
-## Build Performance
+The generation pipeline has three stages:
 
-### Build Time Analysis
+1. **Asset discovery** across `rules/`
+2. **Snapshot generation** for `categoryDistribution`, `coverageBuckets`, `qualitySignals`, and `timelineSignals`
+3. **Publication rendering** through VitePress
 
-```
-Total build time: ~45s
-├── Sync site facts: ~2s
-├── VitePress compilation: ~35s
-├── Mermaid pre-rendering: ~5s
-└── Asset optimization: ~3s
-```
+The main benefit is alignment: the site shell stays grounded in repository facts instead of drifting into static copy.
 
-### Optimization Strategies
+## Maintainability
 
-#### 1. CSS Cascade Layers
+Maintainability is one of the core performance metrics in this redesign.
 
-Using CSS `@layer` system avoids style priority issues:
+- **Single data base:** metrics come from one snapshot layer
+- **Single visual language:** the whitepaper components share the same figure tokens
+- **Single reading path:** introduction, architecture, algorithms, performance, references, and evidence remain predictable
 
-```css
-@layer reset, tokens, fonts, base, layout, components, utilities, overrides;
-```
+That matters more in the long run than shaving a few seconds from a one-off build.
 
-**Benefits**:
-- Style calculation time reduced by ~15%
-- CSS volume reduced by ~8%
+## Figure reliability
 
-#### 2. Font Loading Strategy
+Figure performance here means:
 
-Using `font-display: swap` strategy:
+- light and dark mode stay readable
+- labels, lines, and surfaces come from consistent tokens
+- SVG diagrams remain visible instead of relying on brittle theme hacks
 
-```css
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Regular.ttf') format('truetype');
-  font-display: swap;  /* Key optimization */
-}
-```
+## Why this chapter belongs in the whitepaper
 
-**Benefits**:
-- FCP improved by ~300ms
-- Avoids FOIT (Flash of Invisible Text)
+Senior readers want to know whether the generation pipeline is trustworthy, whether the shell will remain maintainable, and whether the figures and navigation scale as the corpus grows. Those are whitepaper questions, not implementation trivia.
 
-#### 3. Code Splitting
+## Continue reading
 
-VitePress automatically splits code by page:
-
-**Benefits**:
-- Initial JS volume reduced by ~40KB (gzip)
-- Faster homepage loading
-
-## Runtime Performance
-
-### Component Rendering Performance
-
-| Component | Render Time | Recommendation |
-|-----------|-------------|----------------|
-| WhitepaperHero | ~5ms | ✅ Optimized |
-| ArchitectureDiagram | ~12ms | Consider lazy loading |
-| CurriculumDeck | ~8ms | ✅ Optimized |
-| CitationLedger | ~6ms | ✅ Optimized |
-
-### Animation Performance
-
-Using `transform` and `opacity` for animations to avoid reflow:
-
-```css
-.interactive-card {
-  transition: transform 0.3s ease;
-}
-.interactive-card:hover {
-  transform: translateY(-4px);  /* GPU accelerated */
-}
-```
-
-## Lighthouse Scores
-
-```
-Performance:    95/100
-Accessibility:  98/100
-Best Practices: 100/100
-SEO:            100/100
-```
-
----
-
-## Related Documentation
-
-- [Design Decisions](./design-decisions)
-- [System Overview](../architecture/system-overview)
+1. [System Overview](../architecture/system-overview)
+2. [Algorithms Overview](../algorithms/overview)
+3. [References](../research/references)

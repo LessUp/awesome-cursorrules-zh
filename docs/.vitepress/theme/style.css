@@ -101,6 +101,12 @@
     --figure-stroke-soft: oklch(0.72 0.15 76);
     --figure-fill-surface: oklch(0.99 0.004 255);
     --figure-fill-surface-alt: oklch(0.96 0.012 258);
+    --figure-surface: color-mix(in srgb, var(--surface-1) 92%, transparent);
+    --figure-surface-alt: color-mix(in srgb, var(--surface-2) 82%, transparent);
+    --figure-border: color-mix(in srgb, var(--figure-stroke-primary) 24%, var(--vp-c-border));
+    --figure-grid: color-mix(in srgb, var(--vp-c-border) 46%, transparent);
+    --figure-ink-strong: oklch(0.24 0.03 259);
+    --figure-ink-soft: oklch(0.42 0.02 255);
     --figure-text-label: oklch(0.24 0.03 269);
     --figure-text-caption: oklch(0.42 0.02 255);
     --figure-glow-primary: transparent;
@@ -247,6 +253,12 @@
     --figure-stroke-soft: oklch(0.84 0.13 80);
     --figure-fill-surface: oklch(0.22 0.02 260);
     --figure-fill-surface-alt: oklch(0.28 0.024 258);
+    --figure-surface: color-mix(in srgb, var(--surface-1) 84%, transparent);
+    --figure-surface-alt: color-mix(in srgb, var(--surface-2) 76%, transparent);
+    --figure-border: color-mix(in srgb, var(--figure-stroke-primary) 34%, var(--vp-c-border));
+    --figure-grid: color-mix(in srgb, var(--vp-c-border) 60%, transparent);
+    --figure-ink-strong: oklch(0.93 0.015 255);
+    --figure-ink-soft: oklch(0.78 0.014 252);
     --figure-text-label: oklch(0.93 0.015 255);
     --figure-text-caption: oklch(0.78 0.014 252);
     --figure-glow-primary: oklch(0.58 0.19 269 / 0.4);

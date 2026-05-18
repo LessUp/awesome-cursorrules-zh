@@ -16,7 +16,7 @@ const basePath = base === '/' ? '' : base.replace(/\/$/, '')
 export default withMermaid(defineConfig({
   base,
   title: 'Awesome Cursor Rules Academy',
-  description: `Technical whitepaper, architecture showcase, and research library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
+  description: `System architecture whitepaper, rule orchestration algorithms, performance dossier, and evidence library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
 
   locales: {
     zh: {
@@ -24,7 +24,7 @@ export default withMermaid(defineConfig({
       lang: 'zh-CN',
       link: '/zh/',
       title: 'Awesome Cursor Rules Academy',
-      description: `面向技术负责人与高级开发者的 Cursor 白皮书、架构展厅与研究引文库，覆盖 ${siteFacts.ruleCount}+ 条规则资产与 ${siteFacts.domainCount}+ 个领域`,
+      description: `面向高级开发者的系统架构白皮书、规则编排算法说明与研究型证据库，覆盖 ${siteFacts.ruleCount}+ 条规则资产与 ${siteFacts.domainCount}+ 个领域`,
       themeConfig: {
         nav: zhNav,
         sidebar: zhSidebar,
@@ -53,7 +53,7 @@ export default withMermaid(defineConfig({
         returnToTopLabel: '回到顶部',
         langMenuLabel: '多语言',
         footer: {
-          message: `以 ${siteFacts.ruleCount}+ 条规则资产、${siteFacts.domainCount}+ 个技术领域重构为白皮书、学院与研究站`,
+          message: `以 ${siteFacts.ruleCount}+ 条规则资产、${siteFacts.domainCount}+ 个技术领域构建系统白皮书、算法说明与证据站`,
           copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
         }
       }
@@ -63,7 +63,7 @@ export default withMermaid(defineConfig({
       lang: 'en-US',
       link: '/en/',
       title: 'Awesome Cursor Rules Academy',
-      description: `Technical whitepaper, architecture showcase, and research library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
+      description: `System architecture whitepaper, rule orchestration algorithms, performance dossier, and evidence library for ${siteFacts.ruleCount}+ Cursor rule assets across ${siteFacts.domainCount}+ domains`,
       themeConfig: {
         nav: enNav,
         sidebar: enSidebar,
@@ -82,7 +82,7 @@ export default withMermaid(defineConfig({
         returnToTopLabel: 'Return to top',
         langMenuLabel: 'Languages',
         footer: {
-          message: `Reframing ${siteFacts.ruleCount}+ rule assets across ${siteFacts.domainCount}+ domains as a whitepaper, academy, and research library`,
+          message: `Reframing ${siteFacts.ruleCount}+ rule assets across ${siteFacts.domainCount}+ domains as a whitepaper, algorithm dossier, and evidence library`,
           copyright: 'Copyright © 2024-2026 Awesome Cursor Rules Contributors | MIT License'
         }
       }

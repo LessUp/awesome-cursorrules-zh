@@ -13,130 +13,120 @@ onMounted(() => {
 
 <div class="home-shell">
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
-    <SignalPill label="Technical whitepaper" />
-    <SignalPill label="Architecture showcase" />
-    <SignalPill label="Research references" />
+    <SignalPill label="System architecture whitepaper" />
+    <SignalPill label="Rule orchestration algorithm" />
+    <SignalPill label="Performance and evidence" />
+    <SignalPill label="References and evolution" />
   </div>
 
   <WhitepaperHero
-    kicker="Technical Whitepaper / Architecture Showcase / Research References"
-    title="Make Cursor rules read like a reviewed engineering academy"
-    summary="This surface leads with thesis, system design, learning paths, and research references so the rules index becomes evidence instead of the only story."
+    kicker="System Architecture Whitepaper / Rule Orchestration Algorithm / Evidence Dossier"
+    title="Turn Cursor Rules into a reviewable engineering research portal"
+    summary="The homepage now behaves like the project thesis: explain the system first, make the orchestration algorithm legible, and back every claim with performance, evidence, and references."
     :indicators="[
       { label: 'Rule assets', value: `${siteFacts.ruleCount}+` },
       { label: 'Domains', value: `${siteFacts.domainCount}+` },
-      { label: 'Locales', value: `${siteFacts.localeCount}` }
+      { label: 'High-density domains', value: `${siteFacts.coverageBuckets[0]?.count ?? 0}` }
     ]"
-    primary-href="./introduction/mission"
-    primary-label="Read the mission"
-    secondary-href="./architecture/system-overview"
-    secondary-label="View the system"
+    primary-href="./architecture/system-overview"
+    primary-label="Open architecture"
+    secondary-href="./algorithms/overview"
+    secondary-label="Open algorithms"
   />
 
-  <NarrativeRail
-    title="A technical whitepaper needs a deliberate reading order"
-    intro="Start with mission and reader framing, continue into academy and architecture, then validate the case through the rules index and research references."
+  <SignalGrid
+    eyebrow="Thesis Signals"
+    title="A system architecture whitepaper needs structure before persuasion"
+    intro="The landing page answers four reviewer questions fast: what the repository organizes, how the publication system works, how the rule orchestration algorithm behaves, and why the evidence is credible."
+    :items="[
+      {
+        label: 'Rule assets',
+        value: `${siteFacts.ruleCount}+`,
+        detail: 'The repository remains the single source of truth for every metric and figure.'
+      },
+      {
+        label: 'Knowledge coverage',
+        value: `${siteFacts.domainCount}+`,
+        detail: 'Dense and long-tail domains together frame the corpus as a knowledge system.'
+      },
+      {
+        label: 'Phases',
+        value: `${siteFacts.timelineSignals.length}`,
+        detail: 'Curation, orchestration, and publication stay explicit instead of implied.'
+      }
+    ]"
+  />
+
+  <TopologyMap
+    eyebrow="System Topology"
+    title="The system architecture whitepaper translates repository facts into a publication system"
+    summary="Rather than relying on copy alone, the site is organized as asset, snapshot, IA, presentation, and publishing layers that can be reviewed independently."
+    :layers="[
+      { name: 'Asset Layer', detail: 'rules/ stays canonical so the shell cannot drift from the corpus.' },
+      { name: 'Snapshot Layer', detail: 'sync-site-facts.mjs turns repository state into reusable structured data.' },
+      { name: 'IA Layer', detail: 'Introduction, architecture, algorithms, performance, references, and evidence form the reading path.' },
+      { name: 'Presentation Layer', detail: 'Theme components convert metrics, topology, pipeline, and dossiers into one visual language.' },
+      { name: 'Publishing Layer', detail: 'VitePress and GitHub Pages publish the final whitepaper surface.' }
+    ]"
+  />
+
+  <PipelineCanvas
+    eyebrow="Method"
+    title="The rule orchestration algorithm is a documented pipeline, not a black box"
+    summary="The algorithms chapter explains how the project turns a flat rules corpus into categories, composition patterns, upgrade paths, and publication-ready evidence."
     :stages="[
+      { name: 'Discover', detail: 'Scan the corpus and normalize the asset set.' },
+      { name: 'Classify', detail: 'Map rules into domains, buckets, and long-tail signals.' },
+      { name: 'Compose', detail: 'Translate rule clusters into composition patterns and review paths.' },
+      { name: 'Publish', detail: 'Expose architecture, performance, and references as an evidence surface.' }
+    ]"
+  />
+
+  <SignalGrid
+    eyebrow="Performance & Evidence"
+    title="Performance and evidence are first-class chapters, not footnotes"
+    intro="Performance here includes build stability, navigation efficiency, maintainability, figure reliability, and the density of useful signals available to advanced readers."
+    :items="[
       {
-        index: '01',
-        title: 'Introduction',
-        body: 'Use the mission and reader map to understand why the project is positioned as a knowledge asset, not a category index.',
-        href: './introduction/reader-map',
-        label: 'Open the reader map'
+        label: 'High-density domains',
+        value: `${siteFacts.coverageBuckets[0]?.count ?? 0}`,
+        detail: 'Dense domains provide fast, strong signals for reviewers.'
       },
       {
-        index: '02',
-        title: 'Academy',
-        body: 'Role-based learning paths turn the site into a guided curriculum for reviewers, architects, and maintainers.',
-        href: './academy/learning-path',
-        label: 'Enter the academy'
+        label: 'Mid-density domains',
+        value: `${siteFacts.coverageBuckets[1]?.count ?? 0}`,
+        detail: 'The middle layer proves the corpus scales beyond a few headline categories.'
       },
       {
-        index: '03',
-        title: 'Research',
-        body: 'Rules stay in the evidence layer while research references explain the documentation and architecture choices behind the presentation.',
-        href: './research/references',
-        label: 'Browse references'
+        label: 'Long-tail domains',
+        value: `${siteFacts.coverageBuckets[2]?.count ?? 0}`,
+        detail: 'The long tail strengthens the site as a research-grade reference surface.'
       }
     ]"
   />
 
-  <SystemShowcase
-    title="The implementation changed, not only the copy"
-    summary="The docs layer now syncs repository facts before build, exposes a stronger IA, and uses theme-aware figures so light and dark mode stay equally legible."
-    :nodes="[
-      {
-        eyebrow: 'Source Assets',
-        title: 'Rules remain canonical',
-        detail: 'Repository facts are derived from the rule corpus instead of being hand-maintained in the homepage copy.'
-      },
-      {
-        eyebrow: 'Narrative Shell',
-        title: 'Introduction, academy, architecture, guides',
-        detail: 'The new IA helps senior readers build a mental model before they inspect individual rule pages.'
-      },
-      {
-        eyebrow: 'Publishing Layer',
-        title: 'VitePress plus generated site facts',
-        detail: 'The build now follows a kimi-cli-like sync step, but the shell is rewritten for a more editorial and research-driven surface.'
-      },
-      {
-        eyebrow: 'Evidence Layer',
-        title: 'Rules index and research references',
-        detail: 'The evidence layer validates the thesis instead of competing with it for the first screen.'
-      }
-    ]"
-  />
-
-  <CurriculumDeck
-    title="Academy paths map the site to real reviewer roles"
-    intro="The English shell stays concise, but it still makes the reading logic explicit."
-    :tracks="[
-      {
-        name: 'Interviewer path',
-        audience: 'Fast pass',
-        outcome: 'Judge rigor, structure, and depth in a few screens.',
-        steps: ['Read the mission', 'Inspect the system overview', 'Use research references and the rules index as proof']
-      },
-      {
-        name: 'Architect path',
-        audience: 'Architecture pass',
-        outcome: 'See how assets, narrative pages, theme layers, and publication reinforce each other.',
-        steps: ['Review the system overview', 'Open the academy path', 'Check composition patterns and content system pages']
-      },
-      {
-        name: 'Maintainer path',
-        audience: 'Maintainer pass',
-        outcome: 'Understand how to update assets, narrative pages, facts, and bilingual structure together.',
-        steps: ['Open the maintainer curriculum', 'Follow the team onboarding guide', 'Use research references to shape later iterations']
-      }
-    ]"
-  />
-
-  <CitationLedger
-    title="Research references make the project read like a dossier"
-    intro="These references justify the information architecture and publishing posture, rather than acting as decorative outbound links."
+  <DossierMatrix
+    eyebrow="References & Evolution"
+    title="References and evolution raise the project above a category index"
+    intro="Instead of decorative links, the dossier maps which framework, project, or reference shaped each layer of the publication system."
     :entries="[
       {
-        kind: 'Framework',
-        title: 'Diátaxis Documentation Framework',
-        note: 'A useful reference for separating explanation, guidance, and reference material inside a technical docs system.',
-        href: 'https://diataxis.fr/',
-        label: 'Open framework'
+        subject: 'Documentation Method',
+        source: 'Diátaxis',
+        adopted: 'Separates explanation, guidance, and reference so the shell stays legible.',
+        advance: 'Refines that split into introduction, architecture, algorithms, performance, references, and evidence.'
       },
       {
-        kind: 'Open Source',
-        title: 'MoonshotAI / kimi-cli',
-        note: 'The local baseline for docs engineering patterns, adapted here into a more whitepaper-like and visually committed shell.',
-        href: 'https://github.com/MoonshotAI/kimi-cli',
-        label: 'Open repository'
+        subject: 'Docs Engineering',
+        source: 'MoonshotAI / kimi-cli',
+        adopted: 'Borrowed the build-time docs snapshot idea.',
+        advance: 'Expanded the snapshot into a whitepaper-ready data model for figures and dossiers.'
       },
       {
-        kind: 'Book',
-        title: 'The Architecture of Open Source Applications',
-        note: 'A reminder that mature projects should publish not only capabilities, but also structure, trade-offs, and implementation boundaries.',
-        href: 'https://aosabook.org/en/index.html',
-        label: 'Open book'
+        subject: 'Open Source Framing',
+        source: 'AOSA + peer repositories',
+        adopted: 'Treats architecture and boundaries as publishable project assets.',
+        advance: 'Turns the rules index into an evidence layer supported by references and evolution notes.'
       }
     ]"
   />

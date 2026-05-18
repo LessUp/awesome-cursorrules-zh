@@ -12,6 +12,10 @@ import NarrativeRail from './components/NarrativeRail.vue'
 import SystemShowcase from './components/SystemShowcase.vue'
 import CurriculumDeck from './components/CurriculumDeck.vue'
 import CitationLedger from './components/CitationLedger.vue'
+import SignalGrid from './components/SignalGrid.vue'
+import TopologyMap from './components/TopologyMap.vue'
+import PipelineCanvas from './components/PipelineCanvas.vue'
+import DossierMatrix from './components/DossierMatrix.vue'
 import SignalPill from './components/SignalPill.vue'
 import ThemedSvg from './components/ThemedSvg.vue'
 import ReferenceCard from './components/ReferenceCard.vue'
@@ -31,6 +35,10 @@ export default {
     app.component('SystemShowcase', SystemShowcase)
     app.component('CurriculumDeck', CurriculumDeck)
     app.component('CitationLedger', CitationLedger)
+    app.component('SignalGrid', SignalGrid)
+    app.component('TopologyMap', TopologyMap)
+    app.component('PipelineCanvas', PipelineCanvas)
+    app.component('DossierMatrix', DossierMatrix)
     app.component('SignalPill', SignalPill)
     app.component('SectionCallout', SectionCallout)
 
