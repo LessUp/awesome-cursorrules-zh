@@ -3,6 +3,10 @@
    Modern CSS Architecture with Cascade Layers
    ============================================ */
 
+/* @import rules must come before all other rules */
+@import './styles/components.css' layer(components);
+@import './styles/figures.css' layer(components);
+
 /* Layer Declaration - Order defines priority */
 @layer reset, tokens, fonts, base, layout, components, utilities, overrides;
 
@@ -544,9 +548,7 @@
    Layer: Components
    ============================================ */
 @layer components {
-  /* Import component styles */
-  @import './styles/components.css';
-  @import './styles/figures.css';
+  /* Component styles imported at top of file via @import ... layer(components) */
 }
 
 /* ============================================
