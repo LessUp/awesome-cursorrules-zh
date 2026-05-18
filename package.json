@@ -14,8 +14,8 @@
     "docs:preview": "cd docs && npm run preview",
     "test": "node --test tests/site-ia.test.mjs",
     "check": "npm run lint && npm test && npm --prefix docs run build",
-    "lint": "markdownlint-cli2 '**/*.md' '!node_modules/**' '!docs/node_modules/**' --config .markdownlint.json",
-    "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' '!docs/node_modules/**' --config .markdownlint.json"
+    "lint": "markdownlint-cli2 '**/*.md' '!node_modules/**' '!docs/node_modules/**' '!docs/.vitepress/dist/**' '!docs/.vitepress/cache/**' --config .markdownlint.json",
+    "lint:fix": "markdownlint-cli2 --fix '**/*.md' '!node_modules/**' '!docs/node_modules/**' '!docs/.vitepress/dist/**' '!docs/.vitepress/cache/**' --config .markdownlint.json"
   },
   "devDependencies": {
     "markdownlint-cli2": "^0.22.1"
